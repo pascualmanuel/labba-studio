@@ -1,9 +1,9 @@
 import logo from "./logo.svg";
-import "./App.css";
+import "./Styles/App.css";
 import Home from "./Pages/Home";
 
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-
+import CustomCursor from "./Hooks/CustomCursor";
 import { useEffect } from "react";
 
 function ScrollToTop() {
@@ -18,6 +18,7 @@ function ScrollToTop() {
 function App() {
   return (
     <BrowserRouter>
+      <CustomCursor />
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>

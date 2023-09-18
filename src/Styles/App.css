@@ -1,0 +1,158 @@
+@import url("satoshi.css");
+
+body {
+  cursor: none !important;
+  font-family: "Satoshi-Regular"; /* Use the correct font family name */
+}
+
+.h1-desk {
+  font-family: "Satoshi-Variable";
+  font-size: 120px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 87%; /* 104.4px */
+}
+.h2-desk {
+  font-family: "Satoshi-Variable";
+  font-size: 80px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+.sp1-desk {
+  font-family: "Satoshi-Variable";
+  font-size: 45px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
+}
+.b1-desk {
+  font-family: "Satoshi-Variable";
+  font-size: 45px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+.h3-desk {
+  font-family: "Satoshi-Variable";
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.b2-desk {
+  font-family: "Satoshi-Variable";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.l-desk {
+  font-family: "Satoshi-Variable";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.b3-desk {
+  font-family: "Satoshi-Variable";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.sp2-desk {
+  font-family: "Satoshi-Variable";
+  font-size: 100px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  background: linear-gradient(
+    128deg,
+    #ff5800 17.82%,
+    #f62a4b 34.27%,
+    #d42374 48.94%,
+    #a0378b 67.62%,
+    #64428e 78.29%,
+    #2b417a 89.85%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.grain {
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  opacity: 0.05;
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.15),
+      rgba(255, 255, 255, 0.15)
+    ),
+    url("https://uploads-ssl.webflow.com/63bb1f67f1d82961dd42f3d4/643ceae4fba6fac6078bbf16_grain-effect.gif");
+  background-position: 0 0, 50%;
+  background-repeat: repeat, repeat;
+  background-size: auto, auto;
+  background-attachment: scroll, fixed;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.cursor {
+  z-index: 9999;
+
+  position: fixed;
+  width: 34px;
+  height: 34px;
+  border: 1px solid #000000;
+  border-radius: 100px;
+  background-color: rgba(255, 255, 255, 0.2);
+  pointer-events: none;
+  transition: transform 0.3s ease-out;
+  /* transform: translate(-50%, -50%); */
+  /* mix-blend-mode: difference; */
+  backdrop-filter: blur(2px);
+}
+
+.cursor.is-moving {
+  /* transform: translate(-50%, -50%) scale(1.2); */
+  /* background-color: rgba(0, 0, 0, 0.4); */
+  /* border-color: #ffffff; */
+}
+
+#ellipse-shadow {
+  position: fixed;
+  width: 1167px;
+  height: 1167px;
+  border-radius: 1167px;
+  background: linear-gradient(
+    180deg,
+    #ff5800 15.63%,
+    #f62a4b 34.9%,
+    #d42374 52.08%,
+    #a0378b 73.96%,
+    #64428e 86.46%,
+    #2b417a 100%
+  );
+  filter: blur(300px);
+  pointer-events: none; /* To allow interactions with elements beneath it */
+  z-index: -1; /* To place it behind other content */
+}
+
+.work {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background: no-repeat;
+  background-image: url("../Assets/work.svg");
+  background-size: contain;
+  background-position-y: bottom;
+  height: 800px;
+}
