@@ -1,10 +1,16 @@
 @import url("satoshi.css");
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   cursor: none !important;
   font-family: "Satoshi-Regular"; /* Use the correct font family name */
 }
-
+a {
+  cursor: none !important;
+}
 .h1-desk {
   font-family: "Satoshi-Variable";
   font-size: 120px;
@@ -106,7 +112,6 @@ body {
 
 .cursor {
   z-index: 9999;
-
   position: fixed;
   width: 34px;
   height: 34px;
@@ -146,7 +151,7 @@ body {
 }
 
 .work {
-  position: absolute;
+  /* position: absolute; */
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -155,4 +160,39 @@ body {
   background-size: contain;
   background-position-y: bottom;
   height: 800px;
+  background-color: #000000;
+}
+
+/* .contact {
+  border-radius: 21.5px;
+  background: var(--BG-Blur-Blanco, rgba(255, 255, 255, 0.2));
+  backdrop-filter: blur(10px);
+  width: 133px;
+  height: 43px;
+}
+ */
+
+.contact {
+  border-radius: 21.5px;
+  background: var(--BG-Blur-Blanco, rgba(255, 255, 255, 0.2));
+  backdrop-filter: blur(10px);
+  width: 133px;
+  height: 43px;
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  /* padding: 0 10px; */
+  transition: all 0.3s ease; /* Add a smooth transition */
+  cursor: none !important;
+}
+
+.contact.expanded {
+  width: 249px;
+  height: 267px;
+  flex-shrink: 0;
+  border-radius: 20px;
+  border: 1px solid var(--Gris-1, #b5b5b5);
+  background: var(--BG-Blur-Blanco, rgba(255, 255, 255, 0.2));
+  backdrop-filter: blur(5px);
 }

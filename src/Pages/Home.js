@@ -105,22 +105,15 @@ function Home() {
       <div className="homecont" style={{ height: "100vh" }}>
         <HomeHero />
       </div>
-      <div
-        className="second-section parallax"
-        style={{
-          position: "relative", // Add this to create a stacking context
-          height: "fit-content",
-          transform: "scale(0.1)",
-          background: "#121212",
-          zIndex: 1, // Ensure this section is above
-        }}
-      >
-        <div className="work"></div>
-        <Works />
-      </div>
-      <div style={{ height: "100vh" }}>
+
+      <Works />
+
+      <div className="third-section" style={{ color: "red" }}>
         <a href="https://facebook.com">
-          <h1>HOLAA</h1>{" "}
+          <h1>HOLAA</h1>
+          <h1>HOLAA</h1>
+          <h1>HOLAA</h1>
+          <h1>HOLAA</h1>
         </a>
       </div>
     </>
