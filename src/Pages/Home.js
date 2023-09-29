@@ -77,8 +77,8 @@ function Home() {
   //
 
   useEffect(() => {
-    let hola = ".parallax";
-    const section = document.querySelector(hola);
+    // let hola = ".parallax";
+    const section = document.querySelector(".parallax");
 
     if (!section) {
       return;
