@@ -117,12 +117,14 @@ a {
   height: 34px;
   border: 1px solid #000000;
   border-radius: 100px;
-  background-color: rgba(255, 255, 255, 0.2);
+  /* background-color: rgba(255, 255, 255, 0.2); */
   pointer-events: none;
   transition: transform 0.3s ease-out;
   /* transform: translate(-50%, -50%); */
   /* mix-blend-mode: difference; */
   backdrop-filter: blur(2px);
+  background-image: url("../Assets/prueba.png");
+  background-size: contain;
 }
 
 .cursor.is-moving {
@@ -151,7 +153,6 @@ a {
 }
 
 .work {
-  /* position: absolute; */
   display: flex;
   justify-content: space-between;
   width: 100%;

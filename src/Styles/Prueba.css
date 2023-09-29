@@ -64,3 +64,12 @@
   color: #b5b5b5;
   margin-left: 180px;
 }
+
+.small-numb {
+  color: var(--Negro-Textos, #212121);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-left: 10px;
+}

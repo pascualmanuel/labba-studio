@@ -7,6 +7,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "../Styles/Prueba.css"; // Asegúrate de tener
 import HomeHero from "../Components/HomeHero";
+import Services from "../Components/Services";
 
 function Home() {
   // Use useEffect to ensure the component is mounted before running JavaScript
@@ -118,7 +119,7 @@ function Home() {
 
     gsap.to(textElement, {
       x: () => -(textElement.offsetWidth - window.innerWidth),
-      duration: 20000, // Aumenta la duración para hacer la animación más lenta (por ejemplo, 1 segundo)
+      // duration: 0, // Aumenta la duración para hacer la animación más lenta (por ejemplo, 1 segundo)
       ease: "linear",
       scrollTrigger: {
         trigger: textElement,
@@ -169,7 +170,9 @@ function Home() {
         </div>
       </div>
 
-      <div style={{ height: "100vh" }}></div>
+      <div style={{ height: "100vh" }}>
+        <Services />
+      </div>
     </>
   );
 }
