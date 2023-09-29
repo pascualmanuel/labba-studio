@@ -1,0 +1,66 @@
+.inside-cont {
+  /* background-image: url("../Assets/hola.png"); */
+  background: no-repeat;
+  background-image: url("../Assets/work.svg");
+  background-size: contain;
+  background-position-y: bottom;
+  background-color: #121212;
+}
+
+.scroll-content {
+  /* background-color: red; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+/* .elemento-animado {
+  position: static;
+} */
+.div-animado {
+  width: 100vw;
+  height: 500px;
+  /* background-color: red; */
+}
+
+.project {
+  /* width: 582px; */
+  /* height: 582px; */
+  /* border: solid white; */
+}
+
+.project-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+
+.first-pro {
+  background-image: url("../Assets/manno.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 482px;
+  height: 482px;
+  margin-bottom: -309px;
+}
+.second-pro {
+  background-image: url("../Assets/borja.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 582px;
+  height: 582px;
+}
+
+.fourth-section {
+  background: #121212;
+  height: 500px;
+}
+
+.claim-cont {
+  height: 200px;
+  background: #121212;
+}
+
+.claim {
+  color: #b5b5b5;
+  margin-left: 180px;
+}

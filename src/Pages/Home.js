@@ -2,7 +2,12 @@ import React from "react";
 import { useEffect } from "react";
 import "../Styles/App.css";
 import Works from "../Components/Works";
+import Pruebas from "../Components/Pruebas";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import "../Styles/Prueba.css"; // Asegúrate de tener
 import HomeHero from "../Components/HomeHero";
+
 function Home() {
   // Use useEffect to ensure the component is mounted before running JavaScript
   useEffect(() => {
@@ -71,7 +76,8 @@ function Home() {
   //
 
   useEffect(() => {
-    const section = document.querySelector(".parallax");
+    let hola = ".parallax";
+    const section = document.querySelector(hola);
 
     if (!section) {
       return;
@@ -83,6 +89,13 @@ function Home() {
 
     const updateSectionScale = () => {
       const scrollY = window.scrollY || window.pageYOffset;
+
+      // Verificar si la transformación ya es igual a 1
+      if (section.style.transform === "scale(1)") {
+        // Si ya es igual a 1, no hagas nada
+        return;
+      }
+
       let newScale = initialScale + scrollY * scaleMultiplier;
 
       // Ensure the scale doesn't exceed the maximum scale value
@@ -98,6 +111,29 @@ function Home() {
     };
   }, []);
 
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const textElement = document.querySelector(".claim");
+
+    gsap.to(textElement, {
+      x: () => -(textElement.offsetWidth - window.innerWidth),
+      duration: 20000, // Aumenta la duración para hacer la animación más lenta (por ejemplo, 1 segundo)
+      ease: "linear",
+      scrollTrigger: {
+        trigger: textElement,
+        start: "top center+=200px",
+        end: "bottom center",
+        scrub: true,
+        markers: true,
+        onUpdate: (self) => {
+          const progress = self.progress;
+          textElement.style.transform = `translateX(${progress * -95}%)`;
+        },
+      },
+    });
+  }, []);
+
   return (
     <>
       <div id="ellipse-shadow"></div>
@@ -106,16 +142,34 @@ function Home() {
         <HomeHero />
       </div>
 
-      <Works />
-
-      <div className="third-section" style={{ color: "red" }}>
-        <a href="https://facebook.com">
-          <h1>HOLAA</h1>
-          <h1>HOLAA</h1>
-          <h1>HOLAA</h1>
-          <h1>HOLAA</h1>
-        </a>
+      {/* <div> */}
+      <div className="second-section parallax">
+        <div className="work"></div>
       </div>
+      <Pruebas />
+      <div
+        className="third-section"
+        style={{ color: "red", height: "430px" }}
+      ></div>
+      <div className="fourth-section"></div>
+
+      <div className="claim-cont">
+        <div className="text">
+          <p
+            className="h2-desk claim"
+            style={{
+              whiteSpace: "nowrap",
+              // overflowX: "hidden",
+              transform: "translateX(100%)", // Inicialmente oculta la frase
+            }}
+          >
+            At <span style={{ color: "white" }}> Labba,</span> we craft digital
+            products that balance users and business needs.
+          </p>
+        </div>
+      </div>
+
+      <div style={{ height: "100vh" }}></div>
     </>
   );
 }

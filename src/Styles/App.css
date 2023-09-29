@@ -156,21 +156,11 @@ a {
   justify-content: space-between;
   width: 100%;
   background: no-repeat;
-  background-image: url("../Assets/work.svg");
   background-size: contain;
   background-position-y: bottom;
-  height: 800px;
-  background-color: #000000;
+  height: 400px;
+  background-color: #121212;
 }
-
-/* .contact {
-  border-radius: 21.5px;
-  background: var(--BG-Blur-Blanco, rgba(255, 255, 255, 0.2));
-  backdrop-filter: blur(10px);
-  width: 133px;
-  height: 43px;
-}
- */
 
 .contact {
   border-radius: 21.5px;
