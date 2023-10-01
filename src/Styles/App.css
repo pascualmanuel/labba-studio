@@ -110,7 +110,7 @@ a {
   pointer-events: none;
 }
 
-.cursor {
+/* .cursor {
   z-index: 9999;
   position: fixed;
   width: 34px;
@@ -121,7 +121,7 @@ a {
   pointer-events: none;
   transition: transform 0.3s ease-out;
   backdrop-filter: blur(2px);
-}
+} */
 
 /* .cursor.hovering-div {
   z-index: 9999;
