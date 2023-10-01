@@ -20,10 +20,6 @@ function Services() {
     const plusCursorParagraphs = document.querySelectorAll(".plusCursorDos");
 
     const handleMouseEnter = () => {
-      // Change cursor behavior when entering the plusCursor
-      // For example, you can change the cursor style or add animations here
-
-      // Change the cursor's background based on the state
       const cursor = document.querySelector(".cursor");
       if (cursor) {
         cursor.style.backgroundImage = `url(${expBuild ? AssetTwo : Asset})`;
@@ -34,9 +30,6 @@ function Services() {
     };
 
     const handleMouseLeave = () => {
-      // Restore default cursor behavior when leaving the plusCursor
-
-      // Reset the cursor's background image to none
       const cursor = document.querySelector(".cursor");
       if (cursor) {
         cursor.style.backgroundImage = "none";
