@@ -1,5 +1,4 @@
 .inside-cont {
-  /* background-image: url("../Assets/hola.png"); */
   background: no-repeat;
   background-image: url("../Assets/work.svg");
   background-size: contain;
@@ -8,24 +7,14 @@
 }
 
 .scroll-content {
-  /* background-color: red; */
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-/* .elemento-animado {
-  position: static;
-} */
+
 .div-animado {
   width: 100vw;
   height: 500px;
-  /* background-color: red; */
-}
-
-.project {
-  /* width: 582px; */
-  /* height: 582px; */
-  /* border: solid white; */
 }
 
 .project-container {
