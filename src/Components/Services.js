@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { gsap } from "gsap";
 import Asset from "../Assets/plus.svg";
-import AssetTwo from "../Assets/mnius.svg"; // Assuming AssetTwo is the minus cursor image
+import AssetTwo from "../Assets/mnius.svg";
 
 function Services() {
   const [expDesign, setExpanded] = useState(false);
@@ -76,13 +76,11 @@ function Services() {
       }
     };
 
-    // Add event listeners to each <p> element inside the plusCursor
     plusCursorParagraphs.forEach((paragraph) => {
       paragraph.addEventListener("mouseenter", handleMouseEnter);
       paragraph.addEventListener("mouseleave", handleMouseLeave);
     });
 
-    // Clean up event listeners when the component unmounts
     return () => {
       plusCursorParagraphs.forEach((paragraph) => {
         paragraph.removeEventListener("mouseenter", handleMouseEnter);
