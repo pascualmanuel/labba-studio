@@ -147,7 +147,7 @@ function Home() {
       <div className="second-section parallax">
         <div className="work"></div>
       </div>
-      <Pruebas />
+      <Works />
       <div
         className="third-section"
         style={{ color: "red", height: "430px" }}
