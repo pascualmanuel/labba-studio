@@ -8,7 +8,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "../Styles/Prueba.css"; // Asegúrate de tener
 import HomeHero from "../Components/HomeHero";
 import Services from "../Components/Services";
-
+import Process from "../Components/Process";
 function Home() {
   // Use useEffect to ensure the component is mounted before running JavaScript
   useEffect(() => {
@@ -170,9 +170,10 @@ function Home() {
         </div>
       </div>
 
-      <div style={{ height: "100vh" }}>
+      <div style={{ height: "80vh" }}>
         <Services />
       </div>
+      <Process />
     </>
   );
 }
