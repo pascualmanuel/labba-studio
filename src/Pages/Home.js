@@ -174,6 +174,7 @@ function Home() {
         <Services />
       </div>
       <Process />
+      <div style={{ height: "100vh" }}> </div>
     </>
   );
 }

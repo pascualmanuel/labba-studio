@@ -1,73 +1,89 @@
 import React, { useEffect } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/all";
-
-gsap.registerPlugin(ScrollTrigger);
-
+import "../Styles/Prueba.css";
 function Services() {
   useEffect(() => {
-    const cards = document.querySelectorAll(".custom-card");
-
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: cards[0], // Trigger animation when the first card enters the viewport
-        start: "top center", // Adjust this value to your preference
-        end: "bottom center", // Adjust this value to your preference
-        scrub: true,
-        markers: true,
-      },
-    });
-
-    cards.forEach((card, index) => {
-      tl.to(card, {
-        opacity: 1,
-        y: 0,
-      });
-    });
+    // Aquí puedes agregar cualquier código JavaScript personalizado si es necesario
   }, []);
 
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col-12">
-          <div className="row">
-            <div className="col-12">
-              <div className="cards">
-                <ul className="nav">
-                  {Array.from({ length: 3 }, (_, index) => (
-                    <li key={index}>
-                      <a href={`#card${index + 1}`}>
-                        <div
-                          className={`circle ${index === 0 ? "active" : ""}`}
-                        >
-                          {index + 1}
-                        </div>
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-
-                {Array.from({ length: 3 }, (_, index) => (
-                  <div
-                    key={index}
-                    className={`custom-card card${index + 1}`}
-                    id={`card${index + 1}`}
-                  >
-                    <h1>Slide {index + 1}</h1>
-                  </div>
-                ))}
+    <div className="process">
+      <div className="w-1/2 ml-36 " style={{ marginBottom: "70px" }}>
+        <p className="l-desk">PROCESS</p>
+        <h3 className="b1-desk">This is how we roll</h3>
+      </div>
+      <main className="flex justify-center">
+        <ul id="cards">
+          <li className="card" id="card_1">
+            <div className="card__content">
+              <div>
+                <h2>Card One</h2>
+                <p>{/* Contenido de la tarjeta uno */}</p>
+                <p>
+                  <a href="#top" className="btn btn--accent">
+                    Read more
+                  </a>
+                </p>
               </div>
             </div>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-12">
-            <div className="next_block">
-              <h1>End content</h1>
+          </li>
+          <li className="card" id="card_2">
+            <div className="card__content">
+              <div>
+                <h2>Card One</h2>
+                <p>{/* Contenido de la tarjeta uno */}</p>
+                <p>
+                  <a href="#top" className="btn btn--accent">
+                    Read more
+                  </a>
+                </p>
+              </div>
             </div>
-          </div>
-        </div>
-      </div>
+          </li>
+
+          <li className="card" id="card_3">
+            <div className="card__content">
+              <div>
+                <h2>Card One</h2>
+                <p>{/* Contenido de la tarjeta uno */}</p>
+                <p>
+                  <a href="#top" className="btn btn--accent">
+                    Read more
+                  </a>
+                </p>
+              </div>
+            </div>
+          </li>
+
+          <li className="card" id="card_4">
+            <div className="card__content">
+              <div>
+                <h2>Card One</h2>
+                <p>{/* Contenido de la tarjeta uno */}</p>
+                <p>
+                  <a href="#top" className="btn btn--accent">
+                    Read more
+                  </a>
+                </p>
+              </div>
+            </div>
+          </li>
+
+          <li className="card" id="card_5">
+            <div className="card__content">
+              <div>
+                <h2>Card One</h2>
+                <p>{/* Contenido de la tarjeta uno */}</p>
+                <p>
+                  <a href="#top" className="btn btn--accent">
+                    Read more
+                  </a>
+                </p>
+              </div>
+            </div>
+          </li>
+          {/* Repite esta estructura para las demás tarjetas */}
+        </ul>
+      </main>
     </div>
   );
 }
