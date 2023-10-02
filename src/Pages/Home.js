@@ -174,7 +174,11 @@ function Home() {
         <Services />
       </div>
       <Process />
-      <div style={{ height: "100vh" }}> </div>
+      <div style={{ height: "100vh", background: " #ECECEC" }}>
+        <div className="w-1/2 ml-36 ">
+          <h3 className="b1-desk pt-72">We love our clients</h3>
+        </div>
+      </div>
     </>
   );
 }

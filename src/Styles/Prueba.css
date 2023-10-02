@@ -220,17 +220,18 @@ header {
   color: rgb(10, 5, 7);
   border-radius: 1em;
   overflow: hidden;
-  display: grid;
+  /* display: grid;
   grid-template-areas: "text img";
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
-  align-items: stretch;
+  align-items: stretch; */
   outline: var(--outline-width) solid #b5b5b5;
   width: 870px;
   height: 340px;
+  display: flex;
 }
 
-.card__content > div {
+/* .card__content > div {
   grid-area: text;
   width: 80%;
   place-self: center;
@@ -239,6 +240,10 @@ header {
   display: grid;
   gap: 1em;
   place-items: start;
+} */
+.card-inside {
+  display: flex;
+  align-items: center;
 }
 
 .card__content > figure {
