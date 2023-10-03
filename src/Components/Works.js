@@ -21,7 +21,7 @@ function Works() {
         pin: true, // Fija el elemento
         pinSpacing: false, // Evita que se espacie automáticamente el contenido
         scrub: true, // Hace que la animación se sincronice con el desplazamiento
-        markers: true,
+        markers: false,
       },
     });
 
@@ -36,7 +36,7 @@ function Works() {
           start: "bottom center", // Comienza la animación cuando el div llega al centro de la ventana
           end: "top center", // Finaliza la animación cuando el div llega a la parte superior de la ventana
           scrub: true, // Hace que la animación se sincronice con el desplazamiento
-          markers: true,
+          markers: false,
         },
       });
     });
