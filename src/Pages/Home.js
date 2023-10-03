@@ -13,6 +13,7 @@ import { ReactSVG } from "react-svg";
 import LabbaL from "../Assets/labba/labba-l.svg";
 import LabbaA from "../Assets/labba/labba-a.svg";
 import LabbaB from "../Assets/labba/labba-b.svg";
+import CursorDrop from "../Assets/labba/drop-line.svg";
 function Home() {
   // Use useEffect to ensure the component is mounted before running JavaScript
   useEffect(() => {
@@ -157,7 +158,75 @@ function Home() {
       },
     });
   }, []);
+  const [isMoving, setIsMoving] = useState(false);
 
+  const cursorScaleElements = Array.from(
+    document.querySelectorAll(".cursor-scale")
+  );
+
+  useEffect(() => {
+    const cursor = document.querySelector(".cursor");
+    const footerCursor = document.querySelectorAll(".prefooter");
+
+    const handleMouseEnter = () => {
+      // Change cursor behavior when entering the plusCursor
+      // For example, you can change the cursor style or add animations here
+
+      // Set the custom cursor image
+      if (cursor) {
+        cursor.style.backgroundImage = `url(${CursorDrop})`;
+        cursor.style.backgroundSize = "contain";
+        cursor.style.backgroundRepeat = "no-repeat";
+        cursor.style.backgroundPosition = "center";
+        cursor.style.width = "300px";
+        cursor.style.height = "77px";
+        cursor.style.border = "none";
+        cursor.style.backgroundColor = "transparent";
+      }
+    };
+
+    const handleMouseLeave = () => {
+      // Restore default cursor behavior when leaving the plusCursor
+
+      // Reset the cursor's background image to none
+      if (cursor) {
+        cursor.style.backgroundImage = "none";
+        cursor.style.zIndex = 9999;
+        cursor.style.position = "fixed";
+        cursor.style.width = "34px";
+        cursor.style.height = "34px";
+        cursor.style.border = "1px solid #000000";
+        cursor.style.backgroundColor = "rgba(255, 255, 255, 0.2)";
+      }
+    };
+
+    footerCursor.forEach((paragraph) => {
+      paragraph.addEventListener("mouseenter", handleMouseEnter);
+      paragraph.addEventListener("mouseleave", handleMouseLeave);
+    });
+
+    // Clean up event listeners when the component unmounts
+    return () => {
+      footerCursor.forEach((paragraph) => {
+        paragraph.removeEventListener("mouseenter", handleMouseEnter);
+        paragraph.removeEventListener("mouseleave", handleMouseLeave);
+      });
+    };
+  }, []);
+
+  const isCursorOverElement = (element) => {
+    if (!element) return false;
+    const rect = element.getBoundingClientRect();
+    return (
+      mouseX >= rect.left &&
+      mouseX <= rect.right &&
+      mouseY >= rect.top &&
+      mouseY <= rect.bottom
+    );
+  };
+
+  let mouseX = 0;
+  let mouseY = 0;
   return (
     <>
       <div id="ellipse-shadow"></div>
@@ -208,7 +277,11 @@ function Home() {
           className={`prefooter ${shouldShrink ? "shrink" : ""}`}
           ref={prefooterRef}
         >
-          Prefooter
+          <div className={` cursor ${isMoving ? "is-moving" : ""}`}>
+            <p className="b1-desk py-72	pl-56 text-white	">
+              Let’s take your idea to the next level.{" "}
+            </p>
+          </div>
         </div>
         <div style={{ height: "200px" }}></div>
         <div className="footer" ref={footerRef}>
