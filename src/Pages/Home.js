@@ -1,5 +1,4 @@
-import React from "react";
-import { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "../Styles/App.css";
 import Works from "../Components/Works";
 import Pruebas from "../Components/Pruebas";
@@ -10,6 +9,10 @@ import HomeHero from "../Components/HomeHero";
 import Services from "../Components/Services";
 import Process from "../Components/Process";
 import Carousel from "../Components/Carousel";
+import { ReactSVG } from "react-svg";
+import LabbaL from "../Assets/labba/labba-l.svg";
+import LabbaA from "../Assets/labba/labba-a.svg";
+import LabbaB from "../Assets/labba/labba-b.svg";
 function Home() {
   // Use useEffect to ensure the component is mounted before running JavaScript
   useEffect(() => {
@@ -36,46 +39,6 @@ function Home() {
       ellipseShadow.style.top = y + "px";
     });
   }, []); // Empty dependency array to ensure useEffect runs only once
-
-  //   useEffect(() => {
-  //     const ellipseShadow = document.getElementById("ellipse-shadow");
-
-  //     if (!ellipseShadow) {
-  //       return;
-  //     }
-
-  //     const ellipseWidth = 1167; // Replace with the actual width of your ellipse
-  //     const ellipseHeight = 1167; // Replace with the actual height of your ellipse
-  //     const halfWidth = ellipseWidth / 2;
-  //     const halfHeight = ellipseHeight / 2;
-
-  //     let currentX = 0;
-  //     let currentY = 0;
-
-  //     const dampingFactor = 0.1; // Adjust this value for the desired delay and smoothness
-
-  //     const updatePosition = (e) => {
-  //       // Define 'e' as a parameter here
-  //       const deltaX = e.clientX - halfWidth - currentX;
-  //       const deltaY = e.clientY - halfHeight - currentY;
-
-  //       // Apply easing or damping
-  //       currentX += deltaX * dampingFactor;
-  //       currentY += deltaY * dampingFactor;
-
-  //       // Set the position of the ellipse
-  //       ellipseShadow.style.left = currentX + "px";
-  //       ellipseShadow.style.top = currentY + "px";
-
-  //       requestAnimationFrame(updatePosition);
-  //     };
-
-  //     document.addEventListener("mousemove", (e) => {
-  //       updatePosition(e); // Pass 'e' to the updatePosition function
-  //     });
-  //   }, []);
-
-  //
 
   useEffect(() => {
     // let hola = ".parallax";
@@ -112,6 +75,65 @@ function Home() {
       window.removeEventListener("scroll", updateSectionScale);
     };
   }, []);
+  const prefooterRef = useRef(null);
+  const footerRef = useRef(null);
+  const [shouldShrink, setShouldShrink] = useState(
+    localStorage.getItem("shouldShrink") === "true"
+  );
+  useEffect(() => {
+    const prefooter = document.querySelector(".prefooter");
+    const footer = document.querySelector(".footer");
+
+    if (!prefooter || !footer) {
+      return;
+    }
+
+    const triggerHeight =
+      footer.getBoundingClientRect().top - window.innerHeight;
+    const minOpacity = 1; // Opacidad mínima cuando el prefooter está achicado
+
+    const updatePrefooterStyles = () => {
+      const scrollY = window.scrollY || window.pageYOffset;
+
+      if (scrollY >= triggerHeight) {
+        prefooter.classList.add("shrink");
+        prefooter.style.opacity = minOpacity; // Aplicar opacidad mínima
+      } else {
+        prefooter.classList.remove("shrink");
+        prefooter.style.opacity = 1; // Restaurar la opacidad original (1)
+      }
+    };
+
+    window.addEventListener("scroll", updatePrefooterStyles);
+
+    return () => {
+      window.removeEventListener("scroll", updatePrefooterStyles);
+    };
+  }, []);
+
+  function copyToClipboard(textToCopy) {
+    const textArea = document.createElement("textarea");
+    textArea.value = textToCopy;
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand("copy");
+    document.body.removeChild(textArea);
+  }
+
+  const email = "hello@labba.studio";
+  const textToCopy = useRef(null);
+
+  const handleCopyClick = () => {
+    copyToClipboard(email);
+    if (textToCopy.current) {
+      textToCopy.current.textContent = "Copied!";
+      setTimeout(() => {
+        if (textToCopy.current) {
+          textToCopy.current.textContent = "click to copy";
+        }
+      }, 1500); // Cambiar de vuelta a "click to copy" después de 1.5 segundos
+    }
+  };
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -181,8 +203,37 @@ function Home() {
         </div>
         <Carousel />
       </div>
-      <div className="pre-footer">
+      <div style={{ backgroundColor: "#F2F2F2" }}>
+        <div
+          className={`prefooter ${shouldShrink ? "shrink" : ""}`}
+          ref={prefooterRef}
+        >
+          Prefooter
+        </div>
+        <div style={{ height: "200px" }}></div>
+        <div className="footer" ref={footerRef}>
+          <div className="ml-56">
+            <div className="sayhi">Say hi</div>
+            <div className="t-mail mt-3" onClick={handleCopyClick}>
+              {email}
+              <span
+                className="ml-5"
+                style={{ fontSize: "16px", fontWeight: "400" }}
+                ref={textToCopy}
+              >
+                click to copy
+              </span>
+            </div>
+          </div>
 
+          <div className="labba-footer flex items-end justify-between mt-56 ml-2 mr-2">
+            <ReactSVG src={LabbaL} />
+            <ReactSVG src={LabbaA} />
+            <ReactSVG src={LabbaB} />
+            <ReactSVG src={LabbaB} />
+            <ReactSVG src={LabbaA} />
+          </div>
+        </div>
       </div>
     </>
   );
