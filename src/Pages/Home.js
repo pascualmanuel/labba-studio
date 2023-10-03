@@ -9,6 +9,7 @@ import "../Styles/Prueba.css"; // Asegúrate de tener
 import HomeHero from "../Components/HomeHero";
 import Services from "../Components/Services";
 import Process from "../Components/Process";
+import Carousel from "../Components/Carousel";
 function Home() {
   // Use useEffect to ensure the component is mounted before running JavaScript
   useEffect(() => {
@@ -178,6 +179,10 @@ function Home() {
         <div className="w-1/2 ml-36 ">
           <h3 className="b1-desk pt-72">We love our clients</h3>
         </div>
+        <Carousel />
+      </div>
+      <div className="pre-footer">
+
       </div>
     </>
   );

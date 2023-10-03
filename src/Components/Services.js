@@ -134,7 +134,7 @@ function Services() {
             {expBuild ? (
               <>
                 <ul className="list-disc ml-5 plusCursorDos ">
-                  <li>Full-stack development</li>
+                  <li className="">Full-stack development</li>
                   <li>Responsive web development</li>
                   <li>No-code development</li>
                   <li>App development</li>

@@ -291,3 +291,46 @@ aside {
 aside p {
 	margin-bottom: 1em;
 } */
+/* kfwedls; */
+
+.caro-inside {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+}
+
+.swiper.swiper-initialized.swiper-horizontal.mySwiper {
+  background: rgb(236, 236, 236);
+  background: linear-gradient(
+    90deg,
+    rgba(236, 236, 236, 0.8898153011204482) 11%,
+    rgba(178, 206, 241, 0) 18%,
+    rgba(255, 255, 255, 0) 82%,
+    rgba(236, 236, 236, 0.3463979341736695) 88%
+  );
+  margin-left: 9rem;
+  margin-right: 9rem;
+}
+.pre-footer {
+  height: 636px;
+
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 0px 0px 60px 60px;
+  /* background: var(
+    --BG-Gradient,
+    linear-gradient(
+        100deg,
+        #ff5800 -0.95%,
+        #f62a4b 21.56%,
+        #d42374 42.07%,
+        #a0378b 61.32%,
+        #64428e 78.44%,
+        #2b417a 98.59%
+      )
+      lightgray -553px -715px / 136.574% 325.197% no-repeat
+  ); */
+  background-image: url("../Assets/contactus.png");
+}
