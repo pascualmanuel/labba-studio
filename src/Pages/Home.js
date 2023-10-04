@@ -14,9 +14,11 @@ import LabbaL from "../Assets/labba/labba-l.svg";
 import LabbaA from "../Assets/labba/labba-a.svg";
 import LabbaB from "../Assets/labba/labba-b.svg";
 import CursorDrop from "../Assets/labba/drop-line.svg";
+import Claim from "../Components/Claim";
 function Home() {
   // Use useEffect to ensure the component is mounted before running JavaScript
   useEffect(() => {
+    
     const ellipseShadow = document.getElementById("ellipse-shadow");
 
     if (!ellipseShadow) {
@@ -136,28 +138,7 @@ function Home() {
     }
   };
 
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
-    const textElement = document.querySelector(".claim");
-
-    gsap.to(textElement, {
-      x: () => -(textElement.offsetWidth - window.innerWidth),
-      // duration: 0, // Aumenta la duración para hacer la animación más lenta (por ejemplo, 1 segundo)
-      ease: "linear",
-      scrollTrigger: {
-        trigger: textElement,
-        start: "top center+=200px",
-        end: "bottom center",
-        scrub: true,
-        markers: false,
-        onUpdate: (self) => {
-          const progress = self.progress;
-          textElement.style.transform = `translateX(${progress * -95}%)`;
-        },
-      },
-    });
-  }, []);
+  
   const [isMoving, setIsMoving] = useState(false);
 
   const cursorScaleElements = Array.from(
@@ -246,21 +227,7 @@ function Home() {
       ></div>
       <div className="fourth-section"></div>
 
-      <div className="claim-cont">
-        <div className="text">
-          <p
-            className="h2-desk claim"
-            style={{
-              whiteSpace: "nowrap",
-              // overflowX: "hidden",
-              transform: "translateX(100%)", // Inicialmente oculta la frase
-            }}
-          >
-            At <span style={{ color: "white" }}> Labba,</span> we craft digital
-            products that balance users and business needs.
-          </p>
-        </div>
-      </div>
+      <Claim />
 
       <div style={{ height: "80vh" }}>
         <Services />
@@ -279,7 +246,7 @@ function Home() {
         >
           <div className={` cursor ${isMoving ? "is-moving" : ""}`}>
             <p className="b1-desk py-72	pl-56 text-white	">
-              Let’s take your idea to the next level.{" "}
+              Let’s take your idea to the next level.
             </p>
           </div>
         </div>
