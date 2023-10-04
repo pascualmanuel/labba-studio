@@ -150,7 +150,7 @@ function Home() {
         start: "top center+=200px",
         end: "bottom center",
         scrub: true,
-        markers: true,
+        markers: false,
         onUpdate: (self) => {
           const progress = self.progress;
           textElement.style.transform = `translateX(${progress * -95}%)`;
