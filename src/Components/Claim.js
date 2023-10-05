@@ -44,16 +44,3 @@ function Claim() {
   );
 }
 export default Claim;
-
-// // Slow down the scroll behavior
-// const handleScroll = (event) => {
-//   event.preventDefault();
-//   window.scrollTo(0, window.scrollY + event.deltaY * 0.1); // Adjust the factor to control scroll speed
-// };
-
-// window.addEventListener("wheel", handleScroll, { passive: false });
-
-// return () => {
-//   // Clean up the event listener when the component unmounts
-//   window.removeEventListener("wheel", handleScroll);
-// };

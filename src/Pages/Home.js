@@ -43,12 +43,12 @@ function Home() {
   }, []); // Empty dependency array to ensure useEffect runs only once
 
   useEffect(() => {
-    const handleScroll = (event) => {
-      event.preventDefault();
-      window.scrollTo(0, window.scrollY + event.deltaY * 0.2); // Adjust the factor to control scroll speed
-    };
+    // const handleScroll = (event) => {
+    //   event.preventDefault();
+    //   window.scrollTo(0, window.scrollY + event.deltaY * 0.5); // Adjust the factor to control scroll speed
+    // };
 
-    window.addEventListener("wheel", handleScroll, { passive: false });
+    // window.addEventListener("wheel", handleScroll, { passive: false });
 
     // return () => {
     //   // Clean up the event listener when the component unmounts
