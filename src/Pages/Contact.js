@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "../Styles/Prueba.css";
 import { ReactSVG } from "react-svg";
 import Submit from "../Assets/svg-submit.svg";
 import emailjs from "@emailjs/browser";
-
 
 function Contact() {
   const [selectedService, setSelectedService] = useState("");
@@ -23,7 +22,7 @@ function Contact() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    aboutYou: "",
+    about: "",
     budget: "",
     selectedService: "", // New state for selected service
   });
@@ -44,12 +43,45 @@ function Contact() {
     // console.log(selectedService, ";s;s");
   };
 
+  const formRef = useRef();
+
   const handleSubmit = (e) => {
-    e.preventDefault(); // Prevent the form from submitting (you can add form validation here)
-    // Handle form submission logic here (e.g., sending data to a server)
+    e.preventDefault();
+
+    // Combine selected services with other form data
+    const dataToSend = {
+      name: formData.name,
+      email: formData.email,
+      about: formData.about,
+      budget: formData.budget,
+      selectedService: selectedService.join(", "), // Convert array to comma-separated string
+    };
+
+    // Send the form data using emailjs
+    emailjs
+      .sendForm(
+        process.env.REACT_APP_EMAILJS_SERVICE_ID,
+        "template_hvxyvkq",
+        formRef.current, // Use the form element reference
+        process.env.REACT_APP_EMAILJS_PUBLIC_KEY
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          // Reset form fields and selected services after submission
+          setFormData({
+            name: "",
+            email: "",
+            about: "",
+            budget: "",
+          });
+          setSelectedService([]);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
   };
-
-
 
   return (
     <>
@@ -66,7 +98,7 @@ function Contact() {
               }`}
               onClick={() => handleServiceClick("Web design")}
             >
-              <span>Web design</span>
+              <span style={{ userSelect: "none" }}>Web design</span>
             </div>
 
             <div
@@ -77,7 +109,7 @@ function Contact() {
               }`}
               onClick={() => handleServiceClick("Site from scratch")}
             >
-              <span>Site from scratch</span>
+              <span style={{ userSelect: "none" }}>Site from scratch</span>
             </div>
 
             <div
@@ -86,7 +118,7 @@ function Contact() {
               }`}
               onClick={() => handleServiceClick("App design")}
             >
-              <span>App design</span>
+              <span style={{ userSelect: "none" }}>App design</span>
             </div>
             <div
               className={`contact-buttons b4-desk ${
@@ -94,7 +126,7 @@ function Contact() {
               }`}
               onClick={() => handleServiceClick("UI / UX")}
             >
-              <span>UI / UX</span>
+              <span style={{ userSelect: "none" }}>UI / UX</span>
             </div>
             <div
               className={`contact-buttons b4-desk ${
@@ -104,7 +136,7 @@ function Contact() {
               }`}
               onClick={() => handleServiceClick("HTML/CSS Coding")}
             >
-              <span>HTML/CSS Coding</span>
+              <span style={{ userSelect: "none" }}>HTML/CSS Coding</span>
             </div>
             <div
               className={`contact-buttons b4-desk ${
@@ -114,7 +146,7 @@ function Contact() {
               }`}
               onClick={() => handleServiceClick("Front-end development")}
             >
-              <span>Front-end development</span>
+              <span style={{ userSelect: "none" }}>Front-end development</span>
             </div>
             <div
               className={`contact-buttons b4-desk ${
@@ -124,7 +156,7 @@ function Contact() {
               }`}
               onClick={() => handleServiceClick("Back-end development")}
             >
-              <span>Back-end development</span>
+              <span style={{ userSelect: "none" }}>Back-end development</span>
             </div>
             <div
               className={`contact-buttons b4-desk ${
@@ -132,7 +164,7 @@ function Contact() {
               }`}
               onClick={() => handleServiceClick("Branding")}
             >
-              <span>Branding</span>
+              <span style={{ userSelect: "none" }}>Branding</span>
             </div>
             <div
               className={`contact-buttons b4-desk ${
@@ -140,55 +172,58 @@ function Contact() {
               }`}
               onClick={() => handleServiceClick("Other")}
             >
-              <span>Other</span>
+              <span style={{ userSelect: "none" }}>Other</span>
             </div>
           </div>
           <div className="contact-form mt-16">
-            <div className="input-group flex justify-between">
+            <form ref={formRef} onSubmit={handleSubmit}>
+              <div className="input-group flex justify-between">
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="Your name"
+                  style={{ width: "225px", cursor: "none" }}
+                />
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="Your email"
+                  style={{ width: "225px", cursor: "none" }}
+                />
+              </div>
+              <input
+                name="about"
+                value={formData.about}
+                onChange={handleChange}
+                placeholder="About your project"
+                style={{ width: "500px", marginTop: "60px", cursor: "none" }}
+              />
+              <br />
               <input
                 type="text"
-                name="name"
-                value={formData.name}
+                name="budget"
+                value={formData.budget}
                 onChange={handleChange}
-                placeholder="Your name"
-                style={{ width: "225px" }}
+                placeholder="Budget"
+                style={{ width: "500px", marginTop: "60px", cursor: "none" }}
               />
               <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="Your email"
-                style={{ width: "225px" }}
+                type="hidden"
+                name="selectedService"
+                value={selectedService}
               />
-            </div>
-            <input
-              name="aboutYou"
-              value={formData.aboutYou}
-              onChange={handleChange}
-              placeholder="About your project"
-              style={{ width: "500px", marginTop: "60px" }}
-            />
-            <br />
-            <input
-              type="text"
-              name="budget"
-              value={formData.budget}
-              onChange={handleChange}
-              placeholder="Budget"
-              style={{ width: "500px", marginTop: "60px" }}
-            />
-            <input
-              type="hidden"
-              name="selectedService"
-              value={selectedService}
-            />
-            <button
-              type="submit"
-              className="w-[32rem] flex justify-center mt-14 mb-24 "
-            >
-              <ReactSVG src={Submit} /> {/* Render the SVG as a button */}
-            </button>
+              <button
+                type="submit"
+                className="w-[32rem] flex justify-center mt-14 mb-24 "
+                style={{ cursor: "none" }}
+              >
+                <ReactSVG src={Submit} />
+              </button>
+            </form>
           </div>
         </div>
       </div>
