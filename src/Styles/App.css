@@ -261,3 +261,21 @@ a {
 .contact-form textarea:focus {
   outline: none; /* Remove the outline on focus */
 }
+
+.contact-page {
+  border-radius: 21.5px;
+  background: var(--BG-Blur-Blanco, rgba(255, 255, 255));
+  backdrop-filter: blur(10px);
+  border: solid 1px gray;
+  width: 133px;
+  height: 43px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  cursor: none !important;
+  position: fixed;
+  top: 1.5rem;
+  right: 2.5rem;
+}
