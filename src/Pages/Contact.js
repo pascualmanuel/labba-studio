@@ -68,7 +68,6 @@ function Contact() {
       .then(
         (result) => {
           console.log(result.text);
-          // Reset form fields and selected services after submission
           setFormData({
             name: "",
             email: "",
