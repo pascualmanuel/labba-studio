@@ -6,9 +6,32 @@ import BurgerClose from "../Assets/Burger-close.svg";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import BackIcon from "../Assets/Back.svg";
 import { useState } from "react";
+import { useLanguage } from "../Hooks/LanguageContext";
+
 function Header() {
   const [expanded, setExpanded] = useState(false);
   const location = useLocation();
+  const { userLanguage, toggleLanguage } = useLanguage();
+  const isEnSelected = userLanguage === "EN";
+  const isEsSelected = userLanguage === "ES";
+
+  const handleEsClick = () => {
+    toggleLanguage(); // Cambiar a EN
+    console.log("EN");
+  };
+
+  const handleEnClick = () => {
+    toggleLanguage(); // Cambiar a ES
+    console.log("ES");
+  };
+
+  const translateText = (enText, esText) => {
+    return userLanguage === "EN" ? enText : esText;
+  };
+
+  const changeLanguage = () => {
+    toggleLanguage("EN");
+  };
 
   const toggleContact = () => {
     setExpanded(!expanded);
@@ -38,10 +61,11 @@ function Header() {
                 <div className="expanded-content w-full h-full">
                   <div
                     style={{
-                      marginTop: "15px",
-                      marginLeft: "28px",
-                      marginBottom: "44px",
+                      paddingTop: "15px",
+                      paddingLeft: "28px",
+                      paddingBottom: "44px",
                     }}
+                    onClick={changeLanguage}
                   >
                     <span className="b3-desk mr-4" style={{ fontSize: "16px" }}>
                       EN

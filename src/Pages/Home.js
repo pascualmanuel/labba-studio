@@ -15,7 +15,11 @@ import LabbaA from "../Assets/labba/labba-a.svg";
 import LabbaB from "../Assets/labba/labba-b.svg";
 import CursorDrop from "../Assets/labba/drop-line.svg";
 import Claim from "../Components/Claim";
+import { useLanguage } from "../Hooks/LanguageContext";
+
 function Home() {
+  const { userLanguage, translateText } = useLanguage();
+
   // Use useEffect to ensure the component is mounted before running JavaScript
   useEffect(() => {
     const ellipseShadow = document.getElementById("ellipse-shadow");
@@ -256,7 +260,10 @@ function Home() {
         >
           <div className={` cursor ${isMoving ? "is-moving" : ""}`}>
             <p className="b1-desk py-72	pl-56 text-white	">
-              Let’s take your idea to the next level.
+              {translateText(
+                " Let’s take your idea to the next level.",
+                "Llevamos tu idea a otro level"
+              )}
             </p>
           </div>
         </div>
