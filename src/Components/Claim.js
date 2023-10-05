@@ -1,5 +1,4 @@
-import React from "react";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -18,7 +17,7 @@ function Claim() {
         start: "top center+=200px",
         end: "bottom center",
         scrub: true,
-        markers: false,
+        markers: true,
         onUpdate: (self) => {
           const progress = self.progress;
           textElement.style.transform = `translateX(${progress * -95}%)`;
@@ -28,22 +27,20 @@ function Claim() {
   }, []);
 
   return (
-    <>
-      <div className="claim-cont">
-        <div className="text">
-          <p
-            className="h2-desk claim"
-            style={{
-              whiteSpace: "nowrap",
-              transform: "translateX(100%)", // Inicialmente oculta la frase
-            }}
-          >
-            At <span style={{ color: "white" }}> Labba,</span> we craft digital
-            products that balance users and business needs.
-          </p>
-        </div>
+    <div className="claim-cont">
+      <div className="text">
+        <p
+          className="h2-desk claim"
+          style={{
+            whiteSpace: "nowrap",
+            transform: "translateX(10%)", // Initially hides the phrase
+          }}
+        >
+          At <span style={{ color: "white" }}> Labba,</span> we craft digital
+          products that balance users and business needs.
+        </p>
       </div>
-    </>
+    </div>
   );
 }
 export default Claim;

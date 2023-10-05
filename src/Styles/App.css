@@ -68,6 +68,15 @@ a {
   font-weight: 400;
   line-height: normal;
 }
+
+.b4-desk {
+  font-family: "Satoshi-Variable";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0em;
+}
 .sp2-desk {
   font-family: "Satoshi-Variable";
   font-size: 100px;
@@ -204,4 +213,51 @@ a {
   border: 1px solid var(--Gris-1, #b5b5b5);
   background: var(--BG-Blur-Blanco, rgba(255, 255, 255, 0.2));
   backdrop-filter: blur(5px);
+}
+
+.contact-b-cont {
+  height: 170px;
+  width: 510px;
+}
+.contact-buttons {
+  border: solid 1px;
+  border-radius: 50px;
+  width: fit-content;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: 17px;
+  margin-bottom: 26px;
+}
+
+.contact-b-active {
+  background-color: #d3d3d3;
+}
+.contact-form {
+  width: 520px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  border: none;
+  border-bottom: 1px solid #b5b5b5; /* Solid black bottom border */
+  margin-bottom: 10px; /* Spacing between fields */
+  width: 100%;
+  padding: 5px; /* Optional padding for visual spacing */
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  font-family: "Satoshi-Variable";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0em;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none; /* Remove the outline on focus */
 }

@@ -4,12 +4,12 @@ import "swiper/swiper-bundle.css"; // Import the Swiper CSS
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "../Styles/Prueba.css"; // Importa tu archivo CSS personalizado
-import Cliente1 from "../Assets/clientes/cliente1.png";
-import Cliente2 from "../Assets/clientes/cliente2.png";
-import Cliente3 from "../Assets/clientes/cliente3.png";
-import Cliente4 from "../Assets/clientes/cliente4.png";
-import Cliente5 from "../Assets/clientes/cliente5.png";
-import Cliente6 from "../Assets/clientes/cliente6.png";
+import Cliente1 from "../Assets/clientes/client1.png";
+import Cliente2 from "../Assets/clientes/client2.png";
+import Cliente3 from "../Assets/clientes/client3.png";
+import Cliente4 from "../Assets/clientes/client4.png";
+import Cliente5 from "../Assets/clientes/client5.png";
+import Cliente6 from "../Assets/clientes/client6.png";
 import { FreeMode, Pagination, Autoplay, Navigation } from "swiper/modules";
 // import SwiperCore, { Autoplay, Pagination } from "swiper/core";
 

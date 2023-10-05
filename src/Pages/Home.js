@@ -18,7 +18,6 @@ import Claim from "../Components/Claim";
 function Home() {
   // Use useEffect to ensure the component is mounted before running JavaScript
   useEffect(() => {
-    
     const ellipseShadow = document.getElementById("ellipse-shadow");
 
     if (!ellipseShadow) {
@@ -44,6 +43,18 @@ function Home() {
   }, []); // Empty dependency array to ensure useEffect runs only once
 
   useEffect(() => {
+    const handleScroll = (event) => {
+      event.preventDefault();
+      window.scrollTo(0, window.scrollY + event.deltaY * 0.2); // Adjust the factor to control scroll speed
+    };
+
+    window.addEventListener("wheel", handleScroll, { passive: false });
+
+    // return () => {
+    //   // Clean up the event listener when the component unmounts
+    //   window.removeEventListener("wheel", handleScroll);
+    // };
+
     // let hola = ".parallax";
     const section = document.querySelector(".parallax");
 
@@ -59,10 +70,10 @@ function Home() {
       const scrollY = window.scrollY || window.pageYOffset;
 
       // Verificar si la transformación ya es igual a 1
-      if (section.style.transform === "scale(1)") {
-        // Si ya es igual a 1, no hagas nada
-        return;
-      }
+      // if (section.style.transform === "scale(1)") {
+      //   // Si ya es igual a 1, no hagas nada
+      //   return;
+      // }
 
       let newScale = initialScale + scrollY * scaleMultiplier;
 
@@ -138,7 +149,6 @@ function Home() {
     }
   };
 
-  
   const [isMoving, setIsMoving] = useState(false);
 
   const cursorScaleElements = Array.from(
