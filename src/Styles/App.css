@@ -6,7 +6,7 @@
 
 body {
   cursor: none !important;
-  font-family: "Satoshi-Regular"; /* Use the correct font family name */
+  font-family: "Satoshi-Regular";
 }
 a {
   cursor: none !important;
@@ -17,7 +17,7 @@ a {
   font-size: 120px;
   font-style: normal;
   font-weight: 300;
-  line-height: 87%; /* 104.4px */
+  line-height: 87%;
 }
 .h2-desk {
   font-family: "Satoshi-Variable";
@@ -136,7 +136,7 @@ a {
   );
   filter: blur(300px);
   pointer-events: none; /* To allow interactions with elements beneath it */
-  z-index: -1; /* To place it behind other content */
+  z-index: -1;
 }
 
 .work {
