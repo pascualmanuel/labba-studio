@@ -120,12 +120,6 @@ a {
   pointer-events: none;
 }
 
-.cursor.is-moving {
-  /* transform: translate(-50%, -50%) scale(1.2); */
-  /* background-color: rgba(0, 0, 0, 0.4); */
-  /* border-color: #ffffff; */
-}
-
 #ellipse-shadow {
   position: fixed;
   width: 1167px;
