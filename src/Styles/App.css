@@ -11,6 +11,7 @@ body {
 a {
   cursor: none !important;
 }
+
 .h1-desk {
   font-family: "Satoshi-Variable";
   font-size: 120px;
@@ -278,4 +279,103 @@ a {
   position: fixed;
   top: 1.5rem;
   right: 2.5rem;
+}
+
+
+
+@media (max-width: 1000px) {
+  .h1-desk {
+    font-size: 90px;
+  }
+}
+
+@media (max-width: 640px) {
+  .h1-desk {
+    font-family: "Satoshi-Variable";
+    font-size: 45px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 49.28px; /* 104.4px */
+  }
+  .h2-desk {
+    font-family: "Satoshi-Variable";
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 54px;
+  }
+  .sp1-desk {
+    font-family: "Satoshi-Variable";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 43.2px;
+    text-transform: uppercase;
+  }
+  .b1-desk {
+    font-family: "Satoshi-Variable";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 32.4px;
+  }
+  .h3-desk {
+    font-family: "Satoshi-Variable";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 27px;
+  }
+  .b2-desk {
+    font-family: "Satoshi-Variable";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24.3px;
+  }
+  .l-desk {
+    font-family: "Satoshi-Variable";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+  .b3-desk {
+    font-family: "Satoshi-Variable";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 21.6px;
+  }
+
+  .b4-desk {
+    font-family: "Satoshi-Variable";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0em;
+  }
+  .sp2-desk {
+    font-family: "Satoshi-Variable";
+    font-size: 45px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    background: linear-gradient(
+      128deg,
+      #ff5800 17.82%,
+      #f62a4b 34.27%,
+      #d42374 48.94%,
+      #a0378b 67.62%,
+      #64428e 78.29%,
+      #2b417a 89.85%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  /* .home-claim {
+    min-width: 300px;
+  } */
 }

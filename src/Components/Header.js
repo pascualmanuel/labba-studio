@@ -17,12 +17,10 @@ function Header() {
 
   const handleEsClick = () => {
     toggleLanguage(); // Cambiar a EN
-    console.log("EN");
   };
 
   const handleEnClick = () => {
     toggleLanguage(); // Cambiar a ES
-    console.log("ES");
   };
 
   const translateText = (enText, esText) => {
@@ -45,12 +43,12 @@ function Header() {
             <div className="">
               <ReactSVG
                 src={LabbaISO}
-                className="mr-2.5 ml-12 fixed"
+                className="sm:mr-2.5 sm:ml-12 ml-6 fixed "
                 style={{ zIndex: "10000" }}
               />
               <ReactSVG
                 src={LabbaLogo}
-                className="ml-12 ml-[80px]"
+                className="ml-12 sm:ml-[80px] ml-[60px]"
                 style={{ zIndex: "10000" }}
               />
             </div>
@@ -64,6 +62,7 @@ function Header() {
                       paddingTop: "15px",
                       paddingLeft: "28px",
                       paddingBottom: "44px",
+                      userSelect: "none",
                     }}
                     onClick={changeLanguage}
                   >

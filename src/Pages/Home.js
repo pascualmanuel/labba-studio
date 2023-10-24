@@ -248,8 +248,8 @@ function Home() {
       </div>
       <Process />
       <div style={{ height: "100vh", background: " #ECECEC" }}>
-        <div className="w-1/2 ml-36 ">
-          <h3 className="b1-desk pt-72">We love our clients</h3>
+        <div className="sm:w-1/2 w-full ml-11 sm:ml-36 ">
+          <h3 className="b1-desk pt-36 sm:pt-72">We love our clients</h3>
         </div>
         <Carousel />
       </div>
@@ -284,11 +284,11 @@ function Home() {
           </div>
 
           <div className="labba-footer flex items-end justify-between mt-56 ml-2 mr-2">
-            <ReactSVG src={LabbaL} />
-            <ReactSVG src={LabbaA} />
-            <ReactSVG src={LabbaB} />
-            <ReactSVG src={LabbaB} />
-            <ReactSVG src={LabbaA} />
+            {/* <ReactSVG src={LabbaL} /> */}
+            {/* <ReactSVG src={LabbaA} /> */}
+            {/* <ReactSVG src={LabbaB} /> */}
+            {/* <ReactSVG src={LabbaB} /> */}
+            {/* <ReactSVG src={LabbaA} /> */}
           </div>
         </div>
       </div>

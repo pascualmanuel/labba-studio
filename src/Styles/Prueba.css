@@ -344,3 +344,37 @@ aside p {
   letter-spacing: 0em;
   text-align: left;
 }
+
+.number-cont {
+  display: flex;
+  justify-content: center;
+  width: 250px;
+}
+
+@media (max-width: 640px) {
+  .card__content {
+    width: 330px;
+    height: 277px;
+  }
+  .card-inside {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-left: 30px;
+    margin-top: 20px;
+    margin-right: 30px;
+  }
+  .number-cont {
+    display: inline;
+    width: 0px;
+  }
+  .svg-class-name {
+    width: 60px;
+  }
+  .swiper.swiper-initialized.swiper-horizontal.mySwiper {
+    margin-left: 20px !important;
+    margin-right: 20px !important;
+    margin-top: 50px;
+    padding-bottom: 130px;
+  }
+}

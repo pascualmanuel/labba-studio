@@ -91,22 +91,22 @@ function Services() {
 
   return (
     <>
-      <div className="flex mt-72 ml-36 ">
-        <div className="w-1/2">
+      <div className="flex sm:flex-row mx-11 flex-col mt-24 sm:mt-72 sm:ml-36 ">
+        <div className="sm:w-1/2 w-full ">
           <p className="l-desk">SERVICES</p>
           <h3 className="b1-desk">
             We unleash our creativity, embrace curiosity, connect ideas and push
             the limits of design to reach new horizons.
           </h3>
         </div>
-        <div className="w-1/2 flex flex-col pl-72 justify-center ">
+        <div className="sm:w-1/2 w-full flex flex-col sm:pl-72 justify-center ">
           <div
-            className={`w-1/2 flex flex-col pl-72 justify-center plusCursor services  ${
+            className={`sm:w-1/2 w-full  flex flex-col sm:pl-72 justify-center plusCursor services  ${
               expDesign ? "expDesign" : ""
             }`}
             onClick={toggleDesign}
           >
-            <p className="sp1-desk flex mb-2 plusCursor ">
+            <p className="sp1-desk flex mt-12 sm:mt-0 mb-7 sm:mb-2 plusCursor ">
               DESIGN <span className="small-numb">5</span>
             </p>
             {expDesign ? (

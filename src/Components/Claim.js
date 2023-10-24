@@ -36,8 +36,8 @@ function Claim() {
             transform: "translateX(10%)", // Initially hides the phrase
           }}
         >
-          At <span style={{ color: "white" }}> Labba,</span> we craft digital
-          products that balance users and business needs.
+          {/* At <span style={{ color: "white" }}> Labba,</span> we craft digital
+          products that balance users and business needs. */}
         </p>
       </div>
     </div>
