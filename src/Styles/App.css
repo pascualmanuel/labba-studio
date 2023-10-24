@@ -200,10 +200,10 @@ a {
 .contact-form input,
 .contact-form textarea {
   border: none;
-  border-bottom: 1px solid #b5b5b5; /* Solid black bottom border */
-  margin-bottom: 10px; /* Spacing between fields */
+  border-bottom: 1px solid #b5b5b5;
+  margin-bottom: 10px;
   width: 100%;
-  padding: 5px; /* Optional padding for visual spacing */
+  padding: 5px;
 }
 
 .contact-form input::placeholder,
@@ -218,7 +218,7 @@ a {
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-  outline: none; /* Remove the outline on focus */
+  outline: none;
 }
 
 .contact-page {
