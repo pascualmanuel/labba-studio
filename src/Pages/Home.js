@@ -27,7 +27,7 @@ function Home() {
   let shadowOn = "ellipse-shadow";
 
   if (isMobile) {
-    shadowOn = "none";
+    shadowOn = "a";
   }
 
   useEffect(() => {
@@ -259,7 +259,7 @@ function Home() {
       ></div>
       <div className="fourth-section"></div>
 
-      <Claim />
+      {/* <Claim /> */}
 
       <div style={{ height: "80vh" }}>
         <Services />
