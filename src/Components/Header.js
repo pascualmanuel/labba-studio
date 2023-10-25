@@ -119,9 +119,9 @@ function Header() {
                 <ReactSVG
                   src={expanded ? BurgerClose : Burger}
                   style={{
-                    position: "fixed",
+                    position: "absolute",
                     top: "4px",
-                    right: "10px",
+                    right: "6px",
                     zIndex: "101",
                   }}
                   onClick={toggleContact}

@@ -269,8 +269,10 @@ function Home() {
         className="sm:h-screen sm:pb-0 pb-24	"
         style={{ background: " #ECECEC" }}
       >
-        <div className="sm:w-1/2 w-full ml-11 sm:ml-36 ">
-          <h3 className="b1-desk pt-24 sm:pt-72">We love our clients</h3>
+        <div className="  ">
+          <h3 className="b1-desk ml-11 sm:ml-36 pt-24 sm:pt-72">
+            We love our clients
+          </h3>
         </div>
         <Carousel />
       </div>
