@@ -6,7 +6,9 @@ const CustomCursor = () => {
   const [cursorScaleElements, setCursorScaleElements] = useState([]);
   const [isInsideHello, setIsInsideHello] = useState(false);
 
-  const cursorStyle = {
+  const isMobile = window.innerWidth <= 768; // Adjust the width as needed
+
+  let cursorStyle = {
     zIndex: 9999,
     position: "fixed",
     width: "34px",
@@ -18,6 +20,8 @@ const CustomCursor = () => {
     transition: "transform 0.3s ease-out, border-radius 0.3s ease-out",
     backdropFilter: "blur(2px)",
   };
+
+
 
   const plusCursorRef = useRef(null);
 
@@ -83,7 +87,7 @@ const CustomCursor = () => {
 
   return (
     <div
-      className={`cursor ${isMoving ? "is-moving" : ""}`}
+      className={`cursor ${isMoving ? "is-moving" : ""} sm:block hidden`}
       style={cursorStyle}
     >
       {cursorScaleElements.map((link, index) => (

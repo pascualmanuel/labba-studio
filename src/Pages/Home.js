@@ -20,10 +20,18 @@ import LabbaBottom from "../Assets/labba/labba-bottom.svg";
 
 function Home() {
   const { userLanguage, translateText } = useLanguage();
+  const isMobile = window.innerWidth <= 768; // Adjust the width as needed
 
   // Use useEffect to ensure the component is mounted before running JavaScript
+
+  let shadowOn = "ellipse-shadow";
+
+  if (isMobile) {
+    shadowOn = "none";
+  }
+
   useEffect(() => {
-    const ellipseShadow = document.getElementById("ellipse-shadow");
+    const ellipseShadow = document.getElementById(shadowOn);
 
     if (!ellipseShadow) {
       // Check if the element exists to prevent errors
@@ -158,9 +166,8 @@ function Home() {
 
   const [isMoving, setIsMoving] = useState(false);
 
-  let cursorPreFooter = "cursor";
+  let cursorPreFooter = "prefooter";
 
-  const isMobile = window.innerWidth <= 768; // Adjust the width as needed
   if (isMobile) {
     cursorPreFooter = "no-cursor";
   }
@@ -171,7 +178,7 @@ function Home() {
 
   useEffect(() => {
     const cursor = document.querySelector(".cursor");
-    const footerCursor = document.querySelectorAll(".prefooter");
+    const footerCursor = document.querySelectorAll(`.${cursorPreFooter}`);
 
     const handleMouseEnter = () => {
       // Change cursor behavior when entering the plusCursor
@@ -234,7 +241,8 @@ function Home() {
   let mouseY = 0;
   return (
     <>
-      <div id="ellipse-shadow"></div>
+      <div id={shadowOn}></div>
+      <div className="background-mobile"></div>
       <div className="grain"></div>
       <div className="homecont" style={{ height: "100vh" }}>
         <HomeHero />
@@ -268,7 +276,7 @@ function Home() {
       </div>
       <div style={{ backgroundColor: "#F2F2F2" }}>
         <div
-          className={`${cursorPreFooter} ${shouldShrink ? "shrink" : ""}`}
+          className={`prefooter ${shouldShrink ? "shrink" : ""}`}
           ref={prefooterRef}
         >
           <div className={` cursor next-level ${isMoving ? "is-moving" : ""}`}>

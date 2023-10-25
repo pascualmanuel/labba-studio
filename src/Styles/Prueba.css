@@ -336,4 +336,19 @@ header {
   .swiper.swiper-initialized.swiper-horizontal.mySwiper {
     background: none !important;
   }
+  .background-mobile {
+    background: linear-gradient(
+      180deg,
+      #ff5800 15.62%,
+      #f62a4b 34.9%,
+      #d42374 52.08%,
+      #a0378b 73.96%,
+      #64428e 86.46%,
+      #2b417a 100%
+    );
+    filter: blur(115px);
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+  }
 }
