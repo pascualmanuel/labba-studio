@@ -101,8 +101,6 @@ function Home() {
     localStorage.getItem("shouldShrink") === "true"
   );
 
-  let cursorPreFooter = "prefooter";
-
   useEffect(() => {
     const prefooter = document.querySelector(".prefooter");
     const footer = document.querySelector(".footer");
@@ -159,6 +157,13 @@ function Home() {
   };
 
   const [isMoving, setIsMoving] = useState(false);
+
+  let cursorPreFooter = "cursor";
+
+  const isMobile = window.innerWidth <= 768; // Adjust the width as needed
+  if (isMobile) {
+    cursorPreFooter = "no-cursor";
+  }
 
   const cursorScaleElements = Array.from(
     document.querySelectorAll(".cursor-scale")
