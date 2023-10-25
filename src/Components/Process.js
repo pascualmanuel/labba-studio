@@ -12,7 +12,7 @@ function Services() {
   }, []);
 
   return (
-    <div className="process-container">
+    <div className="process-container sm:pt-0 pt-12">
       <div className="process" id="process">
         <div
           className="sm:w-1/2 w-full ml-11 sm:ml-36 "

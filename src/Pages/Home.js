@@ -16,6 +16,7 @@ import LabbaB from "../Assets/labba/labba-b.svg";
 import CursorDrop from "../Assets/labba/drop-line.svg";
 import Claim from "../Components/Claim";
 import { useLanguage } from "../Hooks/LanguageContext";
+import LabbaBottom from "../Assets/labba/labba-bottom.svg";
 
 function Home() {
   const { userLanguage, translateText } = useLanguage();
@@ -95,9 +96,13 @@ function Home() {
   }, []);
   const prefooterRef = useRef(null);
   const footerRef = useRef(null);
+
   const [shouldShrink, setShouldShrink] = useState(
     localStorage.getItem("shouldShrink") === "true"
   );
+
+  let cursorPreFooter = "prefooter";
+
   useEffect(() => {
     const prefooter = document.querySelector(".prefooter");
     const footer = document.querySelector(".footer");
@@ -247,29 +252,33 @@ function Home() {
         <Services />
       </div>
       <Process />
-      <div style={{ height: "100vh", background: " #ECECEC" }}>
+      <div
+        className="sm:h-screen sm:pb-0 pb-24	"
+        style={{ background: " #ECECEC" }}
+      >
         <div className="sm:w-1/2 w-full ml-11 sm:ml-36 ">
-          <h3 className="b1-desk pt-36 sm:pt-72">We love our clients</h3>
+          <h3 className="b1-desk pt-24 sm:pt-72">We love our clients</h3>
         </div>
         <Carousel />
       </div>
       <div style={{ backgroundColor: "#F2F2F2" }}>
         <div
-          className={`prefooter ${shouldShrink ? "shrink" : ""}`}
+          className={`${cursorPreFooter} ${shouldShrink ? "shrink" : ""}`}
           ref={prefooterRef}
         >
-          <div className={` cursor ${isMoving ? "is-moving" : ""}`}>
-            <p className="b1-desk py-72	pl-56 text-white	">
+          <div className={` cursor next-level ${isMoving ? "is-moving" : ""}`}>
+            <p className="b1-desk py-0 sm:py-72	pl-0 sm:pl-56 text-white	">
               {translateText(
-                " Let’s take your idea to the next level.",
-                "Llevamos tu idea a otro level"
+                "Llevamos tu idea a otro level",
+                " Let’s take your idea to the next level."
               )}
             </p>
+            <ReactSVG src={CursorDrop} className="pt-10 sm:hidden" />
           </div>
         </div>
         <div style={{ height: "200px" }}></div>
         <div className="footer" ref={footerRef}>
-          <div className="ml-56">
+          <div className="ml-11 sm:ml-56">
             <div className="sayhi">Say hi</div>
             <div className="t-mail mt-3" onClick={handleCopyClick}>
               {email}
@@ -282,13 +291,15 @@ function Home() {
               </span>
             </div>
           </div>
-
-          <div className="labba-footer flex items-end justify-between mt-56 ml-2 mr-2">
-            {/* <ReactSVG src={LabbaL} /> */}
-            {/* <ReactSVG src={LabbaA} /> */}
-            {/* <ReactSVG src={LabbaB} /> */}
-            {/* <ReactSVG src={LabbaB} /> */}
-            {/* <ReactSVG src={LabbaA} /> */}
+          <div className="flex justify-center mt-20 sm:hidden">
+            <ReactSVG src={LabbaBottom} />
+          </div>
+          <div className="labba-footer flex items-end justify-between mt-56 ml-2 mr-2 hidden sm:flex">
+            <ReactSVG src={LabbaL} />
+            <ReactSVG src={LabbaA} />
+            <ReactSVG src={LabbaB} />
+            <ReactSVG src={LabbaB} />
+            <ReactSVG src={LabbaA} />
           </div>
         </div>
       </div>

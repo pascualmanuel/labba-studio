@@ -106,12 +106,12 @@ function Services() {
             }`}
             onClick={toggleDesign}
           >
-            <p className="sp1-desk flex mt-12 sm:mt-0 mb-7 sm:mb-2 plusCursor ">
+            <p className="sp1-desk flex mt-12 sm:mt-0 mb-2 sm:mb-7 sm:mb-2 plusCursor ">
               DESIGN <span className="small-numb">5</span>
             </p>
             {expDesign ? (
               <>
-                <ul className="list-disc ml-5 plusCursor">
+                <ul className="list-disc ml-5 plusCursor sm:pb-0 pb-2">
                   <li>UX Research</li>
                   <li>UX Design</li>
                   <li>UI Design</li>
@@ -123,7 +123,7 @@ function Services() {
           </div>
 
           <div
-            className={`w-1/2 flex flex-col pl-72 justify-center plusCursorDos services  ${
+            className={`sm:w-1/2 flex flex-col pl-72 justify-center plusCursorDos services  ${
               expBuild ? "expBuild" : ""
             }`}
             onClick={toggleBuild}

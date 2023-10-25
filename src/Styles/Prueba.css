@@ -295,4 +295,45 @@ header {
     margin-top: 50px;
     padding-bottom: 130px;
   }
+
+  .first-pro {
+    background-image: url("../Assets/manno.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 280px;
+    height: 280px;
+    position: absolute;
+    border-radius: 20px;
+    left: 13px;
+  }
+
+  .second-pro {
+    background-image: url("../Assets/borja.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 280px;
+    height: 280px;
+    position: absolute;
+    border-radius: 20px;
+    right: 13px;
+  }
+  .next-level {
+    display: flex;
+    justify-content: center;
+    height: 400px;
+    align-items: center;
+    padding: 0px;
+    width: 250px;
+    text-align: center;
+    flex-direction: column;
+  }
+  .prefooter {
+    display: flex;
+  }
+  .div-animado {
+    height: 380px;
+  }
+  .swiper.swiper-initialized.swiper-horizontal.mySwiper {
+    background: none !important;
+  }
 }

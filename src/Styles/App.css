@@ -7,6 +7,8 @@
 body {
   cursor: none !important;
   font-family: "Satoshi-Regular";
+
+  overflow-x: hidden;
 }
 a {
   cursor: none !important;

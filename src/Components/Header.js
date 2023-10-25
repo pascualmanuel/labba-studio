@@ -53,7 +53,10 @@ function Header() {
               />
             </div>
           </Link>
-          <div className="fixed top-6 right-10" style={{ zIndex: "100" }}>
+          <div
+            className="fixed top-6 right-3 sm:right-10"
+            style={{ zIndex: "100" }}
+          >
             <div className={`contact ${expanded ? "expanded" : ""}`}>
               {expanded ? (
                 <div className="expanded-content w-full h-full">
