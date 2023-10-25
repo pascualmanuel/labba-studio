@@ -5,7 +5,7 @@ import Burger from "../Assets/Burger.svg";
 import BurgerClose from "../Assets/Burger-close.svg";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import BackIcon from "../Assets/Back.svg";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLanguage } from "../Hooks/LanguageContext";
 
 function Header() {
@@ -34,6 +34,34 @@ function Header() {
   const toggleContact = () => {
     setExpanded(!expanded);
   };
+
+  useEffect(() => {
+    const handleEscapeKey = (event) => {
+      if (event.key === "Escape") {
+        setExpanded(false);
+      }
+    };
+
+    const handleClickOutside = (event) => {
+      if (!event.target.closest(".popup-conexion")) {
+        setExpanded(false);
+      }
+    };
+
+    const handleScroll = () => {
+      setExpanded(false);
+    };
+
+    document.addEventListener("keydown", handleEscapeKey);
+    document.addEventListener("mousedown", handleClickOutside);
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      document.removeEventListener("keydown", handleEscapeKey);
+      document.removeEventListener("mousedown", handleClickOutside);
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   if (location.pathname === "/") {
     return (

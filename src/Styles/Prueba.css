@@ -337,6 +337,7 @@ header {
     background: none !important;
   }
   .background-mobile {
+    position: fixed;
     background: linear-gradient(
       180deg,
       #ff5800 15.62%,
@@ -347,8 +348,8 @@ header {
       #2b417a 100%
     );
     filter: blur(115px);
-    height: 100vh;
+    height: 50vh;
     width: 100vw;
-    position: absolute;
+    z-index: -1;
   }
 }

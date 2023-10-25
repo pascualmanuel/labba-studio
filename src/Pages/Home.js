@@ -17,6 +17,7 @@ import CursorDrop from "../Assets/labba/drop-line.svg";
 import Claim from "../Components/Claim";
 import { useLanguage } from "../Hooks/LanguageContext";
 import LabbaBottom from "../Assets/labba/labba-bottom.svg";
+import { Link } from "react-router-dom"; // Import Link from React Router
 
 function Home() {
   const { userLanguage, translateText } = useLanguage();
@@ -27,7 +28,7 @@ function Home() {
   let shadowOn = "ellipse-shadow";
 
   if (isMobile) {
-    shadowOn = "a";
+    shadowOn = "no";
   }
 
   useEffect(() => {
@@ -281,15 +282,19 @@ function Home() {
           className={`prefooter ${shouldShrink ? "shrink" : ""}`}
           ref={prefooterRef}
         >
-          <div className={` cursor next-level ${isMoving ? "is-moving" : ""}`}>
-            <p className="b1-desk py-0 sm:py-72	pl-0 sm:pl-56 text-white	">
-              {translateText(
-                "Llevamos tu idea a otro level",
-                " Let’s take your idea to the next level."
-              )}
-            </p>
-            <ReactSVG src={CursorDrop} className="pt-10 sm:hidden" />
-          </div>
+          <Link to={"/contact"} target="_blank">
+            <div
+              className={` cursor next-level ${isMoving ? "is-moving" : ""}`}
+            >
+              <p className="b1-desk py-0 sm:py-72	pl-0 sm:pl-56 text-white	">
+                {translateText(
+                  "Llevamos tu idea a otro level",
+                  " Let’s take your idea to the next level."
+                )}
+              </p>
+              <ReactSVG src={CursorDrop} className="pt-10 sm:hidden" />
+            </div>
+          </Link>
         </div>
         <div style={{ height: "200px" }}></div>
         <div className="footer" ref={footerRef}>
