@@ -91,15 +91,15 @@ function Services() {
 
   return (
     <>
-      <div className="flex sm:flex-row mx-11 flex-col mt-24 sm:mt-72 sm:ml-36 ">
-        <div className="sm:w-1/2 w-full ">
+      <div className="flex sm:flex-row mx-11 flex-col mt-24 sm:mt-72 sm:ml-36  ">
+        <div className="sm:w-1/2  w-full ">
           <p className="l-desk">SERVICES</p>
           <h3 className="b1-desk">
             We unleash our creativity, embrace curiosity, connect ideas and push
             the limits of design to reach new horizons.
           </h3>
         </div>
-        <div className="sm:w-1/2 w-full flex flex-col sm:pl-72 justify-center ">
+        <div className="sm:w-1/2 w-full flex flex-col sm:pl-72 md:pl-24 xl:pl-72 justify-center ">
           <div
             className={`sm:w-1/2 w-full  flex flex-col sm:pl-72 justify-center plusCursor services  ${
               expDesign ? "expDesign" : ""

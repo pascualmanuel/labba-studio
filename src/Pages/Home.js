@@ -22,6 +22,11 @@ import Pruebas from "../Components/Pruebas";
 function Home() {
   const { userLanguage, translateText } = useLanguage();
   const isMobile = window.innerWidth <= 768; // Adjust the width as needed
+  const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
+  const [viewportHeight, setViewportHeight] = useState(window.innerHeight);
+
+  console.log(viewportWidth);
+  console.log(viewportHeight);
 
   // Use useEffect to ensure the component is mounted before running JavaScript
 
@@ -242,6 +247,35 @@ function Home() {
 
   let mouseX = 0;
   let mouseY = 0;
+
+  const [scrollY, setScrollY] = useState(0);
+
+  // Add an event listener to track scroll position
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY / 10);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+  let blabla = {
+    position: "relative",
+    // top: "0px",
+  };
+
+  if (scrollY > 450) {
+    blabla = {
+      position: "relative",
+    };
+  }
+
+  // Define a style object based on the scrollY value
+
+  console.log(scrollY);
   return (
     <>
       <div id={shadowOn}></div>
@@ -249,6 +283,8 @@ function Home() {
       <div className="grain"></div>
       <div className="homecont" style={{ height: "100vh" }}>
         <HomeHero />
+        <p>{viewportWidth}</p>
+        <p>{viewportHeight}</p>
       </div>
 
       {/* <div> */}
@@ -263,9 +299,29 @@ function Home() {
       <div className="fourth-section"></div>
 
       {/* <Claim /> */}
-      <div className="claim-container">
-        <Pruebas />
+      <div className={`claim-container`}>
+        <div className="">
+          <div id="container">
+            <div id="container2">
+              <div className="box one">
+                <div>
+                  <p
+                    className="h2-desk claim"
+                    style={{
+                      whiteSpace: "nowrap",
+                      transform: "translateX(10%)",
+                    }}
+                  >
+                    At <span style={{ color: "white" }}> Labba,</span> we craft
+                    digital products that balance users and business needs.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+
       <div className="services-cont">
         <Services />
       </div>
@@ -315,10 +371,10 @@ function Home() {
               </span>
             </div>
           </div>
-          <div className="flex justify-center mt-20 sm:hidden">
+          <div className="flex justify-center mt-20 labba-bottom ">
             <ReactSVG src={LabbaBottom} />
           </div>
-          <div className="labba-footer flex items-end justify-between mt-56 ml-2 mr-2 hidden sm:flex">
+          <div className="labba-footer flex items-end justify-between mt-56 ml-2 mr-2 labba-lg-bottom  sm:flex">
             <ReactSVG src={LabbaL} />
             <ReactSVG src={LabbaA} />
             <ReactSVG src={LabbaB} />
