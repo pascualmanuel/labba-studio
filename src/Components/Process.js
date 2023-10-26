@@ -14,7 +14,7 @@ function Services() {
   return (
     <div className="process-container sm:pt-0 pt-12">
       <div className="process" id="process">
-        <div className="sm:w-1/2 w-full  " style={{ marginBottom: "70px" }}>
+        <div className=" w-full" style={{ marginBottom: "70px" }}>
           <p className="l-desk ml-11 sm:ml-36">PROCESS</p>
           <h3 className="b1-desk ml-11 sm:ml-36">This is how we roll</h3>
         </div>
