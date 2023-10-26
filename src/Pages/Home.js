@@ -4,8 +4,6 @@ import Works from "../Components/Works";
 import Pruebas from "../Components/Pruebas";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import LocomotiveScroll from "locomotive-scroll";
-
 import "../Styles/Prueba.css"; // Asegúrate de tener
 import HomeHero from "../Components/HomeHero";
 import Services from "../Components/Services";
@@ -242,53 +240,6 @@ function Home() {
 
   let mouseX = 0;
   let mouseY = 0;
-
-  const claimRef = useRef(null);
-
-  let horizontalScrollLength; // Define the variable
-
-  window.addEventListener("load", function () {
-    let pinBoxes = document.querySelectorAll(".pin-wrap > *");
-    let pinWrap = document.querySelector(".pin-wrap");
-    let pinWrapWidth = pinWrap.offsetWidth;
-    horizontalScrollLength = pinWrapWidth - window.innerWidth; // Calculate the horizontal scroll length
-
-    // Rest of your code
-    // ...
-  });
-
-  useEffect(() => {
-    // Initialize Locomotive Scroll
-    const pageContainer = document.querySelector(".container");
-    const scroller = new LocomotiveScroll({
-      el: pageContainer,
-      smooth: true,
-    });
-
-    scroller.on("scroll", ScrollTrigger.update);
-
-    // Add logic to trigger horizontal scroll when <Claim /> is in the viewport
-    ScrollTrigger.create({
-      trigger: claimRef.current,
-      start: "top 50%", // Adjust this based on your needs
-      end: "bottom 50%", // Adjust this based on your needs
-      onEnter: () => {
-        // Start your horizontal scroll animation here
-        gsap.to(".scrollable-content", {
-          x: -horizontalScrollLength, // Set the desired horizontal scroll position
-          ease: "none",
-        });
-      },
-      onLeaveBack: () => {
-        // Reverse the horizontal scroll animation when leaving the <Claim />
-        gsap.to(".scrollable-content", {
-          x: 0, // Reset to the initial position
-          ease: "none",
-        });
-      },
-    });
-  }, []);
-
   return (
     <>
       <div id={shadowOn}></div>
@@ -303,12 +254,13 @@ function Home() {
         <div className="work"></div>
       </div>
       <Works />
-      <div className="third-section" style={{ height: "430px" }}></div>
+      <div
+        className="third-section"
+        style={{ color: "red", height: "430px" }}
+      ></div>
       <div className="fourth-section"></div>
 
-      <div ref={claimRef}>
-        <Claim />
-      </div>
+      <Claim />
 
       <div style={{ height: "80vh" }}>
         <Services />
