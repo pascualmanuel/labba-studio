@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "../Styles/App.css";
 import Works from "../Components/Works";
-import Pruebas from "../Components/Pruebas";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "../Styles/Prueba.css"; // Asegúrate de tener
@@ -18,6 +17,7 @@ import Claim from "../Components/Claim";
 import { useLanguage } from "../Hooks/LanguageContext";
 import LabbaBottom from "../Assets/labba/labba-bottom.svg";
 import { Link } from "react-router-dom"; // Import Link from React Router
+import Pruebas from "../Components/Pruebas";
 
 function Home() {
   const { userLanguage, translateText } = useLanguage();
@@ -26,9 +26,11 @@ function Home() {
   // Use useEffect to ensure the component is mounted before running JavaScript
 
   let shadowOn = "ellipse-shadow";
+  let displayClaim = "";
 
   if (isMobile) {
     shadowOn = "no";
+    displayClaim = "none";
   }
 
   useEffect(() => {
@@ -260,9 +262,11 @@ function Home() {
       ></div>
       <div className="fourth-section"></div>
 
-      <Claim />
-
-      <div style={{ height: "80vh" }}>
+      {/* <Claim /> */}
+      <div className="">
+        <Pruebas />
+      </div>
+      <div className="services-cont">
         <Services />
       </div>
       <Process />

@@ -106,7 +106,7 @@ function Services() {
             }`}
             onClick={toggleDesign}
           >
-            <p className="sp1-desk flex mt-12 sm:mt-0 mb-2 sm:mb-7 sm:mb-2 plusCursor ">
+            <p className="sp1-desk flex mt-12 sm:mt-0 mb-2 sm:mb-2 sm:mb-2 plusCursor ">
               DESIGN <span className="small-numb">5</span>
             </p>
             {expDesign ? (
