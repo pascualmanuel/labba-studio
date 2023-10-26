@@ -263,7 +263,7 @@ function Home() {
       <div className="fourth-section"></div>
 
       {/* <Claim /> */}
-      <div className="">
+      <div className="claim-container">
         <Pruebas />
       </div>
       <div className="services-cont">
