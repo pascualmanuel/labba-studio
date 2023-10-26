@@ -31,11 +31,16 @@ const images = [
 
   // Agrega aquí tus rutas de imágenes
 ];
+const isMobile = window.innerWidth <= 768; // Adjust the width as needed
 
+let slides = 4;
+if (isMobile) {
+  slides = 3;
+}
 const Carousel = () => {
   return (
     <Swiper
-      slidesPerView={3}
+      slidesPerView={slides}
       spaceBetween={30}
       loop={true}
       //   pagination={{
