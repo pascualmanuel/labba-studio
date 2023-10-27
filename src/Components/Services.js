@@ -91,7 +91,10 @@ function Services() {
 
   return (
     <>
-      <div className="flex sm:flex-row mx-11 flex-col mt-24 sm:mt-72 sm:ml-36  ">
+      <div
+        className="flex sm:flex-row mx-11 flex-col mt-24 sm:mt-72 sm:ml-36"
+        id="services"
+      >
         <div className="sm:w-1/2  w-full ">
           <p className="l-desk">SERVICES</p>
           <h3 className="b1-desk">

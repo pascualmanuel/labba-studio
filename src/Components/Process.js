@@ -12,7 +12,7 @@ function Services() {
   }, []);
 
   return (
-    <div className="process-container sm:pt-0 pt-12">
+    <div className="process-container sm:pt-0 pt-12" id="process">
       <div className="process" id="process">
         <div className=" w-full" style={{ marginBottom: "70px" }}>
           <p className="l-desk ml-11 sm:ml-36">PROCESS</p>

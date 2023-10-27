@@ -43,7 +43,7 @@ function Header() {
     };
 
     const handleClickOutside = (event) => {
-      if (!event.target.closest(".popup-conexion")) {
+      if (!event.target.closest(".expanded-content")) {
         setExpanded(false);
       }
     };
@@ -113,19 +113,19 @@ function Header() {
                       className="b1-desk"
                       style={{ fontSize: "24px", marginBottom: "10px" }}
                     >
-                      Work
+                      <a href="#works">Work</a>
                     </p>
                     <p
                       className="b1-desk"
                       style={{ fontSize: "24px", marginBottom: "10px" }}
                     >
-                      Services
+                      <a href="#services">Services</a>
                     </p>
                     <p
                       className="b1-desk"
                       style={{ fontSize: "24px", marginBottom: "10px" }}
                     >
-                      Process
+                      <a href="#process">Process</a>
                     </p>
                     <Link to="/contact">
                       <p

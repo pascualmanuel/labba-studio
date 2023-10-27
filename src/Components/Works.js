@@ -49,7 +49,7 @@ function Works() {
 
   return (
     <div className="scroll-container">
-      <div className="elemento-animado">
+      <div className="elemento-animado" id="works">
         <div
           className="inside-cont"
           style={{ width: "100vw", height: "100vh" }}
