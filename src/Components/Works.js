@@ -50,6 +50,7 @@ function Works() {
   return (
     <div className="scroll-container">
       <div className="elemento-animado">
+        {/* Establece las dimensiones del div a 100vh y 100vw */}
         <div
           className="inside-cont"
           style={{ width: "100vw", height: "100vh" }}

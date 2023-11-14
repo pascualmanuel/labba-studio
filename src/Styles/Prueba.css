@@ -250,13 +250,6 @@ header {
   display: none;
 }
 
-.content-claim{
-  
-}
-.content-inside{
-  
-}
-
 @media (max-width: 1200px) {
   .labba-bottom {
     display: flex;
