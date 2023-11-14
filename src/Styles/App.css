@@ -3,11 +3,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+* {
+  scroll-behavior: smooth !important;
+}
 body {
   cursor: none !important;
   font-family: "Satoshi-Regular";
-
   overflow-x: hidden;
 }
 a {
@@ -137,8 +138,10 @@ a {
     #2b417a 100%
   );
   filter: blur(300px);
+  backdrop-filter: blur(300px);
   pointer-events: none; /* To allow interactions with elements beneath it */
   z-index: -1;
+  transform: rotate3D(0, 0, 1, 180deg);
 }
 
 .work {

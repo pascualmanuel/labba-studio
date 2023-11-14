@@ -283,8 +283,8 @@ function Home() {
       <div className="grain"></div>
       <div className="homecont" style={{ height: "100vh" }}>
         <HomeHero />
-        <p>{viewportWidth}</p>
-        <p>{viewportHeight}</p>
+        {/* <p>{viewportWidth}</p> */}
+        {/* <p>{viewportHeight}</p> */}
       </div>
 
       {/* <div> */}
@@ -321,7 +321,7 @@ function Home() {
           </div>
         </div>
       </div>
-      <div className="hola"></div>
+
       <div className="services-cont" id="holaa">
         <Services />
       </div>
