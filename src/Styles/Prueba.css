@@ -250,9 +250,11 @@ header {
   display: none;
 }
 
-.content-claim {
+.content-claim{
+  
 }
-.content-inside {
+.content-inside{
+  
 }
 
 @media (max-width: 1200px) {
