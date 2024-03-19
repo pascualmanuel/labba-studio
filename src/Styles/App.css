@@ -3,20 +3,46 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-* {
-  scroll-behavior: smooth !important;
+
+.number-loader {
+  font-family: "Satoshi-Variable", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 120px;
+  line-height: 87%;
+  color: #ffffff;
+  position: absolute;
+  bottom: 100px;
+  right: 80px;
 }
+
 body {
-  cursor: none !important;
-  font-family: "Satoshi-Regular";
-  overflow-x: hidden;
+  font-family: "Satoshi-Variable", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
+  overflow-x: hidden !important;
+  background-color: white;
 }
+html {
+  cursor: url("../Assets/dot-cursor.svg"), auto;
+  /* overflow-x: hidden !important; */
+}
+
 a {
-  cursor: none !important;
+  /* cursor: none !important; */
+  cursor: url("../Assets/dot-cursor.svg"), auto;
+}
+
+.input-cursor {
+  cursor: url("../Assets/dot-cursor.svg"), auto;
 }
 
 .h1-desk {
-  font-family: "Satoshi-Variable";
+  font-family: "Satoshi-Variable", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
   font-size: 120px;
   font-style: normal;
   font-weight: 300;
@@ -31,10 +57,10 @@ a {
 }
 .sp1-desk {
   font-family: "Satoshi-Variable";
-  font-size: 45px;
   font-style: normal;
   font-weight: 700;
-  line-height: normal;
+  font-size: 32px;
+  line-height: 43px;
   text-transform: uppercase;
 }
 .b1-desk {
@@ -51,22 +77,37 @@ a {
   font-weight: 700;
   line-height: normal;
 }
-.b2-desk {
+
+.p-14 {
   font-family: "Satoshi-Variable";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+}
+.b2-desk {
+  font-family: "Satoshi-Variable", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
   font-size: 24px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
 }
+
 .l-desk {
-  font-family: "Satoshi-Variable";
+  font-family: "Satoshi-Variable", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
 }
 .b3-desk {
-  font-family: "Satoshi-Variable";
+  font-family: "Satoshi-Variable", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
@@ -74,7 +115,9 @@ a {
 }
 
 .b4-desk {
-  font-family: "Satoshi-Variable";
+  font-family: "Satoshi-Variable", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -82,7 +125,9 @@ a {
   letter-spacing: 0em;
 }
 .sp2-desk {
-  font-family: "Satoshi-Variable";
+  font-family: "Satoshi-Variable", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
   font-size: 100px;
   font-style: normal;
   font-weight: 500;
@@ -101,8 +146,47 @@ a {
   -webkit-text-fill-color: transparent;
 }
 
+.contact-text-1 {
+  /* Body 3 Desktop */
+  font-family: "Satoshi-Variable";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 27px;
+}
+
+.contact-text-2 {
+  font-family: "Satoshi-Variable";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 86px;
+}
+
 .grain {
-  z-index: 1000;
+  z-index: 10000;
+  width: 100%;
+  height: 100%;
+  opacity: 0.05;
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.15),
+      rgba(255, 255, 255, 0.15)
+    ),
+    url("https://uploads-ssl.webflow.com/63bb1f67f1d82961dd42f3d4/643ceae4fba6fac6078bbf16_grain-effect.gif");
+  background-position: 0 0, 50%;
+  background-repeat: repeat, repeat;
+  background-size: auto, auto;
+  background-attachment: scroll, fixed;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.grain-2 {
+  z-index: 200000;
   width: 100%;
   height: 100%;
   opacity: 0.05;
@@ -138,7 +222,6 @@ a {
     #2b417a 100%
   );
   filter: blur(300px);
-  backdrop-filter: blur(300px);
   pointer-events: none; /* To allow interactions with elements beneath it */
   z-index: -1;
   transform: rotate3D(0, 0, 1, 180deg);
@@ -151,23 +234,56 @@ a {
   background: no-repeat;
   background-size: contain;
   background-position-y: bottom;
-  height: 400px;
+  /* height: 300px; */
   background-color: #121212;
 }
 
 .contact {
   border-radius: 21.5px;
-  background: var(--BG-Blur-Blanco, rgba(255, 255, 255, 0.2));
-  backdrop-filter: blur(10px);
-  width: 133px;
-  height: 43px;
-  cursor: pointer;
+  /* background: rgba(255, 255, 255, 0.2); */
+  background: black;
+  border: solid white 1px;
+  backdrop-filter: blur(2px);
+  width: 107px;
+  height: 38px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   transition: all 0.3s ease;
-  cursor: none !important;
+  /* Body 3 Mobile */
+  font-family: "Satoshi-Regular";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+
+  color: #212121;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  /* Inside auto layout */
 }
+
+/* 
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 8px 24px;
+gap: 8px;
+
+margin: 0 auto;
+width: 104px;
+height: 38px;
+
+background: rgba(255, 255, 255, 0.2);
+backdrop-filter: blur(2px);
+
+border-radius: 100px;
+
+flex: none;
+order: 1;
+flex-grow: 0; */
 
 .contact.expanded {
   width: 249px;
@@ -180,11 +296,15 @@ a {
 }
 
 .contact-b-cont {
-  height: 170px;
-  width: 510px;
+  /* height: 170px; */
+  /* width: 510px; */
+}
+
+.contact-form textarea {
+  height: 90px;
 }
 .contact-buttons {
-  border: solid 1px;
+  border: solid 1px #d9d9d9;
   border-radius: 50px;
   width: fit-content;
   padding-top: 7px;
@@ -192,14 +312,24 @@ a {
   padding-right: 15px;
   padding-left: 15px;
   margin-right: 17px;
-  margin-bottom: 26px;
+  margin-bottom: 12px;
+}
+
+.contact-buttons:hover {
+  background-color: #ececec;
+  color: black;
 }
 
 .contact-b-active {
-  background-color: #d3d3d3;
-}
-.contact-form {
-  width: 520px;
+  background: linear-gradient(
+    115.61deg,
+    #ff5800 -26.64%,
+    #f62a4b 0.76%,
+    #a0378b 92.51%,
+    #2b417a 100.06%
+  );
+  color: white !important;
+  border: 1px solid #d9d9d9;
 }
 
 .contact-form input,
@@ -207,7 +337,7 @@ a {
   border: none;
   border-bottom: 1px solid #b5b5b5;
   margin-bottom: 10px;
-  width: 100%;
+
   padding: 5px;
 }
 
@@ -233,15 +363,22 @@ a {
   border: solid 1px gray;
   width: 133px;
   height: 43px;
-  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
   transition: all 0.3s ease;
-  cursor: none !important;
   position: fixed;
   top: 1.5rem;
-  right: 2.5rem;
+  right: 18px;
+}
+
+.claim-inside {
+  overflow-x: auto;
+  white-space: nowrap; /* Prevent text wrapping */
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
 }
 
 @media (max-width: 1000px) {
@@ -253,10 +390,11 @@ a {
 @media (max-width: 640px) {
   .h1-desk {
     font-family: "Satoshi-Variable";
-    font-size: 45px;
+
     font-style: normal;
     font-weight: 300;
-    line-height: 49.28px;
+    font-size: 70px;
+    line-height: 91%;
   }
   .h2-desk {
     font-family: "Satoshi-Variable";
@@ -275,10 +413,10 @@ a {
   }
   .b1-desk {
     font-family: "Satoshi-Variable";
-    font-size: 24px;
+    font-size: 32px;
     font-style: normal;
     font-weight: 300;
-    line-height: 32.4px;
+    line-height: 43px;
   }
   .h3-desk {
     font-family: "Satoshi-Variable";
@@ -338,10 +476,112 @@ a {
   }
   .contact.expanded {
     background: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(10px);
+    backdrop-filter: (10px);
+  }
+  .contact-buttons {
+    font-size: 13px;
+    /* padding: 8px 16px; */
+    /* gap: 10px; */
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
+  .contact-text-1 {
+    font-family: "Satoshi-Variable";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    /* We would love to be part of your project */
+  }
+  .contact-text-2 {
+    font-family: "Satoshi-Variable";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 45px;
+    line-height: 61px;
+  }
+  .number-loader {
+    font-family: "Satoshi-Variable", system-ui, -apple-system,
+      BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+      "Open Sans", "Helvetica Neue", sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 70px;
+    line-height: 87%;
+    color: #ffffff;
+    position: absolute;
+    bottom: 40px;
+    right: 45px;
   }
 }
 
-::-webkit-scrollbar {
-  display: none;
+#circleCursor {
+  position: fixed;
+  width: 37px;
+  height: 37px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  border: solid black 1px;
+  pointer-events: none;
+  z-index: 10000;
+  backdrop-filter: blur(3px);
+}
+
+#circleCursor:before {
+  content: var(--before-content, "");
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin-top: var(--before-margin-top, "-7px");
+}
+
+.button-magnetic {
+  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* margin-right: 80px; */
+}
+
+.button {
+  /* cursor: pointer; */
+  box-sizing: border-box;
+}
+
+.text {
+  /* display: inline-block; */
+  pointer-events: initial;
+  position: relative;
+}
+
+.button--primary {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  /* width: 100px; */
+  /* height: 40px; */
+  color: white;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  /* box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15); */
+  box-shadow: 0 3px 10px rgb(255 255 255 / 15%);
+}
+
+.button--primary::before {
+  content: "";
+  display: inline-block;
+  /* background: black; */
+  /* color: black; */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 25px;
+  /* transition: transform 0.3s ease; */
 }

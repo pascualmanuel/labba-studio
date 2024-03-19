@@ -4,7 +4,7 @@
     url("../Assets/Fonts/Satoshi-Variable.woff") format("woff"),
     url("../Assets/Fonts/Satoshi-Variable.ttf") format("truetype");
   font-weight: 300 900;
-  font-display: auto;
+  font-display: swap;
   font-style: normal;
 }
 
@@ -25,7 +25,7 @@
     url("../Assets/Fonts/Satoshi-VariableItalic.woff") format("woff"),
     url("../Assets/Fonts/Satoshi-VariableItalic.ttf") format("truetype");
   font-weight: 300 900;
-  font-display: auto;
+  font-display: swap;
   font-style: italic;
 }
 
@@ -35,7 +35,7 @@
     url("../Assets/Fonts/Satoshi-Light.woff") format("woff"),
     url("../Assets/Fonts/Satoshi-Light.ttf") format("truetype");
   font-weight: 300;
-  font-display: auto;
+  font-display: swap;
   font-style: normal;
 }
 
@@ -45,7 +45,7 @@
     url("../Assets/Fonts/Satoshi-LightItalic.woff") format("woff"),
     url("../Assets/Fonts/Satoshi-LightItalic.ttf") format("truetype");
   font-weight: 300;
-  font-display: auto;
+  font-display: swap;
   font-style: italic;
 }
 
@@ -55,7 +55,7 @@
     url("../Assets/Fonts/Satoshi-Regular.woff") format("woff"),
     url("../Assets/Fonts/Satoshi-Regular.ttf") format("truetype");
   font-weight: 400;
-  font-display: auto;
+  font-display: swap;
   font-style: normal;
 }
 
@@ -65,7 +65,7 @@
     url("../Assets/Fonts/Satoshi-Italic.woff") format("woff"),
     url("../Assets/Fonts/Satoshi-Italic.ttf") format("truetype");
   font-weight: 400;
-  font-display: auto;
+  font-display: swap;
   font-style: italic;
 }
 
@@ -75,7 +75,7 @@
     url("../Assets/Fonts/Satoshi-Medium.woff") format("woff"),
     url("../Assets/Fonts/Satoshi-Medium.ttf") format("truetype");
   font-weight: 500;
-  font-display: auto;
+  font-display: swap;
   font-style: normal;
 }
 
@@ -85,7 +85,7 @@
     url("../Assets/Fonts/Satoshi-MediumItalic.woff") format("woff"),
     url("../Assets/Fonts/Satoshi-MediumItalic.ttf") format("truetype");
   font-weight: 500;
-  font-display: auto;
+  font-display: swap;
   font-style: italic;
 }
 
@@ -95,7 +95,7 @@
     url("../Assets/Fonts/Satoshi-Bold.woff") format("woff"),
     url("../Assets/Fonts/Satoshi-Bold.ttf") format("truetype");
   font-weight: 700;
-  font-display: auto;
+  font-display: swap;
   font-style: normal;
 }
 
@@ -105,7 +105,7 @@
     url("../Assets/Fonts/Satoshi-BoldItalic.woff") format("woff"),
     url("../Assets/Fonts/Satoshi-BoldItalic.ttf") format("truetype");
   font-weight: 700;
-  font-display: auto;
+  font-display: swap;
   font-style: italic;
 }
 
@@ -115,7 +115,7 @@
     url("../Assets/Fonts/Satoshi-Black.woff") format("woff"),
     url("../Assets/Fonts/Satoshi-Black.ttf") format("truetype");
   font-weight: 900;
-  font-display: auto;
+  font-display: swap;
   font-style: normal;
 }
 
@@ -125,6 +125,6 @@
     url("../Assets/Fonts/Satoshi-BlackItalic.woff") format("woff"),
     url("../Assets/Fonts/Satoshi-BlackItalic.ttf") format("truetype");
   font-weight: 900;
-  font-display: auto;
+  font-display: swap;
   font-style: italic;
 }

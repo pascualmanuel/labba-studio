@@ -1,23 +1,17 @@
 import React, { useEffect, useRef, useState } from "react";
 import "../Styles/App.css";
 import Works from "../Components/Works";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 import "../Styles/Prueba.css"; // Asegúrate de tener
 import HomeHero from "../Components/HomeHero";
 import Services from "../Components/Services";
 import Process from "../Components/Process";
 import Carousel from "../Components/Carousel";
-import { ReactSVG } from "react-svg";
-import LabbaL from "../Assets/labba/labba-l.svg";
-import LabbaA from "../Assets/labba/labba-a.svg";
-import LabbaB from "../Assets/labba/labba-b.svg";
-import CursorDrop from "../Assets/labba/drop-line.svg";
+
 import Claim from "../Components/Claim";
 import { useLanguage } from "../Hooks/LanguageContext";
-import LabbaBottom from "../Assets/labba/labba-bottom.svg";
+
 import { Link } from "react-router-dom"; // Import Link from React Router
-import Pruebas from "../Components/Pruebas";
 
 function Home() {
   const { userLanguage, translateText } = useLanguage();
@@ -25,8 +19,8 @@ function Home() {
   const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
   const [viewportHeight, setViewportHeight] = useState(window.innerHeight);
 
-  console.log(viewportWidth);
-  console.log(viewportHeight);
+  // console.log(viewportWidth);
+  // console.log(viewportHeight);
 
   // Use useEffect to ensure the component is mounted before running JavaScript
 
@@ -37,7 +31,11 @@ function Home() {
     shadowOn = "no";
     displayClaim = "none";
   }
-
+  const svgCode = `
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M23.3137 0.686267L0.686292 23.3137M23.3137 0.686267H0.686292M23.3137 0.686267V23.3137" stroke="#ECECEC"/>
+  </svg>
+`;
   useEffect(() => {
     const ellipseShadow = document.getElementById(shadowOn);
 
@@ -61,44 +59,120 @@ function Home() {
       ellipseShadow.style.left = x + "px";
       ellipseShadow.style.top = y + "px";
     });
+
+    // const circleCursor = document.getElementById("circleCursor");
+
+    // if (!circleCursor) {
+    //   // Check if the element exists to prevent errors
+    //   return;
+    // }
+
+    // const cursorWidth = 20;
+    // const cursorHeight = 20;
+    // const mitiWidth = cursorWidth / 2;
+    // const mitiHeight = cursorHeight / 2;
+
+    // let targetX = 0;
+    // let targetY = 0;
+    // let isMoving = false;
+
+    // // Update the ellipse's position based on the cursor's coordinates
+    // document.addEventListener("mousemove", (e) => {
+    //   targetX = e.clientX - mitiWidth; // Center horizontally
+    //   targetY = e.clientY - mitiHeight; // Center vertically
+
+    //   if (!isMoving) {
+    //     isMoving = true;
+    //     updateCursor();
+    //   }
+    // });
+
+    // function isCursorOverLink(element) {
+    //   return element.id === "pasando";
+    // }
+
+    // // Update the cursor style based on whether it's over a link or not
+    // function updateCursorStyle(isOverLink) {
+    //   if (isOverLink) {
+    //     // Modify the cursor style when over a link
+    //     circleCursor.style.width = "100px";
+    //     circleCursor.style.height = "100px";
+    //     circleCursor.style.fontSize = "50px";
+    //     circleCursor.style.fontWeight = "400";
+
+    //     // circleCursor.style.setProperty("--before-content", "'+'"); // Use a custom property
+    //     // circleCursor.style.setProperty("--before-content", `'${svgCode}'`);
+    //     circleCursor.style.setProperty(
+    //       "--before-content",
+    //       `url('data:image/svg+xml,${encodeURIComponent(svgCode)}')`
+    //     );
+
+    //     // circleCursor.style.transition = "0.1s";
+
+    //     // Add other style modifications as needed
+    //   } else {
+    //     // Reset the cursor style when not over a link
+    //     circleCursor.style.backgroundColor = "rgba(255, 255, 255, 0.2)";
+    //     circleCursor.style.width = "35px";
+    //     circleCursor.style.height = "35px";
+    //     // circleCursor.style.transition = "0.1s";
+    //     circleCursor.style.setProperty("--before-content", "''"); // Use a custom property
+    //   }
+    // }
+
+    // function updateCursor() {
+    //   // Calculate the current cursor position
+    //   const currentX = parseFloat(circleCursor.style.left) || 0;
+    //   const currentY = parseFloat(circleCursor.style.top) || 0;
+
+    //   // Calculate the distance to move in this frame
+    //   const deltaX = Math.round((targetX - currentX) * 0.1); // Round the position values
+    //   const deltaY = Math.round((targetY - currentY) * 0.1); // Round the position values
+
+    //   // Update the cursor position
+    //   circleCursor.style.left = Math.round(currentX + deltaX) + "px";
+    //   circleCursor.style.top = Math.round(currentY + deltaY) + "px";
+
+    //   const isOverLink = isCursorOverLink(
+    //     document.elementFromPoint(currentX + mitiWidth, currentY + mitiHeight)
+    //   );
+
+    //   // Update the cursor style
+    //   updateCursorStyle(isOverLink);
+    //   // Check if the cursor has reached the target
+    //   if (
+    //     Math.abs(targetX - currentX) > 0.1 ||
+    //     Math.abs(targetY - currentY) > 0.1
+    //   ) {
+    //     // Continue updating in the next animation frame
+    //     requestAnimationFrame(updateCursor);
+    //   } else {
+    //     isMoving = false;
+    //   }
+    // }
+
+    // er3eerjek932857483wkedskn
+    // dsadjds
   }, []); // Empty dependency array to ensure useEffect runs only once
 
   useEffect(() => {
-    // const handleScroll = (event) => {
-    //   event.preventDefault();
-    //   window.scrollTo(0, window.scrollY + event.deltaY * 0.5); // Adjust the factor to control scroll speed
-    // };
-
-    // window.addEventListener("wheel", handleScroll, { passive: false });
-
-    // return () => {
-    //   // Clean up the event listener when the component unmounts
-    //   window.removeEventListener("wheel", handleScroll);
-    // };
-
-    // let hola = ".parallax";
     const section = document.querySelector(".parallax");
 
     if (!section) {
       return;
     }
 
-    const initialScale = 0.5;
-    const maxScale = 1.0; // Maximum scale value when the section is full width
-    const scaleMultiplier = 0.001; // Adjust this value to control the scaling speed
+    const initialScale = 0.8;
+    const maxScale = 1.0;
+    const scaleMultiplier = 0.001;
+
+    // Set the initial scale explicitly
+    section.style.transform = `scale(${initialScale})`;
 
     const updateSectionScale = () => {
       const scrollY = window.scrollY || window.pageYOffset;
 
-      // Verificar si la transformación ya es igual a 1
-      // if (section.style.transform === "scale(1)") {
-      //   // Si ya es igual a 1, no hagas nada
-      //   return;
-      // }
-
       let newScale = initialScale + scrollY * scaleMultiplier;
-
-      // Ensure the scale doesn't exceed the maximum scale value
       newScale = Math.min(newScale, maxScale);
 
       section.style.transform = `scale(${newScale})`;
@@ -110,6 +184,7 @@ function Home() {
       window.removeEventListener("scroll", updateSectionScale);
     };
   }, []);
+
   const prefooterRef = useRef(null);
   const footerRef = useRef(null);
 
@@ -124,9 +199,9 @@ function Home() {
     if (!prefooter || !footer) {
       return;
     }
-
+    console.log(shouldShrink);
     const triggerHeight =
-      footer.getBoundingClientRect().top - window.innerHeight;
+      footer.getBoundingClientRect().top - window.innerHeight + 170;
     const minOpacity = 1; // Opacidad mínima cuando el prefooter está achicado
 
     const updatePrefooterStyles = () => {
@@ -174,212 +249,99 @@ function Home() {
 
   const [isMoving, setIsMoving] = useState(false);
 
-  let cursorPreFooter = "prefooter";
-
-  if (isMobile) {
-    cursorPreFooter = "no-cursor";
-  }
-
-  const cursorScaleElements = Array.from(
-    document.querySelectorAll(".cursor-scale")
-  );
-
-  useEffect(() => {
-    const cursor = document.querySelector(".cursor");
-    const footerCursor = document.querySelectorAll(`.${cursorPreFooter}`);
-
-    const handleMouseEnter = () => {
-      // Change cursor behavior when entering the plusCursor
-      // For example, you can change the cursor style or add animations here
-
-      // Set the custom cursor image
-      if (cursor) {
-        cursor.style.backgroundImage = `url(${CursorDrop})`;
-        cursor.style.backgroundSize = "contain";
-        cursor.style.backgroundRepeat = "no-repeat";
-        cursor.style.backgroundPosition = "center";
-        cursor.style.width = "300px";
-        cursor.style.height = "77px";
-        cursor.style.border = "none";
-        cursor.style.backgroundColor = "transparent";
-      }
-    };
-
-    const handleMouseLeave = () => {
-      // Restore default cursor behavior when leaving the plusCursor
-
-      // Reset the cursor's background image to none
-      if (cursor) {
-        cursor.style.backgroundImage = "none";
-        cursor.style.zIndex = 9999;
-        cursor.style.position = "fixed";
-        cursor.style.width = "34px";
-        cursor.style.height = "34px";
-        cursor.style.border = "1px solid #000000";
-        cursor.style.backgroundColor = "rgba(255, 255, 255, 0.2)";
-      }
-    };
-
-    footerCursor.forEach((paragraph) => {
-      paragraph.addEventListener("mouseenter", handleMouseEnter);
-      paragraph.addEventListener("mouseleave", handleMouseLeave);
-    });
-
-    // Clean up event listeners when the component unmounts
-    return () => {
-      footerCursor.forEach((paragraph) => {
-        paragraph.removeEventListener("mouseenter", handleMouseEnter);
-        paragraph.removeEventListener("mouseleave", handleMouseLeave);
-      });
-    };
-  }, []);
-
-  const isCursorOverElement = (element) => {
-    if (!element) return false;
-    const rect = element.getBoundingClientRect();
-    return (
-      mouseX >= rect.left &&
-      mouseX <= rect.right &&
-      mouseY >= rect.top &&
-      mouseY <= rect.bottom
-    );
-  };
-
-  let mouseX = 0;
-  let mouseY = 0;
-
-  const [scrollY, setScrollY] = useState(0);
-
-  // Add an event listener to track scroll position
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY / 10);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-  let blabla = {
-    position: "relative",
-    // top: "0px",
-  };
-
-  if (scrollY > 450) {
-    blabla = {
-      position: "relative",
-    };
-  }
-
-  // Define a style object based on the scrollY value
-
-  console.log(scrollY);
   return (
     <>
       <div id={shadowOn}></div>
+      {/* <div id="circleCursor" className="hidden sm:block"></div> */}
       <div className="background-mobile"></div>
       <div className="grain"></div>
-      <div className="homecont" style={{ height: "100vh" }}>
+      <div className="homecont h-[64vh] sm:h-[74vh]">
         <HomeHero />
-        {/* <p>{viewportWidth}</p> */}
-        {/* <p>{viewportHeight}</p> */}
       </div>
 
-      {/* <div> */}
-      <div className="second-section parallax">
-        <div className="work"></div>
-      </div>
-      <Works />
-      <div
-        className="third-section"
-        style={{ color: "red", height: "430px" }}
-      ></div>
-      <div className="fourth-section"></div>
-
-      {/* <Claim /> */}
-      <div className={`claim-container`}>
-        <div className="">
-          <div id="container">
-            <div id="container2">
-              <div className="box one">
-                <div>
-                  <p
-                    className="h2-desk claim"
-                    style={{
-                      whiteSpace: "nowrap",
-                      transform: "translateX(10%)",
-                    }}
-                  >
-                    At <span style={{ color: "white" }}> Labba,</span> we craft
-                    digital products that balance users and business needs.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+      <>
+        <div className="second-section parallax">
+          <div className="work h-[420px] sm:h-[300px] mb-[-5px] sm:mb-[0px]"></div>
         </div>
+        <Works />
+      </>
+
+      <div className="mt-[-140px]" style={{ overflowX: "hidden" }}>
+        <Claim />
       </div>
 
-      <div className="services-cont" id="holaa">
+      <div className="services-cont pt-[20px]">
         <Services />
       </div>
       <Process />
-      <div
-        className="sm:h-screen sm:pb-0 pb-24	"
-        style={{ background: " #ECECEC" }}
-      >
+      <div className="sm:h-screen sm:pb-0  	" style={{ background: " #ECECEC" }}>
         <div className="  ">
           <h3 className="b1-desk ml-11 sm:ml-36 pt-24 sm:pt-72">
             We love our clients
           </h3>
         </div>
         <Carousel />
+        {/* <PruebaPage /> */}
       </div>
+      {/* <StackedCards /> */}
       <div style={{ backgroundColor: "#F2F2F2" }}>
         <div
           className={`prefooter ${shouldShrink ? "shrink" : ""}`}
-          ref={prefooterRef}
+          // ref={prefooterRef}
         >
-          <Link to={"/contact"} target="_blank">
+          <Link to={"/contact"}>
             <div
-              className={` cursor next-level ${isMoving ? "is-moving" : ""}`}
+              className={` cursor next-level ${
+                isMoving ? "is-moving" : ""
+              } flex flex-row h-[100%] items-center justify-center`}
             >
-              <p className="b1-desk py-0 sm:py-72	pl-0 sm:pl-56 text-white	">
+              <p className="b1-desk py-0 pb-[45px] sm:pb-[0px] 	pl-0 sm:pr-[100px] text-white	">
                 {translateText(
                   "Llevamos tu idea a otro level",
                   " Let’s take your idea to the next level."
                 )}
               </p>
-              <ReactSVG src={CursorDrop} className="pt-10 sm:hidden" />
+              {/* <ReactSVG src={CursorDrop} className="" /> */}
+              <div className="drop-us b2-desk text-white">Drop us a line</div>
             </div>
           </Link>
         </div>
-        <div style={{ height: "200px" }}></div>
+        <div className="h-[75px] sm:h-[65px]"></div>
         <div className="footer" ref={footerRef}>
-          <div className="ml-11 sm:ml-56">
-            <div className="sayhi">Say hi</div>
-            <div className="t-mail mt-3" onClick={handleCopyClick}>
-              {email}
-              <span
-                className="ml-5"
-                style={{ fontSize: "16px", fontWeight: "400" }}
-                ref={textToCopy}
-              >
-                click to copy
-              </span>
+          <div className="flex flex-col sm:flex-row justify-between pb-[50px]">
+            <div
+              className="t-mail ml-[18px] sm:ml-[128px] mb-[30px] sm:mb-[0px]"
+              onClick={handleCopyClick}
+            >
+              <p className="sayhi mb-3">Say hi</p>
+              <div className="flex flex-row sm:items-center">
+                <p className="contacts-home">{email}</p>
+                <span
+                  className="ml-5 "
+                  style={{ fontSize: "12px", fontWeight: "400" }}
+                  ref={textToCopy}
+                >
+                  click to copy
+                </span>
+              </div>
+            </div>
+            <div className=" ml-[18px] sm:ml-[0px] sm:mr-[128px] flex flex-col sm:flex-row">
+              <div className=" mr-[80px] mb-[30px] sm:mb-[0px]">
+                <p className="sayhi mb-3">Argentina</p>
+                <a href="https://wa.me/+5491151632960">
+                  <p className="contacts-home">+54 9 11-5163-2960</p>
+                </a>
+              </div>
+              <div>
+                <p className="sayhi mb-3">Spain</p>
+                <a href="https://wa.me/+34634269453">
+                  <p className="contacts-home">+34 634 26 94 53</p>
+                </a>
+              </div>
             </div>
           </div>
-          <div className="flex justify-center mt-20 labba-bottom ">
-            <ReactSVG src={LabbaBottom} />
-          </div>
-          <div className="labba-footer flex items-end justify-between mt-56 ml-2 mr-2 labba-lg-bottom  sm:flex">
-            <ReactSVG src={LabbaL} />
-            <ReactSVG src={LabbaA} />
-            <ReactSVG src={LabbaB} />
-            <ReactSVG src={LabbaB} />
-            <ReactSVG src={LabbaA} />
+          <div className="border-t-gray  ">
+            <p className="privacy-font">© 2024 LABBA STUDIO</p>
           </div>
         </div>
       </div>

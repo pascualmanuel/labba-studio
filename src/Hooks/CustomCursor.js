@@ -1,108 +1,106 @@
-import React, { useEffect, useState, useRef } from "react";
-import { gsap } from "gsap";
+// import React, { useEffect, useState, useRef } from "react";
+// import { gsap } from "gsap";
 
-const CustomCursor = () => {
-  const [isMoving, setIsMoving] = useState(false);
-  const [cursorScaleElements, setCursorScaleElements] = useState([]);
-  const [isInsideHello, setIsInsideHello] = useState(false);
+// const CustomCursor = () => {
+//   const [isMoving, setIsMoving] = useState(false);
+//   const [cursorScaleElements, setCursorScaleElements] = useState([]);
+//   const [isInsideHello, setIsInsideHello] = useState(false);
 
-  const isMobile = window.innerWidth <= 768; // Adjust the width as needed
+//   const isMobile = window.innerWidth <= 768; // Adjust the width as needed
 
-  let cursorStyle = {
-    zIndex: 9999,
-    position: "fixed",
-    width: "34px",
-    height: "34px",
-    border: "1px solid #000000",
-    borderRadius: isInsideHello ? "10px" : "100px",
-    backgroundColor: "rgba(255, 255, 255, 0.2)",
-    pointerEvents: "none",
-    transition: "transform 0.3s ease-out, border-radius 0.3s ease-out",
-    backdropFilter: "blur(2px)",
-  };
+//   let cursorStyle = {
+//     zIndex: 9999,
+//     position: "fixed",
+//     width: "34px",
+//     height: "34px",
+//     border: "1px solid #000000",
+//     borderRadius: isInsideHello ? "10px" : "100px",
+//     backgroundColor: "rgba(255, 255, 255, 0.2)",
+//     pointerEvents: "none",
+//     transition: "transform 0.3s ease-out, border-radius 0.3s ease-out",
+//     backdropFilter: "blur(2px)",
+//   };
 
+//   const plusCursorRef = useRef(null);
 
+//   useEffect(() => {
+//     const cursor = document.querySelector(".cursor");
+//     const cursorScale = document.querySelectorAll(".cursor-scale");
+//     setCursorScaleElements(Array.from(cursorScale));
 
-  const plusCursorRef = useRef(null);
+//     gsap.to(
+//       {},
+//       {
+//         repeat: -1,
+//         duration: 0.016,
+//         onRepeat: function () {
+//           gsap.set(cursor, {
+//             left: mouseX,
+//             top: mouseY,
+//           });
+//         },
+//       }
+//     );
 
-  useEffect(() => {
-    const cursor = document.querySelector(".cursor");
-    const cursorScale = document.querySelectorAll(".cursor-scale");
-    setCursorScaleElements(Array.from(cursorScale));
+//     const handleMouseMove = (e) => {
+//       setIsMoving(true);
+//       mouseX = e.clientX;
+//       mouseY = e.clientY;
+//     };
 
-    gsap.to(
-      {},
-      {
-        repeat: -1,
-        duration: 0.016,
-        onRepeat: function () {
-          gsap.set(cursor, {
-            left: mouseX,
-            top: mouseY,
-          });
-        },
-      }
-    );
+//     const handleMouseLeave = () => {
+//       setIsMoving(false);
+//     };
 
-    const handleMouseMove = (e) => {
-      setIsMoving(true);
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-    };
+//     const plusCursor = plusCursorRef.current;
 
-    const handleMouseLeave = () => {
-      setIsMoving(false);
-    };
+//     if (plusCursor) {
+//       plusCursor.addEventListener("mouseenter", () => {
+//         setIsInsideHello(true);
+//       });
 
-    const plusCursor = plusCursorRef.current;
+//       plusCursor.addEventListener("mouseleave", () => {
+//         setIsInsideHello(false);
+//       });
+//     }
 
-    if (plusCursor) {
-      plusCursor.addEventListener("mouseenter", () => {
-        setIsInsideHello(true);
-      });
+//     window.addEventListener("mousemove", handleMouseMove);
+//     window.addEventListener("mouseleave", handleMouseLeave);
 
-      plusCursor.addEventListener("mouseleave", () => {
-        setIsInsideHello(false);
-      });
-    }
+//     return () => {
+//       window.removeEventListener("mousemove", handleMouseMove);
+//       window.removeEventListener("mouseleave", handleMouseLeave);
 
-    window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("mouseleave", handleMouseLeave);
+//       if (plusCursor) {
+//         plusCursor.removeEventListener("mouseenter", () => {
+//           setIsInsideHello(true);
+//         });
 
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("mouseleave", handleMouseLeave);
+//         plusCursor.removeEventListener("mouseleave", () => {
+//           setIsInsideHello(false);
+//         });
+//       }
+//     };
+//   }, [plusCursorRef]);
 
-      if (plusCursor) {
-        plusCursor.removeEventListener("mouseenter", () => {
-          setIsInsideHello(true);
-        });
+//   return (
+//     <div
+//       className={`cursor ${isMoving ? "is-moving" : ""} sm:block hidden`}
+//       style={cursorStyle}
+//     >
+//       {cursorScaleElements.map((link, index) => (
+//         <div
+//           key={index}
+//           className="cursor-scale"
+//           onMouseMove={() => {}}
+//           onMouseLeave={() => {}}
+//         ></div>
+//       ))}
+//     </div>
+//   );
+// };
 
-        plusCursor.removeEventListener("mouseleave", () => {
-          setIsInsideHello(false);
-        });
-      }
-    };
-  }, [plusCursorRef]);
+// export default CustomCursor;
 
-  return (
-    <div
-      className={`cursor ${isMoving ? "is-moving" : ""} sm:block hidden`}
-      style={cursorStyle}
-    >
-      {cursorScaleElements.map((link, index) => (
-        <div
-          key={index}
-          className="cursor-scale"
-          onMouseMove={() => {}}
-          onMouseLeave={() => {}}
-        ></div>
-      ))}
-    </div>
-  );
-};
-
-export default CustomCursor;
-
-let mouseX = 0;
-let mouseY = 0;
+// let mouseX = 0;
+// let mouseY = 0;

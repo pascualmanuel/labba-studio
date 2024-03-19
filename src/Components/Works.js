@@ -4,73 +4,270 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "../Styles/Prueba.css";
 
 function Works() {
+  const isMobile = window.innerWidth <= 768; //  width as needed
+
+  let scrubDesk = 2.5;
+
+  let positions = {
+    firstPro: -100,
+    secondPro: -680,
+    thirdPro: -800,
+    fourthPro: -980,
+  };
+
+  if (isMobile) {
+    scrubDesk = true;
+    positions = {
+      firstPro: -100,
+      secondPro: -200,
+      thirdPro: -400,
+      fourthPro: -600,
+    };
+  }
+
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    // Selecciona el elemento que quieres animar
-    const elemento = document.querySelector(".elemento-animado");
-
-    // Crea una animación con GSAP para cambiar la posición de "fixed" a "absolute"
-    const animacion = gsap.to(elemento, {
-      y: 0, // Restaura la posición vertical original
-      duration: 0.3, // Duración de la animación en segundos
+    const animacion = gsap.to(".elemento-animado", {
+      y: 0,
+      duration: 0.3,
       scrollTrigger: {
-        trigger: elemento, // El elemento que desencadenará la animación
-        start: "top top", // Comienza la animación cuando el elemento llega al límite superior
-        end: "+=1800", // Finaliza la animación cuando el elemento se desplace hacia abajo en 1000px
-        pin: true, // Fija el elemento
-        pinSpacing: false, // Evita que se espacie automáticamente el contenido
-        scrub: true, // Hace que la animación se sincronice con el desplazamiento
-        markers: false,
+        trigger: ".elemento-animado",
+        start: "top top",
+        end: "+=1200",
+        pin: true,
+        pinSpacing: false,
+        scrub: true,
+        // markers: true,
       },
     });
 
-    // Animación de los cuatro divs que pasan por encima de "inside-cont"
-    const divs = document.querySelectorAll(".div-animado");
-    divs.forEach((div, index) => {
-      gsap.to(div, {
-        y: 0, // Restaura la posición vertical original
-        duration: 0.3, // Duración de la animación en segundos
-        scrollTrigger: {
-          trigger: div,
-          start: "bottom center", // Comienza la animación cuando el div llega al centro de la ventana
-          end: "top center", // Finaliza la animación cuando el div llega a la parte superior de la ventana
-          scrub: true, // Hace que la animación se sincronice con el desplazamiento
-          markers: false,
-        },
-      });
-    });
+    // const firstProAnimation = gsap.to(".first-pro", {
+    //   y: -600,
+    //   ease: "none",
+    //   scrollTrigger: {
+    //     trigger: ".project-container",
+    //     start: "top top",
+    //     end: "bottom bottom",
+    //     scrub: 16,
+    //   },
+    // });
 
-    // Limpia la animación cuando el componente se desmonta
+    // const secondProAnimation = gsap.to(".second-pro", {
+    //   y: 170,
+    //   ease: "none",
+    //   scrollTrigger: {
+    //     trigger: ".project-container",
+    //     start: "top top",
+    //     end: "bottom bottom",
+    //     scrub: 10,
+    //   },
+    // });
+
+    // const thirdProAnimation = gsap.to(".third-pro", {
+    //   y: -280,
+    //   ease: "none",
+    //   scrollTrigger: {
+    //     trigger: ".project-container",
+    //     start: "top top",
+    //     end: "bottom bottom",
+    //     scrub: 8,
+    //   },
+    // });
+
+    // const fourthProAnimation = gsap.to(".fourth-pro", {
+    //   y: -280,
+    //   ease: "none",
+    //   scrollTrigger: {
+    //     trigger: ".project-container",
+    //     start: "top top",
+    //     end: "bottom bottom",
+    //     scrub: 8,
+    //   },
+    // });
+
     return () => {
+      // Limpia las animaciones cuando el componente se desmonta
       animacion.kill();
+      // firstProAnimation.kill();
+      // secondProAnimation.kill();
+      // thirdProAnimation.kill();
+      // fourthProAnimation.kill();
     };
   }, []);
 
+  useEffect(() => {
+    // Set up GSAP animations
+    gsap.to(".first-pro", {
+      y: positions.firstPro, //  distance of the movement for the first project
+      scrollTrigger: {
+        trigger: ".first-pro",
+        start: "top bottom",
+        end: "bottom top",
+        scrub: scrubDesk,
+      },
+    });
+
+    gsap.to(".second-pro", {
+      y: positions.secondPro, //  distance of the movement for the second project
+      scrollTrigger: {
+        // ease: "3s",
+        trigger: ".second-pro",
+        start: "top bottom",
+        end: "bottom top",
+        scrub: scrubDesk,
+      },
+    });
+
+    gsap.to(".third-pro", {
+      y: positions.thirdPro, //  distance of the movement for the third project
+      scrollTrigger: {
+        trigger: ".third-pro",
+        start: "top bottom",
+        // end: "bottom top",
+        scrub: scrubDesk,
+      },
+    });
+
+    gsap.to(".fourth-pro", {
+      y: positions.fourthPro, //  distance of the movement for the fourth project
+      scrollTrigger: {
+        trigger: ".fourth-pro",
+        start: "top bottom",
+        // end: "bottom top",
+        scrub: scrubDesk,
+      },
+    });
+  }, []);
+
   return (
-    <div className="scroll-container">
-      <div className="elemento-animado">
-        {/* Establece las dimensiones del div a 100vh y 100vw */}
-        <div
-          className="inside-cont"
-          style={{ width: "100vw", height: "100vh" }}
-        ></div>
-      </div>
-      <div className="scroll-content">
-        <div className="div-animado">
-          <div className="project-container">
-            <div className="project first-pro"></div>
-            <div className="project second-pro"></div>
+    <>
+      <div className="w-[100vw] overflow-hidden">
+        <div className="scroll-container ">
+          <div className="elemento-animado">
+            <div
+              className="inside-cont"
+              style={{ width: "100vw", height: "110vh" }}
+            ></div>
+          </div>
+          <div className="scroll-content">
+            <div className="div-animado">
+              <div className="project-container">
+                <a href="https://demo-daewoocl.onrender.com/" target="_blank">
+                  <div className="project first-pro mb-[220px] " id="pasando">
+                    <div
+                      className=" project-info  w-[250px] sm:w-[325px] bg-[#FFFFFF33]  
+                      rounded-[12px] absolute top-[30px] left-[30px] blur-bg h-[120px]"
+                    >
+                      <div className="flex flex-row justify-between">
+                        <div>
+                          <p
+                            className="l-desk text-[#ECECEC]"
+                            style={{ fontWeight: 500 }}
+                          >
+                            Daewoo
+                          </p>
+                        </div>
+                        <div className="flex flex-row">
+                          <p className="tags p-14 mr-[6px]">Design</p>
+                          <p className="tags p-14">Development</p>
+                        </div>
+                      </div>
+                      <div className="mt-[10px]">
+                        <p className="b4-desk text-[#ECECEC]">
+                          Pendiente descripción
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+
+                <a href="https://cokrea.inmobiliare.com" target="_blank">
+                  <div className="project second-pro" id="pasando">
+                    <div className=" project-info w-[250px] sm:w-[325px] bg-[#FFFFFF33]  rounded-[12px] absolute top-[30px] left-[30px] blur-bg h-[120px]">
+                      <div className="flex flex-row justify-between">
+                        <div>
+                          <p
+                            className="l-desk text-[#ECECEC]"
+                            style={{ fontWeight: 500 }}
+                          >
+                            Inmobiliare
+                          </p>
+                        </div>
+                        <div className="flex flex-row">
+                          <p className="tags p-14 mr-[6px]">Design</p>
+                          <p className="tags p-14">Development</p>
+                        </div>
+                      </div>
+                      <div className="mt-[10px]">
+                        <p className="b4-desk text-[#ECECEC]">
+                          Redesigning the experience of the largest real estate
+                          news portal in Mexico
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div className="div-animado" style={{ marginTop: "40vh" }}>
+              <div className="project-container">
+                <a>
+                  <div className="project third-pro" id="pasando">
+                    <div className=" project-info w-[250px] sm:w-[325px] bg-[#FFFFFF33]  rounded-[12px] absolute top-[30px] left-[30px] blur-bg h-[120px]">
+                      <div className="flex flex-row justify-between">
+                        <div>
+                          <p
+                            className="l-desk text-[#ECECEC]"
+                            style={{ fontWeight: 500 }}
+                          >
+                            redbee
+                          </p>
+                        </div>
+                        <div className="flex flex-row">
+                          {/* <p className="tags p-14 mr-[6px]">Design</p> */}
+                          <p className="tags p-14">Development</p>
+                        </div>
+                      </div>
+                      <div className="mt-[10px]">
+                        <p className="b4-desk text-[#ECECEC]">Soon...</p>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+                <a href="https://holamorgenstern.com" target="_blank">
+                  <div className="project fourth-pro" id="pasando">
+                    <div className=" project-info w-[250px] sm:w-[325px] bg-[#FFFFFF33]  rounded-[12px] absolute top-[30px] left-[30px] blur-bg h-[120px]">
+                      <div className="flex flex-row justify-between">
+                        <div>
+                          <p
+                            className="l-desk text-[#ECECEC]"
+                            style={{ fontWeight: 500 }}
+                          >
+                            Morgenstern
+                          </p>
+                        </div>
+                        <div className="flex flex-row">
+                          <p className="tags p-14 mr-[6px]">Design</p>
+                          <p className="tags p-14">Development</p>
+                        </div>
+                      </div>
+                      <div className="mt-[10px]">
+                        <p className="b4-desk text-[#ECECEC]">
+                          A creative and playful website for a creative and
+                          playful illustrated project.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="div-animado" style={{ marginTop: "40vh" }}>
-          <div className="project-container">
-            <div className="project first-pro"></div>
-            <div className="project second-pro"></div>
-          </div>
-        </div>
+        {/* <div className="h-[80vh]"></div> */}
       </div>
-    </div>
+    </>
   );
 }
 

@@ -5,18 +5,29 @@ import "../Styles/Prueba.css";
 import { ReactSVG } from "react-svg";
 import Submit from "../Assets/svg-submit.svg";
 import emailjs from "@emailjs/browser";
-
+import { Link } from "react-router-dom";
 function Contact() {
   const [selectedService, setSelectedService] = useState("");
+  const [buttonText, setButtonText] = useState("Send request");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleServiceClick = (service) => {
+    const buttons = document.querySelectorAll(".contact-buttons");
+
+    // Update styles for all buttons
+    buttons.forEach((button) => {
+      button.style.border = "1px solid #d9d9d9";
+    });
+
+    // Toggle the selected service
     if (selectedService.includes(service)) {
-      // If the clicked service is already selected, remove it
       setSelectedService(selectedService.filter((s) => s !== service));
     } else {
-      // Otherwise, add the clicked service to the list of selected services
       setSelectedService([...selectedService, service]);
     }
+
+    // Reset the error message and button styles
+    setError("");
   };
 
   const [formData, setFormData] = useState({
@@ -44,11 +55,34 @@ function Contact() {
   };
 
   const formRef = useRef();
+  const [error, setError] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    //
 
-    // Combine selected services with other form data
+    if (selectedService.length === 0) {
+      // Set an error message and update button styles
+      setError("Please select at least one service.");
+      updateButtonStyles(true);
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    // Reset the error message and button styles
+    setError("");
+    updateButtonStyles(false);
+    setIsSubmitting(true);
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setButtonText("Thank you!");
+      // Optionally, add the "thank-you" and "fade-in" classes for the "Thank you" state
+      document
+        .querySelector(".button-contact-submit")
+        .classList.add("thank-you", "fade-in");
+    }, 2000);
+
     const dataToSend = {
       name: formData.name,
       email: formData.email,
@@ -82,147 +116,161 @@ function Contact() {
       );
   };
 
+  const updateButtonStyles = (error) => {
+    const buttons = document.querySelectorAll(".contact-buttons");
+    buttons.forEach((button) => {
+      if (error) {
+        button.style.border = "1px solid red";
+      } else {
+        button.style.border = "1px solid #ddd"; // Adjust the default border color
+      }
+    });
+  };
+
   return (
     <>
-      <div className="flex flex-column justify-center">
+      <div className="flex flex-column sm:justify-center ml-[18px] sm:ml-[0px]">
         <div className="grain"></div>
-        <div>
-          <h2 className="b3-desk">We would love to be part of your project</h2>
-          <h2 className="h2-desk mt-1 mb-9">Say hello!</h2>
-          <h2 className="b3-desk">I need</h2>
-          <div className="contact-b-cont flex flex-row flex-wrap content-center mt-9">
-            <div
-              className={`contact-buttons b4-desk ${
-                selectedService.includes("Web design") ? "contact-b-active" : ""
-              }`}
-              onClick={() => handleServiceClick("Web design")}
-            >
-              <span style={{ userSelect: "none" }}>Web design</span>
-            </div>
-
-            <div
-              className={`contact-buttons b4-desk ${
-                selectedService.includes("Site from scratch")
-                  ? "contact-b-active"
-                  : ""
-              }`}
-              onClick={() => handleServiceClick("Site from scratch")}
-            >
-              <span style={{ userSelect: "none" }}>Site from scratch</span>
-            </div>
-
-            <div
-              className={`contact-buttons b4-desk ${
-                selectedService.includes("App design") ? "contact-b-active" : ""
-              }`}
-              onClick={() => handleServiceClick("App design")}
-            >
-              <span style={{ userSelect: "none" }}>App design</span>
-            </div>
-            <div
-              className={`contact-buttons b4-desk ${
-                selectedService.includes("UI / UX") ? "contact-b-active" : ""
-              }`}
-              onClick={() => handleServiceClick("UI / UX")}
-            >
-              <span style={{ userSelect: "none" }}>UI / UX</span>
-            </div>
-            <div
-              className={`contact-buttons b4-desk ${
-                selectedService.includes("HTML/CSS Coding")
-                  ? "contact-b-active"
-                  : ""
-              }`}
-              onClick={() => handleServiceClick("HTML/CSS Coding")}
-            >
-              <span style={{ userSelect: "none" }}>HTML/CSS Coding</span>
-            </div>
-            <div
-              className={`contact-buttons b4-desk ${
-                selectedService.includes("Front-end development")
-                  ? "contact-b-active"
-                  : ""
-              }`}
-              onClick={() => handleServiceClick("Front-end development")}
-            >
-              <span style={{ userSelect: "none" }}>Front-end development</span>
-            </div>
-            <div
-              className={`contact-buttons b4-desk ${
-                selectedService.includes("Back-end development")
-                  ? "contact-b-active"
-                  : ""
-              }`}
-              onClick={() => handleServiceClick("Back-end development")}
-            >
-              <span style={{ userSelect: "none" }}>Back-end development</span>
-            </div>
-            <div
-              className={`contact-buttons b4-desk ${
-                selectedService.includes("Branding") ? "contact-b-active" : ""
-              }`}
-              onClick={() => handleServiceClick("Branding")}
-            >
-              <span style={{ userSelect: "none" }}>Branding</span>
-            </div>
-            <div
-              className={`contact-buttons b4-desk ${
-                selectedService.includes("Other") ? "contact-b-active" : ""
-              }`}
-              onClick={() => handleServiceClick("Other")}
-            >
-              <span style={{ userSelect: "none" }}>Other</span>
-            </div>
+        <div className="flex sm:flex-row flex-col sm:items-center">
+          <div className="sm:mr-[170px] mr-[0px] w-[340px] sm:w-auto">
+            <h2 className=" contact-text-1 ">
+              We would love to be part of your project
+            </h2>
+            {/* <Link to="/prueba"> */}
+            <h2 className=" contact-text-2 mt-[10px] sm:mt-1 mb-9 ">
+              Say hello!
+            </h2>
+            {/* </Link> */}
           </div>
-          <div className="contact-form mt-16">
-            <form ref={formRef} onSubmit={handleSubmit}>
-              <div className="input-group flex justify-between">
+          <div>
+            <h2 className="b3-desk text-[24px] f">I need</h2>
+            <div
+              className="contact-b-cont flex flex-row flex-wrap content-center sm:mt-9 mt-[14px] w-[360px] 
+            sm:w-[510px] "
+            >
+              <div
+                className={`contact-buttons b4-desk ${
+                  selectedService.includes("UX / UI Design")
+                    ? "contact-b-active"
+                    : ""
+                }`}
+                onClick={() => handleServiceClick("UX / UI Design")}
+              >
+                <span style={{ userSelect: "none" }}>UX / UI Design</span>
+              </div>
+
+              <div
+                className={`contact-buttons b4-desk ${
+                  selectedService.includes("Web Development")
+                    ? "contact-b-active"
+                    : ""
+                }`}
+                onClick={() => handleServiceClick("Web Development")}
+              >
+                <span style={{ userSelect: "none" }}>Web Development</span>
+              </div>
+
+              <div
+                className={`contact-buttons b4-desk ${
+                  selectedService.includes("Branding") ? "contact-b-active" : ""
+                }`}
+                onClick={() => handleServiceClick("Branding")}
+              >
+                <span style={{ userSelect: "none" }}>Branding</span>
+              </div>
+              {/* <div
+                className={`contact-buttons b4-desk ${
+                  selectedService.includes("Website from scratch")
+                    ? "contact-b-active"
+                    : ""
+                }`}
+                onClick={() => handleServiceClick("Website from scratch")}
+              >
+                <span style={{ userSelect: "none" }}>Website from scratch</span>
+              </div> */}
+              <div
+                className={`contact-buttons b4-desk ${
+                  selectedService.includes("App design")
+                    ? "contact-b-active"
+                    : ""
+                }`}
+                onClick={() => handleServiceClick("App design")}
+              >
+                <span style={{ userSelect: "none" }}>App design</span>
+              </div>
+              <div
+                className={`contact-buttons b4-desk ${
+                  selectedService.includes("Other") ? "contact-b-active" : ""
+                }`}
+                onClick={() => handleServiceClick("Other")}
+              >
+                <span style={{ userSelect: "none" }}>Other</span>
+              </div>
+              <div className="error-message flex items-center mb-[10px]">
+                {error}
+              </div>
+            </div>
+            <div className="contact-form  sm:w-[520px] mt-[1rem]">
+              <form ref={formRef} onSubmit={handleSubmit}>
+                <div className="input-group flex justify-between sm:flex-row flex-col">
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required={true}
+                    placeholder="Your name"
+                    // style={{ width: "225px" }}
+                    className="input-cursor  sm:w-[225px] w-[90vw]"
+                  />
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required={true}
+                    placeholder="Your email"
+                    // style={{ width: "225px" }}
+                    className="input-cursor sm:w-[225px] w-[90vw]"
+                  />
+                </div>
+                <textarea
+                  type="textarea"
+                  name="about"
+                  value={formData.about}
+                  onChange={handleChange}
+                  required={true}
+                  placeholder="About your project"
+                  className="input-cursor sm:w-[500px] w-[90vw] sm:mt-[40px]"
+                />
+                <br />
                 <input
                   type="text"
-                  name="name"
-                  value={formData.name}
+                  name="budget"
+                  value={formData.budget}
                   onChange={handleChange}
-                  placeholder="Your name"
-                  style={{ width: "225px", cursor: "none" }}
+                  required={true}
+                  placeholder="Budget"
+                  className="input-cursor sm:w-[500px] w-[90vw] sm:mt-[40px]"
                 />
                 <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="Your email"
-                  style={{ width: "225px", cursor: "none" }}
+                  type="hidden"
+                  name="selectedService"
+                  value={selectedService}
                 />
-              </div>
-              <input
-                name="about"
-                value={formData.about}
-                onChange={handleChange}
-                placeholder="About your project"
-                style={{ width: "500px", marginTop: "60px", cursor: "none" }}
-              />
-              <br />
-              <input
-                type="text"
-                name="budget"
-                value={formData.budget}
-                onChange={handleChange}
-                placeholder="Budget"
-                style={{ width: "500px", marginTop: "60px", cursor: "none" }}
-              />
-              <input
-                type="hidden"
-                name="selectedService"
-                value={selectedService}
-              />
-              <button
-                type="submit"
-                className="w-[32rem] flex justify-center mt-14 mb-24 "
-                style={{ cursor: "none" }}
-              >
-                <ReactSVG src={Submit} />
-              </button>
-            </form>
+                <div className="flex justify-center">
+                  <button
+                    type="submit"
+                    className={`button-contact-submit b2-desk mt-14 sm:mb-24 input-cursor ${
+                      isSubmitting ? "submitting" : ""
+                    }`}
+                    disabled={isSubmitting}
+                  >
+                    {buttonText}
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>

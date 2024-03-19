@@ -6,24 +6,64 @@ import Second from "../Assets/numbers/02.svg";
 import Third from "../Assets/numbers/03.svg";
 import Fourth from "../Assets/numbers/04.svg";
 import Fifth from "../Assets/numbers/05.svg";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 function Services() {
-  useEffect(() => {
-    // Aquí puedes agregar cualquier código JavaScript personalizado si es necesario
-  }, []);
+  // useEffect(() => {
+  //   gsap.registerPlugin(ScrollTrigger);
+
+  //   const processAnimation = gsap.to(".process-section", {
+  //     // x: "-37%",
+  //     duration: 0.3,
+  //     scrollTrigger: {
+  //       trigger: ".process-section",
+  //       start: "top top",
+  //       end: "+=1800",
+  //       pin: true,
+  //       pinSpacing: false,
+  //       scrub: false,
+  //       // markers: true,
+  //       onEnter: () => {
+  //         document.body.classList.add("pinned-scroll");
+  //       },
+  //       onLeaveBack: () => {
+  //         document.body.classList.remove("pinned-scroll");
+  //       },
+  //     },
+  //   });
+
+  //   return () => {
+  //     processAnimation.kill();
+  //   };
+  // }, []);
 
   return (
-    <div className="process-container sm:pt-0 pt-12" id="process">
-      <div className="process" id="process">
-        <div className=" w-full" style={{ marginBottom: "70px" }}>
+    <div className="process-container sm:pt-0 pt-12 pb-0 sm:pb-28 ">
+      {/* <div className="process" id="process">
+        <div className=" w-full " style={{ marginBottom: "70px" }}>
           <p className="l-desk ml-11 sm:ml-36">PROCESS</p>
           <h3 className="b1-desk ml-11 sm:ml-36">This is how we roll</h3>
         </div>
-      </div>
+      </div> */}
 
-      <main className="flex justify-center">
+      <main className="flex justify-center  sm:mb-0 mb-[-260px]">
         <ul id="cards">
-          <li className="card" id="card_1">
-            <div className="card__content">
+          {/* <li className="card" id="card_1">
+            <div className=" card-1 ">
+              <div className=" w-full" style={{ marginLeft: "-170px" }}>
+                <p className="l-desk ">PROCESS</p>
+                <h3 className="b1-desk ">This is how we roll</h3>
+              </div>
+            </div>
+          </li> */}
+
+          <li className="card w-[100vw] z-[10000] " id="card_2">
+            <div className="absolute left-[0px] ml-11 sm:ml-36 top-[-72px] sm:top-[-120px]">
+              <p className="l-desk ">PROCESS</p>
+              <h3 className="b1-desk ">This is how we roll</h3>
+            </div>
+            <div className=" card-2 card__content card__animation ">
               <div className="card-inside">
                 <div className="number-cont">
                   <ReactSVG
@@ -47,8 +87,8 @@ function Services() {
               </div>
             </div>
           </li>
-          <li className="card" id="card_2">
-            <div className="card__content">
+          <li className="card z-[10001]" id="card_3">
+            <div className=" card-3 card__content card__animation">
               <div className="card-inside">
                 <div className="number-cont">
                   <ReactSVG
@@ -73,8 +113,8 @@ function Services() {
             </div>
           </li>
 
-          <li className="card" id="card_3">
-            <div className="card__content">
+          <li className="card z-[10003]" id="card_4">
+            <div className=" card-4 card__content card__animation">
               <div className="card-inside">
                 <div className="number-cont">
                   <ReactSVG
@@ -100,8 +140,8 @@ function Services() {
             </div>
           </li>
 
-          <li className="card" id="card_4">
-            <div className="card__content">
+          <li className="card z-[10004]" id="card_5">
+            <div className=" card-5 card__content card__animation">
               <div className="card-inside">
                 <div className="number-cont">
                   <ReactSVG
@@ -126,8 +166,8 @@ function Services() {
             </div>
           </li>
 
-          <li className="card" id="card_5">
-            <div className="card__content">
+          <li className="card z-[10005]" id="card_6">
+            <div className=" card-6 card__content card__animation">
               <div className="card-inside">
                 <div className="number-cont">
                   <ReactSVG
