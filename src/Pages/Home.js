@@ -199,7 +199,7 @@ function Home() {
     if (!prefooter || !footer) {
       return;
     }
-    console.log(shouldShrink);
+    // console.log(shouldShrink);
     const triggerHeight =
       footer.getBoundingClientRect().top - window.innerHeight + 170;
     const minOpacity = 1; // Opacidad mínima cuando el prefooter está achicado

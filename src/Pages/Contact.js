@@ -101,7 +101,7 @@ function Contact() {
       )
       .then(
         (result) => {
-          console.log(result.text);
+          // console.log(result.text);
           setFormData({
             name: "",
             email: "",
@@ -111,7 +111,7 @@ function Contact() {
           setSelectedService([]);
         },
         (error) => {
-          console.log(error.text);
+          // console.log(error.text);
         }
       );
   };
