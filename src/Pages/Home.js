@@ -172,7 +172,7 @@ function Home() {
         <Claim />
       </div>
 
-      <div className="services-cont pt-[20px]">
+      <div className="services-cont pt-[20px]" style={{ overflow: "hidden" }}>
         <Services />
       </div>
       <Process />
