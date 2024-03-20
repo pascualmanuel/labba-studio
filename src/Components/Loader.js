@@ -14,9 +14,9 @@ const Loader = () => {
         });
       } else {
         clearInterval(interval);
-        setTimeout(() => setLoading(false), 1000);
+        setTimeout(() => setLoading(false), 350);
       }
-    }, 12);
+    }, 22);
 
     return () => clearInterval(interval);
   }, [progress]);
@@ -29,7 +29,7 @@ const Loader = () => {
       });
     }
   }, [loading]);
-  // Tamo
+
   return (
     <>
       <div

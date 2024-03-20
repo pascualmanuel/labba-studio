@@ -370,9 +370,6 @@ header {
   font-weight: 400;
   font-size: 16px;
   line-height: 22px;
-  /* identical to box height */
-
-  /* BG Gradient */
   background: linear-gradient(
     99.94deg,
     #ff5800 -0.95%,
@@ -386,6 +383,34 @@ header {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-fill-color: transparent;
+}
+
+.sayhi-2 {
+  font-family: "Satoshi-Variable", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 32px;
+  text-align: center;
+  background: linear-gradient(
+    99.94deg,
+    #ff5800 -0.95%,
+    #f62a4b 21.56%,
+    #d42374 42.07%,
+    #a0378b 61.32%,
+    #64428e 78.44%,
+    #2b417a 98.59%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.sayhi-2:hover {
+  color: white !important;
 }
 
 .t-mail {
@@ -556,16 +581,17 @@ header {
 
   .next-level {
     display: flex;
-    justify-content: center;
     height: 400px;
-    align-items: center;
     padding: 0px;
-    width: 250px;
-    text-align: center;
+    width: 290px;
     flex-direction: column;
+    padding-top: 70px;
   }
   .prefooter {
-    display: flex;
+    height: 401px;
+  }
+  .border-t-gray {
+    padding-bottom: 55px;
   }
   .div-animado {
     height: 380px;
@@ -708,23 +734,6 @@ header {
 }
 
 .button-contact-submit {
-  background: linear-gradient(
-    126.48deg,
-    #f62a4b -2.96%,
-    #d42374 47.65%,
-    #a0378b 103.59%
-  );
-  border: 1px solid #b5b5b5;
-  border-radius: 38.5px;
-  width: 218px;
-  height: 77px;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.button-contact-submit {
   /* Your existing button styles */
   transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -736,11 +745,10 @@ header {
 }
 
 .button-contact-submit.thank-you {
-  background-color: #4caf50; /* Change to your desired color for the "Thank you" state */
-  color: #fff; /* Change to your desired text color for the "Thank you" state */
+  background-color: #4caf50;
+  color: #fff;
 }
 
-/* Optional: Add a fade-in animation */
 .fade-in {
   animation: fadeIn 0.5s ease-in-out;
 }
@@ -753,11 +761,6 @@ header {
     opacity: 1;
   }
 }
-/* Prueba.css */
-
-/* Prueba.css */
-
-/* Prueba.css */
 
 .loader {
   position: relative;
@@ -786,7 +789,7 @@ header {
   text-align: center;
   color: #fff;
   line-height: 50px; /* Center the text vertically */
-  transition: width 0.6s ease;
+  transition: width 0.3s ease;
 }
 
 .loading {
@@ -807,17 +810,15 @@ header {
 }
 
 .fade-out {
-  animation: fadeOut 1s forwards; /* Animation for fading out */
+  animation: fadeOut 0.8s forwards;
 }
 
 @keyframes fadeOut {
   0% {
     opacity: 1;
-    /* transform: translateY(0%); */
   }
   100% {
     opacity: 0;
-    /* transform: translateY(100%); */
   }
 }
 
@@ -829,4 +830,60 @@ header {
   justify-content: center;
   border: solid white 2px;
   border-radius: 38.5px;
+}
+
+.coolBeans {
+  overflow: hidden;
+  padding: 1rem 2rem;
+  position: relative;
+  text-decoration: none;
+  transition: 0.2s transform ease-in-out;
+  will-change: transform;
+  z-index: 0;
+  color: linear-gradient(
+    126.48deg,
+    #f62a4b -2.96%,
+    #d42374 47.65%,
+    #a0378b 103.59%
+  );
+  background-color: transparent;
+  border: 1px solid #b5b5b5;
+  border-radius: 38.5px;
+  width: 218px;
+  height: 77px;
+}
+
+.coolBeans::after {
+  background-image: linear-gradient(
+    126.48deg,
+    #f62a4b -2.96%,
+    #d42374 47.65%,
+    #a0378b 103.59%
+  );
+  color: white;
+  border-radius: 3rem;
+  content: "";
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(-100%, 0) rotate(10deg);
+  transform-origin: top left;
+  transition: 0.2s transform ease-out;
+  will-change: transform;
+  z-index: -1;
+  /* cursor: none; */
+}
+
+.coolBeans:hover::after {
+  transform: translate(0, 0);
+}
+
+.coolBeans:hover {
+  border: 2px solid transparent;
+  color: white !important;
+  transform: scale(1.05);
+  will-change: transform;
 }

@@ -259,9 +259,19 @@ function Contact() {
                   value={selectedService}
                 />
                 <div className="flex justify-center">
-                  <button
+                  {/* <button
                     type="submit"
                     className={`button-contact-submit b2-desk mt-14 sm:mb-24 input-cursor ${
+                      isSubmitting ? "submitting" : ""
+                    }`}
+                    disabled={isSubmitting}
+                  >
+                    {buttonText}
+                  </button> */}
+
+                  <button
+                    type="submit"
+                    className={`button-contact-submit button-font mt-14 sm:mb-24 input-cursor coolBeans    ${
                       isSubmitting ? "submitting" : ""
                     }`}
                     disabled={isSubmitting}

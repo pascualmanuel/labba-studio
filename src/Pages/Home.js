@@ -26,10 +26,11 @@ function Home() {
 
   let shadowOn = "ellipse-shadow";
   let displayClaim = "";
-
+  let shrinkNumber = 170;
   if (isMobile) {
     shadowOn = "no";
     displayClaim = "none";
+    shrinkNumber = 320;
   }
   const svgCode = `
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -102,7 +103,7 @@ function Home() {
     }
 
     const triggerHeight =
-      footer.getBoundingClientRect().top - window.innerHeight + 170;
+      footer.getBoundingClientRect().top - window.innerHeight + shrinkNumber;
     const minOpacity = 1;
 
     const updatePrefooterStyles = () => {
@@ -194,24 +195,26 @@ function Home() {
             <div
               className={` cursor next-level ${
                 isMoving ? "is-moving" : ""
-              } flex flex-row h-[100%] items-center justify-center`}
+              } flex flex-row h-[100%] sm:items-center justify-center ml-[18px] sm:ml-0`}
             >
-              <p className="b1-desk py-0 pb-[45px] sm:pb-[0px] 	pl-0 sm:pr-[100px] text-white	">
+              <p className="b1-desk py-0 pb-[45px] sm:pb-[0px] 	pl-0 sm:pr-[100px] text-white	text-left">
                 {translateText(
                   "Llevamos tu idea a otro level",
                   " Let’s take your idea to the next level."
                 )}
               </p>
               {/* <ReactSVG src={CursorDrop} className="" /> */}
-              <div className="drop-us b2-desk text-white">Drop us a line</div>
+              <div className="drop-us button-font text-white">
+                Drop us a line
+              </div>
             </div>
           </Link>
         </div>
-        <div className="h-[75px] sm:h-[65px]"></div>
+        <div className="h-[45px] sm:h-[65px]"></div>
         <div className="footer" ref={footerRef}>
           <div className="flex flex-col sm:flex-row justify-between pb-[50px]">
             <div
-              className="t-mail ml-[18px] sm:ml-[128px] mb-[30px] sm:mb-[0px]"
+              className="t-mail ml-[18px] sm:ml-[128px] mb-[15px] sm:mb-[0px]"
               onClick={handleCopyClick}
             >
               <p className="sayhi mb-3">Say hi</p>
@@ -228,7 +231,7 @@ function Home() {
               </div>
             </div>
             <div className="ml-[18px] sm:ml-[0px] sm:mr-[128px] flex flex-col sm:flex-row">
-              <div className="mr-0 sm:mr-[80px] mb-[30px] sm:mb-[0px]">
+              <div className="mr-0 sm:mr-[80px] mb-[15px] sm:mb-[0px]">
                 <p className="sayhi mb-3">Argentina</p>
                 <a
                   href="https://wa.me/+5491151632960"
