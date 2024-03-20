@@ -13,7 +13,6 @@ function HomeHero() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Adjust the threshold value as needed
       const threshold = 800;
       const scrollY = window.scrollY || window.pageYOffset;
 
@@ -24,10 +23,8 @@ function HomeHero() {
       }
     };
 
-    // Attach the scroll event listener when the component mounts
     window.addEventListener("scroll", handleScroll);
 
-    // Clean up the event listener when the component unmounts
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };

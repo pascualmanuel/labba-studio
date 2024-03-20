@@ -86,13 +86,13 @@ function Header() {
               className="fixed "
               style={{
                 mixBlendMode: "difference",
-                zIndex: "100000",
+                zIndex: "10006",
               }}
             >
               <ReactSVG
                 src={LabbaLogo}
                 className=" sm:ml-[80px] ml-[18px] "
-                style={{ zIndex: "100000" }}
+                style={{ zIndex: "10006" }}
               />
             </div>
           </Link>
@@ -103,7 +103,7 @@ function Header() {
                 className="fixed right-0 mt-[-7px]  mr-[18px]"
                 style={{
                   mixBlendMode: "difference",
-                  zIndex: "100000",
+                  zIndex: "10006",
                 }}
               >
                 <div className="contact">
@@ -203,13 +203,13 @@ function Header() {
               className=" mt-[28px]"
               style={{
                 mixBlendMode: "difference",
-                zIndex: "100000",
+                zIndex: "10006",
               }}
             >
               <ReactSVG
                 src={LabbaLogo}
                 className=" sm:ml-[80px] ml-[18px] "
-                style={{ zIndex: "100000" }}
+                style={{ zIndex: "10006" }}
               />
             </div>
           </Link>
@@ -227,13 +227,13 @@ function Header() {
               className={logoPosition}
               style={{
                 mixBlendMode: "difference",
-                zIndex: "100000",
+                zIndex: "10006",
               }}
             >
               <ReactSVG
                 src={LabbaLogo}
                 className=" sm:ml-[80px] ml-[18px] "
-                style={{ zIndex: "100000" }}
+                style={{ zIndex: "10006" }}
               />
             </div>
           </Link>
@@ -242,7 +242,7 @@ function Header() {
               className="fixed right-0 mt-[-10px] mr-[80px]"
               style={{
                 mixBlendMode: "difference",
-                zIndex: "100000",
+                zIndex: "10006",
               }}
             >
               <div
@@ -265,7 +265,7 @@ function Header() {
                 className="absolute right-0 mt-[-7px]  mr-[18px]"
                 style={{
                   mixBlendMode: "difference",
-                  zIndex: "100000",
+                  zIndex: "10006",
                 }}
               >
                 <div className="contact">

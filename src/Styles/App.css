@@ -390,7 +390,6 @@ flex-grow: 0; */
 @media (max-width: 640px) {
   .h1-desk {
     font-family: "Satoshi-Variable";
-
     font-style: normal;
     font-weight: 300;
     font-size: 70px;
@@ -526,7 +525,7 @@ flex-grow: 0; */
   background: rgba(255, 255, 255, 0.2);
   border: solid black 1px;
   pointer-events: none;
-  z-index: 10000;
+  z-index: 100000;
   backdrop-filter: blur(3px);
 }
 

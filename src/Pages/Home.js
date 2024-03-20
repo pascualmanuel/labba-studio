@@ -40,120 +40,22 @@ function Home() {
     const ellipseShadow = document.getElementById(shadowOn);
 
     if (!ellipseShadow) {
-      // Check if the element exists to prevent errors
       return;
     }
 
-    // Get half of the ellipse's width and height
-    const ellipseWidth = 1167; // Replace with the actual width of your ellipse
-    const ellipseHeight = 1167; // Replace with the actual height of your ellipse
+    const ellipseWidth = 1167;
+    const ellipseHeight = 1167;
     const halfWidth = ellipseWidth / 2;
     const halfHeight = ellipseHeight / 2;
 
-    // Update the ellipse's position based on the cursor's coordinates
     document.addEventListener("mousemove", (e) => {
-      const x = e.clientX - halfWidth; // Center horizontally
-      const y = e.clientY - halfHeight; // Center vertically
+      const x = e.clientX - halfWidth;
+      const y = e.clientY - halfHeight;
 
-      // Set the position of the ellipse
       ellipseShadow.style.left = x + "px";
       ellipseShadow.style.top = y + "px";
     });
-
-    // const circleCursor = document.getElementById("circleCursor");
-
-    // if (!circleCursor) {
-    //   // Check if the element exists to prevent errors
-    //   return;
-    // }
-
-    // const cursorWidth = 20;
-    // const cursorHeight = 20;
-    // const mitiWidth = cursorWidth / 2;
-    // const mitiHeight = cursorHeight / 2;
-
-    // let targetX = 0;
-    // let targetY = 0;
-    // let isMoving = false;
-
-    // // Update the ellipse's position based on the cursor's coordinates
-    // document.addEventListener("mousemove", (e) => {
-    //   targetX = e.clientX - mitiWidth; // Center horizontally
-    //   targetY = e.clientY - mitiHeight; // Center vertically
-
-    //   if (!isMoving) {
-    //     isMoving = true;
-    //     updateCursor();
-    //   }
-    // });
-
-    // function isCursorOverLink(element) {
-    //   return element.id === "pasando";
-    // }
-
-    // // Update the cursor style based on whether it's over a link or not
-    // function updateCursorStyle(isOverLink) {
-    //   if (isOverLink) {
-    //     // Modify the cursor style when over a link
-    //     circleCursor.style.width = "100px";
-    //     circleCursor.style.height = "100px";
-    //     circleCursor.style.fontSize = "50px";
-    //     circleCursor.style.fontWeight = "400";
-
-    //     // circleCursor.style.setProperty("--before-content", "'+'"); // Use a custom property
-    //     // circleCursor.style.setProperty("--before-content", `'${svgCode}'`);
-    //     circleCursor.style.setProperty(
-    //       "--before-content",
-    //       `url('data:image/svg+xml,${encodeURIComponent(svgCode)}')`
-    //     );
-
-    //     // circleCursor.style.transition = "0.1s";
-
-    //     // Add other style modifications as needed
-    //   } else {
-    //     // Reset the cursor style when not over a link
-    //     circleCursor.style.backgroundColor = "rgba(255, 255, 255, 0.2)";
-    //     circleCursor.style.width = "35px";
-    //     circleCursor.style.height = "35px";
-    //     // circleCursor.style.transition = "0.1s";
-    //     circleCursor.style.setProperty("--before-content", "''"); // Use a custom property
-    //   }
-    // }
-
-    // function updateCursor() {
-    //   // Calculate the current cursor position
-    //   const currentX = parseFloat(circleCursor.style.left) || 0;
-    //   const currentY = parseFloat(circleCursor.style.top) || 0;
-
-    //   // Calculate the distance to move in this frame
-    //   const deltaX = Math.round((targetX - currentX) * 0.1); // Round the position values
-    //   const deltaY = Math.round((targetY - currentY) * 0.1); // Round the position values
-
-    //   // Update the cursor position
-    //   circleCursor.style.left = Math.round(currentX + deltaX) + "px";
-    //   circleCursor.style.top = Math.round(currentY + deltaY) + "px";
-
-    //   const isOverLink = isCursorOverLink(
-    //     document.elementFromPoint(currentX + mitiWidth, currentY + mitiHeight)
-    //   );
-
-    //   // Update the cursor style
-    //   updateCursorStyle(isOverLink);
-    //   // Check if the cursor has reached the target
-    //   if (
-    //     Math.abs(targetX - currentX) > 0.1 ||
-    //     Math.abs(targetY - currentY) > 0.1
-    //   ) {
-    //     // Continue updating in the next animation frame
-    //     requestAnimationFrame(updateCursor);
-    //   } else {
-    //     isMoving = false;
-    //   }
-    // }
-
-    // er3eerjek932857483wkedskn
-    // dsadjds
-  }, []); // Empty dependency array to ensure useEffect runs only once
+  }, []);
 
   useEffect(() => {
     const section = document.querySelector(".parallax");
@@ -166,7 +68,6 @@ function Home() {
     const maxScale = 1.0;
     const scaleMultiplier = 0.001;
 
-    // Set the initial scale explicitly
     section.style.transform = `scale(${initialScale})`;
 
     const updateSectionScale = () => {
@@ -199,20 +100,20 @@ function Home() {
     if (!prefooter || !footer) {
       return;
     }
-    // console.log(shouldShrink);
+
     const triggerHeight =
       footer.getBoundingClientRect().top - window.innerHeight + 170;
-    const minOpacity = 1; // Opacidad mínima cuando el prefooter está achicado
+    const minOpacity = 1;
 
     const updatePrefooterStyles = () => {
       const scrollY = window.scrollY || window.pageYOffset;
 
       if (scrollY >= triggerHeight) {
         prefooter.classList.add("shrink");
-        prefooter.style.opacity = minOpacity; // Aplicar opacidad mínima
+        prefooter.style.opacity = minOpacity;
       } else {
         prefooter.classList.remove("shrink");
-        prefooter.style.opacity = 1; // Restaurar la opacidad original (1)
+        prefooter.style.opacity = 1;
       }
     };
 
@@ -243,7 +144,7 @@ function Home() {
         if (textToCopy.current) {
           textToCopy.current.textContent = "click to copy";
         }
-      }, 1500); // Cambiar de vuelta a "click to copy" después de 1.5 segundos
+      }, 1500);
     }
   };
 
@@ -252,10 +153,9 @@ function Home() {
   return (
     <>
       <div id={shadowOn}></div>
-      {/* <div id="circleCursor" className="hidden sm:block"></div> */}
       <div className="background-mobile"></div>
       <div className="grain"></div>
-      <div className="homecont h-[64vh] sm:h-[74vh]">
+      <div className="h-[64vh] sm:h-[74vh]">
         <HomeHero />
       </div>
 
@@ -266,6 +166,7 @@ function Home() {
         <Works />
       </>
 
+      {/* <div className="mt-[-140px]" style={{ overflowX: "hidden" }}> */}
       <div className="mt-[-140px]" style={{ overflowX: "hidden" }}>
         <Claim />
       </div>
@@ -314,28 +215,43 @@ function Home() {
               onClick={handleCopyClick}
             >
               <p className="sayhi mb-3">Say hi</p>
-              <div className="flex flex-row sm:items-center">
-                <p className="contacts-home">{email}</p>
-                <span
-                  className="ml-5 "
-                  style={{ fontSize: "12px", fontWeight: "400" }}
-                  ref={textToCopy}
-                >
-                  click to copy
+              <div className="flex flex-row sm:items-center ">
+                <span className="whatsapp-link">
+                  <p className="contacts-home w-[200px] ">{email}</p>
+                  <p
+                    className="contacts-home w-[200px] hover-text"
+                    ref={textToCopy}
+                  >
+                    Copy email
+                  </p>
                 </span>
               </div>
             </div>
-            <div className=" ml-[18px] sm:ml-[0px] sm:mr-[128px] flex flex-col sm:flex-row">
-              <div className=" mr-[80px] mb-[30px] sm:mb-[0px]">
+            <div className="ml-[18px] sm:ml-[0px] sm:mr-[128px] flex flex-col sm:flex-row">
+              <div className="mr-0 sm:mr-[80px] mb-[30px] sm:mb-[0px]">
                 <p className="sayhi mb-3">Argentina</p>
-                <a href="https://wa.me/+5491151632960">
-                  <p className="contacts-home">+54 9 11-5163-2960</p>
+                <a
+                  href="https://wa.me/+5491151632960"
+                  className="whatsapp-link"
+                  target="_blank"
+                >
+                  <p className="contacts-home w-[220px]">+54 9 11-5163-2960</p>
+                  <p className="contacts-home hover-text w-[220px]">
+                    Open in WhatsApp
+                  </p>
                 </a>
               </div>
               <div>
                 <p className="sayhi mb-3">Spain</p>
-                <a href="https://wa.me/+34634269453">
-                  <p className="contacts-home">+34 634 26 94 53</p>
+                <a
+                  href="https://wa.me/+34634269453"
+                  className="whatsapp-link"
+                  target="_blank"
+                >
+                  <p className="contacts-home w-[220px]">+34 634 269 453</p>
+                  <p className="contacts-home hover-text w-[220px]">
+                    Open in WhatsApp
+                  </p>
                 </a>
               </div>
             </div>

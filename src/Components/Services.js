@@ -38,16 +38,19 @@ function Services() {
         </div>
         <div className="sm:w-1/2 w-full flex flex-col sm:pl-72 md:pl-24 xl:pl-[15rem] items-center mt-[60px] sm:mt-0 ">
           <div
-            className={`sm:w-1/2 w-full flex flex-col sm:pl-72 justify-center plusCursor services service-box ${
+            className={`sm:w-1/2 w-full flex flex-col sm:pl-72 justify-center  services service-box ${
               expDesign ? "expDesign" : ""
             }`}
             onClick={toggleDesign}
           >
             <p
-              className="sp1-desk  flex flex-col pt-[20px] px-[24px]  plusCursor relative"
-              id="pasando2"
+              className="sp1-desk  flex flex-col pt-[20px] px-[24px]   relative"
+              id={expDesign ? "pasando3" : "pasando2"}
             >
-              <span id="pasando2" className="small-numb  mb-[15px]">
+              <span
+                id={expDesign ? "pasando3" : "pasando2"}
+                className="small-numb  mb-[15px]"
+              >
                 01
               </span>
               DESIGN
@@ -69,7 +72,7 @@ function Services() {
             {expDesign ? (
               <>
                 <p
-                  id="pasando2"
+                  id={expDesign ? "pasando3" : "pasando2"}
                   className="small-numb  pl-[24px] pr-[24px] pt-[16px] h-[100%] "
                 >
                   Creating visually stunning web layouts, apps and brands.
@@ -79,16 +82,19 @@ function Services() {
           </div>
 
           <div
-            className={`sm:w-1/2 flex flex-col pl-72 justify-center plusCursorDos services service-box ${
+            className={`sm:w-1/2 flex flex-col pl-72 justify-center  services service-box ${
               expCode ? "expCode" : ""
             }`}
             onClick={toggleCode}
           >
             <p
-              className="sp1-desk  flex flex-col pt-[20px] px-[24px] plusCursorDos relative"
-              id="pasando2"
+              className="sp1-desk  flex flex-col pt-[20px] px-[24px]  relative"
+              id={expCode ? "pasando3" : "pasando2"}
             >
-              <span id="pasando2" className="small-numb  mb-[15px]">
+              <span
+                id={expCode ? "pasando3" : "pasando2"}
+                className="small-numb  mb-[15px]"
+              >
                 02
               </span>
               CODE
@@ -117,7 +123,7 @@ function Services() {
             {expCode ? (
               <>
                 <p
-                  id="pasando2"
+                  id={expCode ? "pasando3" : "pasando2"}
                   className="small-numb  pl-[24px] pr-[24px] pt-[16px] h-[100%]"
                 >
                   Developing reliable, maintainable, and scalable tech solutions
@@ -127,16 +133,19 @@ function Services() {
             ) : null}
           </div>
           <div
-            className={`sm:w-1/2 flex flex-col pl-72 justify-center plusCursorDos services service-box ${
+            className={`sm:w-1/2 flex flex-col pl-72 justify-center  services service-box ${
               expSupport ? "expSupport" : ""
             }`}
             onClick={toggleSupport}
           >
             <p
-              className="sp1-desk  flex flex-col pt-[20px] px-[24px]  plusCursorDos relative"
-              id="pasando2"
+              className="sp1-desk  flex flex-col pt-[20px] px-[24px]   relative"
+              id={expSupport ? "pasando3" : "pasando2"}
             >
-              <span id="pasando2" className="small-numb  mb-[15px]">
+              <span
+                id={expSupport ? "pasando3" : "pasando2"}
+                className="small-numb  mb-[15px]"
+              >
                 03
               </span>
               SUPPORT
@@ -158,7 +167,7 @@ function Services() {
             {expSupport ? (
               <>
                 <p
-                  id="pasando2"
+                  id={expSupport ? "pasando3" : "pasando2"}
                   className="small-numb  pl-[24px] pr-[24px] pt-[16px] h-[100%]"
                 >
                   We’ll join your journey and assist you on maintenance, and
