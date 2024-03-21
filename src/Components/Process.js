@@ -74,7 +74,7 @@ function Services() {
                   />
                 </div>
                 <div>
-                  <h2 className="h3-desk sm:mt-0 mt-2">Hello 👋</h2>
+                  <h2 className="h3-desk sm:mt-0 mt-2">Hello </h2>
                   <p
                     className="b3-desk sm:mt-9 sm:w-[500px] mt-2"
                     style={{ fontSize: "16px" }}
@@ -99,7 +99,7 @@ function Services() {
                   />
                 </div>
                 <div>
-                  <h2 className="h3-desk sm:mt-0 mt-2">Discovery 🔍</h2>
+                  <h2 className="h3-desk sm:mt-0 mt-2">Discovery </h2>
                   <p
                     className="b3-desk sm:mt-9 sm:w-[500px] mt-2"
                     style={{ fontSize: "16px" }}
@@ -125,7 +125,7 @@ function Services() {
                   />
                 </div>
                 <div>
-                  <h2 className="h3-desk sm:mt-0 mt-2">Design 🎨</h2>
+                  <h2 className="h3-desk sm:mt-0 mt-2">Design </h2>
                   <p
                     className="b3-desk sm:mt-9 sm:w-[500px] mt-2"
                     style={{ fontSize: "16px" }}
@@ -152,7 +152,7 @@ function Services() {
                   />
                 </div>
                 <div>
-                  <h2 className="h3-desk sm:mt-0 mt-2">Dev ⌨️</h2>
+                  <h2 className="h3-desk sm:mt-0 mt-2">Dev </h2>
                   <p
                     className="b3-desk sm:mt-9 sm:w-[500px] mt-2"
                     style={{ fontSize: "16px" }}
@@ -178,7 +178,7 @@ function Services() {
                   />
                 </div>
                 <div>
-                  <h2 className="h3-desk sm:mt-0 mt-2">Launch 🚀</h2>
+                  <h2 className="h3-desk sm:mt-0 mt-2">Launch </h2>
                   <p
                     className="b3-desk sm:mt-9 sm:w-[500px] mt-2"
                     style={{ fontSize: "16px" }}

@@ -204,7 +204,11 @@ function Home() {
                 )}
               </p>
               {/* <ReactSVG src={CursorDrop} className="" /> */}
-              <div className="drop-us button-font text-white">
+
+              <div
+                type="submit"
+                className="button-contact-submit button-font input-cursor coolBeans text-white"
+              >
                 Drop us a line
               </div>
             </div>

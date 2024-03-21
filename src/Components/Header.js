@@ -114,113 +114,12 @@ function Header() {
           ) : (
             <Pruebas text={"Contact"} link={"/contact"} />
           )}
-
-          {/* <div
-            className="fixed top-6 right-3 sm:right-10"
-            style={{ zIndex: "100" }}
-          >
-            <div className={`contact ${expanded ? "expanded" : ""}`}>
-              {expanded ? (
-                <div className="expanded-content w-full h-full">
-                  <div
-                    style={{
-                      paddingTop: "15px",
-                      paddingLeft: "28px",
-                      paddingBottom: "44px",
-                      userSelect: "none",
-                    }}
-                    onClick={changeLanguage}
-                  >
-                    <span className="b3-desk mr-4" style={{ fontSize: "16px" }}>
-                      EN
-                    </span>
-                    <span className="b3-desk" style={{ fontSize: "16px" }}>
-                      ES
-                    </span>
-                  </div>
-                  <div
-                    style={{
-                      marginLeft: "28px",
-                    }}
-                  >
-                    <p
-                      className="b1-desk"
-                      style={{ fontSize: "24px", marginBottom: "10px" }}
-                    >
-                      Work
-                    </p>
-                    <p
-                      className="b1-desk"
-                      style={{ fontSize: "24px", marginBottom: "10px" }}
-                    >
-                      Services
-                    </p>
-                    <p
-                      className="b1-desk"
-                      style={{ fontSize: "24px", marginBottom: "10px" }}
-                    >
-                      Process
-                    </p>
-                    <Link to="/contact">
-                      <p
-                        className="b1-desk"
-                        style={{ fontSize: "24px", marginBottom: "10px" }}
-                      >
-                        Contact
-                      </p>
-                    </Link>
-                  </div>
-                </div>
-              ) : null}
-              <div className="menu-icon">
-                {expanded ? null : (
-                  <Link to="/contact">
-                    <p className="b3-desk pl-2.5"> Contact </p>
-                  </Link>
-                )}
-                <ReactSVG
-                  src={expanded ? BurgerClose : Burger}
-                  style={{
-                    position: "absolute",
-                    top: "4px",
-                    right: "6px",
-                    zIndex: "101",
-                  }}
-                  onClick={toggleContact}
-                />
-              </div>
-            </div>
-          </div> */}
         </div>
       </>
     );
   } else {
     return (
       <>
-        {/* <div className="flex flex-row justify-between items-center h-[77px] sm:h-24">
-          <Link to="/">
-            <div
-              className=" mt-[28px]"
-              style={{
-                mixBlendMode: "difference",
-                zIndex: "10006",
-              }}
-            >
-              <ReactSVG
-                src={LabbaLogo}
-                className=" sm:ml-[80px] ml-[18px] "
-                style={{ zIndex: "10006" }}
-              />
-            </div>
-          </Link>
-          <Link to="/">
-            <div className="contact-page absolute">
-              <ReactSVG src={BackIcon} onClick={toggleContact} />
-              <p className="b3-des pl-2.5 "> Back </p>
-            </div>
-          </Link>
-        </div> */}
-
         <div className="flex flex-row justify-between items-center h-[77px] sm:h-24 ">
           <Link to="/">
             <div
@@ -237,27 +136,6 @@ function Header() {
               />
             </div>
           </Link>
-          {/* <Link to={"/"} className="">
-            <div
-              className="fixed right-0 mt-[-10px] mr-[80px]"
-              style={{
-                mixBlendMode: "difference",
-                zIndex: "10006",
-              }}
-            >
-              <div
-                className="contact"
-                style={{
-                  backgroundColor: "black",
-                  border: "1px solid white",
-                }}
-              >
-                <ReactSVG src={BackIcon} onClick={toggleContact} />
-                <p className="b3-des pl-2.5 text-white"> Back </p>
-              </div>
-            </div>
-          </Link> */}
-          {/* <Pruebas /> */}
 
           {isMobile ? (
             <Link to={"/"} className="">
