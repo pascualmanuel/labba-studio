@@ -10,54 +10,10 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 function Services() {
-  // useEffect(() => {
-  //   gsap.registerPlugin(ScrollTrigger);
-
-  //   const processAnimation = gsap.to(".process-section", {
-  //     // x: "-37%",
-  //     duration: 0.3,
-  //     scrollTrigger: {
-  //       trigger: ".process-section",
-  //       start: "top top",
-  //       end: "+=1800",
-  //       pin: true,
-  //       pinSpacing: false,
-  //       scrub: false,
-  //       // markers: true,
-  //       onEnter: () => {
-  //         document.body.classList.add("pinned-scroll");
-  //       },
-  //       onLeaveBack: () => {
-  //         document.body.classList.remove("pinned-scroll");
-  //       },
-  //     },
-  //   });
-
-  //   return () => {
-  //     processAnimation.kill();
-  //   };
-  // }, []);
-
   return (
     <div className="process-container sm:pt-0 pt-12 pb-0 sm:pb-28 ">
-      {/* <div className="process" id="process">
-        <div className=" w-full " style={{ marginBottom: "70px" }}>
-          <p className="l-desk ml-11 sm:ml-36">PROCESS</p>
-          <h3 className="b1-desk ml-11 sm:ml-36">This is how we roll</h3>
-        </div>
-      </div> */}
-
       <main className="flex justify-center  sm:mb-0 mb-[-260px]">
         <ul id="cards">
-          {/* <li className="card" id="card_1">
-            <div className=" card-1 ">
-              <div className=" w-full" style={{ marginLeft: "-170px" }}>
-                <p className="l-desk ">PROCESS</p>
-                <h3 className="b1-desk ">This is how we roll</h3>
-              </div>
-            </div>
-          </li> */}
-
           <li className="card w-[100vw] z-[10000] " id="card_2">
             <div className="absolute left-[0px] ml-11 sm:ml-36 top-[-72px] sm:top-[-120px]">
               <p className="l-desk ">PROCESS</p>

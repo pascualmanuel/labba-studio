@@ -156,7 +156,7 @@ function Home() {
       <div id={shadowOn}></div>
       <div className="background-mobile"></div>
       <div className="grain"></div>
-      <div className="h-[64vh] sm:h-[74vh]">
+      <div className="h-[64vh] sm:h-[74vh]" style={{ minHeight: "510px" }}>
         <HomeHero />
       </div>
 
@@ -222,7 +222,7 @@ function Home() {
               onClick={handleCopyClick}
             >
               <p className="sayhi mb-3">Say hi</p>
-              <div className="flex flex-row sm:items-center ">
+              {/* <div className="flex flex-row sm:items-center ">
                 <span className="whatsapp-link">
                   <p className="contacts-home w-[200px] ">{email}</p>
                   <p
@@ -232,22 +232,40 @@ function Home() {
                     Copy email
                   </p>
                 </span>
+              </div> */}
+              <div className="btn-floral-border" onClick={handleCopyClick}>
+                <div
+                  class="btn-floral-scent before:content-['+54_9_11_5163_2960'] after:content-['click_to_copy'] "
+                  // ref={textToCopy}
+                ></div>
+                {/* <p
+                  className="contacts-home w-[200px] hover-text"
+                  ref={textToCopy}
+                ></p> */}
               </div>
             </div>
+
             <div className="ml-[18px] sm:ml-[0px] sm:mr-[128px] flex flex-col sm:flex-row">
               <div className="mr-0 sm:mr-[80px] mb-[15px] sm:mb-[0px]">
-                <p className="sayhi mb-3">Argentina</p>
-                <a
-                  href="https://wa.me/+5491151632960"
-                  className="whatsapp-link"
-                  target="_blank"
-                >
-                  <p className="contacts-home w-[220px]">+54 9 11-5163-2960</p>
-                  <p className="contacts-home hover-text w-[220px]">
-                    Open in WhatsApp
-                  </p>
-                </a>
+                <div>
+                  <p className="sayhi mb-3">Argentina</p>
+                  <a
+                    href="https://wa.me/+5491151632960"
+                    className="whatsapp-link"
+                    target="_blank"
+                  >
+                    <div className="btn-floral-border">
+                      <div class="btn-floral-scent before:content-['+54_9_11_5163_2960'] after:content-['Open_in_WhatsApp'] "></div>
+                    </div>
+                  </a>
+                </div>
               </div>
+              <div className="btn-floral-scent"></div>
+              {/* <div class="btn-floral-scent before:content-['+34&nbsp;634&nbsp;269&nbsp;453'] after:content-['Open&nbsp;In&nbsp;WhatsApp'] "></div> */}
+              {/* <div class="btn-floral-scent before:content-['+34634269453'] after:content-['Open&nbsp;InWhatsApp'] "></div> */}
+              {/* <div className="btn-floral-border">
+                <div class="btn-floral-scent before:content-['+34_0634_0269_453'] after:content-['Open_in_WhatsApp'] "></div>
+              </div> */}
               <div>
                 <p className="sayhi mb-3">Spain</p>
                 <a
@@ -255,10 +273,9 @@ function Home() {
                   className="whatsapp-link"
                   target="_blank"
                 >
-                  <p className="contacts-home w-[220px]">+34 634 269 453</p>
-                  <p className="contacts-home hover-text w-[220px]">
-                    Open in WhatsApp
-                  </p>
+                  <div className="btn-floral-border">
+                    <div class="btn-floral-scent before:content-['+34_0634_0269_453'] after:content-['Open_in_WhatsApp'] "></div>
+                  </div>
                 </a>
               </div>
             </div>

@@ -526,7 +526,14 @@ flex-grow: 0; */
     right: 45px;
   }
 }
-
+@media (max-width: 640px) and (max-height: 600px) {
+  .h1-desk {
+    font-size: 60px;
+  }
+  .home-desc-hero {
+    bottom: 100px;
+  }
+}
 #circleCursor {
   position: fixed;
   width: 37px;

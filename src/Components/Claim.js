@@ -104,7 +104,7 @@ function Claim() {
       duration: 0.3,
       scrollTrigger: {
         trigger: ".claim-section",
-        start: "top top+=1",
+        start: "top top",
         end: "+=1800",
         pin: true,
         pinSpacing: true,
@@ -115,35 +115,9 @@ function Claim() {
 
     return () => {
       claimAnimation.kill();
-      // firstProAnimation.kill();
-      // secondProAnimation.kill();
-      // thirdProAnimation.kill();
-      // fourthProAnimation.kill();
     };
   }, []);
 
-  // useEffect(() => {
-  //   gsap.registerPlugin(ScrollTrigger);
-
-  //   const animacion = gsap.to(claimSectionRef.current, {
-  //     x: xAnimation,
-  //     duration: 0.3,
-  //     scrollTrigger: {
-  //       trigger: claimSectionRef.current,
-  //       start: "top top",
-  //       end: "+=1800",
-  //       pin: true,
-  //       pinSpacing: true,
-  //       scrub: true,
-  //       markers: true,
-  //     },
-  //   });
-
-  //   return () => {
-  //     animacion.kill();
-  //   };
-  // }, [xAnimation]); //
-  // console.log(vwClaim);
   return (
     <>
       <div>

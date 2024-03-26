@@ -281,7 +281,7 @@ header {
   color: rgb(10, 5, 7);
   border-radius: 1em;
   overflow: hidden;
-  outline: var(--outline-width) solid #b5b5b5;
+  border: solid 1px #b5b5b5;
   width: 870px;
   height: 340px;
   display: flex;
@@ -625,6 +625,12 @@ header {
   }
 }
 
+@media (max-width: 640px) and (max-height: 600px) {
+  .home-desc-hero {
+    bottom: 60px;
+  }
+}
+
 /* geiwfdjughtyrfehudijwokibuhfd */
 
 #container .box {
@@ -701,6 +707,13 @@ header {
   }
   .right-blur {
     display: none;
+  }
+}
+
+@media (min-width: 1000px) and (max-height: 690px) {
+  .card__content {
+    width: 760px !important;
+    height: 260px !important;
   }
 }
 
@@ -883,4 +896,51 @@ header {
   color: white !important;
   transform: scale(1.05);
   will-change: transform;
+}
+
+.btn-floral-border {
+  border: 1px solid #b5b5b5;
+  border-radius: 20px;
+  height: 44px;
+  width: 220px;
+}
+
+.btn-floral-scent {
+  position: relative;
+  width: 220px;
+  height: 42px;
+  overflow: hidden;
+  border: none;
+  color: black;
+  font-size: 16px;
+}
+.btn-floral-scent::before {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  transition: all 0.3s;
+}
+.btn-floral-scent::after {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  transition: all 0.3s;
+}
+.btn-floral-scent:hover::before {
+  top: -60px;
+}
+.btn-floral-scent:hover::after {
+  top: 0;
 }
