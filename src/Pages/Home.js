@@ -150,6 +150,36 @@ function Home() {
   };
 
   const [isMoving, setIsMoving] = useState(false);
+  const [hovered, setHovered] = useState(false);
+
+  const btnEmailCopyStyle = {
+    position: "relative",
+    width: "220px",
+    height: "42px",
+    overflow: "hidden",
+    border: "none",
+    cursor: "inherit",
+  };
+
+  const beforeAfterStyle = {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    position: "absolute",
+    width: "100%",
+    height: "100%",
+    transition: "all 0.3s",
+  };
+
+  const beforeHover = {
+    ...beforeAfterStyle,
+    top: hovered ? "-60px" : "0",
+  };
+
+  const afterHover = {
+    ...beforeAfterStyle,
+    top: hovered ? "0" : "60px",
+  };
 
   return (
     <>
@@ -222,26 +252,28 @@ function Home() {
               onClick={handleCopyClick}
             >
               <p className="sayhi mb-3">Say hi</p>
-              {/* <div className="flex flex-row sm:items-center ">
-                <span className="whatsapp-link">
-                  <p className="contacts-home w-[200px] ">{email}</p>
-                  <p
-                    className="contacts-home w-[200px] hover-text"
+              <div className="btn-floral-border" onClick={handleCopyClick}>
+                {/* <div
+                  class={`btn-floral-scent before:content-['hello@labba.studio'] after:content-['${classHello}'] `}
+                  ref={textToCopy}
+                ></div> */}
+                <button
+                  className=""
+                  style={btnEmailCopyStyle}
+                  onMouseEnter={() => setHovered(true)}
+                  onMouseLeave={() => setHovered(false)}
+                >
+                  <div className="b4-desk text-red" style={beforeHover}>
+                    hello@labba.studio
+                  </div>
+                  <div
+                    className="b4-desk text-red"
+                    style={afterHover}
                     ref={textToCopy}
                   >
-                    Copy email
-                  </p>
-                </span>
-              </div> */}
-              <div className="btn-floral-border" onClick={handleCopyClick}>
-                <div
-                  class="btn-floral-scent before:content-['+54_9_11_5163_2960'] after:content-['click_to_copy'] "
-                  // ref={textToCopy}
-                ></div>
-                {/* <p
-                  className="contacts-home w-[200px] hover-text"
-                  ref={textToCopy}
-                ></p> */}
+                    click to copy
+                  </div>
+                </button>
               </div>
             </div>
 
@@ -255,17 +287,11 @@ function Home() {
                     target="_blank"
                   >
                     <div className="btn-floral-border">
-                      <div class="btn-floral-scent before:content-['+54_9_11_5163_2960'] after:content-['Open_in_WhatsApp'] "></div>
+                      <div class="btn-floral-scent b4-desk  before:content-['+54_9_11_5163_2960'] after:content-['Open_in_WhatsApp'] "></div>
                     </div>
                   </a>
                 </div>
               </div>
-              <div className="btn-floral-scent"></div>
-              {/* <div class="btn-floral-scent before:content-['+34&nbsp;634&nbsp;269&nbsp;453'] after:content-['Open&nbsp;In&nbsp;WhatsApp'] "></div> */}
-              {/* <div class="btn-floral-scent before:content-['+34634269453'] after:content-['Open&nbsp;InWhatsApp'] "></div> */}
-              {/* <div className="btn-floral-border">
-                <div class="btn-floral-scent before:content-['+34_0634_0269_453'] after:content-['Open_in_WhatsApp'] "></div>
-              </div> */}
               <div>
                 <p className="sayhi mb-3">Spain</p>
                 <a
@@ -274,7 +300,7 @@ function Home() {
                   target="_blank"
                 >
                   <div className="btn-floral-border">
-                    <div class="btn-floral-scent before:content-['+34_0634_0269_453'] after:content-['Open_in_WhatsApp'] "></div>
+                    <div class="btn-floral-scent  b4-desk before:content-['+34_0634_0269_453'] after:content-['Open_in_WhatsApp'] "></div>
                   </div>
                 </a>
               </div>

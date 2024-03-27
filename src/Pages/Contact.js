@@ -1,11 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "../Styles/Prueba.css";
-import { ReactSVG } from "react-svg";
-import Submit from "../Assets/svg-submit.svg";
 import emailjs from "@emailjs/browser";
-import { Link } from "react-router-dom";
+
 function Contact() {
   const [selectedService, setSelectedService] = useState("");
   const [buttonText, setButtonText] = useState("Send request");
@@ -51,7 +47,6 @@ function Contact() {
       ...formData,
       selectedService,
     });
-    // console.log(selectedService, ";s;s");
   };
 
   const formRef = useRef();
@@ -206,7 +201,7 @@ function Contact() {
               >
                 <span style={{ userSelect: "none" }}>Other</span>
               </div>
-              <div className="error-message flex items-center mb-[10px]">
+              <div className="text-[red]  flex items-center mb-[10px]">
                 {error}
               </div>
             </div>
