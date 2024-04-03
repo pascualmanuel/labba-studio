@@ -471,8 +471,8 @@ header {
 }
 
 .services-cont {
-  /* margin-top: -240vh; */
-  margin-bottom: 400px;
+  /* margin-top: -24lvh; */
+  /* margin-bottom: 4000px; */
 }
 
 .labba-lg-bottom {
@@ -618,7 +618,6 @@ header {
   .services-cont {
     height: auto;
     margin-bottom: 140px;
-    margin-top: -170px;
   }
 
   .home-desc-hero {

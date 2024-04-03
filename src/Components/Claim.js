@@ -107,7 +107,7 @@ function Claim() {
         start: "top top",
         end: "+=1800",
         pin: true,
-        pinSpacing: false,
+        pinSpacing: true,
         scrub: true,
         // markers: true,
       },
@@ -124,7 +124,7 @@ function Claim() {
         <div
           // ref={claimSectionRef}
           className="h-[110vh] claim-section  bg-[#121212] flex items-center"
-          style={{ marginBottom: "235vh", width: vwClaim }}
+          style={{ marginBottom: "0", width: vwClaim }}
         >
           <div
             className="claim-inside"
