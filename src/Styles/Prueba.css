@@ -471,7 +471,7 @@ header {
 }
 
 .services-cont {
-  margin-top: -240vh;
+  /* margin-top: -240vh; */
   margin-bottom: 400px;
 }
 
@@ -618,6 +618,7 @@ header {
   .services-cont {
     height: auto;
     margin-bottom: 140px;
+    margin-top: -170px;
   }
 
   .home-desc-hero {

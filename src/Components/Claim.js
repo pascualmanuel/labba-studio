@@ -107,7 +107,7 @@ function Claim() {
         start: "top top",
         end: "+=1800",
         pin: true,
-        pinSpacing: true,
+        pinSpacing: false,
         scrub: true,
         // markers: true,
       },

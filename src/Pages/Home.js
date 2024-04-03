@@ -125,6 +125,11 @@ function Home() {
     };
   }, []);
 
+  const [isMoving, setIsMoving] = useState(false);
+  const [hovered, setHovered] = useState(false);
+  const [isCopied, setIsCopied] = useState(false);
+
+  console.log(hovered);
   function copyToClipboard(textToCopy) {
     const textArea = document.createElement("textarea");
     textArea.value = textToCopy;
@@ -132,6 +137,7 @@ function Home() {
     textArea.select();
     document.execCommand("copy");
     document.body.removeChild(textArea);
+    setIsCopied(true); // Set isCopied to true when the text is copied
   }
 
   const email = "hello@labba.studio";
@@ -141,16 +147,8 @@ function Home() {
     copyToClipboard(email);
     if (textToCopy.current) {
       textToCopy.current.textContent = "Copied!";
-      setTimeout(() => {
-        if (textToCopy.current) {
-          textToCopy.current.textContent = "click to copy";
-        }
-      }, 1500);
     }
   };
-
-  const [isMoving, setIsMoving] = useState(false);
-  const [hovered, setHovered] = useState(false);
 
   const btnEmailCopyStyle = {
     position: "relative",
@@ -197,7 +195,6 @@ function Home() {
         <Works />
       </>
 
-      {/* <div className="mt-[-140px]" style={{ overflowX: "hidden" }}> */}
       <div className="mt-[-140px]" style={{ overflowX: "hidden" }}>
         <Claim />
       </div>
@@ -213,14 +210,10 @@ function Home() {
           </h3>
         </div>
         <Carousel />
-        {/* <PruebaPage /> */}
       </div>
-      {/* <StackedCards /> */}
+
       <div style={{ backgroundColor: "#F2F2F2" }}>
-        <div
-          className={`prefooter ${shouldShrink ? "shrink" : ""}`}
-          // ref={prefooterRef}
-        >
+        <div className={`prefooter ${shouldShrink ? "shrink" : ""}`}>
           <Link to={"/contact"}>
             <div
               className={` cursor next-level ${
@@ -247,21 +240,17 @@ function Home() {
         <div className="h-[45px] sm:h-[65px]"></div>
         <div className="footer" ref={footerRef}>
           <div className="flex flex-col sm:flex-row justify-between pb-[50px]">
-            <div
-              className="t-mail ml-[18px] sm:ml-[128px] mb-[15px] sm:mb-[0px]"
-              onClick={handleCopyClick}
-            >
+            <div className="t-mail ml-[18px] sm:ml-[128px] mb-[15px] sm:mb-[0px]">
               <p className="sayhi mb-3">Say hi</p>
               <div className="btn-floral-border" onClick={handleCopyClick}>
-                {/* <div
-                  class={`btn-floral-scent before:content-['hello@labba.studio'] after:content-['${classHello}'] `}
-                  ref={textToCopy}
-                ></div> */}
                 <button
                   className=""
                   style={btnEmailCopyStyle}
                   onMouseEnter={() => setHovered(true)}
-                  onMouseLeave={() => setHovered(false)}
+                  onMouseLeave={() => {
+                    setHovered(false);
+                    textToCopy.current.textContent = "click to copy";
+                  }}
                 >
                   <div className="b4-desk text-red" style={beforeHover}>
                     hello@labba.studio
@@ -271,7 +260,7 @@ function Home() {
                     style={afterHover}
                     ref={textToCopy}
                   >
-                    click to copy
+                    {isCopied ? "Copied!" : "click to copy"}
                   </div>
                 </button>
               </div>
