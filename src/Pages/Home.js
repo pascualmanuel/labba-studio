@@ -1,36 +1,30 @@
 import React, { useEffect, useRef, useState } from "react";
 import "../Styles/App.css";
 import Works from "../Components/Works";
-
-import "../Styles/Prueba.css"; // Asegúrate de tener
+import "../Styles/Prueba.css";
 import HomeHero from "../Components/HomeHero";
 import Services from "../Components/Services";
 import Process from "../Components/Process";
 import Carousel from "../Components/Carousel";
-
 import Claim from "../Components/Claim";
 import { useLanguage } from "../Hooks/LanguageContext";
-
-import { Link } from "react-router-dom"; // Import Link from React Router
+import { Link } from "react-router-dom";
 
 function Home() {
   const { userLanguage, translateText } = useLanguage();
-  const isMobile = window.innerWidth <= 768; // Adjust the width as needed
+  const isMobile = window.innerWidth <= 768;
   const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
   const [viewportHeight, setViewportHeight] = useState(window.innerHeight);
-
-  // console.log(viewportWidth);
-  // console.log(viewportHeight);
-
-  // Use useEffect to ensure the component is mounted before running JavaScript
 
   let shadowOn = "ellipse-shadow";
   let displayClaim = "";
   let shrinkNumber = 170;
+  console.log(window.innerWidth);
   if (isMobile) {
+    // console.log("ggg");
     shadowOn = "no";
     displayClaim = "none";
-    shrinkNumber = 320;
+    shrinkNumber = 340;
   }
   const svgCode = `
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -95,33 +89,30 @@ function Home() {
   );
 
   useEffect(() => {
-    const prefooter = document.querySelector(".prefooter");
-    const footer = document.querySelector(".footer");
+    function handleScroll() {
+      const prefooter = document.querySelector(".prefooter");
 
-    if (!prefooter || !footer) {
-      return;
-    }
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.body.clientHeight;
+      const scrollTop =
+        window.scrollY ||
+        window.pageYOffset ||
+        document.documentElement.scrollTop;
+      const bottomThreshold = 100; // 100px arriba del bottom
+      const scrolledToThreshold =
+        scrollTop + windowHeight >= documentHeight - bottomThreshold;
 
-    const triggerHeight =
-      footer.getBoundingClientRect().top - window.innerHeight + shrinkNumber;
-    const minOpacity = 1;
-
-    const updatePrefooterStyles = () => {
-      const scrollY = window.scrollY || window.pageYOffset;
-
-      if (scrollY >= triggerHeight) {
+      if (scrolledToThreshold) {
         prefooter.classList.add("shrink");
-        prefooter.style.opacity = minOpacity;
       } else {
         prefooter.classList.remove("shrink");
         prefooter.style.opacity = 1;
       }
-    };
+    }
 
-    window.addEventListener("scroll", updatePrefooterStyles);
-
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener("scroll", updatePrefooterStyles);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -129,7 +120,6 @@ function Home() {
   const [hovered, setHovered] = useState(false);
   const [isCopied, setIsCopied] = useState(false);
 
-  console.log(hovered);
   function copyToClipboard(textToCopy) {
     const textArea = document.createElement("textarea");
     textArea.value = textToCopy;
@@ -226,7 +216,6 @@ function Home() {
                   " Let’s take your idea to the next level."
                 )}
               </p>
-              {/* <ReactSVG src={CursorDrop} className="" /> */}
 
               <div
                 type="submit"

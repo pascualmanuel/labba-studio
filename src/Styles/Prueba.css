@@ -357,7 +357,7 @@ header {
 }
 
 .border-t-gray {
-  border-top: solid #b5b5b5;
+  border-top: 1px solid #b5b5b5;
   margin-left: 128px;
   margin-right: 128px;
   display: flex;
