@@ -43,7 +43,7 @@ function HomeHero() {
               <p className="h1-desk decoration-slate-100 w-[350px] sm:w-auto">
                 {translateText(
                   "Entre el mágico y el ninja te rompes alto site",
-                  "Your bussiness deserves an amazing website."
+                  "Your business deserves an amazing website."
                 )}
               </p>
             </div>
