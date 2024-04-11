@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import "../Styles/Prueba.css";
 import emailjs from "@emailjs/browser";
+import Rounded from "../Hooks/Rounded";
 
 function Contact() {
   const [selectedService, setSelectedService] = useState("");
@@ -143,6 +144,7 @@ function Contact() {
               className="contact-b-cont flex flex-row flex-wrap content-center sm:mt-9 mt-[14px] w-[360px] 
             sm:w-[510px] "
             >
+              {/* <Rounded> */}
               <div
                 className={`contact-buttons b4-desk ${
                   selectedService.includes("UX / UI Design")
@@ -153,7 +155,7 @@ function Contact() {
               >
                 <span style={{ userSelect: "none" }}>UX / UI Design</span>
               </div>
-
+              {/* </Rounded> */}
               <div
                 className={`contact-buttons b4-desk ${
                   selectedService.includes("Web Development")
@@ -264,7 +266,7 @@ function Contact() {
                     {buttonText}
                   </button> */}
 
-                  <button
+                  {/* <button
                     type="submit"
                     className={`button-contact-submit button-font mt-14 sm:mb-24 input-cursor coolBeans    ${
                       isSubmitting ? "submitting" : ""
@@ -272,6 +274,11 @@ function Contact() {
                     disabled={isSubmitting}
                   >
                     {buttonText}
+                  </button> */}
+                  <button className="button-font mt-14 sm:mb-24 ">
+                    <Rounded>
+                      <p>{buttonText}</p>
+                    </Rounded>
                   </button>
                 </div>
               </form>

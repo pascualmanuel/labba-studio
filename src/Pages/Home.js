@@ -9,6 +9,7 @@ import Carousel from "../Components/Carousel";
 import Claim from "../Components/Claim";
 import { useLanguage } from "../Hooks/LanguageContext";
 import { Link } from "react-router-dom";
+import Rounded from "../Hooks/Rounded";
 
 function Home() {
   const { userLanguage, translateText } = useLanguage();
@@ -216,13 +217,17 @@ function Home() {
                   " Let’s take your idea to the next level."
                 )}
               </p>
-
-              <div
+              {/* <div
                 type="submit"
                 className="button-contact-submit button-font input-cursor coolBeans text-white"
               >
                 Drop us a line
-              </div>
+              </div> */}
+              <Rounded>
+                <p className="button-font" style={{ color: "white" }}>
+                  Drop us a line
+                </p>
+              </Rounded>
             </div>
           </Link>
         </div>

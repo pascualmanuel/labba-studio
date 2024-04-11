@@ -1,19 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
-import logo from "./logo.svg";
 import "./Styles/App.css";
 import Home from "./Pages/Home";
 import Header from "./Components/Header";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-// import CustomCursor from "./Hooks/CustomCursor";
 import Contact from "./Pages/Contact";
 import { LanguageProvider } from "./Hooks/LanguageContext";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { TweenLite } from "gsap/gsap-core";
-import SmoothScroll from "./Hooks/SmoothScroll";
 import Pruebas from "./Components/Pruebas";
 import PruebaPage from "./Pages/PruebaPage";
-import Cursor from "./Hooks/Cursor";
+
 import Loader from "./Components/Loader";
 function ScrollToTop() {
   const location = useLocation();
