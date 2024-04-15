@@ -223,7 +223,7 @@ function Home() {
               >
                 Drop us a line
               </div> */}
-              <Rounded>
+              <Rounded widthButton={247} heightButton={77}>
                 <p className="button-font" style={{ color: "white" }}>
                   Drop us a line
                 </p>

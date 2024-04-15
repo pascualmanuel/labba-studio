@@ -275,9 +275,9 @@ function Contact() {
                   >
                     {buttonText}
                   </button> */}
-                  <button className="button-font mt-14 sm:mb-24 ">
-                    <Rounded>
-                      <p>{buttonText}</p>
+                  <button className=" mt-14 sm:mb-24 ">
+                    <Rounded widthButton={170} heightButton={77}>
+                      <p className="contact-text-1">{buttonText}</p>
                     </Rounded>
                   </button>
                 </div>
