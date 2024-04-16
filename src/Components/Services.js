@@ -54,7 +54,7 @@ function Services() {
                 01
               </span>
               DESIGN
-              <span class="absolute right-[24px]">
+              <span className="absolute right-[24px]">
                 <svg
                   width="18"
                   height="18"
@@ -98,7 +98,7 @@ function Services() {
                 02
               </span>
               CODE
-              <span class="absolute right-[24px]">
+              <span className="absolute right-[24px]">
                 <svg
                   width="18"
                   height="18"
@@ -149,7 +149,7 @@ function Services() {
                 03
               </span>
               SUPPORT
-              <span class="absolute right-[24px]">
+              <span className="absolute right-[24px]">
                 <svg
                   width="18"
                   height="18"

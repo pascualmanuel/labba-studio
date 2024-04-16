@@ -138,7 +138,7 @@ function Header() {
           </Link>
 
           {isMobile ? (
-            <Link to={"/"} className="">
+            <Link to={"/#home"} className="">
               <div
                 className="absolute right-0 mt-[-7px]  mr-[18px]"
                 style={{
@@ -155,7 +155,7 @@ function Header() {
               </div>
             </Link>
           ) : (
-            <Pruebas text={"Back"} link={"/"} />
+            <Pruebas text={"Back"} link={"/#home"} />
           )}
         </div>
       </>

@@ -26,14 +26,19 @@ const Loader = () => {
       const loader = document.querySelector(".loader-wrapper");
       loader.addEventListener("animationend", () => {
         loader.remove();
+        // Enable scrolling on body element when loader fades out
+        document.body.style.overflow = "auto";
       });
+    } else {
+      // Disable scrolling on body element when loader is active
+      document.body.style.overflow = "hidden";
     }
   }, [loading]);
 
   return (
     <>
       <div
-        className={`loader-wrapper ${loading ? "" : "fade-out"} cursor-none`}
+        className={`loader-wrapper ${loading ? "" : "fade-out"} cursor-none `}
       >
         <div className="grain-2"></div>
         <div className={`loader ${loading ? "loading" : ""}`}>

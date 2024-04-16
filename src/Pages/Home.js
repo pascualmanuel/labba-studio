@@ -270,7 +270,7 @@ function Home() {
                     target="_blank"
                   >
                     <div className="btn-floral-border">
-                      <div class="btn-floral-scent b4-desk  before:content-['+54_9_11_5163_2960'] after:content-['Open_in_WhatsApp'] "></div>
+                      <div className="btn-floral-scent b4-desk  before:content-['+54_9_11_5163_2960'] after:content-['Open_in_WhatsApp'] "></div>
                     </div>
                   </a>
                 </div>
@@ -283,7 +283,7 @@ function Home() {
                   target="_blank"
                 >
                   <div className="btn-floral-border">
-                    <div class="btn-floral-scent  b4-desk before:content-['+34_0634_0269_453'] after:content-['Open_in_WhatsApp'] "></div>
+                    <div className="btn-floral-scent  b4-desk before:content-['+34_0634_0269_453'] after:content-['Open_in_WhatsApp'] "></div>
                   </div>
                 </a>
               </div>
