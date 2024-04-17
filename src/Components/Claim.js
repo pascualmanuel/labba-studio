@@ -50,50 +50,50 @@ function Claim() {
   }
   if (viewportWidth < 900) {
     xAnimation = "-70%";
-    vwClaim = "500vw";
+    vwClaim = "450vw";
   }
   if (viewportWidth < 700) {
     xAnimation = "-75%";
-    vwClaim = "500vw";
+    vwClaim = "450vw";
   }
 
   if (viewportWidth < 640) {
     xAnimation = "-35%";
-    vwClaim = "500vw";
+    vwClaim = "450vw";
   }
 
   if (viewportWidth < 580) {
     xAnimation = "-40%";
-    vwClaim = "500vw";
+    vwClaim = "450vw";
   }
   if (viewportWidth < 530) {
     xAnimation = "-45%";
-    vwClaim = "500vw";
+    vwClaim = "450vw";
   }
 
   if (viewportWidth < 490) {
     xAnimation = "-52%";
-    vwClaim = "500vw";
+    vwClaim = "450vw";
   }
 
   if (viewportWidth < 440) {
     xAnimation = "-57%";
-    vwClaim = "500vw";
+    vwClaim = "450vw";
   }
 
   if (viewportWidth < 420) {
     xAnimation = "-62%";
-    vwClaim = "500vw";
+    vwClaim = "450vw";
   }
 
   if (viewportWidth < 400) {
     xAnimation = "-65%";
-    vwClaim = "500vw";
+    vwClaim = "450vw";
   }
 
   if (viewportWidth < 380) {
     xAnimation = "-70%";
-    vwClaim = "500vw";
+    vwClaim = "450vw";
   }
 
   useEffect(() => {
@@ -132,9 +132,9 @@ function Claim() {
           >
             <p
               className="h2-desk claim"
-              style={{
-                transform: "translateX(10%)", // Initially hides the phrase
-              }}
+              // style={{
+              //   transform: "translateX(0%)", // Initially hides the phrase
+              // }}
             >
               At <span style={{ color: "white" }}> Labba,</span> we craft
               digital products that balance users and business needs.

@@ -198,7 +198,7 @@ function Home() {
       <Process />
       <div className="sm:h-screen sm:pb-0  	" style={{ background: " #ECECEC" }}>
         <div className="  ">
-          <h3 className="b1-desk ml-11 sm:ml-36 pt-24 sm:pt-72">
+          <h3 className="b1-desk ml-[23px] sm:ml-36 pt-24 sm:pt-72">
             We love our clients
           </h3>
         </div>

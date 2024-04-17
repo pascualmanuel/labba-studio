@@ -15,7 +15,7 @@ function Services() {
       <main className="flex justify-center  sm:mb-0 mb-[-260px]">
         <ul id="cards">
           <li className="card w-[100vw] z-[10000] " id="card_2">
-            <div className="absolute left-[0px] ml-11 sm:ml-36 top-[-72px] sm:top-[-120px]">
+            <div className="absolute left-[0px] ml-[23px] sm:ml-36 top-[-72px] sm:top-[-120px]">
               <p className="l-desk ">PROCESS</p>
               <h3 className="b1-desk ">This is how we roll</h3>
             </div>
