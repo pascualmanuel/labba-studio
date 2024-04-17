@@ -127,7 +127,7 @@ function Contact() {
     <>
       <div className="flex flex-column sm:justify-center ml-[18px] sm:ml-[0px]">
         <div className="grain"></div>
-        <div className="flex sm:flex-row flex-col sm:items-center">
+        <div className="flex sm:flex-row flex-col sm:items-center mt-[40px] sm:mt-0">
           <div className="sm:mr-[170px] mr-[0px] w-[340px] sm:w-auto">
             <h2 className=" contact-text-1 ">
               We would love to be part of your project

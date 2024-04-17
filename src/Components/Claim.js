@@ -124,7 +124,7 @@ function Claim() {
         <div
           // ref={claimSectionRef}
           className="h-[110vh] claim-section  bg-[#121212] flex items-center"
-          style={{ marginBottom: "0", width: vwClaim }}
+          style={{ marginBottom: "0", width: vwClaim, zIndex: "-1" }}
         >
           <div
             className="claim-inside"

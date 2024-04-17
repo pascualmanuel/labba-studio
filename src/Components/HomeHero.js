@@ -42,7 +42,6 @@ function HomeHero() {
 
   useEffect(() => {
     if (window.location.hash === "#home") {
-      console.log("first");
       yesOrNo = 0;
       setRevealText("no-reveal");
     }
@@ -69,19 +68,29 @@ function HomeHero() {
               {showDelayedElement && (
                 <>
                   <p
-                    className={`h1-desk decoration-slate-100 w-[350px] sm:w-auto ${revealText}`}
+                    className={`h1-desk decoration-slate-100 w-[360px] sm:w-auto ${revealText}`}
                   >
-                    <span>Your business </span>
+                    {/* <span className="block">Your business </span> */}
+                    <span className="hidden sm:block"> Your business </span>
+                    <span className="block sm:hidden">
+                      Your <br /> business{" "}
+                    </span>
                   </p>
                   <p
-                    className={`h1-desk decoration-slate-100 w-[350px] sm:w-auto ${revealText}`}
+                    className={`h1-desk decoration-slate-100 w-[360px] sm:w-auto ${revealText}`}
                   >
-                    <span> deserves an </span>
+                    <span className="hidden sm:block"> deserves an </span>
+                    <span className="block sm:hidden"> deserves </span>
                   </p>
                   <p
-                    className={`h1-desk decoration-slate-100 w-[350px] sm:w-auto ${revealText}`}
+                    className={`h1-desk decoration-slate-100 w-[360px] sm:w-auto ${revealText}`}
                   >
-                    <span className="pb-[30px]"> amazing website.</span>
+                    <span className="pb-[30px] hidden sm:block">
+                      amazing website.
+                    </span>
+                    <span className="pb-[30px] block sm:hidden">
+                      an amazing website.
+                    </span>
                   </p>
                 </>
               )}
@@ -89,11 +98,13 @@ function HomeHero() {
             <div className="home-desc-hero">
               {showDelayedElement && (
                 <p className="b2-desk w-[200px] sm:w-auto ">
-                  <p className={`${revealText}`}>
-                    <span>We design & build human-centered </span>
+                  <p className={`${revealText}  `}>
+                    <span className="block">
+                      We design & build human-centered{" "}
+                    </span>
                   </p>
-                  <p className={`${revealText}`}>
-                    <span>digital experiences.</span>
+                  <p className={`${revealText} `}>
+                    <span className="block">digital experiences.</span>
                   </p>
                 </p>
               )}

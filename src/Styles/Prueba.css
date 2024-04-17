@@ -1,8 +1,10 @@
 .inside-cont {
   background: no-repeat;
   background-image: url("../Assets/work.svg");
-  background-size: contain;
-  background-position: center;
+  background-size: 60vw;
+  /* background-position: center; */
+  background-position: 50% 30%;
+
   background-color: #121212;
 }
 
@@ -11,10 +13,11 @@
   background-image: url("../Assets/work.svg");
   background-size: contain;
   background-position: right 200px;
-
   background-color: #121212;
 }
 .scroll-content {
+  /* border: green solid 2px; */
+  margin-top: -350px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -22,7 +25,7 @@
 
 .div-animado {
   width: 100vw;
-  height: 500px;
+  height: auto;
   /* height: */
   z-index: 9999;
 }
@@ -576,7 +579,7 @@ header {
     position: absolute;
     border-radius: 20px;
     right: 13px;
-    top: 2700px;
+    top: 2530px;
   }
 
   .next-level {
@@ -622,6 +625,7 @@ header {
 
   .home-desc-hero {
     bottom: 0rem;
+    right: 5%;
   }
 }
 

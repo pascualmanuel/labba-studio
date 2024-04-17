@@ -192,13 +192,13 @@ function App() {
     }
 
     function updateCursor() {
-      // Calculate the current cursor position
+      // Calculate the current cursor positio
       const currentX = parseFloat(circleCursor.style.left) || 0;
       const currentY = parseFloat(circleCursor.style.top) || 0;
 
-      // Calculate the distance to move in this frame
-      const deltaX = Math.round((targetX - currentX) * 0.1); // Round the position values
-      const deltaY = Math.round((targetY - currentY) * 0.1); // Round the position values
+      // Calculate the distance to move in this fram
+      const deltaX = Math.round((targetX - currentX) * 0.1);
+      const deltaY = Math.round((targetY - currentY) * 0.1);
 
       // Update the cursor position
       circleCursor.style.left = Math.round(currentX + deltaX) + "px";
@@ -233,7 +233,7 @@ function App() {
 
   return (
     <>
-      <Loader />
+      {/* <Loader /> */}
       <BrowserRouter>
         <LanguageProvider>
           <div id="circleCursor" className="hidden sm:block"></div>
