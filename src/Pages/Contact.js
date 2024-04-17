@@ -7,6 +7,13 @@ function Contact() {
   const [selectedService, setSelectedService] = useState("");
   const [buttonText, setButtonText] = useState("Send request");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const isMobile = window.innerWidth <= 768;
+
+  let buttonContactWidth = 284;
+
+  if (isMobile) {
+    buttonContactWidth = 170;
+  }
 
   const handleServiceClick = (service) => {
     const buttons = document.querySelectorAll(".contact-buttons");
@@ -276,7 +283,11 @@ function Contact() {
                     {buttonText}
                   </button> */}
                   <button className=" mt-14 sm:mb-24 ">
-                    <Rounded widthButton={170} heightButton={77}>
+                    <Rounded
+                      widthButton={buttonContactWidth}
+                      heightButton={77}
+                      buttonBorderColor={"gray"}
+                    >
                       <p className="contact-text-1">{buttonText}</p>
                     </Rounded>
                   </button>

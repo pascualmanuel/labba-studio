@@ -20,12 +20,14 @@ function Home() {
   let shadowOn = "ellipse-shadow";
   let displayClaim = "";
   let shrinkNumber = 170;
-  console.log(window.innerWidth);
+  let dropButtonWidth = 247;
+
   if (isMobile) {
     // console.log("ggg");
     shadowOn = "no";
     displayClaim = "none";
     shrinkNumber = 340;
+    dropButtonWidth = 218;
   }
   const svgCode = `
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -225,7 +227,11 @@ function Home() {
               >
                 Drop us a line
               </div> */}
-              <Rounded widthButton={247} heightButton={77}>
+              <Rounded
+                widthButton={dropButtonWidth}
+                heightButton={77}
+                buttonBorderColor={"white"}
+              >
                 <p className="button-font" style={{ color: "white" }}>
                   Drop us a line
                 </p>

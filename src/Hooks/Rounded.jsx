@@ -14,6 +14,7 @@ function Rounded({
   )`,
   heightButton,
   widthButton,
+  buttonBorderColor,
   ...attributes
 }) {
   const circle = useRef(null);
@@ -50,7 +51,12 @@ function Rounded({
     <Magnetic>
       <div
         className={styles.roundedButton}
-        style={{ overflow: "hidden", width: widthButton, height: heightButton }}
+        style={{
+          overflow: "hidden",
+          width: widthButton,
+          height: heightButton,
+          borderColor: buttonBorderColor,
+        }}
         onMouseEnter={manageMouseEnter}
         onMouseLeave={manageMouseLeave}
         {...attributes}
