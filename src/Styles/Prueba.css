@@ -3,7 +3,17 @@
   background-image: url("../Assets/work.svg");
   background-size: 60vw;
   /* background-position: center; */
-  background-position: 50% 30%;
+  background-position: 50% 15%;
+
+  background-color: #121212;
+}
+
+.hola {
+  background: no-repeat;
+  background-image: url("../Assets/work.svg");
+  background-size: 60vw;
+  /* background-position: center; */
+  background-position: 50% 3%;
 
   background-color: #121212;
 }
@@ -17,7 +27,7 @@
 }
 .scroll-content {
   /* border: green solid 2px; */
-  margin-top: -350px;
+  /* margin-top: -350px; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -26,7 +36,7 @@
 .div-animado {
   width: 100vw;
   height: auto;
-  /* height: */
+  /* height: 500px; */
   z-index: 9999;
 }
 
@@ -542,10 +552,11 @@ header {
     background-repeat: no-repeat;
     width: 320px;
     height: 320px;
-    position: absolute;
+    /* position: absolute; */
     border-radius: 20px;
     left: 13px;
     top: 1200px;
+    margin-bottom: 150px;
   }
 
   .second-pro {
@@ -554,7 +565,7 @@ header {
     background-repeat: no-repeat;
     width: 320px;
     height: 320px;
-    position: absolute;
+    /* position: absolute; */
     border-radius: 20px;
     right: 13px;
     top: 1700px;
@@ -565,7 +576,8 @@ header {
     background-repeat: no-repeat;
     width: 320px;
     height: 320px;
-    position: absolute;
+    margin-bottom: 150px;
+    /* position: absolute; */
     border-radius: 20px;
     left: 13px;
     top: 2200px;
@@ -576,7 +588,7 @@ header {
     background-repeat: no-repeat;
     width: 320px;
     height: 320px;
-    position: absolute;
+    /* position: absolute; */
     border-radius: 20px;
     right: 13px;
     top: 2530px;
