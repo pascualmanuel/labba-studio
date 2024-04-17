@@ -233,7 +233,7 @@ function App() {
 
   return (
     <>
-      {/* <Loader /> */}
+      <Loader />
       <BrowserRouter>
         <LanguageProvider>
           <div id="circleCursor" className="hidden sm:block"></div>
