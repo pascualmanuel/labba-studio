@@ -30,6 +30,11 @@ html {
   /* overflow-x: hidden !important; */
 }
 
+[role="button"],
+button {
+  cursor: url("../Assets/dot-cursor.svg"), auto;
+}
+
 a {
   /* cursor: none !important; */
   cursor: url("../Assets/dot-cursor.svg"), auto;
@@ -570,7 +575,6 @@ flex-grow: 0; */
 }
 
 .button {
-  /* cursor: pointer; */
   box-sizing: border-box;
 }
 
