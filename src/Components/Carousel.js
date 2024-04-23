@@ -11,13 +11,9 @@ import Cliente4 from "../Assets/clientes/carousel-4.png";
 import Cliente5 from "../Assets/clientes/carousel-5.png";
 import Cliente6 from "../Assets/clientes/carousel-6.png";
 import Cliente7 from "../Assets/clientes/carousel-7.png";
-
 import Cliente9 from "../Assets/clientes/carousel-88.png";
 
-// import Cliente9 from "../Assets/clientes/carousel-9.png";
-// import Cliente10 from "../Assets/clientes/client-min-10.png";
 import { FreeMode, Pagination, Autoplay, Navigation } from "swiper/modules";
-// import SwiperCore, { Autoplay, Pagination } from "swiper/core";
 
 import "swiper/css";
 import "swiper/css/free-mode";
@@ -36,9 +32,6 @@ const images = [
   Cliente6,
   Cliente7,
   Cliente9,
-  // Cliente10,
-
-  // Agrega aquí tus rutas de imágenes
 ];
 const isMobile = window.innerWidth <= 768; // Adjust the width as needed
 
@@ -63,25 +56,16 @@ const Carousel = () => {
           className="mySwiper mt-24"
         >
           {images.map((image, index) => (
-            <SwiperSlide>
+            <SwiperSlide key={index}>
               <div className="caro-inside ">
-                <img
-                  key={index}
-                  src={image}
-                  alt={`Slide ${index}`}
-                  // width={100}
-                  //   width={"auto"}
-                  // height={30}
-                  // height={50}
-                />
+                <img key={index} src={image} alt={`Slide ${index}`} />
               </div>
             </SwiperSlide>
           ))}
         </Swiper>
         <div className="left-blur"></div>
-        {/* <div className="left-cont-blur"></div> */}
+
         <div className="right-blur"></div>
-        {/* <div className="right-cont-blur"></div> */}
       </div>
     </>
   );

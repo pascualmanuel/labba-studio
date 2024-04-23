@@ -396,9 +396,17 @@ flex-grow: 0; */
   align-items: center;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1040px) {
   .h1-desk {
     font-size: 90px;
+  }
+
+  .b1-desk {
+    font-family: "Satoshi-Variable";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 43px;
   }
 }
 

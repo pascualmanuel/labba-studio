@@ -88,12 +88,14 @@
   top: 10px;
   margin-left: 11px;
 }
+
 .first-pro {
   background-image: url("../Assets/work/work_1.png");
   background-size: contain;
   background-repeat: no-repeat;
   width: 552px;
   height: 552px;
+  left: 10%;
   /* margin-bottom: 0px; */
 }
 .second-pro {
@@ -102,6 +104,7 @@
   background-repeat: no-repeat;
   width: 450px;
   height: 450px;
+  right: 10%;
 }
 
 .third-pro {
@@ -110,6 +113,7 @@
   background-repeat: no-repeat;
   width: 450px;
   height: 450px;
+  left: 10%;
 }
 
 .fourth-pro {
@@ -118,6 +122,7 @@
   background-repeat: no-repeat;
   width: 552px;
   height: 552px;
+  right: 10%;
 }
 
 .fourth-section {
@@ -516,10 +521,45 @@ header {
   }
 }
 
-@media (max-width: 1260px) {
-  .services-cont-cont {
-    /* padding-left: 10px; */
+@media (max-width: 1320px) {
+  .first-pro {
+    left: 5%;
   }
+  .second-pro {
+    right: 5%;
+  }
+  .third-pro {
+    left: 5%;
+  }
+  .fourth-pro {
+    right: 5%;
+  }
+}
+
+@media (max-width: 1150px) {
+  .first-pro {
+    left: 3%;
+    width: 500px;
+    height: 500px;
+  }
+  .second-pro {
+    right: 3%;
+    width: 410px;
+    height: 410px;
+  }
+  .third-pro {
+    left: 3%;
+    width: 410px;
+    height: 410px;
+  }
+  .fourth-pro {
+    right: 3%;
+    width: 500px;
+    height: 500px;
+  }
+}
+
+@media (max-width: 1260px) {
   .claim-container {
     display: none;
   }

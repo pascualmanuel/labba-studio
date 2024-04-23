@@ -20,14 +20,19 @@ function Home() {
   let shadowOn = "ellipse-shadow";
   let displayClaim = "";
   let shrinkNumber = 170;
-  let dropButtonWidth = 247;
+  let widthButton = 247;
+  let heightButton = 77;
 
+  if (window.innerWidth <= 1040) {
+    widthButton = 207;
+    heightButton = 57;
+  }
   if (isMobile) {
     // console.log("ggg");
     shadowOn = "no";
     displayClaim = "none";
     shrinkNumber = 340;
-    dropButtonWidth = 218;
+    widthButton = 218;
   }
   const svgCode = `
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -221,15 +226,10 @@ function Home() {
                   " Let’s take your idea to the next level."
                 )}
               </p>
-              {/* <div
-                type="submit"
-                className="button-contact-submit button-font input-cursor coolBeans text-white"
-              >
-                Drop us a line
-              </div> */}
+
               <Rounded
-                widthButton={dropButtonWidth}
-                heightButton={77}
+                widthButton={widthButton}
+                heightButton={heightButton}
                 buttonBorderColor={"white"}
               >
                 <p className="button-font" style={{ color: "white" }}>
@@ -242,7 +242,7 @@ function Home() {
         <div className="h-[45px] sm:h-[65px]"></div>
         <div className="footer" ref={footerRef}>
           <div className="flex flex-col sm:flex-row justify-between pb-[50px]">
-            <div className="t-mail ml-[18px] sm:ml-[128px] mb-[15px] sm:mb-[0px]">
+            <div className="t-mail ml-[18px] sm:ml-[40px]  lg:ml-[128px] mb-[15px] sm:mb-[0px]">
               <p className="sayhi mb-3">Say hi</p>
               <div className="btn-floral-border" onClick={handleCopyClick}>
                 <button
@@ -268,7 +268,7 @@ function Home() {
               </div>
             </div>
 
-            <div className="ml-[18px] sm:ml-[0px] sm:mr-[128px] flex flex-col sm:flex-row">
+            <div className="ml-[18px] sm:ml-[0px] sm:mr-[40px] lg:mr-[128px] flex flex-col sm:flex-row">
               <div className="mr-0 sm:mr-[80px] mb-[15px] sm:mb-[0px]">
                 <div>
                   <p className="sayhi mb-3">Argentina</p>

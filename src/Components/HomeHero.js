@@ -34,7 +34,7 @@ function HomeHero() {
     };
   }, []);
 
-  console.log(revealText);
+  // console.log(revealText);
 
   const [showDelayedElement, setShowDelayedElement] = useState(false);
 
@@ -70,7 +70,6 @@ function HomeHero() {
                   <p
                     className={`h1-desk decoration-slate-100 w-[360px] sm:w-auto ${revealText}`}
                   >
-                    {/* <span className="block">Your business </span> */}
                     <span className="hidden sm:block"> Your business </span>
                     <span className="block sm:hidden">
                       Your <br /> business{" "}

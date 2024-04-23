@@ -121,7 +121,7 @@ function Header() {
     return (
       <>
         <div className="flex flex-row justify-between items-center h-[77px] sm:h-24 ">
-          <Link to="/">
+          <Link to="/#home">
             <div
               className={logoPosition}
               style={{

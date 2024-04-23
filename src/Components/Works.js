@@ -82,47 +82,147 @@ function Works() {
       >
         {!isMobile && (
           <>
-            <div
-              className="floating-project first-pro absolute"
-              style={{
-                position: "absolute",
-                borderRadius: "10px",
-                left: "10%",
-                zIndex: "1000",
-              }}
-            ></div>
-
-            <div
-              className="floating-project second-pro absolute"
-              style={{
-                position: "absolute",
-                borderRadius: "10px",
-                right: "10%",
-                zIndex: "1000",
-              }}
-            ></div>
-
-            <div
-              className="floating-project third-pro absolute"
-              style={{
-                position: "absolute",
-                borderRadius: "10px",
-                left: "10%",
-                zIndex: "1000",
-                top: "750px",
-              }}
-            ></div>
-
-            <div
-              className="floating-project fourth-pro absolute"
-              style={{
-                position: "absolute",
-                borderRadius: "10px",
-                right: "10%",
-                zIndex: "1000",
-                top: "750px",
-              }}
-            ></div>
+            <a href="https://demo-daewoocl.onrender.com/" target="_blank">
+              <div
+                className="floating-project project first-pro absolute cursor-none"
+                id="pasando"
+                style={{
+                  position: "absolute",
+                  borderRadius: "10px",
+                  // left: "10%",
+                  zIndex: "1000",
+                }}
+              >
+                <div
+                  className=" project-info  w-[250px] sm:w-[325px] bg-[#FFFFFF33]  
+                      rounded-[12px] absolute top-[30px] left-[30px] blur-bg h-[120px]"
+                >
+                  <div className="flex flex-row justify-between">
+                    <div>
+                      <p
+                        className="l-desk text-[#ECECEC]"
+                        style={{ fontWeight: 500 }}
+                      >
+                        Daewoo
+                      </p>
+                    </div>
+                    <div className="flex flex-row">
+                      <p className="tags p-14 mr-[6px]">Design</p>
+                      <p className="tags p-14">Development</p>
+                    </div>
+                  </div>
+                  <div className="mt-[10px]">
+                    <p className="b4-desk text-[#ECECEC]">
+                      Pendiente descripción
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </a>
+            <a href="https://demo-daewoocl.onrender.com/" target="_blank">
+              <div
+                className="floating-project project second-pro absolute cursor-none"
+                id="pasando"
+                style={{
+                  position: "absolute",
+                  borderRadius: "10px",
+                  // right: "10%",
+                  zIndex: "1000",
+                }}
+              >
+                <div className=" project-info w-[250px] sm:w-[325px] bg-[#FFFFFF33]  rounded-[12px] absolute top-[30px] left-[30px] blur-bg h-[120px]">
+                  <div className="flex flex-row justify-between">
+                    <div>
+                      <p
+                        className="l-desk text-[#ECECEC]"
+                        style={{ fontWeight: 500 }}
+                      >
+                        Inmobiliare
+                      </p>
+                    </div>
+                    <div className="flex flex-row">
+                      <p className="tags p-14 mr-[6px]">Design</p>
+                      <p className="tags p-14">Development</p>
+                    </div>
+                  </div>
+                  <div className="mt-[10px]">
+                    <p className="b4-desk text-[#ECECEC]">
+                      Redesigning the experience of the largest real estate news
+                      portal in Mexico
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </a>
+            <a href="https://demo-daewoocl.onrender.com/" target="_blank">
+              <div
+                className="floating-project project third-pro absolute cursor-none"
+                id="pasando"
+                style={{
+                  position: "absolute",
+                  borderRadius: "10px",
+                  // left: "10%",
+                  zIndex: "1000",
+                  top: "750px",
+                }}
+              >
+                <div className=" project-info w-[250px] sm:w-[325px] bg-[#FFFFFF33]  rounded-[12px] absolute top-[30px] left-[30px] blur-bg h-[120px]">
+                  <div className="flex flex-row justify-between">
+                    <div>
+                      <p
+                        className="l-desk text-[#ECECEC]"
+                        style={{ fontWeight: 500 }}
+                      >
+                        redbee
+                      </p>
+                    </div>
+                    <div className="flex flex-row">
+                      {/* <p className="tags p-14 mr-[6px]">Design</p> */}
+                      <p className="tags p-14">Development</p>
+                    </div>
+                  </div>
+                  <div className="mt-[10px]">
+                    <p className="b4-desk text-[#ECECEC]">Soon...</p>
+                  </div>
+                </div>
+              </div>
+            </a>
+            <a href="https://demo-daewoocl.onrender.com/" target="_blank">
+              <div
+                className="floating-project project fourth-pro absolute cursor-none"
+                id="pasando"
+                style={{
+                  position: "absolute",
+                  borderRadius: "10px",
+                  // right: "10%",
+                  zIndex: "1000",
+                  top: "750px",
+                }}
+              >
+                <div className=" project-info w-[250px] sm:w-[325px] bg-[#FFFFFF33]  rounded-[12px] absolute top-[30px] left-[30px] blur-bg h-[120px]">
+                  <div className="flex flex-row justify-between">
+                    <div>
+                      <p
+                        className="l-desk text-[#ECECEC]"
+                        style={{ fontWeight: 500 }}
+                      >
+                        Morgenstern
+                      </p>
+                    </div>
+                    <div className="flex flex-row">
+                      <p className="tags p-14 mr-[6px]">Design</p>
+                      <p className="tags p-14">Development</p>
+                    </div>
+                  </div>
+                  <div className="mt-[10px]">
+                    <p className="b4-desk text-[#ECECEC]">
+                      A creative and playful website for a creative and playful
+                      illustrated project.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </a>
           </>
         )}
 
@@ -165,7 +265,7 @@ function Works() {
                 style={{
                   // position: "absolute",
                   borderRadius: "10px",
-                  right: "10%",
+                  // right: "10%",
                   zIndex: "1000",
                   top: "750px",
                 }}
