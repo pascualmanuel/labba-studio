@@ -46,7 +46,7 @@ function Works() {
     floatingProjects.forEach((project, index) => {
       gsap.to(project, {
         y: index % 2 === 0 ? "+=40" : "-=40", // Move up or down alternatively
-        duration: 3,
+        duration: 4,
         ease: "power1.inOut",
         repeat: -1,
         yoyo: true,
@@ -95,7 +95,7 @@ function Works() {
               >
                 <div
                   className=" project-info  w-[250px] sm:w-[325px] bg-[#FFFFFF33]  
-                      rounded-[12px] absolute top-[30px] left-[30px] blur-bg h-[120px]"
+                      rounded-[12px] absolute top-[25px] left-[30px] blur-bg h-[135px]"
                 >
                   <div className="flex flex-row justify-between">
                     <div>
@@ -113,24 +113,25 @@ function Works() {
                   </div>
                   <div className="mt-[10px]">
                     <p className="b4-desk text-[#ECECEC]">
-                      Pendiente descripción
+                      Elevating Daewoo’s digital presence with a sophisticated
+                      redesign, enhancing product exploration and brand appeal.
                     </p>
                   </div>
                 </div>
               </div>
             </a>
-            <a href="https://demo-daewoocl.onrender.com/" target="_blank">
+            <a href="https://inmobiliare.com/" target="_blank">
               <div
                 className="floating-project project second-pro absolute cursor-none"
                 id="pasando"
                 style={{
                   position: "absolute",
                   borderRadius: "10px",
-                  // right: "10%",
+
                   zIndex: "1000",
                 }}
               >
-                <div className=" project-info w-[250px] sm:w-[325px] bg-[#FFFFFF33]  rounded-[12px] absolute top-[30px] left-[30px] blur-bg h-[120px]">
+                <div className=" project-info w-[250px] sm:w-[325px] bg-[#FFFFFF33]  rounded-[12px] absolute top-[25px] left-[30px] blur-bg h-[135px]">
                   <div className="flex flex-row justify-between">
                     <div>
                       <p
@@ -147,8 +148,8 @@ function Works() {
                   </div>
                   <div className="mt-[10px]">
                     <p className="b4-desk text-[#ECECEC]">
-                      Redesigning the experience of the largest real estate news
-                      portal in Mexico
+                      Redesigning and engineering the user experience for
+                      Mexico’s premier real estate news portal.
                     </p>
                   </div>
                 </div>
@@ -166,7 +167,7 @@ function Works() {
                   top: "750px",
                 }}
               >
-                <div className=" project-info w-[250px] sm:w-[325px] bg-[#FFFFFF33]  rounded-[12px] absolute top-[30px] left-[30px] blur-bg h-[120px]">
+                <div className=" project-info w-[250px] sm:w-[325px] bg-[#FFFFFF33]  rounded-[12px] absolute top-[25px] left-[30px] blur-bg h-[135px]">
                   <div className="flex flex-row justify-between">
                     <div>
                       <p
@@ -182,12 +183,15 @@ function Works() {
                     </div>
                   </div>
                   <div className="mt-[10px]">
-                    <p className="b4-desk text-[#ECECEC]">Soon...</p>
+                    <p className="b4-desk text-[#ECECEC]">
+                      Expertly crafted code to power redbee.io's institutional
+                      site, enhancing functionality and user experience.
+                    </p>
                   </div>
                 </div>
               </div>
             </a>
-            <a href="https://demo-daewoocl.onrender.com/" target="_blank">
+            <a href="https://holamorgenstern.com/" target="_blank">
               <div
                 className="floating-project project fourth-pro absolute cursor-none"
                 id="pasando"
@@ -199,7 +203,7 @@ function Works() {
                   top: "750px",
                 }}
               >
-                <div className=" project-info w-[250px] sm:w-[325px] bg-[#FFFFFF33]  rounded-[12px] absolute top-[30px] left-[30px] blur-bg h-[120px]">
+                <div className=" project-info w-[250px] sm:w-[325px] bg-[#FFFFFF33]  rounded-[12px] absolute top-[25px] left-[30px] blur-bg h-[135px]">
                   <div className="flex flex-row justify-between">
                     <div>
                       <p
