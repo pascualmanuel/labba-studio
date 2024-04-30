@@ -195,7 +195,10 @@ function Home() {
         {/* </div> */}
       </>
 
-      <div className="mt-[-140px]" style={{ overflowX: "hidden" }}>
+      <div
+        className="mt-[-200px] sm:mt-[-140px] bg-[#121212]"
+        style={{ overflow: "hidden" }}
+      >
         <Claim />
       </div>
 

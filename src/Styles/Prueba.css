@@ -142,7 +142,9 @@
 
 .claim {
   color: #b5b5b5;
-  margin-left: 180px;
+  /* margin-left: 180px; */
+  margin-top: -450px;
+  /* margin-top: -800px; */
 }
 
 .small-numb {
@@ -678,6 +680,9 @@ header {
   .home-desc-hero {
     bottom: 0rem;
     right: 5%;
+  }
+  .claim {
+    margin-top: -650px;
   }
 }
 

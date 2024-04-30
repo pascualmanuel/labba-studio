@@ -391,7 +391,7 @@ flex-grow: 0; */
   overflow-x: auto;
   white-space: nowrap; /* Prevent text wrapping */
   width: 100vw;
-  height: 100vh;
+  height: 110vh;
   display: flex;
   align-items: center;
 }
