@@ -155,42 +155,42 @@ function Works() {
                 </div>
               </div>
             </a>
-            <a href="https://demo-daewoocl.onrender.com/" target="_blank">
-              <div
-                className="floating-project project third-pro absolute cursor-none"
-                id="pasando"
-                style={{
-                  position: "absolute",
-                  borderRadius: "10px",
-                  // left: "10%",
-                  zIndex: "1000",
-                  top: "750px",
-                }}
-              >
-                <div className=" project-info w-[250px] sm:w-[325px] bg-[#FFFFFF33]  rounded-[12px] absolute top-[25px] left-[30px] blur-bg h-[135px]">
-                  <div className="flex flex-row justify-between">
-                    <div>
-                      <p
-                        className="l-desk text-[#ECECEC]"
-                        style={{ fontWeight: 500 }}
-                      >
-                        redbee
-                      </p>
-                    </div>
-                    <div className="flex flex-row">
-                      {/* <p className="tags p-14 mr-[6px]">Design</p> */}
-                      <p className="tags p-14">Development</p>
-                    </div>
-                  </div>
-                  <div className="mt-[10px]">
-                    <p className="b4-desk text-[#ECECEC]">
-                      Expertly crafted code to power redbee.io's institutional
-                      site, enhancing functionality and user experience.
+            {/* <a href="https://demo-daewoocl.onrender.com/" target="_blank"> */}
+            <div
+              className="floating-project project third-pro absolute cursor-none"
+              id=""
+              style={{
+                position: "absolute",
+                borderRadius: "10px",
+                // left: "10%",
+                zIndex: "1000",
+                top: "750px",
+              }}
+            >
+              <div className=" project-info w-[250px] sm:w-[325px] bg-[#FFFFFF33]  rounded-[12px] absolute top-[25px] left-[30px] blur-bg h-[135px]">
+                <div className="flex flex-row justify-between">
+                  <div>
+                    <p
+                      className="l-desk text-[#ECECEC]"
+                      style={{ fontWeight: 500 }}
+                    >
+                      redbee
                     </p>
                   </div>
+                  <div className="flex flex-row">
+                    {/* <p className="tags p-14 mr-[6px]">Design</p> */}
+                    <p className="tags p-14">Development</p>
+                  </div>
+                </div>
+                <div className="mt-[10px]">
+                  <p className="b4-desk text-[#ECECEC]">
+                    Expertly crafted code to power redbee.io's institutional
+                    site, enhancing functionality and user experience.
+                  </p>
                 </div>
               </div>
-            </a>
+            </div>
+            {/* </a> */}
             <a href="https://holamorgenstern.com/" target="_blank">
               <div
                 className="floating-project project fourth-pro absolute cursor-none"

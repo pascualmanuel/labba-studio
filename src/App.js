@@ -25,7 +25,6 @@ function App() {
 
   useEffect(() => {
     const handleResize = () => {
-      // Add your conditions for enabling/disabling horizontal scroll
       if (window.innerWidth > 1 && window.innerHeight < 10000) {
         setScrollXEnabled(false);
       } else {
@@ -33,13 +32,10 @@ function App() {
       }
     };
 
-    // Initial check on component mount
     handleResize();
 
-    // Listen for window resize events
     window.addEventListener("resize", handleResize);
 
-    // Cleanup on component unmount
     return () => {
       window.removeEventListener("resize", handleResize);
     };
@@ -103,7 +99,6 @@ function App() {
     const circleCursor = document.getElementById("circleCursor");
 
     if (!circleCursor) {
-      // Check if the element exists to prevent errors
       return;
     }
 
@@ -116,10 +111,9 @@ function App() {
     let targetY = 0;
     let isMoving = false;
 
-    // Update the ellipse's position based on the cursor's coordinates
     document.addEventListener("mousemove", (e) => {
-      targetX = e.clientX - mitiWidth; // Center horizontally
-      targetY = e.clientY - mitiHeight; // Center vertically
+      targetX = e.clientX - mitiWidth;
+      targetY = e.clientY - mitiHeight;
 
       if (!isMoving) {
         isMoving = true;
@@ -138,11 +132,10 @@ function App() {
       return element.id === "pasando3";
     }
     function updateCursorStyle(isOverLink, isOverLinkTwo, isOverLinkThree) {
-      const transitionDuration = "0.5s"; // You can adjust the duration as needed
-      const transitionDuration2 = "0.2s"; // You can adjust the duration as needed
+      const transitionDuration = "0.5s";
+      const transitionDuration2 = "0.2s";
 
       if (isOverLink) {
-        // Modify the cursor style when over "pasando" element
         circleCursor.style.width = "100px";
         circleCursor.style.height = "100px";
         circleCursor.style.fontSize = "50px";
@@ -153,11 +146,7 @@ function App() {
           `url('data:image/svg+xml,${encodeURIComponent(svgCode)}')`
         );
         circleCursor.style.setProperty("--before-margin-top", "-7px");
-
-        // Add other style modifications as needed
       } else if (isOverLinkTwo) {
-        // Modify the cursor style when over "pasando2" element
-        // Modify the cursor style when over "pasando" element
         circleCursor.style.width = "56px";
         circleCursor.style.height = "56px";
         circleCursor.style.fontSize = "50px";
@@ -169,8 +158,6 @@ function App() {
         );
         circleCursor.style.setProperty("--before-margin-top", "-7px");
       } else if (isOverLinkThree) {
-        // Modify the cursor style when over "pasando2" element
-        // Modify the cursor style when over "pasando" element
         circleCursor.style.width = "56px";
         circleCursor.style.height = "56px";
         circleCursor.style.fontSize = "50px";
@@ -182,25 +169,21 @@ function App() {
         );
         circleCursor.style.setProperty("--before-margin-top", "-7px");
       } else {
-        // Reset the cursor style when not over a link
         circleCursor.style.backgroundColor = "rgba(255, 255, 255, 0.2)";
         circleCursor.style.width = "35px";
         circleCursor.style.height = "35px";
         circleCursor.style.transition = `width ${transitionDuration}, height ${transitionDuration}`;
-        circleCursor.style.setProperty("--before-content", "''"); // Use a custom property
+        circleCursor.style.setProperty("--before-content", "''");
       }
     }
 
     function updateCursor() {
-      // Calculate the current cursor positio
       const currentX = parseFloat(circleCursor.style.left) || 0;
       const currentY = parseFloat(circleCursor.style.top) || 0;
 
-      // Calculate the distance to move in this fram
       const deltaX = Math.round((targetX - currentX) * 0.1);
       const deltaY = Math.round((targetY - currentY) * 0.1);
 
-      // Update the cursor position
       circleCursor.style.left = Math.round(currentX + deltaX) + "px";
       circleCursor.style.top = Math.round(currentY + deltaY) + "px";
 
@@ -216,20 +199,18 @@ function App() {
         document.elementFromPoint(currentX + mitiWidth, currentY + mitiHeight)
       );
 
-      // Update the cursor style
       updateCursorStyle(isOverLink, isOverLinkTwo, isOverLinkThree);
-      // Check if the cursor has reached the target
+
       if (
         Math.abs(targetX - currentX) > 0.1 ||
         Math.abs(targetY - currentY) > 0.1
       ) {
-        // Continue updating in the next animation frame
         requestAnimationFrame(updateCursor);
       } else {
         isMoving = false;
       }
     }
-  }, []); //
+  }, []);
 
   return (
     <>
