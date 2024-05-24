@@ -7,6 +7,7 @@ import Contact from "./Pages/Contact";
 import { LanguageProvider } from "./Hooks/LanguageContext";
 import Pruebas from "./Components/Pruebas";
 import PruebaPage from "./Pages/PruebaPage";
+import GoogleAnalytics from "./Components/GoogleAnalytics";
 
 import Loader from "./Components/Loader";
 function ScrollToTop() {
@@ -214,6 +215,8 @@ function App() {
 
   return (
     <>
+      <GoogleAnalytics />
+
       <Loader />
       <BrowserRouter>
         <LanguageProvider>
