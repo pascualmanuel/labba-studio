@@ -239,7 +239,7 @@ main {
   margin: 0 auto;
 }
 
-header {
+.header {
   height: 100vh;
   display: grid;
   place-items: center;
@@ -944,7 +944,6 @@ header {
   transition: 0.2s transform ease-out;
   will-change: transform;
   z-index: -1;
-  /* cursor: none; */
 }
 
 .coolBeans:hover::after {

@@ -11,7 +11,7 @@ import Cliente4 from "../Assets/clientes/carousel-4.png";
 import Cliente5 from "../Assets/clientes/carousel-5.png";
 import Cliente6 from "../Assets/clientes/carousel-6.png";
 import Cliente7 from "../Assets/clientes/carousel-7.png";
-import Cliente9 from "../Assets/clientes/carousel-88.png";
+import Cliente9 from "../Assets/clientes/carousel-8.png";
 
 import { FreeMode, Pagination, Autoplay, Navigation } from "swiper/modules";
 
