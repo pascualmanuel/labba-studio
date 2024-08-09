@@ -5,7 +5,7 @@ import Rounded from "../Hooks/Rounded";
 
 function Contact() {
   useEffect(() => {
-    document.title = "Contact";
+    document.title = "Labba - Contact";
   }, []);
 
   const [selectedService, setSelectedService] = useState("");
@@ -22,19 +22,16 @@ function Contact() {
   const handleServiceClick = (service) => {
     const buttons = document.querySelectorAll(".contact-buttons");
 
-    // Update styles for all buttons
     buttons.forEach((button) => {
       button.style.border = "1px solid #d9d9d9";
     });
 
-    // Toggle the selected service
     if (selectedService.includes(service)) {
       setSelectedService(selectedService.filter((s) => s !== service));
     } else {
       setSelectedService([...selectedService, service]);
     }
 
-    // Reset the error message and button styles
     setError("");
   };
 
@@ -43,7 +40,7 @@ function Contact() {
     email: "",
     about: "",
     budget: "",
-    selectedService: "", // New state for selected service
+    selectedService: "",
   });
 
   const handleChange = (e) => {
@@ -69,7 +66,6 @@ function Contact() {
     //
 
     if (selectedService.length === 0) {
-      // Set an error message and update button styles
       setError("Please select at least one service.");
       updateButtonStyles(true);
       return;
@@ -77,14 +73,12 @@ function Contact() {
 
     setIsSubmitting(true);
 
-    // Reset the error message and button styles
     setError("");
     updateButtonStyles(false);
     setIsSubmitting(true);
     setTimeout(() => {
       setIsSubmitting(false);
       setButtonText("Thank you!");
-      // Optionally, add the "thank-you" and "fade-in" classes for the "Thank you" state
       document
         .querySelector(".button-contact-submit")
         .classList.add("thank-you", "fade-in");
@@ -98,7 +92,6 @@ function Contact() {
       selectedService: selectedService.join(", "), // Convert array to comma-separated string
     };
 
-    // Send the form data using emailjs
     emailjs
       .sendForm(
         process.env.REACT_APP_EMAILJS_SERVICE_ID,
