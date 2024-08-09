@@ -4,6 +4,10 @@ import emailjs from "@emailjs/browser";
 import Rounded from "../Hooks/Rounded";
 
 function Contact() {
+  useEffect(() => {
+    document.title = "Contact";
+  }, []);
+
   const [selectedService, setSelectedService] = useState("");
   const [buttonText, setButtonText] = useState("Send request");
   const [isSubmitting, setIsSubmitting] = useState(false);
