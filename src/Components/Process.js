@@ -11,11 +11,11 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 function Services() {
   return (
-    <div className="process-container sm:pt-0 pt-12 pb-0 sm:pb-28 ">
-      <main className="flex justify-center  sm:mb-0 mb-[-260px]">
+    <div className="process-container sm:pt-0 pt-12 pb-10 sm:pb-28  ">
+      <main className="flex justify-center mb-6 sm:mb-0">
         <ul id="cards">
           <li className="card w-[100vw] z-[10000] " id="card_2">
-            <div className="absolute left-[0px] ml-[23px] sm:ml-36 top-[-72px] sm:top-[-120px]">
+            <div className="absolute left-[0px] ml-[23px] sm:ml-[150px] top-[-72px] sm:top-[-120px]">
               <p className="l-desk ">PROCESS</p>
               <h3 className="b1-desk ">This is how we roll</h3>
             </div>
@@ -35,9 +35,9 @@ function Services() {
                     className="b3-desk sm:mt-9 sm:w-[500px] mt-2"
                     style={{ fontSize: "16px" }}
                   >
-                    During the Hello phase we’ll get to know each other, have a
-                    first approach of what you need, and determine if we are the
-                    right fit for bringing your project to life.
+                    During the Hello phase we’ll get to know each other. We’ll
+                    discuss your goals, project expectations, and determine if
+                    we are the right team to bring your idea to the next level.
                   </p>
                 </div>
               </div>
@@ -60,9 +60,11 @@ function Services() {
                     className="b3-desk sm:mt-9 sm:w-[500px] mt-2"
                     style={{ fontSize: "16px" }}
                   >
-                    Here we get into a deep understanding of the users, the
-                    context in which the product will be used, and their needs
-                    to find insights and paint points in the journey.
+                    This is where we dive deep into research, exploring your
+                    brand, your audience, and the context in which your product
+                    or service operates. We analyze your users and market to
+                    identify opportunities, pain points, and key areas to focus
+                    on.
                   </p>
                 </div>
               </div>
@@ -86,10 +88,11 @@ function Services() {
                     className="b3-desk sm:mt-9 sm:w-[500px] mt-2"
                     style={{ fontSize: "16px" }}
                   >
-                    We create and iterate on design solutions based on insights
-                    gained in the discovery phase. Sketching, wireframes and
-                    usability testing to validate effectiveness, ending in high
-                    fidelity prototypes.
+                    With the insights from the discovery phase, we begin
+                    developing strategic and creative solutions. Whether it's a
+                    digital marketing plan, a new visual identity, or the design
+                    of a digital product, we generate ideas, create prototypes,
+                    and iterate until we find the perfect solution.
                   </p>
                 </div>
               </div>
@@ -113,9 +116,10 @@ function Services() {
                     className="b3-desk sm:mt-9 sm:w-[500px] mt-2"
                     style={{ fontSize: "16px" }}
                   >
-                    We use high-speed back-end code to build exceptionally fast
-                    sites, and optimize it for all screen sizes to ensure the
-                    best experience in all devices.
+                    This is where the magic happens. In this phase, our
+                    technical and creative teams work together to bring the
+                    strategy and design to life, ensuring everything is
+                    optimized for the best results.
                   </p>
                 </div>
               </div>
@@ -139,10 +143,11 @@ function Services() {
                     className="b3-desk sm:mt-9 sm:w-[500px] mt-2"
                     style={{ fontSize: "16px" }}
                   >
-                    Before going live, the site will be meticulously checked to
-                    ensure everything is just pixel perfect. Depending on the
-                    project, we can either facilitate the launch or export the
-                    code.
+                    Before delivering anything, we ensure every detail is
+                    perfect. We run thorough reviews and tests, and once
+                    everything is approved, we launch. But it doesn’t end
+                    there—we continue monitoring and optimizing the project to
+                    ensure it performs at its best.
                   </p>
                 </div>
               </div>

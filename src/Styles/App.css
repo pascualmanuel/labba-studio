@@ -24,10 +24,11 @@ body {
     sans-serif;
   overflow-x: hidden !important;
   background-color: white;
+  color: #2b2b2b;
 }
 html {
   cursor: url("../Assets/dot-cursor.svg"), auto;
-  /* overflow-x: hidden !important; */
+  /* scroll-behavior:auto */
 }
 
 [role="button"],
@@ -36,22 +37,49 @@ button {
 }
 
 a {
-  /* cursor: none !important; */
   cursor: url("../Assets/dot-cursor.svg"), auto;
 }
 
+.center {
+  margin: 0 auto;
+}
+
+.max-w {
+  max-width: 1200px;
+}
 .input-cursor {
   cursor: url("../Assets/dot-cursor.svg"), auto;
 }
 
-.h1-desk {
+.myH1 {
   font-family: "Satoshi-Variable", system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
     sans-serif;
-  font-size: 120px;
+  font-size: 90px;
   font-style: normal;
   font-weight: 300;
-  line-height: 87%;
+  line-height: 103%;
+  letter-spacing: -0.02em;
+}
+.hero-title {
+  font-size: 90px;
+  line-height: 103%;
+  /* or 93px */
+  font-weight: 500;
+  letter-spacing: -0.02em;
+
+  /* HOVER BOTON */
+  background: linear-gradient(
+    115.61deg,
+    #ff5800 -26.64%,
+    #f62a4b 0.76%,
+    #a0378b 92.51%,
+    #2b417a 104.01%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
 }
 .h2-desk {
   font-family: "Satoshi-Variable";
@@ -60,6 +88,7 @@ a {
   font-weight: 300;
   line-height: normal;
 }
+
 .sp1-desk {
   font-family: "Satoshi-Variable";
   font-style: normal;
@@ -73,7 +102,7 @@ a {
   font-size: 45px;
   font-style: normal;
   font-weight: 300;
-  line-height: normal;
+  line-height: 61px;
 }
 .h3-desk {
   font-family: "Satoshi-Variable";
@@ -83,11 +112,11 @@ a {
   line-height: normal;
 }
 
-.p-14 {
+.p-12 {
   font-family: "Satoshi-Variable";
   font-style: normal;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 20px;
 }
 .b2-desk {
@@ -96,9 +125,9 @@ a {
     sans-serif;
   font-size: 24px;
   font-style: normal;
-  font-weight: 400;
   line-height: normal;
 }
+
 .button-font {
   font-family: "Satoshi-Variable", system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
@@ -115,9 +144,8 @@ a {
     "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
     sans-serif;
   font-size: 18px;
-  font-style: normal;
   font-weight: 700;
-  line-height: normal;
+  line-height: 24px;
 }
 .b3-desk {
   font-family: "Satoshi-Variable", system-ui, -apple-system, BlinkMacSystemFont,
@@ -253,11 +281,29 @@ a {
   background-color: #121212;
 }
 
+.button-contact {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 24px;
+  /* width: 127px; */
+  /* height: 46px; */
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid #2b2b2b;
+  backdrop-filter: blur(5px);
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 21.6px;
+}
+
 .contact {
   border-radius: 21.5px;
   /* background: rgba(255, 255, 255, 0.2); */
-  background: black;
-  border: solid white 1px;
+
+  border: solid black 1px;
   backdrop-filter: blur(2px);
   width: 107px;
   height: 38px;
@@ -265,41 +311,17 @@ a {
   justify-content: flex-start;
   align-items: center;
   transition: all 0.3s ease;
-  /* Body 3 Mobile */
+
   font-family: "Satoshi-Regular";
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 16px;
   line-height: 22px;
-
   color: #212121;
   text-align: center;
   display: flex;
   justify-content: center;
-  /* Inside auto layout */
 }
-
-/* 
-display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-padding: 8px 24px;
-gap: 8px;
-
-margin: 0 auto;
-width: 104px;
-height: 38px;
-
-background: rgba(255, 255, 255, 0.2);
-backdrop-filter: blur(2px);
-
-border-radius: 100px;
-
-flex: none;
-order: 1;
-flex-grow: 0; */
-
 .contact.expanded {
   width: 249px;
   height: 267px;
@@ -310,26 +332,30 @@ flex-grow: 0; */
   backdrop-filter: blur(5px);
 }
 
-.contact-b-cont {
-  /* height: 170px; */
-  /* width: 510px; */
-}
-
 .contact-form textarea {
   height: 90px;
 }
 .contact-buttons {
   border: solid 1px #d9d9d9;
-  border-radius: 50px;
+  border-radius: 12px;
   width: fit-content;
-  padding-top: 7px;
-  padding-bottom: 7px;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding: 7px 15px 7px 15px;
   margin-right: 17px;
   margin-bottom: 12px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  text-align: center;
 }
 
+label {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #8c8c8c;
+}
 .contact-buttons:hover {
   background-color: #ececec;
   color: black;
@@ -348,12 +374,16 @@ flex-grow: 0; */
 }
 
 .contact-form input,
-.contact-form textarea {
+.contact-form select {
   border: none;
-  border-bottom: 1px solid #b5b5b5;
-  margin-bottom: 10px;
+  border: 1px solid #9d9d9d75;
 
-  padding: 5px;
+  border-radius: 8px;
+  padding: 8px 16px 8px 16px;
+}
+
+select:focus-visible {
+  outline: none;
 }
 
 .contact-form input::placeholder,
@@ -396,8 +426,8 @@ flex-grow: 0; */
   align-items: center;
 }
 
-@media (max-width: 1040px) {
-  .h1-desk {
+@media (max-width: 1023px) {
+  .myH1 {
     font-size: 90px;
   }
 
@@ -411,7 +441,7 @@ flex-grow: 0; */
 }
 
 @media (max-width: 640px) {
-  .h1-desk {
+  .myH1 {
     font-family: "Satoshi-Variable";
     font-style: normal;
     font-weight: 300;
@@ -455,11 +485,7 @@ flex-grow: 0; */
     line-height: 24.3px;
   }
   .l-desk {
-    font-family: "Satoshi-Variable";
     font-size: 16px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
   }
   .b3-desk {
     font-family: "Satoshi-Variable";
@@ -540,7 +566,7 @@ flex-grow: 0; */
   }
 }
 @media (max-width: 640px) and (max-height: 600px) {
-  .h1-desk {
+  .myH1 {
     font-size: 60px;
   }
   .home-desc-hero {
@@ -549,7 +575,7 @@ flex-grow: 0; */
 }
 
 @media (max-width: 365px) {
-  .h1-desk {
+  .myH1 {
     font-size: 60px;
   }
 }
@@ -579,7 +605,6 @@ flex-grow: 0; */
   display: flex;
   align-items: center;
   justify-content: center;
-  /* margin-right: 80px; */
 }
 
 .button {
@@ -587,7 +612,6 @@ flex-grow: 0; */
 }
 
 .text {
-  /* display: inline-block; */
   pointer-events: initial;
   position: relative;
 }
@@ -598,7 +622,7 @@ flex-grow: 0; */
   padding: 10px 20px;
   /* width: 100px; */
   /* height: 40px; */
-  color: white;
+  color: black;
   border-radius: 25px;
   font-weight: 600;
   transition: all 0.3s ease;
@@ -618,20 +642,74 @@ flex-grow: 0; */
 .elemento-animado {
   transform-origin: top center;
 }
-.reveal-text {
-  display: block;
+
+.hero-container {
+  width: 100%;
+  position: relative;
   overflow: hidden;
 }
 
-.reveal-text span {
-  /* display: block; */
-  animation: reveal 2s cubic-bezier(0.77, 0, 0.175, 1) 0s;
+.swift-up-text span {
+  display: inline-block;
+  overflow: hidden;
+  animation: 0.3s swift-up ease-in-out forwards;
 }
-@keyframes reveal {
-  0% {
-    transform: translate(0, 150%);
+
+.swift-up-text i {
+  top: 55px; /* Ajusta según tu necesidad */
+  animation: 0.5s swift-up ease-in-out forwards;
+}
+
+@keyframes swift-up {
+  to {
+    top: 0;
   }
-  100% {
-    transform: translate(0, 0);
-  }
+}
+
+.faq-item {
+  border-bottom: 0.5px solid #2b2b2b;
+  padding: 16px 2px 16px 2px;
+}
+
+.faq-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 90px;
+}
+
+.faq-left {
+  display: flex;
+  align-items: center;
+}
+
+.faq-number {
+  width: 45px;
+  height: 45px;
+  color: #0057be;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 15px;
+  font-size: 14px;
+  border: #0057be solid 1px;
+}
+
+.faq-right {
+  font-size: 24px;
+  font-weight: bold;
+  color: red;
+  transition: transform 0.3s ease;
+}
+
+.faq-header:hover .faq-right {
+  transform: rotate(90deg);
+}
+
+.faq-answer {
+  overflow: hidden;
+  max-height: 0px;
+  transition: max-height 0.5s ease; /* Smooth open/close effect */
+  margin-top: -10px;
 }

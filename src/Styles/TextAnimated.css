@@ -1,0 +1,51 @@
+.container-fluid {
+  width: fit-content;
+}
+.words {
+  position: relative;
+  display: inline-block;
+}
+
+.single-word {
+  display: flex;
+  overflow: hidden;
+  text-transform: uppercase;
+}
+
+.first-word {
+  position: absolute;
+  top: 5px;
+  left: 0;
+  z-index: 10;
+}
+
+.second-word {
+  position: absolute;
+  top: -3px;
+  left: 0;
+  z-index: 5;
+}
+
+.single-chart1,
+.single-chart2 {
+  display: inline-block;
+}
+
+.single-chart1 {
+  /* font-weight: bolder;
+  font-size: 25px; */
+  line-height: 1;
+}
+
+.single-chart2 {
+  /* font-weight: bolder;
+  font-size: 25px;
+  line-height: 0.9;
+  color: black; */
+  margin-top: 2px;
+}
+
+.uno,
+.dos {
+  display: flex;
+}
