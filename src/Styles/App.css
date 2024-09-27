@@ -145,7 +145,7 @@ a {
     sans-serif;
   font-size: 18px;
   font-weight: 700;
-  line-height: 24px;
+  line-height: 24.3px;
 }
 .b3-desk {
   font-family: "Satoshi-Variable", system-ui, -apple-system, BlinkMacSystemFont,
@@ -426,6 +426,23 @@ select:focus-visible {
   align-items: center;
 }
 
+.work-title {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 65px;
+  line-height: 103%;
+  letter-spacing: -0.02em;
+}
+
+.work-p {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 32px;
+}
+.work-max-w {
+  max-width: 775px;
+}
 @media (max-width: 1023px) {
   .myH1 {
     font-size: 90px;
@@ -441,6 +458,17 @@ select:focus-visible {
 }
 
 @media (max-width: 640px) {
+  .work-title {
+    font-size: 45px;
+    letter-spacing: -0.02em;
+  }
+
+  .work-p {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+  }
+
   .myH1 {
     font-family: "Satoshi-Variable";
     font-style: normal;
