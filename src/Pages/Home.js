@@ -15,6 +15,9 @@ import NewServices from "../Components/NewServices";
 import Footer from "../Components/Footer";
 
 function Home() {
+  useEffect(() => {
+    document.title = "Labba Studio";
+  }, []);
   const { userLanguage, translateText } = useLanguage();
   const isMobile = window.innerWidth <= 768;
   const [viewportWidth, setViewportWidth] = useState(window.innerWidth);

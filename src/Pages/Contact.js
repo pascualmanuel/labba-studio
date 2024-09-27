@@ -5,7 +5,7 @@ import Rounded from "../Hooks/Rounded";
 
 function Contact() {
   useEffect(() => {
-    document.title = "Labba - Contact /testing";
+    document.title = "Contact - Labba";
   }, []);
 
   const [selectedService, setSelectedService] = useState("");

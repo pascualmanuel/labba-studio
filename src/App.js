@@ -72,7 +72,7 @@ function App() {
   return (
     <>
       <GoogleAnalytics />
-      {/* <Loader /> */}
+      <Loader />
       <BrowserRouter>
         <LanguageProvider>
           <ScrollToTop />
