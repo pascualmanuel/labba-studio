@@ -4,6 +4,7 @@ import Facebook from "../Assets/icons/facebook.svg";
 import Linkedin from "../Assets/icons/linkedin.svg";
 import Instagram from "../Assets/icons/instagram.svg";
 import { ReactSVG } from "react-svg";
+import { Link } from "react-router-dom";
 const Footer = () => {
   const [hovered, setHovered] = useState(false);
   const [isCopied, setIsCopied] = useState(false);
@@ -113,9 +114,15 @@ const Footer = () => {
           </div>
         </div>
         <div className="flex items-center mt-8">
-          <ReactSVG src={Instagram} className="mr-[20px]" />
-          <ReactSVG src={Linkedin} className="mr-[20px]" />
-          <ReactSVG src={Facebook} className="" />
+          <Link to={"https://instagram.com/labbastudio/"} target="_blank">
+            <ReactSVG src={Instagram} className="mr-[20px]" />
+          </Link>
+          <Link
+            to={"https://linkedin.com/company/labba-studio"}
+            target="_blank"
+          >
+            <ReactSVG src={Linkedin} className="mr-[20px]" />
+          </Link>
         </div>
       </div>
       <div className="border-t-gray  ">
