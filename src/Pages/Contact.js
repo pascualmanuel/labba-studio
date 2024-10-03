@@ -273,7 +273,7 @@ function Contact() {
                   placeholder="e.g. www.labba.studio"
                   className="input-cursor sm:w-full w-[90vw] mb-5"
                 />
-                <label className="">Your mini brief...</label>
+                <label className="">Project summary</label>
 
                 <input
                   type="text"
