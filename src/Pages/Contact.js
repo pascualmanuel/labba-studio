@@ -5,7 +5,7 @@ import Rounded from "../Hooks/Rounded";
 
 function Contact() {
   useEffect(() => {
-    document.title = "Contact - Labba";
+    document.title = "Labba - Contact";
   }, []);
 
   const [selectedService, setSelectedService] = useState("");
@@ -284,31 +284,56 @@ function Contact() {
                   placeholder="Your mini brief..."
                   className="input-cursor sm:w-full w-[90vw] mb-5"
                 />
-
-                <div className="relative sm:w-full w-[90vw] select-none">
+                <div className="relative h-[65px]">
                   <label>Estimated budget</label>
+
                   <div
-                    className={`input-cursor border border-gray-300 rounded-md bg-white text-gray-700 px-4 py-2 ${
-                      isOpen
-                        ? "rounded-tl-[8px] rounded-tr-[8px] rounded-b-none border-b-0 text-[#3741517a]"
-                        : ""
+                    className={`absolute sm:w-full w-[90vw] select-none border border-gray-300 bg-white text-gray-700 rounded-md transition-all duration-700 ease-in-out overflow-hidden z-[2] ${
+                      isOpen ? "max-h-80" : "max-h-[48px]"
                     }`}
                     onClick={() => setIsOpen(!isOpen)}
                   >
-                    {selectedOption ? (
-                      selectedOption
-                    ) : (
-                      <span className="text-[#8C8C8C]">Select one...</span>
-                    )}
-                  </div>
-                  {isOpen && (
-                    <ul className="absolute z-10 w-full bg-white border border-gray-300 border-t-0 select-none rounded-b-md shadow-lg mt-0">
+                    <div
+                      className={`input-cursor px-4 pt-3 pb-4  flex justify-between items-center ${
+                        isOpen ? "border-b-0 text-[#3741517a]" : ""
+                      }`}
+                    >
+                      {selectedOption ? (
+                        selectedOption
+                      ) : (
+                        <span className="text-[#8C8C8C]">Select one...</span>
+                      )}
+                      <svg
+                        width="11"
+                        height="7"
+                        viewBox="0 0 11 7"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        className={`transition-transform duration-100 ${
+                          isOpen ? "rotate-180" : ""
+                        }`}
+                      >
+                        <path
+                          fillRule="evenodd"
+                          clipRule="evenodd"
+                          d="M0.244078 0.577452C0.569515 0.252015 1.09715 0.252015 1.42259 0.577452L5.5 4.65486L9.57741 0.577452C9.90285 0.252015 10.4305 0.252015 10.7559 0.577452C11.0814 0.902889 11.0814 1.43053 10.7559 1.75596L6.08926 6.42263C5.76382 6.74807 5.23618 6.74807 4.91074 6.42263L0.244078 1.75596C-0.0813592 1.43053 -0.0813592 0.902889 0.244078 0.577452Z"
+                          fill="#8C8C8C"
+                        />
+                      </svg>
+                    </div>
+
+                    {/* Menú de opciones */}
+                    <ul
+                      className={`transition-opacity duration-700 ${
+                        isOpen ? "opacity-100 " : "opacity-100"
+                      }`}
+                    >
                       {options.map((option, index) => (
                         <li
                           key={index}
-                          onClick={() => handleSelect(option)} // This will update the state
-                          className={`px-4 py-2 hover:bg-gray-200 ${
-                            option.disabled ? "opacity-50 " : ""
+                          onClick={() => handleSelect(option)}
+                          className={`px-4 py-2 hover:bg-gray-200  ${
+                            option.disabled ? "opacity-50" : ""
                           }`}
                           disabled={option.disabled}
                         >
@@ -316,9 +341,8 @@ function Contact() {
                         </li>
                       ))}
                     </ul>
-                  )}
+                  </div>
                 </div>
-
                 <input
                   type="hidden"
                   name="budget" // Make sure to add this hidden input for the budget
