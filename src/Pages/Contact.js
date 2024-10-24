@@ -154,7 +154,7 @@ function Contact() {
 
   return (
     <>
-      <div className="flex flex-column sm:justify-center ml-[18px] sm:ml-[0px]">
+      <div className="flex flex-column sm:justify-center ml-[18px] sm:ml-[0px] mb-[120px]">
         <div className="grain"></div>
         <div className="flex lg:flex-row flex-col lg:items-center mt-6 lg:mt-0 sm:px-5">
           <div className=" mr-12 mg:mr-[170px]  w-[340px] sm:w-auto lg:mt-[-170px]">
