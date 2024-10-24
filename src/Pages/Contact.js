@@ -21,6 +21,7 @@ function Contact() {
     { value: "USD 15000 - 20000", label: "USD 15K - 20K" },
   ];
 
+  console.log(selectedService);
   const handleSelect = (option) => {
     setSelectedOption(option.value);
     setFormData((prevData) => ({
@@ -190,7 +191,7 @@ function Contact() {
                 }`}
                 onClick={() => handleServiceClick("Development")}
               >
-                <span style={{ userSelect: "none" }}>Development</span>
+                <span style={{ userSelect: "none" }}>Design + Development</span>
               </div>
 
               <div
@@ -204,6 +205,17 @@ function Contact() {
 
               <div
                 className={`contact-buttons  ${
+                  selectedService.includes("ecommerce")
+                    ? "contact-b-active"
+                    : ""
+                }`}
+                onClick={() => handleServiceClick("ecommerce")}
+              >
+                <span style={{ userSelect: "none" }}>E-Commerce</span>
+              </div>
+
+              <div
+                className={`contact-buttons  ${
                   selectedService.includes("Marketing")
                     ? "contact-b-active"
                     : ""
@@ -212,6 +224,7 @@ function Contact() {
               >
                 <span style={{ userSelect: "none" }}>Marketing</span>
               </div>
+
               <div
                 className={`contact-buttons  ${
                   selectedService.includes("SocialMedia")
@@ -220,7 +233,9 @@ function Contact() {
                 }`}
                 onClick={() => handleServiceClick("SocialMedia")}
               >
-                <span style={{ userSelect: "none" }}>Social media design</span>
+                <span style={{ userSelect: "none" }}>
+                  Social media packages
+                </span>
               </div>
               <div
                 className={`contact-buttons  ${
