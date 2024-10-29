@@ -1,64 +1,78 @@
 import React from "react";
 import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
-import MorgensternImg from "../../Assets/work/work-morgenstern.webp";
+import ephiHero from "../../Assets/work/Ephimero/hero_ephi.jpg";
+import ephiHeroMob from "../../Assets/work/Ephimero/hero-principal-mob.webp";
 
+import Inmo2 from "../../Assets/work/Inmobiliare/Inmo2.png";
+import Work1 from "../../Assets/work/work-morgenstern.webp";
+import Morgenstern from "../../Assets/work/work-morgenstern.webp";
 import Work2 from "../../Assets/work/work-inmobiliare.webp";
-import Work3 from "../../Assets/work/work-ephimero.webp";
+import EphiMob1 from "../../Assets/work/Ephimero/ephi-mob1.jpg";
+import EphiMob2 from "../../Assets/work/Ephimero/ephi-mob2.webp";
+import EphiMob3 from "../../Assets/work/Ephimero/ephi-mob3.jpg";
+import EphiMob4 from "../../Assets/work/Ephimero/ephi-mob4.jpg";
+import EphiMob5 from "../../Assets/work/Ephimero/ephi-mob5.jpg";
+import EphiMob6 from "../../Assets/work/Ephimero/ephi-mob6.jpg";
+import EphiGroup from "../../Assets/work/Ephimero/ephi-desk-group-2.webp";
 
 import Work6 from "../../Assets/work/work-manno.webp";
-import BgMorg from "../../Assets/work/Morgenstern/bg-morg.png";
-import Video1 from "../../Assets/work/Morgenstern/Home1.mp4";
-import Video2 from "../../Assets/work/Morgenstern/About2.mp4";
-import Video3 from "../../Assets/work/Morgenstern/Comunidad3.mp4";
-import Footer from "../../Components/Footer";
+
+import LabbaLogo from "../../Assets/labba/labba-iso.svg";
 import LabbaWhiteLogo from "../../Assets/labba/labba-iso-white.svg";
 import { ReactSVG } from "react-svg";
+import Footer from "../../Components/Footer";
 
-const Morgenstern = () => {
+const Ephimero = () => {
   let isDesktop = window.innerWidth > 1024;
+
+  let ephiBg = ephiHeroMob;
+
+  if (isDesktop) {
+    ephiBg = ephiHero;
+  }
+
   useEffect(() => {
-    document.title = "Morgenstern - Labba Studio";
+    document.title = "Ephimero - Labba Studio";
   }, []);
 
   return (
     <>
       <div
         className="h-[590px] w-[100vw] sm:h-[680px] bg-cover bg-center mt-[-77px] md:mt-[-8rem]"
-        style={{ backgroundImage: `url(${MorgensternImg})` }}
+        style={{ backgroundImage: `url(${ephiBg})` }}
       ></div>
       <h2 className="work-title py-20 hidden md:block px-6 max-w-[1200px] center">
-        Morgenstern
+        Ephimero
       </h2>
       <div className="max-w-[500px] sm:max-w-[768px] center px-4 sm:px-6">
-        <h2 className="work-title mt-8 mb-12 md:hidden">Morgenstern</h2>
+        <h2 className="work-title mt-8 mb-12 md:hidden">Ephimero</h2>
         <p className="work-p">
-          We designed a digital space for a transmedia project that blends
-          various artistic mediums, including drawing, animation, sound, text,
-          and interactive games. This project serves as an artistic essay that
-          explores how we connect with others, the world, and the flow of
-          information.
-        </p>{" "}
-        <p className="work-p mt-8">
-          We created a visually dynamic and interactive website that allows
-          users to engage with the character Morgenstern in different forms. The
-          design was centered around immersing the audience in a fluid
-          narrative, where Morgenstern evolves and takes on different shapes to
-          address contemporary issues.
+          The challenge was to create a seamless eCommerce experience that would
+          appeal to both design enthusiasts and consumers looking for premium
+          home decor.
         </p>
+        <p className="work-p mt-8">
+          We focused on creating an elegant and minimalist design that
+          emphasized the quality and aesthetic of Ephimero's candles. The
+          website was built with a mobile-first approach, ensuring that
+          customers could easily browse and purchase products on any device.
+        </p>
+
         <div className="mt-8 ssm:flex ssm:flex-row ssm:justify-between">
           <div className="w-[] ">
             <p className="l-desk text-[#b5b5b5] uppercase mb-4">Services</p>
             <p className=" text-lg sm:text-2xl ">UX/UI Design </p>
-            <p className=" text-lg sm:text-2xl ">SEO</p>
             <p className=" text-lg sm:text-2xl ">Development</p>
+            <p className=" text-lg sm:text-2xl ">Product renders</p>
+            <p className=" text-lg sm:text-2xl ">Growth</p>
           </div>
           <div className="hidden ssm:block">
             <p className="l-desk text-[#b5b5b5] uppercase mb-4">year</p>
-            <p className=" text-lg sm:text-2xl ">2023 </p>
+            <p className=" text-lg sm:text-2xl ">2023</p>
           </div>
           <div className="hidden ssm:block">
-            <Link to={"https://holamorgenstern.com/"} target="_blank">
+            <Link to={"https://ephimero.com/"} target="_blank">
               <p className="l-desk text-[#b5b5b5] uppercase mb-4">link</p>
               <p className=" text-lg sm:text-2xl underline">website</p>
             </Link>
@@ -70,7 +84,7 @@ const Morgenstern = () => {
               <p className=" text-lg sm:text-2xl ">2023 </p>
             </div>
             <div className="mr-14">
-              <Link to={"https://holamorgenstern.com/"} target="_blank">
+              <Link to={"https://ephimero.com/"} target="_blank">
                 <p className="l-desk text-[#b5b5b5] uppercase mb-4">link</p>
                 <p className=" text-lg sm:text-2xl underline">website</p>
               </Link>
@@ -79,70 +93,59 @@ const Morgenstern = () => {
         </div>
       </div>
       <div
-        className="md:h-[590px] w-[100vw] bg-cover bg-center mt-28 md:mt-40 flex justify-center"
-        style={{ backgroundImage: `url(${BgMorg})` }}
+        className="md:h-[710px] w-[100vw] bg-cover bg-center mt-28 md:mt-40 flex justify-center"
+        style={{ backgroundColor: `#DBD9C5` }}
+      >
+        <div className="w-full max-w-[1060px] p-4 sm:px-6 flex items-center">
+          <div className="w-full h-[80%]  overflow-hidden flex justify-around  space-x-3">
+            <img src={EphiMob1} className="w-1/3 h-auto object-contain" />
+            <img src={EphiMob2} className="w-1/3 h-auto object-contain" />
+            <img src={EphiMob3} className="w-1/3 h-auto object-contain" />
+          </div>
+        </div>
+      </div>
+
+      <div
+        className="md:h-[710px] w-[100vw] bg-cover bg-center mt-6 md:mt-6 flex justify-center"
+        style={{
+          background: `linear-gradient(76.23deg, #DBD9C5 -0.93%, #CCBDA2 100%)`,
+        }}
       >
         <div className="w-full max-w-[1060px] p-4 sm:p-6">
-          <div className="w-full md:h-full rounded-[8px] overflow-hidden">
-            <video
-              src={Video1}
-              muted
-              autoPlay
-              loop
-              playsInline
+          <div className="w-full md:h-full overflow-hidden">
+            <img
+              src={EphiGroup}
               className="w-full md:h-full"
               style={{
-                objectFit: "cover",
+                objectFit: "contain",
               }}
             />
           </div>
         </div>
       </div>
-      <div className="max-w-[500px] sm:max-w-[768px] center py-20 px-4 sm:px-6">
-        <p className="work-p">
-          The site integrated multimedia elements, making the user experience
-          both reflective and engaging. Animation, soundscapes, and interactive
-          components were seamlessly woven into the storytelling, creating a
-          unique and thought-provoking digital environment.
-        </p>
-      </div>
-      <div className="sm:h-[590px] w-[100vw] bg-cover bg-center  flex justify-center">
-        <div className="w-full max-w-[1060px] p-4 sm:p-6">
-          <div
-            className="w-full sm:h-full rounded-[8px] overflow-hidden"
-            style={{ border: "solid black 1px" }}
-          >
-            <video
-              src={Video3}
-              muted
-              autoPlay
-              loop
-              playsInline
-              className="w-full sm:h-full"
-              style={{
-                objectFit: "cover",
-              }}
-            />
-          </div>
+
+      <div>
+        <div className="max-w-[500px] sm:max-w-[768px] center px-4 sm:px-6 py-24">
+          <p className="work-p">
+            High-quality imagery, product storytelling, and an intuitive
+            interface were key elements of the design. We also incorporated
+            features like product reviews, scent descriptions, and recommended
+            pairings to enhance the shopping experience.
+          </p>
         </div>
       </div>
-      <div className="sm:h-[590px] w-[100vw] bg-cover bg-center mt-1 sm:mt-10 flex justify-center lg:mb-[300px] ">
-        <div className="w-full max-w-[1060px] p-4 sm:p-6">
-          <div
-            className="sm:w-full h-full rounded-[8px] overflow-hidden"
-            style={{ border: "solid black 1px" }}
-          >
-            <video
-              src={Video2}
-              muted
-              autoPlay
-              loop
-              playsInline
-              className="w-full sm:h-full"
-              style={{
-                objectFit: "cover",
-              }}
-            />
+
+      <div
+        className="md:h-[710px] w-[100vw] bg-cover bg-center mt-6 md:mt-6 flex justify-center lg:mb-[300px]"
+        style={{
+          background: `linear-gradient(76.23deg, #DBD9C5 -0.93%, #CCBDA2 100%)`,
+        }}
+      >
+        <div className="w-full max-w-[1060px] p-4 sm:px-6 flex items-center">
+          <div className="w-full h-[80%]  overflow-hidden flex justify-around  space-x-3">
+            <img src={EphiMob4} className="w-1/3 h-auto object-contain" />
+            <img src={EphiMob5} className="w-1/3 h-auto object-contain" />
+            <img src={EphiMob6} className="w-1/3 h-auto object-contain" />
           </div>
         </div>
       </div>
@@ -169,7 +172,7 @@ const Morgenstern = () => {
           </span>
         )}
         <section className="works-section relative  mx-auto px-6 sm:px-[53px] lg:px-[150px] max-w-[1500px] flex flex-col-reverse  lg:mt-[-300px]">
-          <Link to="/works/manno" rel="noopener noreferrer">
+          <Link to="/works/manno">
             <div
               className="work-item relative mb-2 cursor-none sm:mb-6 rounded-lg bg-cover bg-center h-[260px] md:h-[580px] mt-6  "
               style={{ backgroundImage: `url(${Work6})` }}
@@ -202,6 +205,37 @@ const Morgenstern = () => {
           </Link>
           {/* Segunda fila de trabajos - Dos columnas */}
           <div className="grid grid-cols-1 md:grid-cols-2  sm:gap-[24px]">
+            <Link to="/works/morgenstern" rel="noopener noreferrer">
+              <div
+                className="work-item item-sq relative mb-2 sm:mb-0 rounded-lg bg-cover bg-center h-[268px] sm:aspect-square sm:w-full md:h-auto"
+                style={{ backgroundImage: `url(${Morgenstern})` }}
+                id="pasando"
+              >
+                <div className="project-info w-[359px] md:w-[300px] mg:w-[359px]  bg-[#FFFFFF33] rounded-[10px] absolute top-[25px] left-[30px] md:left-[12px] mg:left-[30px] blur-bg">
+                  <div className="flex flex-row justify-between">
+                    <div>
+                      <p
+                        className="l-desk text-[#ECECEC]"
+                        style={{ fontWeight: 500 }}
+                      >
+                        Morgenstern
+                      </p>
+                    </div>
+                    <div className="flex flex-row">
+                      <p className="tags p-12 mr-[6px]">Design</p>
+                      <p className="tags p-12">Development</p>
+                    </div>
+                  </div>
+                  <div className="mt-[10px]">
+                    <p className="b4-desk text-[#ECECEC]">
+                      A creative and playful website for a creative and playful
+                      illustrated project.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </Link>
+
             <Link to="/works/inmobiliare">
               <div
                 className="work-item item-sq relative mb-2 sm:mb-0 rounded-lg bg-cover bg-center h-[268px] sm:aspect-square sm:w-full md:h-auto"
@@ -234,35 +268,8 @@ const Morgenstern = () => {
               </div>
             </Link>
 
-            <Link to="/works/ephimero">
-              <div
-                className="work-item item-sq relative mb-2 sm:mb-0 rounded-lg bg-cover bg-center h-[268px] sm:aspect-square sm:w-full md:h-auto"
-                style={{ backgroundImage: `url(${Work3})` }}
-                id="pasando"
-              >
-                <div className="project-info w-[359px] md:w-[300px] mg:w-[359px]  bg-[#FFFFFF33] rounded-[10px] absolute top-[25px] left-[30px] md:left-[12px] mg:left-[30px] blur-bg">
-                  <div className="flex flex-row justify-between">
-                    <div>
-                      <p
-                        className="l-desk text-[#ECECEC]"
-                        style={{ fontWeight: 500 }}
-                      >
-                        Ephimero
-                      </p>
-                    </div>
-                    <div className="flex flex-row">
-                      <p className="tags p-12 mr-[6px]">Design</p>
-                      <p className="tags p-12">Development</p>
-                    </div>
-                  </div>
-                  <div className="mt-[10px]">
-                    <p className="b4-desk text-[#ECECEC]">
-                      Candles ecommerce with ethics & aesthetics
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </Link>
+            {/* 
+            Work  */}
           </div>
         </section>
       </div>
@@ -271,4 +278,4 @@ const Morgenstern = () => {
   );
 };
 
-export default Morgenstern;
+export default Ephimero;
