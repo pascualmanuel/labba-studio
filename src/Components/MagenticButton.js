@@ -99,7 +99,7 @@ const MagneticButton = ({ text, link }) => {
   const isHome = location.pathname === "/";
 
   return (
-    <div className="z-[10000]">
+    <div className="z-[10000] overflow-visible">
       {link ? (
         <Link to={link}>
           <div className={`button-magnetic button-contact`} ref={buttonRef}>

@@ -266,7 +266,7 @@ a {
   );
   filter: blur(300px);
   pointer-events: none; /* To allow interactions with elements beneath it */
-  z-index: -1;
+  z-index: -5;
   transform: rotate3D(0, 0, 1, 180deg);
 }
 
@@ -288,8 +288,6 @@ a {
   justify-content: center;
   align-items: center;
   padding: 12px 24px;
-  /* width: 127px; */
-  /* height: 46px; */
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid #2b2b2b;
   backdrop-filter: blur(5px);
@@ -301,8 +299,6 @@ a {
 
 .contact {
   border-radius: 21.5px;
-  /* background: rgba(255, 255, 255, 0.2); */
-
   border: solid black 1px;
   backdrop-filter: blur(2px);
   width: 107px;
@@ -311,8 +307,6 @@ a {
   justify-content: flex-start;
   align-items: center;
   transition: all 0.3s ease;
-
-  font-family: "Satoshi-Regular";
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
@@ -671,12 +665,6 @@ select:focus-visible {
   transform-origin: top center;
 }
 
-.hero-container {
-  width: 100%;
-  position: relative;
-  overflow: hidden;
-}
-
 .swift-up-text span {
   display: inline-block;
   overflow: hidden;
@@ -740,4 +728,48 @@ select:focus-visible {
   max-height: 0px;
   transition: max-height 0.5s ease; /* Smooth open/close effect */
   margin-top: -10px;
+}
+
+.reveal-text {
+  display: block;
+  overflow: hidden;
+}
+
+.reveal-text span {
+  display: block;
+  /* animation: reveal 2s cubic-bezier(0.77, 0, 0.175, 1) 0s; */
+  animation: reveal 2s cubic-bezier(0.77, 0, 0.175, 1) backwards;
+  z-index: 100;
+}
+
+.reveal-text-span {
+  display: block;
+  overflow: hidden;
+}
+
+.reveal-span {
+  display: block; /* Mantén esto para el efecto de revelado */
+  animation: reveal 2s cubic-bezier(0.77, 0, 0.175, 1) backwards;
+  z-index: 100;
+  overflow: hidden;
+}
+
+@keyframes reveal {
+  0% {
+    transform: translate(0, 150%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+.hero-text {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.heroAnimation {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
 }

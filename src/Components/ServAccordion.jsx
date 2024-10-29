@@ -8,7 +8,6 @@ const FAQItem = ({ id, title, answer }) => {
   const textAnimatedRefs = useRef([]);
 
   const handleMouseEnter = (index) => {
-    console.log(`Mouse entered the area ${index + 1}`);
     // Llama a la animación del texto animado correspondiente
     if (textAnimatedRefs.current[index]) {
       textAnimatedRefs.current[index].playAnimation();
@@ -16,7 +15,6 @@ const FAQItem = ({ id, title, answer }) => {
   };
 
   const handleMouseLeave = (index) => {
-    console.log(`Mouse left the area ${index + 1}`);
     // Reversa la animación del texto animado correspondiente
     if (textAnimatedRefs.current[index]) {
       textAnimatedRefs.current[index].reverseAnimation();

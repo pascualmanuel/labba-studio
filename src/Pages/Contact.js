@@ -21,7 +21,6 @@ function Contact() {
     { value: "USD 15000 - 20000", label: "USD 15K - 20K" },
   ];
 
-  console.log(selectedService);
   const handleSelect = (option) => {
     setSelectedOption(option.value);
     setFormData((prevData) => ({

@@ -1,10 +1,12 @@
 import { ReactSVG } from "react-svg";
 import LabbaISO from "../Assets/svg-iso-labba.svg";
 import LabbaLogo from "../Assets/labba/labba-iso.svg";
+import LabbaWhiteLogo from "../Assets/labba/labba-iso-white.svg";
 import Burger from "../Assets/Burger.svg";
 import BurgerClose from "../Assets/Burger-close.svg";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import BackIcon from "../Assets/Back.svg";
+import BackWhiteIcon from "../Assets/BackWhite.svg";
 import { useState, useEffect } from "react";
 import { useLanguage } from "../Hooks/LanguageContext";
 
@@ -78,19 +80,25 @@ function Header() {
     logoPosition = "absolute";
   }
 
-  if (location.pathname === "/") {
+  const isWorkPage = location.pathname.includes("/works");
+
+  if (location.pathname != "/contact") {
     return (
       <>
-        <div className="z-[100] pointer-events-none fixed top-0 left-0 right-0 center flex flex-row justify-between items-center h-[77px] max-w-[1500px] sm:h-32 px-[15px] sm:px-[50px] ">
-          <Link to="/">
+        <div
+          className={`z-[100] top-0 left-0 right-0 center flex flex-row justify-between items-center 
+        h-[77px] max-w-[1500px] sm:h-32 px-[15px] sm:px-[50px] pointer-events-none
+         ${isWorkPage ? "" : "fixed"}`}
+        >
+          <Link to="/#home">
             <div
-              className="pointer-events-auto"
+              className=" pointer-events-auto"
               style={{
                 zIndex: "10006",
               }}
             >
               <ReactSVG
-                src={LabbaLogo}
+                src={isWorkPage ? LabbaWhiteLogo : LabbaLogo}
                 className=" "
                 style={{ zIndex: "10006" }}
               />
@@ -98,24 +106,25 @@ function Header() {
           </Link>
 
           <div>
-            {/* {isMobile ? (
-              <Link to={"/contact"} className="">
-                <div className="fixed right-0 mt-[-7px]  mr-[16px]">
-                  <div className="contact">
-                    <p className="text-LaBlack">Contact</p>
-                  </div>
-                </div>
-              </Link>
-            ) : ( */}
-            <div className="sm:mr-[-30px]">
+            <div className="sm:mr-[-30px]  pointer-events-auto">
               {isMobile ? (
                 <Link to="/contact">
-                  <div className="w-[108px] h-[38px] border border-[#2b2b2b] rounded-lg flex items-center justify-center bg-[#ffffff33]">
+                  <div
+                    className={`w-[108px] h-[38px] border border-[#2b2b2b] rounded-lg flex items-center justify-center bg-[#ffffff33] 
+                    ${isWorkPage ? "text-white" : ""}`}
+                  >
                     <span>Contact us</span>
                   </div>
                 </Link>
               ) : (
-                <MagneticButton text={"Contact us"} link={"/contact"} />
+                <MagneticButton
+                  text={
+                    <span className={`${isWorkPage ? "text-white" : ""}`}>
+                      Contact us
+                    </span>
+                  }
+                  link={"/contact"}
+                />
               )}
             </div>
           </div>
@@ -126,11 +135,11 @@ function Header() {
     return (
       <>
         <div className="z-[100] top-0 left-0 right-0 center flex flex-row justify-between items-center h-[77px] max-w-[1500px] sm:h-32 px-[15px] sm:px-[50px] ">
-          <Link to="/">
+          <Link to="/#home">
             <div
               className=""
               style={{
-                zIndex: "10006",
+                zIndex: "1006",
               }}
             >
               <ReactSVG
@@ -146,14 +155,17 @@ function Header() {
               {!isMobile ? (
                 <MagneticButton
                   text={
-                    <span className="text flex flex-row items-center text-base">
-                      <ReactSVG src={BackIcon} className="mr-3" /> Back
+                    <span
+                      className={`text flex flex-row items-center text-base`}
+                    >
+                      <ReactSVG src={BackIcon} className="mr-3" />
+                      Back
                     </span>
                   }
                   link={"/#home"}
                 />
               ) : (
-                <Link to="/">
+                <Link to="/#home">
                   <div className="w-[108px] h-[38px] border border-[#2b2b2b] rounded-lg flex items-center justify-center bg-[#ffffff33]">
                     <span className="text flex flex-row items-center text-base">
                       <ReactSVG src={BackIcon} className="mr-3" /> Back

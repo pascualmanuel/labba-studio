@@ -5,7 +5,7 @@ import Lenis from "lenis";
 import Home from "./Pages/Home";
 import Header from "./Components/Header";
 import Contact from "./Pages/Contact";
-import GoToTop from "./Hooks/ScrollToTop";
+import ScrollToTop from "./Hooks/ScrollToTop";
 import PruebaPage from "./Pages/PruebaPage";
 import GoogleAnalytics from "./Components/GoogleAnalytics";
 import Loader from "./Components/Loader";
@@ -14,14 +14,11 @@ import useCursorEffect from "./Hooks/useCursorEffect";
 import "./Styles/App.css";
 import AnimatedWords from "./Hooks/AnimatedWord";
 import Morgenstern from "./Pages/Works/Morgenstern";
-function ScrollToTop() {
-  const location = useLocation();
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [location]);
-
-  return null;
-}
+import Inmobiliare from "./Pages/Works/Inmobiliare";
+import Ephimero from "./Pages/Works/Ephimero";
+import Daewoo from "./Pages/Works/Daewoo";
+import Manno from "./Pages/Works/Manno";
+import Trebol from "./Pages/Works/Trebol";
 
 function App() {
   // const [scrollXEnabled, setScrollXEnabled] = useState(true);
@@ -32,6 +29,7 @@ function App() {
 
   useEffect(() => {
     // Simulate loader duration for testing
+
     setTimeout(() => setLoading(false), 3800); // Simulated 3 second loading time
   }, []);
 
@@ -49,50 +47,28 @@ function App() {
       setLenis(lenisInstance);
     }
   }, [loading]);
-  // const cursorRef = useRef(null);
-
-  // useEffect(() => {
-  //   const handleResize = () => {
-  //     if (window.innerWidth > 1 && window.innerHeight < 10000) {
-  //       setScrollXEnabled(false);
-  //     } else {
-  //       setScrollXEnabled(true);
-  //     }
-  //   };
-
-  //   handleResize();
-
-  //   window.addEventListener("resize", handleResize);
-
-  //   return () => {
-  //     window.removeEventListener("resize", handleResize);
-  //   };
-  // }, []);
 
   return (
     <>
       <GoogleAnalytics />
       <Loader />
       <BrowserRouter>
-        <LanguageProvider>
-          <ScrollToTop />
-          {/* <div id="circleCursor" className="hidden sm:block"></div> */}
-          <div id="circleCursor" className="hidden sm:block"></div>
+        <div className="grain"></div>
 
+        <ScrollToTop lenis={lenis} />
+        <LanguageProvider>
+          <div id="circleCursor" className="hidden sm:block"></div>
           <Header />
           <Routes>
-            <Route
-              path="/"
-              element={
-                <>
-                  <ScrollToTop />
-                  <Home />
-                </>
-              }
-            />
+            <Route path="/" element={<Home />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/pruebas" element={<PruebaPage />} />
-            <Route path="/morgenstern" element={<Morgenstern />} />
+            <Route path="/works/morgenstern" element={<Morgenstern />} />
+            <Route path="/works/inmobiliare" element={<Inmobiliare />} />
+            <Route path="/works/ephimero" element={<Ephimero />} />
+            <Route path="/works/daewoo" element={<Daewoo />} />
+            <Route path="/works/manno" element={<Manno />} />
+            <Route path="/works/trebol" element={<Trebol />} />
           </Routes>
         </LanguageProvider>
       </BrowserRouter>

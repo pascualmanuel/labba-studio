@@ -21,7 +21,7 @@ function Services() {
             </div>
             <div className=" card-2 card__content card__animation ">
               <div className="card-inside">
-                <div className="number-cont">
+                <div className="number-cont sm:ml-10 lg:ml-auto">
                   <ReactSVG
                     src={First}
                     beforeInjection={(svg) => {
@@ -29,10 +29,10 @@ function Services() {
                     }}
                   />
                 </div>
-                <div>
+                <div className="sm:mx-10 lg:mx-auto">
                   <h2 className="h3-desk sm:mt-0 mt-2">Hello </h2>
                   <p
-                    className="b3-desk sm:mt-9 sm:w-[500px] mt-2"
+                    className="b3-desk sm:mt-9 lg:w-[500px] mt-2"
                     style={{ fontSize: "16px" }}
                   >
                     During the Hello phase we’ll get to know each other. We’ll
@@ -46,7 +46,7 @@ function Services() {
           <li className="card z-[10001]" id="card_3">
             <div className=" card-3 card__content card__animation">
               <div className="card-inside">
-                <div className="number-cont">
+                <div className="number-cont sm:ml-10 lg:ml-auto">
                   <ReactSVG
                     src={Second}
                     beforeInjection={(svg) => {
@@ -54,10 +54,10 @@ function Services() {
                     }}
                   />
                 </div>
-                <div>
+                <div className="sm:mx-10 lg:mx-auto">
                   <h2 className="h3-desk sm:mt-0 mt-2">Discovery </h2>
                   <p
-                    className="b3-desk sm:mt-9 sm:w-[500px] mt-2"
+                    className="b3-desk sm:mt-9 lg:w-[500px] mt-2"
                     style={{ fontSize: "16px" }}
                   >
                     This is where we dive deep into research, exploring your
@@ -74,7 +74,7 @@ function Services() {
           <li className="card z-[10003]" id="card_4">
             <div className=" card-4 card__content card__animation">
               <div className="card-inside">
-                <div className="number-cont">
+                <div className="number-cont sm:ml-10 lg:ml-auto">
                   <ReactSVG
                     src={Third}
                     beforeInjection={(svg) => {
@@ -82,10 +82,10 @@ function Services() {
                     }}
                   />
                 </div>
-                <div>
+                <div className="sm:mx-10 lg:mx-auto">
                   <h2 className="h3-desk sm:mt-0 mt-2">Design </h2>
                   <p
-                    className="b3-desk sm:mt-9 sm:w-[500px] mt-2"
+                    className="b3-desk sm:mt-9 lg:w-[500px] mt-2"
                     style={{ fontSize: "16px" }}
                   >
                     With the insights from the discovery phase, we begin
@@ -102,7 +102,7 @@ function Services() {
           <li className="card z-[10004]" id="card_5">
             <div className=" card-5 card__content card__animation">
               <div className="card-inside">
-                <div className="number-cont">
+                <div className="number-cont sm:ml-10 lg:ml-auto">
                   <ReactSVG
                     src={Fourth}
                     beforeInjection={(svg) => {
@@ -110,10 +110,10 @@ function Services() {
                     }}
                   />
                 </div>
-                <div>
+                <div className="sm:mx-10 lg:mx-auto">
                   <h2 className="h3-desk sm:mt-0 mt-2">Dev </h2>
                   <p
-                    className="b3-desk sm:mt-9 sm:w-[500px] mt-2"
+                    className="b3-desk sm:mt-9 lg:w-[500px] mt-2"
                     style={{ fontSize: "16px" }}
                   >
                     This is where the magic happens. In this phase, our
@@ -129,7 +129,7 @@ function Services() {
           <li className="card z-[10005]" id="card_6">
             <div className=" card-6 card__content card__animation">
               <div className="card-inside">
-                <div className="number-cont">
+                <div className="number-cont sm:ml-10 lg:ml-auto">
                   <ReactSVG
                     src={Fifth}
                     beforeInjection={(svg) => {
@@ -137,10 +137,10 @@ function Services() {
                     }}
                   />
                 </div>
-                <div>
+                <div className="sm:mx-10 lg:mx-auto">
                   <h2 className="h3-desk sm:mt-0 mt-2">Launch </h2>
                   <p
-                    className="b3-desk sm:mt-9 sm:w-[500px] mt-2"
+                    className="b3-desk sm:mt-9 lg:w-[500px] mt-2"
                     style={{ fontSize: "16px" }}
                   >
                     Before delivering anything, we ensure every detail is
