@@ -91,9 +91,6 @@ const PruebaPage = () => {
     const handleIntersection = (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          console.log(
-            `El div negro pasó por encima del ${entry.target.className}`
-          );
         }
       });
     };
