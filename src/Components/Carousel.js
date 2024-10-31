@@ -46,12 +46,9 @@ const Carousel = () => {
           slidesPerView={slides}
           spaceBetween={40}
           loop={true}
-          speed={5000}
-          autoplay={{
-            delay: 0,
-            disableOnInteraction: false,
-          }}
-          modules={[Pagination, Autoplay]}
+          speed={0}
+          allowTouchMove={false}
+          modules={[Pagination]}
           className="mySwiper mt-24"
         >
           {images.map((image, index) => (
