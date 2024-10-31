@@ -759,8 +759,22 @@ main {
   background-color: #121212;
 }
 
-.mySwiper .swiper-wrapper {
+/* .mySwiper .swiper-wrapper {
   transition-timing-function: linear;
+} */
+
+.mySwiper .swiper-wrapper {
+  display: flex;
+  animation: scroll 30s linear infinite; /* Ajusta la duración de la animación */
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
 
 @media (max-width: 1024px) {
