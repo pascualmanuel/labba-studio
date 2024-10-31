@@ -112,16 +112,23 @@ const useCursorEffect = () => {
       const transitionDuration2 = "0.2s";
 
       if (isOverLink) {
-        circleCursor.style.width = "100px";
-        circleCursor.style.height = "100px";
-        circleCursor.style.fontSize = "50px";
+        circleCursor.style.width = "70px";
+        circleCursor.style.height = "70px";
+        circleCursor.style.fontSize = "16px";
+        circleCursor.style.lineHeight = "15px";
+        circleCursor.style.textAlign = "center";
+        circleCursor.style.border = "none";
+        circleCursor.style.color = "white";
         circleCursor.style.fontWeight = "400";
         circleCursor.style.transition = `width ${transitionDuration}, height ${transitionDuration}`;
-        circleCursor.style.setProperty(
-          "--before-content",
-          `url('data:image/svg+xml,${encodeURIComponent(svgCode)}')`
-        );
-        circleCursor.style.setProperty("--before-margin-top", "-7px");
+
+        circleCursor.style.setProperty("--before-content", "'View more'");
+
+        // circleCursor.style.setProperty(
+        //   "--before-content",
+        //   `url('data:image/svg+xml,${encodeURIComponent(svgCode)}')`
+        // );
+        // circleCursor.style.setProperty("--before-margin-top", "-7px");
       } else if (isOverLinkTwo) {
         circleCursor.style.width = "56px";
         circleCursor.style.height = "56px";
@@ -147,6 +154,7 @@ const useCursorEffect = () => {
       } else {
         circleCursor.style.backgroundColor = "rgba(255, 255, 255, 0.2)";
         circleCursor.style.width = "35px";
+        circleCursor.style.border = "solid 1px black";
         circleCursor.style.height = "35px";
         circleCursor.style.transition = `width ${transitionDuration}, height ${transitionDuration}`;
         circleCursor.style.setProperty("--before-content", "''");
