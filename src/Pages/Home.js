@@ -34,14 +34,7 @@ function Home() {
   }, []);
 
   let shadowOn = "ellipse-shadow";
-  // let displayClaim = "";
-  // let shrinkNumber = 170;
 
-  const svgCode = `
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M23.3137 0.686267L0.686292 23.3137M23.3137 0.686267H0.686292M23.3137 0.686267V23.3137" stroke="#ECECEC"/>
-    </svg>
-  `;
   useEffect(() => {
     const ellipseShadow = document.getElementById(shadowOn);
 
@@ -54,43 +47,62 @@ function Home() {
     const halfWidth = ellipseWidth / 2;
     const halfHeight = ellipseHeight / 2;
 
+    // Posiciona la sombra en el centro de la pantalla al cargar
+    const initialX = window.innerWidth / 2 + 360 - halfWidth;
+    const initialY = window.innerHeight / 2 - 50 - halfHeight;
+
+    ellipseShadow.style.left = `${initialX}px`;
+    ellipseShadow.style.top = `${initialY}px`;
+
+    // Luego, mueve la sombra con el cursor
     document.addEventListener("mousemove", (e) => {
       const x = e.clientX - halfWidth;
       const y = e.clientY - halfHeight;
 
-      ellipseShadow.style.left = x + "px";
-      ellipseShadow.style.top = y + "px";
+      ellipseShadow.style.left = `${x}px`;
+      ellipseShadow.style.top = `${y}px`;
     });
-  }, []);
 
-  useEffect(() => {
-    const section = document.querySelector(".parallax");
-
-    if (!section) {
-      return;
-    }
-
-    const initialScale = 0.8;
-    const maxScale = 1.0;
-    const scaleMultiplier = 0.001;
-
-    section.style.transform = `scale(${initialScale})`;
-
-    const updateSectionScale = () => {
-      const scrollY = window.scrollY || window.pageYOffset;
-
-      let newScale = initialScale + scrollY * scaleMultiplier;
-      newScale = Math.min(newScale, maxScale);
-
-      section.style.transform = `scale(${newScale})`;
-    };
-
-    window.addEventListener("scroll", updateSectionScale);
-
+    // Cleanup
     return () => {
-      window.removeEventListener("scroll", updateSectionScale);
+      document.removeEventListener("mousemove", (e) => {
+        const x = e.clientX - halfWidth;
+        const y = e.clientY - halfHeight;
+
+        ellipseShadow.style.left = `${x}px`;
+        ellipseShadow.style.top = `${y}px`;
+      });
     };
   }, []);
+
+  // useEffect(() => {
+  //   const section = document.querySelector(".parallax");
+
+  //   if (!section) {
+  //     return;
+  //   }
+
+  //   const initialScale = 0.8;
+  //   const maxScale = 1.0;
+  //   const scaleMultiplier = 0.001;
+
+  //   section.style.transform = `scale(${initialScale})`;
+
+  //   const updateSectionScale = () => {
+  //     const scrollY = window.scrollY || window.pageYOffset;
+
+  //     let newScale = initialScale + scrollY * scaleMultiplier;
+  //     newScale = Math.min(newScale, maxScale);
+
+  //     section.style.transform = `scale(${newScale})`;
+  //   };
+
+  //   window.addEventListener("scroll", updateSectionScale);
+
+  //   return () => {
+  //     window.removeEventListener("scroll", updateSectionScale);
+  //   };
+  // }, []);
 
   return (
     <>
