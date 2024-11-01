@@ -106,7 +106,7 @@ function Header() {
           </Link>
 
           <div>
-            <div className="sm:mr-[-30px]  pointer-events-auto">
+            <div className=" pointer-events-auto">
               {isMobile ? (
                 <Link to="/contact">
                   <div
@@ -151,7 +151,7 @@ function Header() {
           </Link>
 
           <div>
-            <div className="sm:mr-[-30px]">
+            <div className="sm:mr-[-30]">
               {!isMobile ? (
                 <MagneticButton
                   text={
