@@ -71,6 +71,13 @@ const useCursorEffect = () => {
     let targetY = 0;
     let isMoving = false;
 
+    const centerX = window.innerWidth / 2 + 360; // Ajuste para el ancho del cursor (mitiWidth)
+    const centerY = window.innerHeight / 2 - 50; // Ajuste para el alto del cursor (mitiHeight)
+
+    // Establece el cursor en el centro de la pantalla al cargar
+    circleCursor.style.left = `${centerX}px`;
+    circleCursor.style.top = `${centerY}px`;
+
     const handleMouseMove = (e) => {
       const cursorElement = document.getElementById("circleCursor");
       if (!cursorElement) return; // Previene el error si no existe el cursor
@@ -86,10 +93,8 @@ const useCursorEffect = () => {
 
     const handleResize = () => {
       const cursorElement = document.getElementById("circleCursor");
-      if (!cursorElement) return; // Previene el error durante el resize si el cursor no existe
-      // Opcional: Ajustar la posición del cursor si es necesario después del resize
-      targetX = window.innerWidth / 2 - mitiWidth;
-      targetY = window.innerHeight / 2 - mitiHeight;
+      if (!cursorElement) return;
+      // Opcional: Añadir alguna otra lógica aquí si es necesario, pero sin ajustar targetX y targetY.
     };
 
     document.addEventListener("mousemove", handleMouseMove);
