@@ -42,6 +42,9 @@ const HomeHero = () => {
       }
     };
 
+    // Llama a handleScroll al montar el componente
+    handleScroll();
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isSticky, isStickyTwo]);
