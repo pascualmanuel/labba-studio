@@ -170,30 +170,42 @@ const Footer = () => {
 
               <div className="ms:mr-2 md:mr-5 sm:mb-[0px]">
                 <div>
-                  <p className="sayhi mb-3 mt-4 ms:mt-0">Argentina</p>
+                  <p className="sayhi mb-3 mt-4 ms:mt-0">Spain</p>
                   <a
-                    href="https://wa.me/+5491151632960"
+                    href="https://wa.me/+34661173788"
                     className="whatsapp-link"
                     target="_blank"
                   >
                     <div className="btn-floral-border">
-                      <div className="btn-floral-scent b4-desk  before:content-['+54_9_11_5163_2960'] after:content-['Open_in_WhatsApp'] "></div>
+                      <div className="btn-floral-scent  b4-desk before:content-['+34_661_173_788'] after:content-['Open_in_WhatsApp'] "></div>
                     </div>
                   </a>
                 </div>
               </div>
               <div className="">
-                <p className="sayhi mb-3 mt-4 ms:mt-0">Spain</p>
+                <p className="sayhi mb-3 mt-4 ms:mt-0">Argentina</p>
+                <a
+                  href="https://wa.me/+5491151632960"
+                  className="whatsapp-link"
+                  target="_blank"
+                >
+                  <div className="btn-floral-border">
+                    <div className="btn-floral-scent b4-desk  before:content-['+54_9_11_5163_2960'] after:content-['Open_in_WhatsApp'] "></div>
+                  </div>
+                </a>
+              </div>
+              {/* <div className="ml-0 sm:ml-5">
+                <p className="sayhi mb-3 mt-4 ms:mt-0">Portugal</p>
                 <a
                   href="https://wa.me/+34634269453"
                   className="whatsapp-link"
                   target="_blank"
                 >
                   <div className="btn-floral-border">
-                    <div className="btn-floral-scent  b4-desk before:content-['+34_0634_0269_453'] after:content-['Open_in_WhatsApp'] "></div>
+                    <div className="btn-floral-scent  b4-desk before:content-['+34_661_173_788'] after:content-['Open_in_WhatsApp'] "></div>
                   </div>
                 </a>
-              </div>
+              </div> */}
             </div>
             <div className="flex items-center mt-8">
               <Link to={"https://instagram.com/labbastudio/"} target="_blank">
