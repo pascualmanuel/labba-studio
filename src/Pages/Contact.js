@@ -19,6 +19,7 @@ function Contact() {
     { value: "USD 5000 - 10000", label: "USD 5K - 10K" },
     { value: "USD 10000 - 15000", label: "USD 10K - 15K" },
     { value: "USD 15000 - 20000", label: "USD 15K - 20K" },
+    { value: "USD " + 20000, label: "USD 20K+" },
   ];
 
   const handleSelect = (option) => {
