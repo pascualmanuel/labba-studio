@@ -111,7 +111,7 @@ const HomeHero = () => {
                         marginLeft: "5px",
                       }}
                     />
-                    Available for new projects
+                    Available for new projects STG
                   </div>
                 </span>
               </div>
