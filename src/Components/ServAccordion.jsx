@@ -99,7 +99,7 @@ const FAQPage = () => {
       id: 1,
       title: "UX/UI DESIGN",
       answer:
-        "We offer professiona and personalized UX/UI design services for products, websites and mobile apps. Our human- centered design philosophy make the user experience perfect from the first click!",
+        "We offer professional and personalized UX/UI design services for products, websites and mobile apps. Our human- centered design philosophy make the user experience perfect from the first click!",
     },
     {
       id: 2,
