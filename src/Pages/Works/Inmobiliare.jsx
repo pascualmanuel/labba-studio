@@ -151,7 +151,7 @@ const Inmobiliare = () => {
             Other work
           </span>
         )}
-        <section className="works-section relative  mx-auto px-6 sm:px-[53px] lg:px-[150px] max-w-[1500px] flex flex-col-reverse  lg:mt-[-300px]">
+        <section className="works-section relative  mx-auto px-6 sm:px-[53px] lg:px-16 max-w-[1500px] flex flex-col-reverse  lg:mt-[-300px]">
           <Link to="/works/manno" target="" rel="noopener noreferrer">
             <div
               className="work-item relative mb-2 cursor-none sm:mb-6 rounded-lg bg-cover bg-center h-[260px] md:h-[580px] mt-6  "
