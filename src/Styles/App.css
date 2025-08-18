@@ -23,8 +23,8 @@ body {
     "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
     sans-serif;
   overflow-x: hidden !important;
-  background-color: white;
-  color: #2b2b2b;
+  background-color: black;
+  color: #f1f1f1;
 }
 html {
   cursor: url("../Assets/dot-cursor.svg"), auto;
@@ -311,7 +311,7 @@ a {
   font-weight: 500;
   font-size: 16px;
   line-height: 22px;
-  color: #212121;
+  /* color: #212121; */
   text-align: center;
   display: flex;
   justify-content: center;
@@ -352,7 +352,7 @@ label {
 }
 .contact-buttons:hover {
   background-color: #ececec;
-  color: black;
+  /* color: black; */
 }
 
 .contact-b-active {
@@ -437,6 +437,7 @@ select:focus-visible {
 .work-max-w {
   max-width: 775px;
 }
+
 @media (max-width: 1023px) {
   .myH1 {
     font-size: 90px;
@@ -683,15 +684,16 @@ select:focus-visible {
 }
 
 .faq-item {
-  border-bottom: 0.5px solid #2b2b2b;
-  padding: 16px 2px 16px 2px;
+  /* border-bottom: 0.5px solid #2b2b2b; */
+  /* padding: 16px 2px 16px 2px; */
 }
 
 .faq-header {
   display: flex;
-  justify-content: space-between;
+  justify-self: end;
   align-items: center;
-  height: 90px;
+  height: 60px;
+  margin-right: 100px;
 }
 
 .faq-left {
@@ -715,7 +717,7 @@ select:focus-visible {
 .faq-right {
   font-size: 24px;
   font-weight: bold;
-  color: red;
+
   transition: transform 0.3s ease;
 }
 
@@ -728,6 +730,14 @@ select:focus-visible {
   max-height: 0px;
   transition: max-height 0.5s ease; /* Smooth open/close effect */
   margin-top: -10px;
+  margin-right: 100px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.faq-answer > div {
+  width: 300px;
+  text-align: left;
 }
 
 .reveal-text {
@@ -772,4 +782,76 @@ select:focus-visible {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.btn-contact {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 123px;
+  height: 47px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  overflow: visible; /* dejamos que el glow respire */
+}
+
+.btn-contact > span {
+  position: relative;
+  z-index: 1;
+}
+
+/* Capa del borde (no capta clicks) */
+.btn-border {
+  position: absolute;
+  inset: 0; /* ocupa todo el botón */
+  pointer-events: none;
+  border-radius: inherit;
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.25)); /* leve glow */
+}
+
+/* Estilo y animación del “shimmer” */
+.btn-border rect {
+  fill: none;
+  stroke-linecap: round;
+  stroke-width: 0.5px; /* grosor de borde = 2px */
+
+  /* Creamos un “segmento” que viaja: 16% visible, 84% espacio */
+  stroke-dasharray: 16 84;
+
+  /* Recorre todo el perímetro (100 = pathLength) */
+  animation: shimmer 3.2s linear infinite;
+}
+
+/* Opcional: una base de borde MUY sutil para que el contorno siempre exista */
+.btn-contact::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  /* box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12) inset; “marco” tenue */
+  pointer-events: none;
+}
+
+/* Animación */
+@keyframes shimmer {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: -100;
+  }
+}
+
+/* Respeto reduce-motion si querés activar más adelante */
+@media (prefers-reduced-motion: reduce) {
+  .btn-border rect {
+    animation-duration: 9s;
+  }
 }

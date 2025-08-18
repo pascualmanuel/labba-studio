@@ -31,6 +31,8 @@ module.exports = {
     extend: {
       colors: {
         LaBlack: "#2b2b2b",
+        white: "#F1F1F1",
+        gray: "#B5B5B5",
       },
     },
   },
