@@ -51,7 +51,7 @@ function App() {
   return (
     <>
       <GoogleAnalytics />
-      <Loader />
+      {/* <Loader /> */}
       <BrowserRouter>
         <div className="grain"></div>
 

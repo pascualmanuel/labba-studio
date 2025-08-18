@@ -3,17 +3,17 @@ import "../Styles/App.css";
 // import Works from "../Components/Works";
 import "../Styles/Prueba.css";
 import HomeHero from "../Components/HomeHero";
-import Services from "../Components/OldComps/Services";
+// import Services from "../Components/OldComps/Services";
 import Process from "../Components/Process";
 import Carousel from "../Components/Carousel";
-import Claim from "../Components/OldComps/Claim";
+import Claim from "../Components/Claim";
 import { useLanguage } from "../Hooks/LanguageContext";
 import { Link } from "react-router-dom";
-import Rounded from "../Hooks/Rounded";
 import NewWorks from "../Components/NewWork";
 import NewServices from "../Components/NewServices";
 import Footer from "../Components/Footer";
 import MannoHero from "../Assets/work/Manno/MannoHero.webp";
+import VideoSection from "../Components/VideoSection";
 
 import ephiHero from "../Assets/work/Ephimero/hero_ephi.jpg";
 import ephiHeroMob from "../Assets/work/Ephimero/hero-principal-mob.webp";
@@ -75,35 +75,6 @@ function Home() {
     };
   }, []);
 
-  // useEffect(() => {
-  //   const section = document.querySelector(".parallax");
-
-  //   if (!section) {
-  //     return;
-  //   }
-
-  //   const initialScale = 0.8;
-  //   const maxScale = 1.0;
-  //   const scaleMultiplier = 0.001;
-
-  //   section.style.transform = `scale(${initialScale})`;
-
-  //   const updateSectionScale = () => {
-  //     const scrollY = window.scrollY || window.pageYOffset;
-
-  //     let newScale = initialScale + scrollY * scaleMultiplier;
-  //     newScale = Math.min(newScale, maxScale);
-
-  //     section.style.transform = `scale(${newScale})`;
-  //   };
-
-  //   window.addEventListener("scroll", updateSectionScale);
-
-  //   return () => {
-  //     window.removeEventListener("scroll", updateSectionScale);
-  //   };
-  // }, []);
-
   return (
     <>
       <div id={shadowOn}></div>
@@ -111,24 +82,32 @@ function Home() {
 
       <HomeHero />
 
-      <NewWorks />
-      <div className="" style={{ overflow: "hidden" }}>
-        <Claim />
-      </div>
+      <VideoSection />
 
-      <div className=" mb-[200px] mt-[-150px] sm:mt-[-120px]">
+      {/* <NewWorks /> */}
+      {/* <div className="" style={{ overflow: "hidden" }}>
+        <Claim />
+      </div> */}
+
+      <div className="">
         <NewServices />
       </div>
 
-      <Process />
-      <div className="sm:h-screen sm:pb-0  	" style={{ background: " #ECECEC" }}>
+      <div>
+      <NewWorks />
+
+      </div>
+
+      {/* <Process /> */}
+
+      {/* <div className="sm:h-screen sm:pb-0  	" style={{ background: " #ECECEC" }}>
         <div className="  ">
           <h3 className="b1-desk ml-[23px] sm:ml-36 pt-24 sm:pt-72">
             We love our clients
           </h3>
         </div>
         <Carousel />
-      </div>
+      </div> */}
       <Footer />
 
       <img src={MannoHero} className="hidden" />
