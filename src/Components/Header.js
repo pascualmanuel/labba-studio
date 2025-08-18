@@ -13,6 +13,20 @@ import { useLanguage } from "../Hooks/LanguageContext";
 import MagneticButton from "./MagenticButton";
 
 function Header() {
+  const [isNavbarVisible, setIsNavbarVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  useEffect(() => {
+    const onScroll = () => {
+      const y = window.scrollY;
+      if (y > lastScrollY && lastScrollY < 90) setIsNavbarVisible(true);
+      else if (y > lastScrollY) setIsNavbarVisible(false);
+      else setIsNavbarVisible(true);
+      setLastScrollY(y);
+    };
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [lastScrollY]);
+
   const navigate = useNavigate();
 
   const isMobile = window.innerWidth <= 768; // Adjust the width as needed
@@ -80,15 +94,21 @@ function Header() {
     logoPosition = "absolute";
   }
 
-  const isWorkPage = location.pathname.includes("/works");
+  const isWorkPage =
+    location.pathname.includes("/works") || location.pathname.includes("/");
+
+  // }
+  // transition-transform duration-300 will-change-transform
+  // ${isNavbarVisible ? "translate-y-0" : "-translate-y-full"}`}
 
   if (location.pathname != "/contact") {
     return (
       <>
         <div
-          className={`z-[100] top-0 left-0 right-0 center flex flex-row justify-between items-center 
-        h-[77px] max-w-[1500px] sm:h-32 px-[15px] sm:px-[50px] pointer-events-none
-         ${isWorkPage ? "" : "fixed"}`}
+          className={`z-[100] fixed w-screen center flex flex-row justify-between items-center 
+        h-[77px] max-w-[1500px] sm:h-32 px-[15px] sm:px-[50px] pointer-events-none transition-transform duration-300 will-change-transform
+        ${isNavbarVisible ? "translate-y-0" : "-translate-y-full"}
+         ${isWorkPage ? "" : "fixed"} `}
         >
           <Link to="/#home">
             <div
@@ -105,29 +125,43 @@ function Header() {
             </div>
           </Link>
 
-          <div>
-            <div className=" pointer-events-auto">
-              {isMobile ? (
-                <Link to="/contact">
-                  <div
-                    className={`w-[108px] h-[38px] border border-[#2b2b2b] rounded-lg flex items-center justify-center bg-[#ffffff33] 
-                    ${isWorkPage ? "text-white" : ""}`}
-                  >
-                    <span>Contact us</span>
-                  </div>
-                </Link>
-              ) : (
-                <MagneticButton
-                  text={
-                    <span className={`${isWorkPage ? "text-white" : ""}`}>
-                      Contact us
-                    </span>
-                  }
-                  link={"/contact"}
-                />
-              )}
-            </div>
-          </div>
+          <Link to="/contact" className="btn-contact">
+            <span>Get in touch</span>
+            <svg
+              className="btn-border"
+              viewBox="0 0 100 46"
+              preserveAspectRatio="none"
+              aria-hidden="true"
+            >
+              <defs>
+                <linearGradient
+                  id="glass-shimmer"
+                  x1="0%"
+                  y1="0%"
+                  x2="100%"
+                  y2="0%"
+                >
+                  <stop offset="0%" stop-color="rgba(255,255,255,0)" />
+                  <stop offset="50%" stop-color="rgba(255,255,255,1)" />
+                  <stop offset="100%" stop-color="rgba(255,255,255,0)" />
+                </linearGradient>
+              </defs>
+              <rect
+                x="1"
+                y="1"
+                width="98"
+                height="38"
+                rx="7"
+                ry="7"
+                pathLength="100"
+                fill="none"
+                stroke="url(#glass-shimmer)"
+                strokeWidth="2px"
+                strokeLinecap="round"
+                strokeDasharray="16 84"
+              />
+            </svg>
+          </Link>
         </div>
       </>
     );
@@ -166,7 +200,7 @@ function Header() {
                 />
               ) : (
                 <Link to="/#home">
-                  <div className="w-[108px] h-[38px] border border-[#2b2b2b] rounded-lg flex items-center justify-center bg-[#ffffff33]">
+                  <div className="w-[108px] h-[38px] border border-[#2b2b2b] rounded-[8px] flex items-center justify-center bg-[#ffffff33]">
                     <span className="text flex flex-row items-center text-base">
                       <ReactSVG src={BackIcon} className="mr-3" /> Back
                     </span>
@@ -181,32 +215,3 @@ function Header() {
   }
 }
 export default Header;
-
-// {isMobile ? (
-//   <Link to={"/#home"} className="">
-//     <div
-//       className="absolute right-0 mt-[-7px]  mr-[18px]"
-//       style={{
-//         zIndex: "10006",
-//       }}
-//     >
-//       <div className="contact">
-//         <p className=" text-LaBlack flex items-center">
-//           <ReactSVG src={BackIcon} onClick={toggleContact} />
-//           <p className="b3-des pl-2.5 text-LaBlack ">Back</p>
-//         </p>
-//       </div>
-//     </div>
-//   </Link>
-// ) : (
-//   <div className="mr-[-30px]">
-//     <MagneticButton
-//       text={
-//         <span className="text flex flex-row items-center text-base">
-//           <ReactSVG src={BackIcon} className="mr-3" /> Back
-//         </span>
-//       }
-//       link={"/#home"}
-//     />
-//   </div>
-// )}

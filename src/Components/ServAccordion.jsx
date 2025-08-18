@@ -31,7 +31,7 @@ const FAQItem = ({ id, title, answer }) => {
       <div className="faq-header">
         <div className="faq-left">
           {/* <div className="faq-id ">{id}</div> */}
-          <div className="uppercase weight font-medium text-[18px] lg:text-[24px] w-[220px] sm:w-auto ">
+          <div className="uppercase weight font-medium text-[18px] lg:text-[20px] w-[300px]  ">
             <TextAnimated
               firstWord={title}
               secondWord={title}
@@ -51,7 +51,7 @@ const FAQItem = ({ id, title, answer }) => {
             >
               <path
                 d="M15 1L0.999999 1"
-                stroke="#2b2b2b"
+                stroke="#B5B5B5"
                 strokeWidth="1"
                 strokeLinecap="round"
               />
@@ -66,13 +66,13 @@ const FAQItem = ({ id, title, answer }) => {
             >
               <path
                 d="M8 1V15"
-                stroke="#2b2b2b"
+                stroke="#B5B5B5"
                 strokeWidth="1"
                 strokeLinecap="round"
               />
               <path
                 d="M15 8H0.999999"
-                stroke="#2b2b2b"
+                stroke="#B5B5B5"
                 strokeWidth="1"
                 strokeLinecap="round"
               />
@@ -97,25 +97,25 @@ const FAQPage = () => {
   const faqData = [
     {
       id: 1,
-      title: "UX/UI DESIGN",
+      title: "Digital products",
       answer:
         "We offer professiona and personalized UX/UI design services for products, websites and mobile apps. Our human- centered design philosophy make the user experience perfect from the first click!",
     },
     {
       id: 2,
-      title: "Development",
+      title: "WEBSITES",
       answer:
         "We provide robust and scalable development solutions for websites, mobile apps, and digital platforms. Our team of experts ensures that every project is optimized for performance, security, and responsiveness, delivering high-quality code and seamless user experiences across all devices.",
     },
     {
       id: 3,
-      title: "Brand",
+      title: "AI custom asolutions",
       answer:
         "Our branding services help define and enhance your brand's identity. From creating logos to building cohesive brand systems, we ensure that your visual and verbal identity communicates your values and connects with your audience on an emotional level, positioning your brand for long-term success.",
     },
     {
       id: 4,
-      title: "GROWTH",
+      title: "CONTENT",
       answer:
         "We offer data-driven growth strategies designed to scale your business. From SEO and social media marketing to content strategies and paid advertising, we focus on increasing visibility, engagement, and conversions to help you reach your business goals and drive sustainable growth.",
     },
