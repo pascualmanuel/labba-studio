@@ -730,13 +730,13 @@ select:focus-visible {
   max-height: 0px;
   transition: max-height 0.5s ease; /* Smooth open/close effect */
   margin-top: -10px;
-  margin-right: 100px;
+  /* margin-right: 100px; */
   display: flex;
   justify-content: flex-end;
 }
 
 .faq-answer > div {
-  width: 300px;
+  width: 415px;
   text-align: left;
 }
 
@@ -854,4 +854,27 @@ select:focus-visible {
   .btn-border rect {
     animation-duration: 9s;
   }
+}
+
+
+
+/* Hamburger menu animation */
+.hamburger-line {
+  transition: transform 0.3s ease-in-out;
+}
+
+.hamburger-line.top {
+  transform-origin: center;
+}
+
+.hamburger-line.bottom {
+  transform-origin: center;
+}
+
+.hamburger-line.top.cross {
+  transform: translateY(1px) translateX(-1px) rotate(45deg);
+}
+
+.hamburger-line.bottom.cross {
+  transform: translateY(-3px) translateX(-1px) rotate(-45deg);
 }
