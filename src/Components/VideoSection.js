@@ -7,7 +7,7 @@ export default function VideoSection() {
     <section className="video-section relative  mx-auto px-6 sm:px-[53px] lg:px-16 lg:mt-[50px]  max-w-[1500px] ">
       <BackgroundVideo
         videoSrc={Reel}
-        className=" relative mb-2 sm:mb-6 rounded-lg h-[260px] md:h-[580px]"
+        className=" relative mb-2 sm:mb-6 rounded-lg h-[260px] md:h-[757px]"
       ></BackgroundVideo>
     </section>
   );
