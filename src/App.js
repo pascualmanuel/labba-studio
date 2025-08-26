@@ -1,18 +1,17 @@
-import React, { useEffect, useRef, useState } from "react";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Lenis from "lenis";
 
 import Home from "./Pages/Home";
 import Header from "./Components/Header";
 import Contact from "./Pages/Contact";
 import ScrollToTop from "./Hooks/ScrollToTop";
-import PruebaPage from "./Pages/PruebaPage";
 import GoogleAnalytics from "./Components/GoogleAnalytics";
 import Loader from "./Components/Loader";
 import { LanguageProvider } from "./Hooks/LanguageContext";
 import useCursorEffect from "./Hooks/useCursorEffect";
 import "./Styles/App.css";
-import AnimatedWords from "./Hooks/AnimatedWord";
+
 import Morgenstern from "./Pages/Works/Morgenstern";
 import Inmobiliare from "./Pages/Works/Inmobiliare";
 import Ephimero from "./Pages/Works/Ephimero";
@@ -21,37 +20,54 @@ import Manno from "./Pages/Works/Manno";
 import Trebol from "./Pages/Works/Trebol";
 
 function App() {
-  // const [scrollXEnabled, setScrollXEnabled] = useState(true);
   useCursorEffect();
 
-  const [loading, setLoading] = useState(true);
+  // 👇 Calculamos si debe mostrarse el loader ANTES del primer render
+  const computeInitialShowLoader = () => {
+    if (typeof window === "undefined") return false;
+    try {
+      const isHome = window.location.pathname === "/";
+      const already = sessionStorage.getItem("homeLoaderShown") === "true";
+      return isHome && !already;
+    } catch {
+      return window.location?.pathname === "/";
+    }
+  };
+
+  const [showLoader, setShowLoader] = useState(computeInitialShowLoader);
   const [lenis, setLenis] = useState(null);
 
+  // Cuando el loader termina su fade (evento del Loader), lo apagamos en estado
   useEffect(() => {
-    // Simulate loader duration for testing
-
-    setTimeout(() => setLoading(false), 3800); // Simulated 3 second loading time
+    const off = () => setShowLoader(false);
+    window.addEventListener("home-loader-done", off, { once: true });
+    return () => window.removeEventListener("home-loader-done", off);
   }, []);
 
+  // Inicializar Lenis SOLO cuando el loader no está visible
   useEffect(() => {
-    if (!loading) {
-      // Initialize Lenis only after the loading is done
-      const lenisInstance = new Lenis();
+    if (showLoader) return; // no iniciar mientras el loader esté activo
+    if (lenis) return;
 
-      function raf(time) {
-        lenisInstance.raf(time);
-        requestAnimationFrame(raf);
-      }
+    const lenisInstance = new Lenis();
 
+    function raf(time) {
+      lenisInstance.raf(time);
       requestAnimationFrame(raf);
-      setLenis(lenisInstance);
     }
-  }, [loading]);
+
+    requestAnimationFrame(raf);
+    setLenis(lenisInstance);
+
+    // Si tu versión de Lenis soporta destroy:
+    // return () => lenisInstance.destroy?.();
+  }, [showLoader, lenis]);
 
   return (
     <>
       <GoogleAnalytics />
-      <Loader />
+      {showLoader && <Loader />}
+
       <BrowserRouter>
         <div className="grain"></div>
 

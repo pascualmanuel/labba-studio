@@ -28,9 +28,29 @@ function Home() {
   const isMobile = window.innerWidth <= 768;
   const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
   const [viewportHeight, setViewportHeight] = useState(window.innerHeight);
+  const [videoShouldPlay, setVideoShouldPlay] = useState(false);
 
   useEffect(() => {
     document.title = "Labba Studio";
+  }, []);
+
+  useEffect(() => {
+    // si en esta sesión ya se mostró el loader, reproducir directo
+    if (sessionStorage.getItem("homeLoaderShown") === "true") {
+      setVideoShouldPlay(true);
+      return;
+    }
+
+    const onDone = () => {
+      // marcar que el loader ya se mostró en esta sesión
+      sessionStorage.setItem("homeLoaderShown", "true");
+      // abrir la compuerta del video
+      setVideoShouldPlay(true);
+    };
+
+    // escuchar la señal global del loader (se dispara tras animationend)
+    window.addEventListener("home-loader-done", onDone, { once: true });
+    return () => window.removeEventListener("home-loader-done", onDone);
   }, []);
 
   let shadowOn = "ellipse-shadow";
@@ -82,7 +102,7 @@ function Home() {
 
       <HomeHero />
 
-      <VideoSection />
+      <VideoSection shouldPlay={videoShouldPlay} />
 
       <div className="">
         <NewServices />
