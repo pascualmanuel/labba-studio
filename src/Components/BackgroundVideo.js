@@ -4,33 +4,56 @@ const BackgroundVideo = ({
   videoSrc,
   children,
   className = "",
-  autoPlay = true,
+  // ⚠️ autoplay debe ser false por defecto
+  autoPlay = false,
   muted = true,
   loop = true,
   playsInline = true,
   poster = null,
+  // 🔑 nueva prop: decide si reproducir o no (controlada desde Home)
+  shouldPlay = false,
   ...props
 }) => {
   const videoRef = useRef(null);
 
+  // Mantener SIEMPRE pausado y en t=0 mientras no debamos reproducir
   useEffect(() => {
-    if (videoRef.current && autoPlay) {
-      videoRef.current.play().catch((error) => {
-        console.log("Video autoplay failed:", error);
-      });
+    const v = videoRef.current;
+    if (!v) return;
+
+    if (!shouldPlay) {
+      try {
+        v.pause();
+        if (v.currentTime !== 0) v.currentTime = 0;
+      } catch (e) {}
+      return;
     }
-  }, [autoPlay]);
+
+    // Al habilitar shouldPlay: arrancar desde el principio
+    try {
+      v.currentTime = 0;
+    } catch (e) {}
+    // dos RAF para garantizar que ya salió el loader del flujo de render
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        v.play?.().catch(() => {});
+      });
+    });
+  }, [shouldPlay]);
 
   return (
-    <div className={`relative overflow-hidden ${className}`} {...props}>
+    <div className={`relative z-0 ${className}`}>
       <video
         ref={videoRef}
-        className="absolute inset-0 w-full h-full object-cover"
-        autoPlay={autoPlay}
+        className="absolute inset-0 w-full h-full object-cover rounded-lg"
+        // 👇 aunque exista autoPlay en el resto, lo forzamos a falso aquí
+        autoPlay={false}
         muted={muted}
         loop={loop}
         playsInline={playsInline}
+        preload="auto"
         poster={poster}
+        {...props}
       >
         <source src={videoSrc} type="video/mp4" />
         Your browser does not support the video tag.
