@@ -29,10 +29,10 @@ const NewServices = () => {
       <section className="mx-auto px-6 sm:px-[53px] lg:px-16 max-w-[1500px] py-[200px] ">
         <div className="flex flex-col lg:flex-row">
           <div className="mb-[30px] lg:w-[50%]">
-            <h3 className="text-[20px] text-gray font-light leading-[32px]   xl:text-[24px]  md:mb-[40px]">
+            <h3 className="text-[20px] text-[#cacaca] font-light leading-[32px]   xl:text-[24px]  md:mb-[40px]">
               We are digital essence inspired by natural behavior of lava.
             </h3>
-            <h3 className="text-[20px] text-gray font-light leading-[32px]   xl:text-[24px]  md:mb-[20px] ">
+            <h3 className="text-[20px] text-[#cacaca] font-light leading-[32px]   xl:text-[24px]  md:mb-[20px] ">
               We flow. We are powerful. We are malleable <br /> —
               <span className="font-bold text-white">
                 {" "}

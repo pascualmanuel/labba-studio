@@ -1,8 +1,8 @@
 import React, { useState, useRef } from "react";
 // import "./FAQ.css"; // Add your styles here
 import TextAnimated from "../Hooks/AnimatedWord";
-const FAQItem = ({ id, title, answer }) => {
-  const [isOpen, setIsOpen] = useState(false);
+
+const FAQItem = ({ id, title, answer, isOpen, onToggle }) => {
   const answerRef = useRef(null); // Reference to the answer div
 
   const textAnimatedRefs = useRef([]);
@@ -24,7 +24,7 @@ const FAQItem = ({ id, title, answer }) => {
   return (
     <div
       className="faq-item select-none"
-      onClick={() => setIsOpen(!isOpen)}
+      onClick={() => onToggle(id)}
       onMouseEnter={() => handleMouseEnter(1)}
       onMouseLeave={() => handleMouseLeave(1)}
     >
@@ -84,7 +84,7 @@ const FAQItem = ({ id, title, answer }) => {
         ref={answerRef}
         className="faq-answer"
         style={{
-          maxHeight: isOpen ? `${answerRef.current.scrollHeight}px` : "0px",
+          maxHeight: isOpen ? `${answerRef.current?.scrollHeight}px` : "0px",
         }}
       >
         <div className="text-[18px] font-normal">{answer}</div>
@@ -94,37 +94,50 @@ const FAQItem = ({ id, title, answer }) => {
 };
 
 const FAQPage = () => {
+  const [openItemId, setOpenItemId] = useState(null);
+
+  const handleToggle = (id) => {
+    setOpenItemId(openItemId === id ? null : id);
+  };
+
   const faqData = [
     {
       id: 1,
       title: "Digital products",
       answer:
-        "We offer professiona and personalized UX/UI design services for products, websites and mobile apps. Our human- centered design philosophy make the user experience perfect from the first click!",
+        "We design digital experiences that create real connections. By combining smart design with a deep understanding of human behavior, we build products that are not only beautiful but meaningful — helping your brand grow with purpose.",
     },
     {
       id: 2,
       title: "WEBSITES",
       answer:
-        "We provide robust and scalable development solutions for websites, mobile apps, and digital platforms. Our team of experts ensures that every project is optimized for performance, security, and responsiveness, delivering high-quality code and seamless user experiences across all devices.",
+        "Your website is where your brand truly comes alive. At Labba, we design digital spaces that clearly express who you are and what you stand for, while giving users an engaging, effortless experience.",
     },
     {
       id: 3,
-      title: "AI custom asolutions",
+      title: "CUSTOM AI",
       answer:
-        "Our branding services help define and enhance your brand's identity. From creating logos to building cohesive brand systems, we ensure that your visual and verbal identity communicates your values and connects with your audience on an emotional level, positioning your brand for long-term success.",
+        "We use AI not just to work smarter, but to design better, more intuitive products. Our team is at the forefront of AI-powered UX, creating new ways for people to interact with digital tools and setting the standard for the future.",
     },
     {
       id: 4,
-      title: "CONTENT",
+      title: "BRANDING",
       answer:
-        "We offer data-driven growth strategies designed to scale your business. From SEO and social media marketing to content strategies and paid advertising, we focus on increasing visibility, engagement, and conversions to help you reach your business goals and drive sustainable growth.",
+        "A brand is more than a logo or a color palette — it's how people recognize, remember, and connect with you. At Labba, we create strong visual and verbal identities, design all the assets you need, and define clear brand guidelines so your message stays consistent everywhere.",
     },
   ];
 
   return (
     <div className="center lg:mt-[-30px]">
       {faqData.map((faq) => (
-        <FAQItem key={faq.id} title={faq.title} answer={faq.answer} />
+        <FAQItem
+          key={faq.id}
+          id={faq.id}
+          title={faq.title}
+          answer={faq.answer}
+          isOpen={openItemId === faq.id}
+          onToggle={handleToggle}
+        />
       ))}
     </div>
   );
