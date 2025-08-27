@@ -98,7 +98,7 @@ function Header() {
   }
 
   const isWorkPage =
-    location.pathname.includes("/works") || location.pathname.includes("/");
+    location.pathname.includes("/work") || location.pathname.includes("/");
 
   // }
   // transition-transform duration-300 will-change-transform
@@ -124,19 +124,19 @@ function Header() {
     }
   }, [isMenuOpen]);
 
-  if (location.pathname != "/contact") {
+  if (location.pathname != "/rekfdsx") {
     return (
       <>
         <div
           className={`z-[100] fixed w-full center flex flex-row justify-between items-center 
-        h-[77px]  sm:h-32   transition-transform duration-300 will-change-transform
+        h-[120px] md:h-[90px]  sm:h-32   transition-transform duration-300 will-change-transform
         ${isNavbarVisible ? "translate-y-0" : "-translate-y-full"}
          ${isWorkPage ? "" : "fixed"} `}
         >
           <div
             className="
      
-    flex items-center justify-between mx-auto max-w-[1500px] w-full px-16
+    flex items-center justify-between mx-auto max-w-[1500px] w-full px-4 sm:px-16
           
           "
           >
@@ -332,52 +332,51 @@ function Header() {
       </>
     );
   } else {
-    return (
-      <>
-        <div className="z-[100] top-0 left-0 right-0 center flex flex-row justify-between items-center h-[77px] max-w-[1500px] sm:h-32 px-[15px] sm:px-[50px] ">
-          <Link to="/#home">
-            <div
-              className=""
-              style={{
-                zIndex: "1006",
-              }}
-            >
-              <ReactSVG
-                src={LabbaLogo}
-                className=" "
-                style={{ zIndex: "10006" }}
-              />
-            </div>
-          </Link>
-
-          <div>
-            <div className="sm:mr-[-30]">
-              {!isMobile ? (
-                <MagneticButton
-                  text={
-                    <span
-                      className={`text flex flex-row items-center text-base`}
-                    >
-                      <ReactSVG src={BackIcon} className="mr-3" />
-                      Back
-                    </span>
-                  }
-                  link={"/#home"}
-                />
-              ) : (
-                <Link to="/#home">
-                  <div className="w-[108px] h-[38px] border border-[#2b2b2b] rounded-[8px] flex items-center justify-center bg-[#ffffff33]">
-                    <span className="text flex flex-row items-center text-base">
-                      <ReactSVG src={BackIcon} className="mr-3" /> Back
-                    </span>
-                  </div>
-                </Link>
-              )}
-            </div>
-          </div>
-        </div>
-      </>
-    );
+    // return (
+    //   <>
+    //     <div className="z-[100] top-0 left-0 right-0 center flex flex-row justify-between items-center h-[77px] max-w-[1500px] sm:h-32 px-[15px] sm:px-[50px] ">
+    //       <Link to="/#home">
+    //         <div
+    //           className=""
+    //           style={{
+    //             zIndex: "1006",
+    //           }}
+    //         >
+    //           <ReactSVG
+    //             src={LabbaLogo}
+    //             className=" "
+    //             style={{ zIndex: "10006" }}
+    //           />
+    //         </div>
+    //       </Link>
+    //       <div>
+    //         <div className="sm:mr-[-30]">
+    //           {!isMobile ? (
+    //             <MagneticButton
+    //               text={
+    //                 <span
+    //                   className={`text flex flex-row items-center text-base`}
+    //                 >
+    //                   <ReactSVG src={BackIcon} className="mr-3" />
+    //                   Back
+    //                 </span>
+    //               }
+    //               link={"/#home"}
+    //             />
+    //           ) : (
+    //             <Link to="/#home">
+    //               <div className="w-[108px] h-[38px] border border-[#2b2b2b] rounded-[8px] flex items-center justify-center bg-[#ffffff33]">
+    //                 <span className="text flex flex-row items-center text-base">
+    //                   <ReactSVG src={BackIcon} className="mr-3" /> Back
+    //                 </span>
+    //               </div>
+    //             </Link>
+    //           )}
+    //         </div>
+    //       </div>
+    //     </div>
+    //   </>
+    // );
   }
 }
 export default Header;

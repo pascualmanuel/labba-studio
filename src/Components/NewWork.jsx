@@ -1,8 +1,9 @@
 import React from "react";
-import Work1 from "../Assets/work/scounting-site.webp";
-import Work2 from "../Assets/work/flora-app.webp";
-import Work3 from "../Assets/work/hyundai-site.webp";
-import Work4 from "../Assets/work/dbs-site.webp";
+
+import Work1 from "../Assets/work/Hyundai/hyundai-site.webp";
+import Work2 from "../Assets/work/Flora/flora-app.webp";
+import Work3 from "../Assets/work/Dbs/dbs-site.webp";
+import Work4 from "../Assets/work/Scouting/scounting-site.webp";
 
 import PlusIcon from "../Assets/icons/PlusIcon.svg";
 import { useState } from "react";
