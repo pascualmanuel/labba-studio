@@ -89,6 +89,23 @@ a {
   line-height: normal;
 }
 
+.h2 {
+  /* H2 - Desktop */
+  font-family: "Satoshi-Variable";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 70px;
+  line-height: 115%;
+  letter-spacing: -0.02em;
+}
+
+.cta {
+  font-family: "Satoshi-Variable";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 132%;
+}
 .sp1-desk {
   font-family: "Satoshi-Variable";
   font-style: normal;
@@ -330,10 +347,12 @@ a {
   height: 90px;
 }
 .contact-buttons {
-  border: solid 1px #d9d9d9;
+  /* border: solid 1px #d9d9d9; */
   border-radius: 12px;
   width: fit-content;
-  padding: 7px 15px 7px 15px;
+  padding-right: 20px;
+  padding-left: 20px;
+  height: 45px;
   margin-right: 17px;
   margin-bottom: 12px;
   font-style: normal;
@@ -341,6 +360,11 @@ a {
   font-size: 14px;
   line-height: 19px;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ececec1a;
+  color: #dedede;
 }
 
 label {
@@ -351,7 +375,7 @@ label {
   color: #8c8c8c;
 }
 .contact-buttons:hover {
-  background-color: #ececec;
+  background-color: #111111;
   /* color: black; */
 }
 
@@ -364,16 +388,16 @@ label {
     #2b417a 100.06%
   );
   color: white !important;
-  border: 1px solid #d9d9d9;
+  /* border: 1px solid #d9d9d9; */
 }
-
 .contact-form input,
-.contact-form select {
+.contact-form select,
+.contact-form textarea {
   border: none;
-  border: 1px solid #9d9d9d75;
-
+  background-color: #111111;
   border-radius: 8px;
-  padding: 8px 16px 8px 16px;
+  padding: 8px 16px;
+  color: #dedede;
 }
 
 select:focus-visible {
@@ -388,10 +412,33 @@ select:focus-visible {
   font-weight: 400;
   line-height: 22px;
   letter-spacing: 0em;
+  color: #8c8c8c;
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
+  outline: none;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px #111111 inset !important;
+  -webkit-text-fill-color: #dedede !important; /* cambia color del texto */
+  transition: background-color 5000s ease-in-out 0s; /* hack para evitar amarillo */
+  border-radius: 8px;
+}
+
+input:focus,
+button:focus {
+  outline: none;
+}
+
+input:focus-visible,
+button:focus-visible {
+  outline: none;
+}
+
+a:focus,
+a:focus-visible {
   outline: none;
 }
 
@@ -855,8 +902,6 @@ select:focus-visible {
     animation-duration: 9s;
   }
 }
-
-
 
 /* Hamburger menu animation */
 .hamburger-line {

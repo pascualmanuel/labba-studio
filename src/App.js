@@ -18,6 +18,8 @@ import Ephimero from "./Pages/Works/Ephimero";
 import Daewoo from "./Pages/Works/Daewoo";
 import Manno from "./Pages/Works/Manno";
 import Trebol from "./Pages/Works/Trebol";
+import Work from "./Pages/Work";
+import About from "./Pages/About.js";
 
 function App() {
   useCursorEffect();
@@ -85,6 +87,8 @@ function App() {
             <Route path="/works/daewoo" element={<Daewoo />} />
             <Route path="/works/manno" element={<Manno />} />
             <Route path="/works/trebol" element={<Trebol />} />
+            <Route path="/work" element={<Work />} />
+            <Route path="/about" element={<About />} />
           </Routes>
         </LanguageProvider>
       </BrowserRouter>

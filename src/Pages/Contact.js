@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import "../Styles/Prueba.css";
 import emailjs from "@emailjs/browser";
 import Rounded from "../Hooks/Rounded";
+import emailIcon from "../Assets/labba/inaki.webp";
 
 function Contact() {
   useEffect(() => {
@@ -33,17 +34,17 @@ function Contact() {
 
   const isMobile = window.innerWidth <= 640;
 
-  let buttonContactWidth = 100;
+  let buttonContactWidth = 235;
 
   if (isMobile) {
-    buttonContactWidth = "90vw";
+    buttonContactWidth = "100%";
   }
 
   const handleServiceClick = (service) => {
     const buttons = document.querySelectorAll(".contact-buttons");
 
     buttons.forEach((button) => {
-      button.style.border = "1px solid #d9d9d9";
+      button.style.border = "";
     });
 
     if (selectedService.includes(service)) {
@@ -154,33 +155,78 @@ function Contact() {
 
   return (
     <>
-      <div className="flex flex-column sm:justify-center ml-[18px] sm:ml-[0px] mb-[120px]">
-        <div className="grain"></div>
-        <div className="flex lg:flex-row flex-col lg:items-center mt-6 lg:mt-0 sm:px-5">
-          <div className=" mr-12 mg:mr-[170px]  w-[340px] sm:w-auto lg:mt-[-170px]">
-            <h2 className=" contact-text-1 ">
-              We would love to be part of your project
-            </h2>
+      <div className="flex flex-column sm:justify-center mx-4 sm:mx-[0px] mb-[120px] pt-[120px] ">
+        <div className="flex lg:flex-row flex-col  mt-6 lg:mt-0 sm:px-16 items-start w-full justify-between ">
+          <div className="pr-0 lg:pr-[75px]">
+            <h3 className="h2 mb-[14px]">Get in touch</h3>
+            <div className="border border-[#313131] rounded-[12px] p-[16px] flex items-center gap-[16px]">
+              <div
+                className=""
+                style={{
+                  width: "40px",
+                  height: "40px",
+                  borderRadius: "999px",
+                  overflow: "hidden",
+                  border: "1px solid #313131",
+                }}
+              >
+                <img
+                  src={emailIcon}
+                  alt=""
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <p className="font-bold text-[14px] leading-[20px]">
+                <span className="text-[#767576]">
+                  Let’s bring your idea to life.{" "}
+                </span>{" "}
+                Get in touch with management directly.
+              </p>
+            </div>
+            <div className="flex flex-row gap-[16px] my-[20px] justify-between ">
+              <div className="w-1/3 bg-[#111111] h-[75px] flex items-center justify-center rounded-[12px]">
+                <span>Call</span>
+              </div>
+              <div className="w-1/3 bg-[#111111] h-[75px] flex items-center justify-center rounded-[12px]">
+                <span>Email</span>
+              </div>
+              <div className="w-1/3 bg-[#111111] h-[75px] flex items-center justify-center rounded-[12px]">
+                <span>LinkedIn</span>
+              </div>
+            </div>
 
-            <h2 className=" contact-text-2 mt-[10px] sm:mt-1 mb-9 ">
-              Say hello!
-            </h2>
+            <div className="flex flex-col gap-[16px] my-[20px] justify-between ">
+              <div className="w-full bg-[#111111] h-[75px] flex  rounded-[12px] flex-col justify-center pl-4">
+                <p className="text-[#757575] text-[14px] font-normal">
+                  Video call
+                </p>
+                <span className="text-[14px] text-white font-medium">
+                  Book a call
+                </span>
+              </div>
+              <div className="w-full bg-[#111111] h-[75px] flex  rounded-[12px] flex-col justify-center pl-4">
+                <p className="text-[#757575] text-[14px] font-normal">Email</p>
+                <span className="text-[14px] text-white font-medium">
+                  hello@labba.studio
+                </span>
+              </div>
+            </div>
           </div>
-          <div className="max-w-auto lg:max-w-[488px]">
-            <h2 className="b3-desk text-[24px] f">I need</h2>
+          <div className="max-w-auto lg:max-w-[635px] mt-[50px] lg:mt-0">
+            {/* <h2 className="b3-desk text-[24px] f">I need</h2> */}
             <div
-              className="contact-b-cont flex flex-row flex-wrap content-center sm:mt-9 mt-[14px] w-[auto] 
+              className="contact-b-cont flex flex-row flex-wrap content-center  w-[auto] 
             sm:w-auto "
             >
               <div
                 className={`contact-buttons  ${
-                  selectedService.includes("UX / UI Design")
+                  selectedService.includes("AI solutions")
                     ? "contact-b-active"
                     : ""
                 }`}
-                onClick={() => handleServiceClick("UX / UI Design")}
+                onClick={() => handleServiceClick("AI solutions")}
               >
-                <span style={{ userSelect: "none" }}>UX / UI Design</span>
+                <span style={{ userSelect: "none" }}>AI solutions</span>
               </div>
 
               <div
@@ -191,18 +237,21 @@ function Contact() {
                 }`}
                 onClick={() => handleServiceClick("Development")}
               >
-                <span style={{ userSelect: "none" }}>Design + Development</span>
+                <span style={{ userSelect: "none" }}>
+                  Web Desgin + Development
+                </span>
               </div>
 
               <div
                 className={`contact-buttons  ${
-                  selectedService.includes("Branding") ? "contact-b-active" : ""
+                  selectedService.includes("UX / UI Design")
+                    ? "contact-b-active"
+                    : ""
                 }`}
-                onClick={() => handleServiceClick("Branding")}
+                onClick={() => handleServiceClick("UX / UI Design")}
               >
-                <span style={{ userSelect: "none" }}>Branding</span>
+                <span style={{ userSelect: "none" }}>UX / UI Design</span>
               </div>
-
               <div
                 className={`contact-buttons  ${
                   selectedService.includes("ecommerce")
@@ -251,33 +300,34 @@ function Contact() {
             </div>
             <div className="contact-form   mt-[1rem]">
               <form ref={formRef} onSubmit={handleSubmit}>
-                <div className="input-group flex justify-between sm:flex-row flex-col mb-5">
-                  <div className="flex flex-col mb-5 sm:mb-0">
-                    <label className="">Name</label>
+                <div className="input-group grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
+                  <div className="flex flex-col">
+                    <label>Name</label>
                     <input
                       type="text"
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      required={true}
+                      required
                       placeholder="Your name"
-                      // style={{ width: "250px" }}
-                      className="input-cursor  sm:w-[300px] lg:w-[240px] w-[90vw]"
+                      className="input-cursor mt-2 w-full"
                     />
                   </div>
+
                   <div className="flex flex-col">
-                    <label className="">Email</label>
+                    <label>Email</label>
                     <input
                       type="email"
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      required={true}
+                      required
                       placeholder="Your email"
-                      className="input-cursor sm:w-[300px] lg:w-[240px] w-[90vw]"
+                      className="input-cursor mt-2 w-full"
                     />
                   </div>
                 </div>
+
                 <label className="">Do you already have a website?</label>
                 <input
                   type="text"
@@ -286,24 +336,24 @@ function Contact() {
                   onChange={handleChange}
                   required={true}
                   placeholder="e.g. www.labba.studio"
-                  className="input-cursor sm:w-full w-[90vw] mb-5"
+                  className="input-cursor mt-2 w-full  mb-5"
                 />
                 <label className="">Project summary</label>
 
-                <input
-                  type="text"
+                <textarea
                   name="about"
                   value={formData.about}
                   onChange={handleChange}
                   required={true}
                   placeholder="Your mini brief..."
-                  className="input-cursor sm:w-full w-[90vw] mb-5"
+                  className="input-cursor mt-2 w-full  mb-5 h-[100px] resize-none"
                 />
+
                 <div className="relative h-[65px]">
                   <label>Estimated budget</label>
 
                   <div
-                    className={`absolute sm:w-full w-[90vw] select-none border border-gray-300 bg-white text-gray-700 rounded-md transition-all duration-700 ease-in-out overflow-hidden z-[2] ${
+                    className={`absolute w-full  select-none bg-[#111111] text-gray-700 rounded-md transition-all duration-700 ease-in-out overflow-hidden z-[2] ${
                       isOpen ? "max-h-80" : "max-h-[48px]"
                     }`}
                     onClick={() => setIsOpen(!isOpen)}
@@ -370,13 +420,15 @@ function Contact() {
                   value={selectedService}
                 />
                 <div className="flex sm:justify-end pb-[50px]">
-                  <button className=" mt-8 ">
+                  <button className=" mt-8 w-full lg:w-auto">
                     <Rounded
+                      bgColor={"#48494B"}
                       widthButton={buttonContactWidth}
-                      heightButton={38}
-                      buttonBorderColor={"gray"}
+                      heightButton={45}
+                      buttonTextColor={"#fff"}
+                      buttonBorderColor={"#48494B"}
                     >
-                      <p className="">{buttonText}</p>
+                      <p className="!text-white font-bold">{buttonText}</p>
                     </Rounded>
                   </button>
                 </div>
