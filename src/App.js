@@ -20,6 +20,7 @@ import Manno from "./Pages/Works/Manno";
 import Trebol from "./Pages/Works/Trebol";
 import Work from "./Pages/Work";
 import About from "./Pages/About.js";
+import Footer from "./Components/Footer";
 
 function App() {
   useCursorEffect();
@@ -90,6 +91,7 @@ function App() {
             <Route path="/work" element={<Work />} />
             <Route path="/about" element={<About />} />
           </Routes>
+          <Footer />
         </LanguageProvider>
       </BrowserRouter>
     </>
