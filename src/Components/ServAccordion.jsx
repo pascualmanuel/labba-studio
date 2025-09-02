@@ -28,7 +28,9 @@ const FAQItem = ({ id, title, answer, isOpen, onToggle }) => {
       onMouseEnter={() => handleMouseEnter(1)}
       onMouseLeave={() => handleMouseLeave(1)}
     >
-      <div className="faq-header">
+
+  {/*  justify-self: end;  */}
+      <div className="faq-header lg:justify-end md:mr-[100px]">
         <div className="faq-left">
           {/* <div className="faq-id ">{id}</div> */}
           <div className="uppercase weight font-medium text-[18px] lg:text-[20px] w-[300px]  ">

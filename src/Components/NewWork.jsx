@@ -25,10 +25,10 @@ const Works = () => {
       <div>
         <section className="works-section relative  mx-auto px-6 sm:px-[53px]  lg:px-16 max-w-[1900px] ">
           {/* Segunda fila de trabajos - Dos columnas */}
-          <div className="grid grid-cols-1 md:grid-cols-2  sm:gap-[24px] mb-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 md:mb-6 mb-4">
             <Link to="/works/inmobiliare" rel="noopener noreferrer">
               <div
-                className="work-item item-sq relative mb-2 sm:mb-0 rounded-lg bg-cover bg-center h-[268px] sm:aspect-square sm:w-full md:h-auto"
+                className="work-item item-sq relative  rounded-lg bg-cover bg-center h-[300px] sm:aspect-square sm:w-full md:h-auto"
                 style={{ backgroundImage: `url(${Work1})` }}
                 id="pasando"
               >
@@ -61,7 +61,7 @@ const Works = () => {
 
             <Link to="/works/ephimero">
               <div
-                className="work-item item-sq relative mb-2 sm:mb-0 rounded-lg bg-cover bg-center h-[268px] sm:aspect-square sm:w-full md:h-auto"
+                className="work-item item-sq relative  rounded-lg bg-cover bg-center h-[300px] sm:aspect-square sm:w-full md:h-auto"
                 style={{ backgroundImage: `url(${Work2})` }}
                 id="pasando"
               >
@@ -92,10 +92,10 @@ const Works = () => {
             </Link>
           </div>
           {/* col 2 */}
-          <div className="grid grid-cols-1 md:grid-cols-2  sm:gap-[24px]">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             <Link to="/works/inmobiliare" rel="noopener noreferrer">
               <div
-                className="work-item item-sq relative mb-2 sm:mb-0 rounded-lg bg-cover bg-center h-[268px] sm:aspect-square sm:w-full md:h-auto"
+                className="work-item item-sq relative  rounded-lg bg-cover bg-center h-[300px] sm:aspect-square sm:w-full md:h-auto"
                 style={{ backgroundImage: `url(${Work3})` }}
                 id="pasando"
               >
@@ -127,7 +127,7 @@ const Works = () => {
 
             <Link to="/works/ephimero">
               <div
-                className="work-item item-sq relative mb-2 sm:mb-0 rounded-lg bg-cover bg-center h-[268px] sm:aspect-square sm:w-full md:h-auto"
+                className="work-item item-sq relative  rounded-lg bg-cover bg-center h-[300px] sm:aspect-square sm:w-full md:h-auto"
                 style={{ backgroundImage: `url(${Work4})` }}
                 id="pasando"
               >
