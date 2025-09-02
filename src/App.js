@@ -21,6 +21,7 @@ import Trebol from "./Pages/Works/Trebol";
 import Work from "./Pages/Work";
 import About from "./Pages/About.js";
 import Footer from "./Components/Footer";
+import Services from "./Pages/Services";
 
 function App() {
   useCursorEffect();
@@ -90,6 +91,7 @@ function App() {
             <Route path="/works/trebol" element={<Trebol />} />
             <Route path="/work" element={<Work />} />
             <Route path="/about" element={<About />} />
+            <Route path="/services" element={<Services />} />
           </Routes>
           <Footer />
         </LanguageProvider>
