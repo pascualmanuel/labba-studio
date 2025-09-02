@@ -87,18 +87,23 @@ const Services = () => {
       </section>
 
       {/* BOX PARENT */}
-      <section className="px-6 sm:px-[53px] lg:px-16 pb-[130px]">
+      <section className="ms:px-[53px] lg:px-16 pb-[130px]">
         <div
           className="
     mx-auto max-w-[1600px]
-    rounded-2xl border-[0.5px] border-white/20
+    rounded-2xl ms:border-[0.5px] ms:border-white/20
     overflow-hidden
   "
         >
           <div
             className="
-      grid grid-cols-1 md:grid-cols-2
-      divide-y-[0.5px] md:divide-y-[0.5px] md:divide-x-[0.5px]
+            border-b-[0.5px] border-white/15
+            border-t-[0.5px] 
+            ms:border-t-0
+            ms:border-b-0
+
+      grid grid-cols-1 xl:grid-cols-2
+      divide-y-[0.5px] xl:divide-y-[0.5px] xl:divide-x-[0.5px]
       divide-white/15
     "
           >
@@ -106,23 +111,26 @@ const Services = () => {
               <article
                 key={s.title}
                 className={`
+                  article-services
+                  min-h-[555px]
                   group
-                        aspect-square max-h-[560px]
-                        p-6 sm:p-8 lg:p-10
+                        ms:aspect-square max-h-[590px]
+                        p-6 sm:p-8 lg:p-8
                         flex flex-col
                         w-full
-                    ${s.uId === "02" ? "!border-t-0" : ""}`}
+                    ${s.uId === "02" ? "ms:!border-t-0" : ""}`}
               >
                 <header className="mb-3 sm:mb-4">
                   <span className="text-[12px] font-normal leading-[142%] tracking-0% text-[#5A5A5A]">
                     {s.id}
                   </span>
 
-                  <h3 className="relative overflow-hidden text-2xl sm:text-[45px] font-bold mt-1 leading-tight">
+                  <h3 className="relative overflow-hidden text-[30px] sm:text-[45px] font-bold mt-1 leading-tight">
                     {/* Base gris */}
-                    <span className="relative z-[1] text-white">{s.title}</span>
+                    <span className="relative z-[1] text-transparent lg:text-white  transition-[color] duration-100 xl:group-hover:text-transparent xl:group-hover:delay-[200ms]">
+                      {s.title}
+                    </span>
 
-                    {/* Overlay que “pinta” con imagen; oculta desde abajo y sube en hover */}
                     <span className="title-reveal-clip absolute inset-0 z-[2] block pointer-events-none">
                       <span
                         className="title-reveal-fill block"
@@ -135,21 +143,31 @@ const Services = () => {
                 </header>
 
                 {/* Body */}
-                <div className="min-h-0 flex-1 overflow-y-auto pr-2">
-                  <p className="text-[16px] font-normal leading-[202%] tracking-0% text-[#5A5A5A] mb-4 transition-colors md:group-hover:text-[#F1F1F1]">
+                <div className="min-h-0 flex-1  pr-2">
+                  <p className="text-[16px] font-normal leading-[202%] tracking-0% text-[#5A5A5A] mb-4 transition-colors xl:group-hover:text-[#F1F1F1]">
                     {s.desc}
                   </p>
-                  <ul className="space-y-2 text-[16px] font-normal leading-[202%] tracking-0% text-[#5A5A5A] list-disc pl-5 transition-colors md:group-hover:text-[#F1F1F1]">
-                    {s.bullets.map((b) => (
-                      <li key={b}>{b}</li>
-                    ))}
-                  </ul>
+                  <div className="grid grid-cols-1 xl:grid-cols-2 xll:grid-cols-1 gap-x-6">
+                    <ul className="space-y-[0.5px] text-[16px] font-normal  leading-[202%] xl:leading-[170%] xll:leading-[202%] tracking-0% text-[#5A5A5A] list-disc pl-5 transition-colors xl:group-hover:text-[#F1F1F1]">
+                      {s.bullets.slice(0, 4).map((b) => (
+                        <li key={b}>{b}</li>
+                      ))}
+                    </ul>
+                    <ul className="space-y-[0.5px] text-[16px] font-normal leading-[202%] xl:leading-[170%] xll:leading-[202%] tracking-0% text-[#5A5A5A] list-disc pl-5 transition-colors xl:group-hover:text-[#F1F1F1]">
+                      {s.bullets.slice(4, 8).map((b) => (
+                        <li key={b}>{b}</li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </article>
             ))}
           </div>
         </div>
       </section>
+      <div>
+        
+      </div>
     </>
   );
 };

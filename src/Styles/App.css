@@ -500,6 +500,10 @@ a:focus-visible {
 }
 
 @media (max-width: 640px) {
+  .h2 {
+    font-size: 50px;
+    line-height: 103%;
+  }
   .work-title {
     font-size: 45px;
     letter-spacing: -0.02em;
@@ -991,17 +995,16 @@ a:focus-visible {
     --duration: 18s;
   }
 }
-
+/* POR DEFECTO (mobile-first): máscara visible */
 .title-reveal-clip {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  /* Oculto totalmente desde abajo */
-  clip-path: inset(100% 0 0 0);
+
+  clip-path: inset(0 0 0 0); /* visible siempre en mobile */
   transition: clip-path 600ms cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
-/* Texto “pintado” por una imagen */
 .title-reveal-fill {
   display: inline-block;
   color: transparent;
@@ -1009,21 +1012,27 @@ a:focus-visible {
   -webkit-background-clip: text;
   background-clip: text;
 
-  /* La imagen hace de “color” del texto */
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center 120%; /* arranca bien abajo */
+  background-position: center 50%; /* posición final visible en mobile */
   transition: background-position 600ms cubic-bezier(0.22, 0.61, 0.36, 1);
   line-height: 1.25;
 }
 
 /* En hover de la card (desktop), revelamos desde abajo */
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
+  .title-reveal-clip {
+    clip-path: inset(100% 0 0 0); /* oculto (desde abajo) */
+  }
   .group:hover .title-reveal-clip {
-    clip-path: inset(0 0 0 0);
+    clip-path: inset(0 0 0 0); /* se revela al hover */
+  }
+
+  .title-reveal-fill {
+    background-position: center 120%; /* arranca “abajo” para animar la subida */
   }
   .group:hover .title-reveal-fill {
-    background-position: center 50%; /* la imagen sube a su posición */
+    background-position: center 50%; /* sube al centro al hover */
   }
 }
 
