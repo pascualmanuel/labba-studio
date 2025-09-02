@@ -102,6 +102,7 @@ const Services = () => {
               <article
                 key={s.title}
                 className={`
+                  group
                         aspect-square max-h-[560px]
                         p-6 sm:p-8 lg:p-10
                         flex flex-col
@@ -112,17 +113,29 @@ const Services = () => {
                   <span className="text-[12px] font-normal leading-[142%] tracking-0% text-[#5A5A5A]">
                     {s.id}
                   </span>
-                  <h3 className="text-2xl sm:text-3xl font-semibold mt-1">
-                    {s.title}
+
+                  <h3 className="relative overflow-hidden text-2xl sm:text-[45px] font-bold mt-1 leading-tight">
+                    {/* Base gris */}
+                    <span className="relative z-[1] text-white">{s.title}</span>
+
+                    {/* Overlay que “pinta” con imagen; oculta desde abajo y sube en hover */}
+                    <span className="title-reveal-clip absolute inset-0 z-[2] block pointer-events-none">
+                      <span
+                        className="title-reveal-fill block"
+                        style={{ backgroundImage: `url(${s.maskUrl})` }}
+                      >
+                        {s.title}
+                      </span>
+                    </span>
                   </h3>
                 </header>
 
                 {/* Body */}
                 <div className="min-h-0 flex-1 overflow-y-auto pr-2">
-                  <p className="text-[16px] font-normal leading-[202%] tracking-0% text-[#5A5A5A] mb-4">
+                  <p className="text-[16px] font-normal leading-[202%] tracking-0% text-[#5A5A5A] mb-4 transition-colors md:group-hover:text-[#F1F1F1]">
                     {s.desc}
                   </p>
-                  <ul className="space-y-2 text-[16px] font-normal leading-[202%] tracking-0% text-[#5A5A5A] list-disc pl-5">
+                  <ul className="space-y-2 text-[16px] font-normal leading-[202%] tracking-0% text-[#5A5A5A] list-disc pl-5 transition-colors md:group-hover:text-[#F1F1F1]">
                     {s.bullets.map((b) => (
                       <li key={b}>{b}</li>
                     ))}
