@@ -6,6 +6,7 @@ import BrandingMask from "../Assets/mask/branding.png";
 
 const services = [
   {
+    uId: "01",
     id: "01",
     title: "Digital Products",
     desc: "We design and build digital products that create real connections. By combining smart design with a deep understanding of human behavior, we launch products that are not only beautiful but meaningful, helping your brand grow with purpose.",
@@ -22,6 +23,7 @@ const services = [
     maskUrl: DigitalMask,
   },
   {
+    uId: "02",
     id: "02",
     title: "Websites",
     desc: "Your website is where your brand truly comes alive. At Labba, we design digital spaces that clearly express who you are and what you stand for, while giving users an engaging, effortless experience.",
@@ -38,6 +40,7 @@ const services = [
     maskUrl: WebsitesMask,
   },
   {
+    uId: "03",
     id: "03",
     title: "Custom AI",
     desc: "We develop completely bespoke websites, apps, digital products, and ecommerce platforms across industries worldwide. All of our projects are tailored to meet the unique needs of every client.",
@@ -54,12 +57,13 @@ const services = [
     maskUrl: CustomAiMask,
   },
   {
+    uId: "04",
     id: "02",
     title: "Branding",
-    desc: "A brand is more than a logo or a color palette — it’s how people recognize, remember, and connect with you. At Labba, we create strong visual and verbal identities, design all the assets you need, and define clear brand guidelines so your message stays consistent everywhere.",
+    desc: "A brand is more than a logo or a color palette — it’s how people recognize, remember, and connect with you. At Labba, we create strong visual and verbal identities, design all the assets you need, and define clear brand guielines so your message stays consistent everywhere.",
     bullets: [
       "Brand Strategy",
-      "Voice + tone guidelines",
+      "Voice + tone guielines",
       "Naming",
       "Logo design",
       "Campaign planning & creative",
@@ -107,7 +111,7 @@ const Services = () => {
                         p-6 sm:p-8 lg:p-10
                         flex flex-col
                         w-full
-                    ${s.id === "02" ? "!border-t-0" : ""}`}
+                    ${s.uId === "02" ? "!border-t-0" : ""}`}
               >
                 <header className="mb-3 sm:mb-4">
                   <span className="text-[12px] font-normal leading-[142%] tracking-0% text-[#5A5A5A]">
