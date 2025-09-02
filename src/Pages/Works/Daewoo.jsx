@@ -241,7 +241,7 @@ const Daewoo = () => {
           </div>
         </section>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

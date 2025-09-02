@@ -266,7 +266,7 @@ const Morgenstern = () => {
           </div>
         </section>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

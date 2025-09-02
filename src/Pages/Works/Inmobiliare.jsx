@@ -248,7 +248,7 @@ const Inmobiliare = () => {
           </div>
         </section>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

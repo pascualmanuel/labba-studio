@@ -104,7 +104,6 @@ const Ephimero = () => {
           </div>
         </div>
       </div>
-
       <div
         className="md:h-[710px] w-[100vw] bg-cover bg-center mt-6 md:mt-6 flex justify-center"
         style={{
@@ -123,7 +122,6 @@ const Ephimero = () => {
           </div>
         </div>
       </div>
-
       <div>
         <div className="max-w-[500px] sm:max-w-[768px] center px-4 sm:px-6 py-24">
           <p className="work-p">
@@ -134,7 +132,6 @@ const Ephimero = () => {
           </p>
         </div>
       </div>
-
       <div
         className="md:h-[710px] w-[100vw] bg-cover bg-center mt-6 md:mt-6 flex justify-center lg:mb-[300px]"
         style={{
@@ -273,7 +270,7 @@ const Ephimero = () => {
           </div>
         </section>
       </div>
-      <Footer />
+      />
     </>
   );
 };
