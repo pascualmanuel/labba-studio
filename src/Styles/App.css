@@ -737,10 +737,10 @@ a:focus-visible {
 
 .faq-header {
   display: flex;
-  justify-self: end;
+  /* justify-self: end; */
   align-items: center;
   height: 60px;
-  margin-right: 100px;
+  /* margin-right: 100px; */
 }
 
 .faq-left {
@@ -922,4 +922,72 @@ a:focus-visible {
 
 .hamburger-line.bottom.cross {
   transform: translateY(-3px) translateX(-1px) rotate(-45deg);
+}
+
+/* logo-marquee.css */
+.lm-wrap {
+  --gap: 40px; /* espacio entre logos */
+  --size: 32px; /* alto de cada logo */
+  --duration: 22s; /* velocidad (menor = más rápido) */
+
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Pista que se mueve */
+.lm-track {
+  display: flex;
+  align-items: center;
+  gap: var(--gap);
+  flex: 0 0 auto; /* NO crecer/encoger */
+  min-width: max-content; /* ancho = suma de sus hijos */
+  will-change: transform;
+  animation: lm-scroll var(--duration) linear infinite;
+}
+
+/* Segunda pista desfasada media vuelta */
+.lm-track[aria-hidden="true"] {
+  animation-delay: calc(var(--duration) / -2);
+}
+
+/* Cada item: evitar encogimiento y cualquier posicionamiento raro */
+.lm-item {
+  position: relative; /* asegura flujo normal */
+  flex: 0 0 auto;
+}
+
+/* Los SVG/IMG con dimensiones controladas y sin baseline */
+.lm-item img {
+  display: block;
+  height: var(--size);
+  width: auto;
+}
+
+/* La magia */
+@keyframes lm-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  } /* sale una pista entera */
+}
+
+/* Accesibilidad: si el usuario prefiere sin animación */
+@media (prefers-reduced-motion: reduce) {
+  .lm-track {
+    animation: none;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive ejemplo */
+@media (max-width: 1024px) {
+  .lm-wrap {
+    --gap: 24px;
+    --size: 28px;
+    --duration: 18s;
+  }
 }

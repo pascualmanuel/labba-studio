@@ -74,18 +74,13 @@ const Footer = () => {
     widthButton = 218;
   }
   return (
-    // font-style: normal;
-    // font-weight: 700;
-    // font-size: 45px;
-    // line-height: 61px;
-
     <>
-      <div className="footer px-6 sm:px-[53px] lg:px-16">
+      <div className="footer ">
         <div
-          className="mb-[80px] h-[295px] mx-auto  bg-cover bg-center rounded-[20px] flex items-center justify-center flex-col"
+          className="mb-[80px] h-[295px] mx-auto  bg-cover bg-center flex items-center justify-center flex-col"
           style={{ backgroundImage: `url(${FondoContact})` }}
         >
-          <h4 className=" text-[45px] leading-[61px] font-bold pb-[40px]">
+          <h4 className="text-[30px] lg:text-[45px] leading-[30px] font-bold pb-[40px] text-center px-6 lg:px-0 text-balance">
             Let’s take your idea to the next level.
           </h4>
           <p className="text-[16px] leading-[32px] font-bold">
@@ -93,9 +88,9 @@ const Footer = () => {
           </p>
         </div>
 
-        <div className="flex flex-col lg:flex-row items-start ms:items-center  pb-[50px] justify-between  ">
-          <div className="flex flex-col ms:flex-row">
-            <div className="ms:mr-2 md:mr-5">
+        <div className="flex flex-col lg:flex-row items-start ms:items-center lm:items-start  pb-[50px] justify-between  px-6 sm:px-[53px] lg:px-16">
+          <div className="flex flex-col ms:flex-row w-[100%] ms:w-auto gap-3  ms:gap-0">
+            <div className="ms:mr-2 md:mr-5 flex flex-row items-center justify-between ms:items-start ms:flex-col">
               <p className="sayhi mb-3">Say hi</p>
               <div
                 className="btn-floral-border text-[#B5B5B5]"
@@ -121,7 +116,7 @@ const Footer = () => {
             </div>
 
             <div className="ms:mr-2 md:mr-5 sm:mb-[0px] text-[#B5B5B5]">
-              <div>
+              <div className=" flex flex-row items-center justify-between ms:items-start ms:flex-col">
                 <p className="sayhi mb-3 mt-4 ms:mt-0">Spain</p>
                 <a
                   href="https://wa.me/+34661173788"
@@ -134,7 +129,7 @@ const Footer = () => {
                 </a>
               </div>
             </div>
-            <div className="">
+            <div className=" flex flex-row items-center justify-between ms:items-start ms:flex-col">
               <p className="sayhi mb-3 mt-4 ms:mt-0">Buenos Aires</p>
               <a
                 href="https://wa.me/+5491151632960"
@@ -172,8 +167,8 @@ const Footer = () => {
             {/* <ReactSVG src={Facebook} className="" /> */}
           </div>
         </div>
-        <div className="border-t-gray pb-[55px] ">
-          <p className="mt-10 font-light text-base leading-6">
+        <div className="border-t border-t-[#313131] flex justify-center pb-[55px] ">
+          <p className="mt-10 font-light text-xs leading-6 text-gray">
             © {new Date().getFullYear()} LABBA STUDIO
           </p>
         </div>
