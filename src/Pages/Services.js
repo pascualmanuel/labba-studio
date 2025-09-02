@@ -3,7 +3,10 @@ import DigitalMask from "../Assets/mask/digital-products.png";
 import WebsitesMask from "../Assets/mask/websites.png";
 import CustomAiMask from "../Assets/mask/custom-ai.png";
 import BrandingMask from "../Assets/mask/branding.png";
-
+import ServiecsBg from "../Assets/mask/services-organge.webp";
+import Work1 from "../Assets/work/Hyundai/hyundai-site.webp";
+import Work2 from "../Assets/work/Flora/flora-app.webp";
+import { Link } from "react-router-dom";
 const services = [
   {
     uId: "01",
@@ -165,9 +168,106 @@ const Services = () => {
           </div>
         </div>
       </section>
-      <div>
-        
+      <div
+        className="w-full min-h-[520px] bg-cover bg-center flex flex-col xl:flex-row  justify-between px-6 sm:px-[53px] lg:px-16 xll:px-[90px]  mb-[150px]"
+        style={{ backgroundImage: `url(${ServiecsBg})` }}
+      >
+        {/* <div className="max-w-[1600px] mx-auto"> */}
+        <div className="pt-[110px]">
+          <h2 className="text-[30px] sm:text-[45px] font-bold leading-tight max-w-[541px]">
+            What to expect working with Labba?
+          </h2>
+        </div>
+        <div className="pb-[110px] pt-10 xl:pt-[120px]">
+          <ul className="text-[19px] lg:text-[24px] leading-[21px] font-medium list-disc pl-5 gap-10">
+            <li className="mb-[20px] md:mb-[28px]">
+              Committed and hands-on collaboration
+            </li>
+            <li>Fast design iterations, ready in weeks days</li>
+            <li className="my-[20px] md:my-[28px]">
+              Weekly check-ins to keep everything on track
+            </li>
+            <li>Open, transparent workflow through Figma</li>
+            <li className="my-[20px] md:my-[28px]">
+              Always-on communication channels
+            </li>
+            <li>Sit back and enjoy the creative journey</li>
+          </ul>
+        </div>
+        {/* </div> */}
       </div>
+
+      <section className="works-section relative  mx-auto px-6 sm:px-[53px]  lg:px-16 max-w-[1900px] ">
+        <h2 className="text-[30px] sm:text-[45px] font-bold leading-tight mb-10">
+          See our work
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 md:mb-6 mb-4">
+          <Link to="/works/inmobiliare" rel="noopener noreferrer">
+            <div
+              className="work-item item-sq relative  rounded-lg bg-cover bg-center h-[300px] sm:aspect-square sm:w-full md:h-auto"
+              style={{ backgroundImage: `url(${Work1})` }}
+              id="pasando"
+            >
+              <div className="project-info w-[359px] md:w-[300px] mg:w-[359px]  bg-[#FFFFFF33] rounded-[10px] absolute top-[25px] left-[30px] md:left-[12px] mg:left-[30px] blur-bg">
+                {" "}
+                <div className="flex flex-row justify-between">
+                  <div>
+                    <p
+                      className="l-desk text-[#ECECEC]"
+                      style={{ fontWeight: 500 }}
+                    >
+                      Scouting Labs
+                    </p>
+                  </div>
+                  <div className="flex flex-row">
+                    <p className="tags p-12 mr-[6px]">Website</p>
+                    <p className="tags p-12">AI</p>
+                  </div>
+                </div>
+                <div className="mt-[10px]">
+                  <p className="b4-desk text-[#ECECEC]">
+                    Connecting amateur sports passion with analysis technology,
+                    empowering player development and visibility in the sports
+                    world.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </Link>
+
+          <Link to="/works/ephimero">
+            <div
+              className="work-item item-sq relative  rounded-lg bg-cover bg-center h-[300px] sm:aspect-square sm:w-full md:h-auto"
+              style={{ backgroundImage: `url(${Work2})` }}
+              id="pasando"
+            >
+              <div className="project-info w-[359px] md:w-[300px] mg:w-[359px]  bg-[#FFFFFF33] rounded-[10px] absolute top-[25px] left-[30px] md:left-[12px] mg:left-[30px] blur-bg">
+                <div className="flex flex-row justify-between">
+                  <div>
+                    <p
+                      className="l-desk text-[#ECECEC]"
+                      style={{ fontWeight: 500 }}
+                    >
+                      Flora Plus
+                    </p>
+                  </div>
+                  <div className="flex flex-row">
+                    <p className="tags p-12 mr-[6px]">Digital product</p>
+                    <p className="tags p-12">AI</p>
+                  </div>
+                </div>
+                <div className="mt-[10px]">
+                  <p className="b4-desk text-[#ECECEC]">
+                    Offering a powerful tool to manage experiences, streamline
+                    operations, and enhance the journey for both providers and
+                    travelers.{" "}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </Link>
+        </div>
+      </section>
     </>
   );
 };
