@@ -112,7 +112,7 @@ function Home() {
         <NewWorks />
       </div>
 
-      <Footer />
+      {/* <Footer /> */}
 
       <img src={MannoHero} className="hidden" />
 

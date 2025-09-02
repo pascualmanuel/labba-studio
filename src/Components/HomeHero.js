@@ -10,11 +10,11 @@ const HomeHero = () => {
   // margin: 0 auto;
   return (
     <>
-      <div className=" max-w-[1500px] sm:px-[53px] lg:px-16  pt-[140px] mx-auto">
+      <div className=" max-w-[1500px] sm:px-[53px] lg:px-16 pt-[120px] md:pt-[140px] mx-auto">
         <div className={`mx-auto `}>
           <div className="px-6 sm:px-0">
             <h2
-              className="text-[45px] sm:text-[60px] ms:text-[65px] lm:text-[120px]
+              className="text-[54px] sm:text-[60px] ms:text-[65px] lm:text-[120px]
                         lg:text-[85px] xl:text-[100px] xxl:text-[120px] font-bold leading-[109%] sm:leading-[99%] tracking-tight"
             >
               Fluid minds, <br />
@@ -22,7 +22,7 @@ const HomeHero = () => {
             </h2>
 
             <h3
-              className={` mt-10 font-light mr-[50px] text-[24px] leading-[32px] text-[#B5B5B5] }`}
+              className={` mt-10 font-light  text-[18px] leading-[21px] sm:text-[24px] sm:leading-[32px] text-[#B5B5B5] }`}
             >
               Labba is a design and dev studio that partners with startups and
               enterprises worldwide.
