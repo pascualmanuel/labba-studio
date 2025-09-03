@@ -26,6 +26,7 @@ import Galangal from "./Pages/Works/Galangal";
 import FloraPlus from "./Pages/Works/FloraPlus";
 import ScoutingLabs from "./Pages/Works/ScoutingLabs";
 import Dbs from "./Pages/Works/Dbs";
+import Hyundai from "./Pages/Works/Hyundai";
 
 function App() {
   useCursorEffect();
@@ -99,6 +100,7 @@ function App() {
             <Route path="/works/dbs" element={<Dbs />} />
             <Route path="/work" element={<Work />} />
             <Route path="/about" element={<About />} />
+            <Route path="/works/hyundai" element={<Hyundai />} />
             <Route path="/services" element={<Services />} />
           </Routes>
           <Footer />
