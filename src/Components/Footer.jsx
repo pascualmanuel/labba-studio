@@ -75,7 +75,7 @@ const Footer = () => {
   }
   return (
     <>
-      <div className="footer ">
+      <div className="footer bg-black ">
         <div
           className="mb-[80px] h-[295px] mx-auto  bg-cover bg-center flex items-center justify-center flex-col"
           style={{ backgroundImage: `url(${FondoContact})` }}
