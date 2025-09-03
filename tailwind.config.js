@@ -33,6 +33,7 @@ module.exports = {
         LaBlack: "#2b2b2b",
         white: "#F1F1F1",
         gray: "#B5B5B5",
+        black: "#06070A",
       },
     },
   },

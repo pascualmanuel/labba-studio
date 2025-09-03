@@ -24,6 +24,8 @@ import Footer from "./Components/Footer";
 import Services from "./Pages/Services";
 import Galangal from "./Pages/Works/Galangal";
 import FloraPlus from "./Pages/Works/FloraPlus";
+import ScoutingLabs from "./Pages/Works/ScoutingLabs";
+import Dbs from "./Pages/Works/Dbs";
 
 function App() {
   useCursorEffect();
@@ -93,6 +95,8 @@ function App() {
             <Route path="/works/trebol" element={<Trebol />} />
             <Route path="/works/galangal" element={<Galangal />} />
             <Route path="/works/flora-plus" element={<FloraPlus />} />
+            <Route path="/works/scouting-labs" element={<ScoutingLabs />} />
+            <Route path="/works/dbs" element={<Dbs />} />
             <Route path="/work" element={<Work />} />
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
