@@ -15,11 +15,14 @@ import Video3 from "../../Assets/work/Morgenstern/Comunidad3.mp4";
 import Footer from "../../Components/Footer";
 import LabbaWhiteLogo from "../../Assets/labba/labba-iso-white.svg";
 import { ReactSVG } from "react-svg";
+import WorksGrid from "../../Components/WorksGrid";
+import { getWorksByIds } from "../../data/worksData";
+import { getWorksConfig } from "../../data/worksConfig";
 
 const Morgenstern = () => {
   let isDesktop = window.innerWidth > 1024;
   useEffect(() => {
-    document.title = "Morgenstern - Labba Studio";
+    document.title = "Galangal - Labba Studio";
   }, []);
 
   return (
@@ -43,7 +46,7 @@ const Morgenstern = () => {
         <p className="work-p mt-8">
           Every detail, color palette, typography, and photography, was curated
           to evoke a sense of sophistication and discovery. The platform not
-          only inspires travelers but also communicates Galangal’s expertise,
+          only inspires travelers but also communicates Galangal's expertise,
           exceptional service, and unique understanding of each destination.
         </p>
         <div className="mt-8 ssm:flex ssm:flex-row ssm:justify-between">
@@ -82,7 +85,7 @@ const Morgenstern = () => {
         className=" w-[100vw] bg-cover bg-center mt-28 md:mt-40 flex justify-center"
         style={{ backgroundImage: `url(${BgGalangal2})` }}
       >
-        <div className="w-full px-6 sm:px-[53px] lg:px-16 max-w-[1500px] sm:py-[72px]">
+        <div className="w-full px-6 sm:px-[53px] lg:px-16 max-w-[1500px] py-[72px]">
           <div className="w-full md:h-full rounded-[8px] overflow-hidden">
             <video
               src={Video1}
@@ -105,23 +108,20 @@ const Morgenstern = () => {
           scrolling effects and subtle transitions create a sense of luxury and
           flow, while the CMS allows Galangal to easily update content and add
           new travel experiences. The design adapts flawlessly to all devices,
-          ensuring the brand’s elegance is preserved everywhere.
+          ensuring the brand's elegance is preserved everywhere.
         </p>
       </div>
 
-      <div className="w-[100vw] bg-cover bg-center mt-1 sm:mt-10 flex justify-center lg:mb-[150px] ">
+      <div className="w-[100vw] bg-cover bg-center mt-1 sm:mt-10 flex justify-center mb-[80px] lg:mb-[150px] ">
         <div className="w-full px-6 sm:px-[53px] lg:px-16 max-w-[1500px]">
-          <div
-            className="sm:w-full h-full rounded-[8px] overflow-hidden"
-            style={{ border: "solid black 1px" }}
-          >
+          <div className="sm:w-full h-full rounded-[8px] overflow-hidden">
             <video
               src={Video2}
               muted
               autoPlay
               loop
               playsInline
-              className="w-full sm:h-full"
+              className="w-full h-[102%]"
               style={{
                 objectFit: "cover",
               }}
@@ -130,136 +130,11 @@ const Morgenstern = () => {
         </div>
       </div>
 
-      <div>
-        <section className="works-section relative  mx-auto px-6 sm:px-[53px] lg:px-16 max-w-[1500px] flex flex-col  mb-[150px]">
-          {/* Segunda fila de trabajos - Dos columnas */}
-          <div className="grid grid-cols-1 md:grid-cols-2  sm:gap-[24px]">
-            <Link to="/works/inmobiliare">
-              <div
-                className="work-item item-sq relative mb-3 sm:mb-0 rounded-lg bg-cover bg-center h-[268px] sm:aspect-square sm:w-full md:h-auto"
-                style={{ backgroundImage: `url(${Work2})` }}
-                id="pasando"
-              >
-                <div className="project-info w-[359px] md:w-[300px] mg:w-[359px]  bg-[#FFFFFF33] rounded-[10px] absolute top-[25px] left-[30px] md:left-[12px] mg:left-[30px] blur-bg">
-                  {" "}
-                  <div className="flex flex-row justify-between">
-                    <div>
-                      <p
-                        className="l-desk text-[#ECECEC]"
-                        style={{ fontWeight: 500 }}
-                      >
-                        Inmobiliare
-                      </p>
-                    </div>
-                    <div className="flex flex-row">
-                      <p className="tags p-12 mr-[6px]">Design</p>
-                      <p className="tags p-12">Development</p>
-                    </div>
-                  </div>
-                  <div className="mt-[10px]">
-                    <p className="b4-desk text-[#ECECEC]">
-                      Redesigning the experience of the largest real estate news
-                      portal in Mexico
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </Link>
-
-            <Link to="/works/ephimero">
-              <div
-                className="work-item item-sq relative mb-3 sm:mb-0 rounded-lg bg-cover bg-center h-[268px] sm:aspect-square sm:w-full md:h-auto"
-                style={{ backgroundImage: `url(${Work3})` }}
-                id="pasando"
-              >
-                <div className="project-info w-[359px] md:w-[300px] mg:w-[359px]  bg-[#FFFFFF33] rounded-[10px] absolute top-[25px] left-[30px] md:left-[12px] mg:left-[30px] blur-bg">
-                  <div className="flex flex-row justify-between">
-                    <div>
-                      <p
-                        className="l-desk text-[#ECECEC]"
-                        style={{ fontWeight: 500 }}
-                      >
-                        Ephimero
-                      </p>
-                    </div>
-                    <div className="flex flex-row">
-                      <p className="tags p-12 mr-[6px]">Design</p>
-                      <p className="tags p-12">Development</p>
-                    </div>
-                  </div>
-                  <div className="mt-[10px]">
-                    <p className="b4-desk text-[#ECECEC]">
-                      Candles ecommerce with ethics & aesthetics
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </Link>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2  sm:gap-[24px] md:mt-6">
-            <Link to="/works/inmobiliare">
-              <div
-                className="work-item item-sq relative mb-3 sm:mb-0 rounded-lg bg-cover bg-center h-[268px] sm:aspect-square sm:w-full md:h-auto"
-                style={{ backgroundImage: `url(${Work2})` }}
-                id="pasando"
-              >
-                <div className="project-info w-[359px] md:w-[300px] mg:w-[359px]  bg-[#FFFFFF33] rounded-[10px] absolute top-[25px] left-[30px] md:left-[12px] mg:left-[30px] blur-bg">
-                  {" "}
-                  <div className="flex flex-row justify-between">
-                    <div>
-                      <p
-                        className="l-desk text-[#ECECEC]"
-                        style={{ fontWeight: 500 }}
-                      >
-                        Inmobiliare
-                      </p>
-                    </div>
-                    <div className="flex flex-row">
-                      <p className="tags p-12 mr-[6px]">Design</p>
-                      <p className="tags p-12">Development</p>
-                    </div>
-                  </div>
-                  <div className="mt-[10px]">
-                    <p className="b4-desk text-[#ECECEC]">
-                      Redesigning the experience of the largest real estate news
-                      portal in Mexico
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </Link>
-
-            <Link to="/works/ephimero">
-              <div
-                className="work-item item-sq relative mb-3 sm:mb-0 rounded-lg bg-cover bg-center h-[268px] sm:aspect-square sm:w-full md:h-auto"
-                style={{ backgroundImage: `url(${Work3})` }}
-                id="pasando"
-              >
-                <div className="project-info w-[359px] md:w-[300px] mg:w-[359px]  bg-[#FFFFFF33] rounded-[10px] absolute top-[25px] left-[30px] md:left-[12px] mg:left-[30px] blur-bg">
-                  <div className="flex flex-row justify-between">
-                    <div>
-                      <p
-                        className="l-desk text-[#ECECEC]"
-                        style={{ fontWeight: 500 }}
-                      >
-                        Ephimero
-                      </p>
-                    </div>
-                    <div className="flex flex-row">
-                      <p className="tags p-12 mr-[6px]">Design</p>
-                      <p className="tags p-12">Development</p>
-                    </div>
-                  </div>
-                  <div className="mt-[10px]">
-                    <p className="b4-desk text-[#ECECEC]">
-                      Candles ecommerce with ethics & aesthetics
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </Link>
-          </div>
-        </section>
+      <div className="works-section relative mx-auto px-6 sm:px-[53px] lg:px-16 max-w-[1500px] flex flex-col mb-[150px]">
+        <h2 className="text-[30px] sm:text-[45px] font-bold leading-tight mb-10">
+          Other work
+        </h2>
+        <WorksGrid works={getWorksByIds(getWorksConfig("galangal"))} />
       </div>
       {/* <Footer /> */}
     </>
