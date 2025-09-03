@@ -8,12 +8,15 @@ import Inmo2 from "../../Assets/work/Inmobiliare/Inmo2.png";
 import Work1 from "../../Assets/work/work-morgenstern.webp";
 import Morgenstern from "../../Assets/work/work-morgenstern.webp";
 import Work2 from "../../Assets/work/work-inmobiliare.webp";
-import EphiMob1 from "../../Assets/work/Ephimero/ephi-mob1.jpg";
-import EphiMob2 from "../../Assets/work/Ephimero/ephi-mob2.webp";
-import EphiMob3 from "../../Assets/work/Ephimero/ephi-mob3.jpg";
-import EphiMob4 from "../../Assets/work/Ephimero/ephi-mob4.jpg";
-import EphiMob5 from "../../Assets/work/Ephimero/ephi-mob5.jpg";
-import EphiMob6 from "../../Assets/work/Ephimero/ephi-mob6.jpg";
+
+import EphiMob1 from "../../Assets/work/Ephimero/ephimero-mob-1.png";
+import EphiMob2 from "../../Assets/work/Ephimero/ephimero-mob-2.png";
+import EphiMob3 from "../../Assets/work/Ephimero/ephimero-mob-3.png";
+import EphiMob4 from "../../Assets/work/Ephimero/ephimero-mob-4.png";
+import EphiMob5 from "../../Assets/work/Ephimero/ephimero-mob-5.png";
+import EphiMob6 from "../../Assets/work/Ephimero/ephimero-mob-6.png";
+import EphiMob7 from "../../Assets/work/Ephimero/ephimero-mob-7.png";
+import EphiMob8 from "../../Assets/work/Ephimero/ephimero-mob-8.png";
 import EphiGroup from "../../Assets/work/Ephimero/ephi-desk-group-2.webp";
 
 import Work6 from "../../Assets/work/work-manno.webp";
@@ -22,6 +25,9 @@ import LabbaLogo from "../../Assets/labba/labba-iso.svg";
 import LabbaWhiteLogo from "../../Assets/labba/labba-iso-white.svg";
 import { ReactSVG } from "react-svg";
 import Footer from "../../Components/Footer";
+import WorksGrid from "../../Components/WorksGrid";
+import { getWorksByIds } from "../../data/worksData";
+import { getWorksConfig } from "../../data/worksConfig";
 
 const Ephimero = () => {
   let isDesktop = window.innerWidth > 1024;
@@ -93,6 +99,25 @@ const Ephimero = () => {
         </div>
       </div>
       <div
+        className="h-[280px] md:h-[800px] w-[100vw] bg-cover bg-center flex justify-center  mt-10"
+        style={{
+          background: `#DBD9C5`,
+        }}
+      >
+        <div className="w-full max-w-[1500px] px-6 sm:px-[53px] lg:px-16  flex items-center">
+          <div className="w-full  overflow-hidden flex justify-between">
+            {[EphiMob4, EphiMob3, EphiMob2, EphiMob1].map((src, i) => (
+              <div key={i} className="w-[22%] rounded-lg overflow-hidden ">
+                <img
+                  src={src}
+                  className="w-full h-auto object-cover rounded-lg object-top "
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+      {/* <div
         className="md:h-[710px] w-[100vw] bg-cover bg-center mt-28 md:mt-40 flex justify-center"
         style={{ backgroundColor: `#DBD9C5` }}
       >
@@ -103,7 +128,7 @@ const Ephimero = () => {
             <img src={EphiMob3} className="w-1/3 h-auto object-contain" />
           </div>
         </div>
-      </div>
+      </div> */}
       <div
         className="md:h-[710px] w-[100vw] bg-cover bg-center mt-6 md:mt-6 flex justify-center"
         style={{
@@ -133,144 +158,30 @@ const Ephimero = () => {
         </div>
       </div>
       <div
-        className="md:h-[710px] w-[100vw] bg-cover bg-center mt-6 md:mt-6 flex justify-center lg:mb-[300px]"
+        className="h-[280px] md:h-[800px] w-[100vw] bg-cover bg-center flex justify-center  mt-10"
         style={{
-          background: `linear-gradient(76.23deg, #DBD9C5 -0.93%, #CCBDA2 100%)`,
+          background: `#DBD9C5`,
         }}
       >
-        <div className="w-full max-w-[1060px] p-4 sm:px-6 flex items-center">
-          <div className="w-full h-[80%]  overflow-hidden flex justify-around  space-x-3">
-            <img src={EphiMob4} className="w-1/3 h-auto object-contain" />
-            <img src={EphiMob5} className="w-1/3 h-auto object-contain" />
-            <img src={EphiMob6} className="w-1/3 h-auto object-contain" />
+        <div className="w-full max-w-[1500px] px-6 sm:px-[53px] lg:px-16  flex items-center">
+          <div className="w-full  overflow-hidden flex justify-between">
+            {[EphiMob6, EphiMob5, EphiMob8, EphiMob7].map((src, i) => (
+              <div key={i} className="w-[22%] rounded-lg overflow-hidden">
+                <img
+                  src={src}
+                  className="w-full h-auto object-contain rounded-lg object-top"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </div>
-      {!isDesktop && (
-        <p className=" text-xl font-light b-4 pl-6 pb-5 pt-20 text-[#b5b5b5]">
+      <div className="works-section relative mx-auto px-6 sm:px-[53px] lg:px-16 max-w-[1500px] flex flex-col my-[100px] md:my-[150px]">
+        <h2 className="text-[30px] sm:text-[45px] font-bold leading-tight mb-10">
           Other work
-        </p>
-      )}
-      <div>
-        {isDesktop && (
-          <span
-            className="vertical-text text-xl font-light text-[#b5b5b5]"
-            style={{
-              writingMode: "vertical-rl",
-              transform: "rotate(180deg)",
-              position: "sticky",
-              top: "200px",
-              left: "60px",
-              zIndex: "10",
-              translate: " 0px -110px",
-            }}
-          >
-            Other work
-          </span>
-        )}
-        <section className="works-section relative  mx-auto px-6 sm:px-[53px] lg:px-16 max-w-[1500px] flex flex-col-reverse  lg:mt-[-300px]">
-          <Link to="/works/manno">
-            <div
-              className="work-item relative mb-2 cursor-none sm:mb-6 rounded-lg bg-cover bg-center h-[260px] md:h-[580px] mt-6  "
-              style={{ backgroundImage: `url(${Work6})` }}
-              id="pasando"
-            >
-              <div className="project-info w-[250px] sm:w-[359px]  bg-[#FFFFFF33] rounded-[10px] absolute top-[25px] left-[30px] blur-bg">
-                <div className="flex flex-row justify-between">
-                  <div>
-                    <p
-                      className="l-desk text-[#ECECEC]"
-                      style={{ fontWeight: 500 }}
-                    >
-                      Manno
-                    </p>
-                  </div>
-                  <div className="flex flex-row">
-                    <p className="tags p-12 mr-[6px]">Design</p>
-                    <p className="tags p-12">Development</p>
-                  </div>
-                </div>
-                <div className="mt-[10px]">
-                  <p className="b4-desk text-[#ECECEC]">
-                    A trusted community app that connects people who need to
-                    outsource tasks and find local services, with people looking
-                    to earn money and ready to work.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </Link>
-          {/* Segunda fila de trabajos - Dos columnas */}
-          <div className="grid grid-cols-1 md:grid-cols-2  sm:gap-[24px]">
-            <Link to="/works/morgenstern" rel="noopener noreferrer">
-              <div
-                className="work-item item-sq relative mb-2 sm:mb-0 rounded-lg bg-cover bg-center h-[268px] sm:aspect-square sm:w-full md:h-auto"
-                style={{ backgroundImage: `url(${Morgenstern})` }}
-                id="pasando"
-              >
-                <div className="project-info w-[359px] md:w-[300px] mg:w-[359px]  bg-[#FFFFFF33] rounded-[10px] absolute top-[25px] left-[30px] md:left-[12px] mg:left-[30px] blur-bg">
-                  <div className="flex flex-row justify-between">
-                    <div>
-                      <p
-                        className="l-desk text-[#ECECEC]"
-                        style={{ fontWeight: 500 }}
-                      >
-                        Morgenstern
-                      </p>
-                    </div>
-                    <div className="flex flex-row">
-                      <p className="tags p-12 mr-[6px]">Design</p>
-                      <p className="tags p-12">Development</p>
-                    </div>
-                  </div>
-                  <div className="mt-[10px]">
-                    <p className="b4-desk text-[#ECECEC]">
-                      A creative and playful website for a creative and playful
-                      illustrated project.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </Link>
-
-            <Link to="/works/inmobiliare">
-              <div
-                className="work-item item-sq relative mb-2 sm:mb-0 rounded-lg bg-cover bg-center h-[268px] sm:aspect-square sm:w-full md:h-auto"
-                style={{ backgroundImage: `url(${Work2})` }}
-                id="pasando"
-              >
-                <div className="project-info w-[359px] md:w-[300px] mg:w-[359px]  bg-[#FFFFFF33] rounded-[10px] absolute top-[25px] left-[30px] md:left-[12px] mg:left-[30px] blur-bg">
-                  {" "}
-                  <div className="flex flex-row justify-between">
-                    <div>
-                      <p
-                        className="l-desk text-[#ECECEC]"
-                        style={{ fontWeight: 500 }}
-                      >
-                        Inmobiliare
-                      </p>
-                    </div>
-                    <div className="flex flex-row">
-                      <p className="tags p-12 mr-[6px]">Design</p>
-                      <p className="tags p-12">Development</p>
-                    </div>
-                  </div>
-                  <div className="mt-[10px]">
-                    <p className="b4-desk text-[#ECECEC]">
-                      Redesigning the experience of the largest real estate news
-                      portal in Mexico
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </Link>
-
-            {/* 
-            Work  */}
-          </div>
-        </section>
+        </h2>
+        <WorksGrid works={getWorksByIds(getWorksConfig("ephimero"))} />
       </div>
-      />
     </>
   );
 };
