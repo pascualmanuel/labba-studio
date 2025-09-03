@@ -28,7 +28,7 @@ const Hyundai = () => {
   return (
     <>
       <div
-        className="h-[590px] w-[100vw] sm:h-[680px] bg-cover bg-bottom "
+        className="h-[590px] w-[100vw] sm:h-[680px] bg-cover bg-center lg:bg-[100%_78%] "
         style={{ backgroundImage: `url(${HyundaiHero})` }}
       ></div>
       <h2 className="work-title py-20 hidden md:block px-6 max-w-[1200px] center">

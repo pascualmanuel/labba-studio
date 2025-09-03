@@ -33,7 +33,7 @@ const worksData = [
     image: Work4,
     tags: ["Website", "AI"],
     span: "half",
-    href: "/works/inmobiliare",
+    href: "/works/scouting-labs",
   },
   {
     id: "flora-plus",
@@ -42,7 +42,7 @@ const worksData = [
     image: Work2,
     tags: ["Digital products", "AI"],
     span: "half",
-    href: "/works/ephimero",
+    href: "/works/flora-plus",
   },
   {
     id: "morgenstern",
@@ -60,7 +60,7 @@ const worksData = [
     image: Work1,
     tags: ["Website"],
     span: "half",
-    href: "/works/inmobiliare",
+    href: "/works/hyundai",
   },
   {
     id: "dbs",
