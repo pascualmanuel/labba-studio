@@ -1,0 +1,269 @@
+import React from "react";
+import { useEffect, useState, useRef } from "react";
+import { Link } from "react-router-dom";
+import MorgensternImg from "../../Assets/work/work-morgenstern.webp";
+
+import Work2 from "../../Assets/work/work-inmobiliare.webp";
+import Work3 from "../../Assets/work/work-ephimero.webp";
+
+import Work6 from "../../Assets/work/work-manno.webp";
+import BgGalangal from "../../Assets/work/Galangal/galangal-website.webp";
+import BgGalangal2 from "../../Assets/work/Galangal/bg-orange2.webp";
+import Video1 from "../../Assets/work/Galangal/galangal-v-1.mp4";
+import Video2 from "../../Assets/work/Galangal/galangal-v-2.mp4";
+import Video3 from "../../Assets/work/Morgenstern/Comunidad3.mp4";
+import Footer from "../../Components/Footer";
+import LabbaWhiteLogo from "../../Assets/labba/labba-iso-white.svg";
+import { ReactSVG } from "react-svg";
+
+const Morgenstern = () => {
+  let isDesktop = window.innerWidth > 1024;
+  useEffect(() => {
+    document.title = "Morgenstern - Labba Studio";
+  }, []);
+
+  return (
+    <>
+      <div
+        className="h-[590px] w-[100vw] sm:h-[680px] bg-cover bg-center "
+        style={{ backgroundImage: `url(${BgGalangal})` }}
+      ></div>
+      <h2 className="work-title py-20 hidden md:block px-6 max-w-[1200px] center">
+        Galangal
+      </h2>
+      <div className="max-w-[500px] sm:max-w-[768px] center px-4 sm:px-6">
+        <h2 className="work-title mt-8 mb-12 md:hidden">Galangal</h2>
+        <p className="work-p">
+          We crafted a refined, immersive website for Galangal, a luxury travel
+          company deeply connected to local culture and nature. The design
+          focuses on storytelling through high-impact visuals, elegant layouts,
+          and intuitive navigation, allowing visitors to explore tailor-made
+          journeys that blend exclusivity with authentic cultural experiences.
+        </p>{" "}
+        <p className="work-p mt-8">
+          Every detail, color palette, typography, and photography, was curated
+          to evoke a sense of sophistication and discovery. The platform not
+          only inspires travelers but also communicates Galangal’s expertise,
+          exceptional service, and unique understanding of each destination.
+        </p>
+        <div className="mt-8 ssm:flex ssm:flex-row ssm:justify-between">
+          <div className="w-[] ">
+            <p className="l-desk text-[#b5b5b5] uppercase mb-4">Services</p>
+            <p className=" text-lg sm:text-2xl ">UX/UI Design </p>
+            <p className=" text-lg sm:text-2xl ">Development</p>
+            <p className=" text-lg sm:text-2xl ">SEO</p>
+          </div>
+          <div className="hidden ssm:block">
+            <p className="l-desk text-[#b5b5b5] uppercase mb-4">year</p>
+            <p className=" text-lg sm:text-2xl ">2025 </p>
+          </div>
+          <div className="hidden ssm:block">
+            <Link to={"https://galangal.travel/"} target="_blank">
+              <p className="l-desk text-[#b5b5b5] uppercase mb-4">link</p>
+              <p className=" text-lg sm:text-2xl underline">website</p>
+            </Link>
+          </div>
+
+          <div className="flex justify-between mt-8 ssm:hidden">
+            <div>
+              <p className="l-desk text-[#b5b5b5] uppercase mb-4">year</p>
+              <p className=" text-lg sm:text-2xl ">2025 </p>
+            </div>
+            <div className="mr-14">
+              <Link to={"https://galangal.travel/"} target="_blank">
+                <p className="l-desk text-[#b5b5b5] uppercase mb-4">link</p>
+                <p className=" text-lg sm:text-2xl underline">website</p>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className=" w-[100vw] bg-cover bg-center mt-28 md:mt-40 flex justify-center"
+        style={{ backgroundImage: `url(${BgGalangal2})` }}
+      >
+        <div className="w-full px-6 sm:px-[53px] lg:px-16 max-w-[1500px] sm:py-[72px]">
+          <div className="w-full md:h-full rounded-[8px] overflow-hidden">
+            <video
+              src={Video1}
+              muted
+              autoPlay
+              loop
+              playsInline
+              className="w-full md:h-full"
+              style={{
+                objectFit: "cover",
+              }}
+            />
+          </div>
+        </div>
+      </div>
+      <div className="max-w-[500px] sm:max-w-[768px] center py-20 md:py-40 px-4 sm:px-6">
+        <p className="work-p">
+          The website incorporates immersive destination pages with cinematic
+          imagery, interactive maps, and curated itinerary examples. Smooth
+          scrolling effects and subtle transitions create a sense of luxury and
+          flow, while the CMS allows Galangal to easily update content and add
+          new travel experiences. The design adapts flawlessly to all devices,
+          ensuring the brand’s elegance is preserved everywhere.
+        </p>
+      </div>
+
+      <div className="w-[100vw] bg-cover bg-center mt-1 sm:mt-10 flex justify-center lg:mb-[150px] ">
+        <div className="w-full px-6 sm:px-[53px] lg:px-16 max-w-[1500px]">
+          <div
+            className="sm:w-full h-full rounded-[8px] overflow-hidden"
+            style={{ border: "solid black 1px" }}
+          >
+            <video
+              src={Video2}
+              muted
+              autoPlay
+              loop
+              playsInline
+              className="w-full sm:h-full"
+              style={{
+                objectFit: "cover",
+              }}
+            />
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <section className="works-section relative  mx-auto px-6 sm:px-[53px] lg:px-16 max-w-[1500px] flex flex-col  mb-[150px]">
+          {/* Segunda fila de trabajos - Dos columnas */}
+          <div className="grid grid-cols-1 md:grid-cols-2  sm:gap-[24px]">
+            <Link to="/works/inmobiliare">
+              <div
+                className="work-item item-sq relative mb-3 sm:mb-0 rounded-lg bg-cover bg-center h-[268px] sm:aspect-square sm:w-full md:h-auto"
+                style={{ backgroundImage: `url(${Work2})` }}
+                id="pasando"
+              >
+                <div className="project-info w-[359px] md:w-[300px] mg:w-[359px]  bg-[#FFFFFF33] rounded-[10px] absolute top-[25px] left-[30px] md:left-[12px] mg:left-[30px] blur-bg">
+                  {" "}
+                  <div className="flex flex-row justify-between">
+                    <div>
+                      <p
+                        className="l-desk text-[#ECECEC]"
+                        style={{ fontWeight: 500 }}
+                      >
+                        Inmobiliare
+                      </p>
+                    </div>
+                    <div className="flex flex-row">
+                      <p className="tags p-12 mr-[6px]">Design</p>
+                      <p className="tags p-12">Development</p>
+                    </div>
+                  </div>
+                  <div className="mt-[10px]">
+                    <p className="b4-desk text-[#ECECEC]">
+                      Redesigning the experience of the largest real estate news
+                      portal in Mexico
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+            <Link to="/works/ephimero">
+              <div
+                className="work-item item-sq relative mb-3 sm:mb-0 rounded-lg bg-cover bg-center h-[268px] sm:aspect-square sm:w-full md:h-auto"
+                style={{ backgroundImage: `url(${Work3})` }}
+                id="pasando"
+              >
+                <div className="project-info w-[359px] md:w-[300px] mg:w-[359px]  bg-[#FFFFFF33] rounded-[10px] absolute top-[25px] left-[30px] md:left-[12px] mg:left-[30px] blur-bg">
+                  <div className="flex flex-row justify-between">
+                    <div>
+                      <p
+                        className="l-desk text-[#ECECEC]"
+                        style={{ fontWeight: 500 }}
+                      >
+                        Ephimero
+                      </p>
+                    </div>
+                    <div className="flex flex-row">
+                      <p className="tags p-12 mr-[6px]">Design</p>
+                      <p className="tags p-12">Development</p>
+                    </div>
+                  </div>
+                  <div className="mt-[10px]">
+                    <p className="b4-desk text-[#ECECEC]">
+                      Candles ecommerce with ethics & aesthetics
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2  sm:gap-[24px] md:mt-6">
+            <Link to="/works/inmobiliare">
+              <div
+                className="work-item item-sq relative mb-3 sm:mb-0 rounded-lg bg-cover bg-center h-[268px] sm:aspect-square sm:w-full md:h-auto"
+                style={{ backgroundImage: `url(${Work2})` }}
+                id="pasando"
+              >
+                <div className="project-info w-[359px] md:w-[300px] mg:w-[359px]  bg-[#FFFFFF33] rounded-[10px] absolute top-[25px] left-[30px] md:left-[12px] mg:left-[30px] blur-bg">
+                  {" "}
+                  <div className="flex flex-row justify-between">
+                    <div>
+                      <p
+                        className="l-desk text-[#ECECEC]"
+                        style={{ fontWeight: 500 }}
+                      >
+                        Inmobiliare
+                      </p>
+                    </div>
+                    <div className="flex flex-row">
+                      <p className="tags p-12 mr-[6px]">Design</p>
+                      <p className="tags p-12">Development</p>
+                    </div>
+                  </div>
+                  <div className="mt-[10px]">
+                    <p className="b4-desk text-[#ECECEC]">
+                      Redesigning the experience of the largest real estate news
+                      portal in Mexico
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+            <Link to="/works/ephimero">
+              <div
+                className="work-item item-sq relative mb-3 sm:mb-0 rounded-lg bg-cover bg-center h-[268px] sm:aspect-square sm:w-full md:h-auto"
+                style={{ backgroundImage: `url(${Work3})` }}
+                id="pasando"
+              >
+                <div className="project-info w-[359px] md:w-[300px] mg:w-[359px]  bg-[#FFFFFF33] rounded-[10px] absolute top-[25px] left-[30px] md:left-[12px] mg:left-[30px] blur-bg">
+                  <div className="flex flex-row justify-between">
+                    <div>
+                      <p
+                        className="l-desk text-[#ECECEC]"
+                        style={{ fontWeight: 500 }}
+                      >
+                        Ephimero
+                      </p>
+                    </div>
+                    <div className="flex flex-row">
+                      <p className="tags p-12 mr-[6px]">Design</p>
+                      <p className="tags p-12">Development</p>
+                    </div>
+                  </div>
+                  <div className="mt-[10px]">
+                    <p className="b4-desk text-[#ECECEC]">
+                      Candles ecommerce with ethics & aesthetics
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </Link>
+          </div>
+        </section>
+      </div>
+      {/* <Footer /> */}
+    </>
+  );
+};
+
+export default Morgenstern;
