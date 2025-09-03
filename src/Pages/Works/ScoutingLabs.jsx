@@ -1,64 +1,65 @@
 import React from "react";
 import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
-import MorgensternImg from "../../Assets/work/work-morgenstern.webp";
+import ScoutingLabsHero from "../../Assets/work/Scouting/scounting-site.webp";
 
 import Work2 from "../../Assets/work/work-inmobiliare.webp";
 import Work3 from "../../Assets/work/work-ephimero.webp";
 
 import Work6 from "../../Assets/work/work-manno.webp";
-import BgMorg from "../../Assets/work/Morgenstern/bg-morg.png";
-import Video1 from "../../Assets/work/Morgenstern/Home1.mp4";
-import Video2 from "../../Assets/work/Morgenstern/About2.mp4";
+import BgVideoSL from "../../Assets/mask/services-organge.webp";
+import Video1 from "../../Assets/work/Scouting/scouting_video.mp4";
+import Video2 from "../../Assets/work/Scouting/scouting_video2.mp4";
 import Video3 from "../../Assets/work/Morgenstern/Comunidad3.mp4";
 import Footer from "../../Components/Footer";
 import LabbaWhiteLogo from "../../Assets/labba/labba-iso-white.svg";
 import { ReactSVG } from "react-svg";
+import { getWorksByIds } from "../../data/worksData";
+import { getWorksConfig } from "../../data/worksConfig";
+import WorksGrid from "../../Components/WorksGrid";
 
-const Morgenstern = () => {
+const ScoutingLabs = () => {
   let isDesktop = window.innerWidth > 1024;
   useEffect(() => {
-    document.title = "Morgenstern - Labba Studio";
+    document.title = "Scouting Labs - Labba Studio";
   }, []);
 
   return (
     <>
       <div
-        className="h-[590px] w-[100vw] sm:h-[680px] bg-cover bg-center "
-        style={{ backgroundImage: `url(${MorgensternImg})` }}
+        className="h-[590px] w-[100vw] sm:h-[680px] bg-cover bg-bottom "
+        style={{ backgroundImage: `url(${ScoutingLabsHero})` }}
       ></div>
       <h2 className="work-title py-20 hidden md:block px-6 max-w-[1200px] center">
-        Morgenstern
+        Scouting Labs
       </h2>
       <div className="max-w-[500px] sm:max-w-[768px] center px-4 sm:px-6">
-        <h2 className="work-title mt-8 mb-12 md:hidden">Morgenstern</h2>
+        <h2 className="work-title mt-8 mb-12 md:hidden">Scouting Labs</h2>
         <p className="work-p">
-          We designed a digital space for a transmedia project that blends
-          various artistic mediums, including drawing, animation, sound, text,
-          and interactive games. This project serves as an artistic essay that
-          explores how we connect with others, the world, and the flow of
-          information.
+          We designed a dynamic, modern website for Scouting Labs, a platform
+          that brings professional-grade technology to the amateur sports world.
         </p>{" "}
         <p className="work-p mt-8">
-          We created a visually dynamic and interactive website that allows
-          users to engage with the character Morgenstern in different forms. The
-          design was centered around immersing the audience in a fluid
-          narrative, where Morgenstern evolves and takes on different shapes to
-          address contemporary issues.
+          The site highlights their innovative tools for player performance
+          analysis, event coverage, and scholarship opportunities. With a bold,
+          urban-inspired design, it connects deeply with Latin American sports
+          culture while maintaining a professional and tech-forward aesthetic.
+          The result is a platform that not only informs but inspires athletes
+          to dream big and elevate their game.
         </p>
         <div className="mt-8 ssm:flex ssm:flex-row ssm:justify-between">
           <div className="w-[] ">
             <p className="l-desk text-[#b5b5b5] uppercase mb-4">Services</p>
             <p className=" text-lg sm:text-2xl ">UX/UI Design </p>
-            <p className=" text-lg sm:text-2xl ">SEO</p>
             <p className=" text-lg sm:text-2xl ">Development</p>
+            <p className=" text-lg sm:text-2xl ">SEO</p>
           </div>
           <div className="hidden ssm:block">
             <p className="l-desk text-[#b5b5b5] uppercase mb-4">year</p>
-            <p className=" text-lg sm:text-2xl ">2023 </p>
+            <p className=" text-lg sm:text-2xl ">2024 </p>
           </div>
           <div className="hidden ssm:block">
-            <Link to={"https://holamorgenstern.com/"} target="_blank">
+            <Link to={"https://www.scoutinglabs.com/"} target="_blank">
               <p className="l-desk text-[#b5b5b5] uppercase mb-4">link</p>
               <p className=" text-lg sm:text-2xl underline">website</p>
             </Link>
@@ -67,10 +68,10 @@ const Morgenstern = () => {
           <div className="flex justify-between mt-8 ssm:hidden">
             <div>
               <p className="l-desk text-[#b5b5b5] uppercase mb-4">year</p>
-              <p className=" text-lg sm:text-2xl ">2023 </p>
+              <p className=" text-lg sm:text-2xl ">2024 </p>
             </div>
             <div className="mr-14">
-              <Link to={"https://holamorgenstern.com/"} target="_blank">
+              <Link to={"https://www.scoutinglabs.com/"} target="_blank">
                 <p className="l-desk text-[#b5b5b5] uppercase mb-4">link</p>
                 <p className=" text-lg sm:text-2xl underline">website</p>
               </Link>
@@ -79,11 +80,11 @@ const Morgenstern = () => {
         </div>
       </div>
       <div
-        className="md:h-[590px] w-[100vw] bg-cover bg-center mt-28 md:mt-40 flex justify-center"
-        style={{ backgroundImage: `url(${BgMorg})` }}
+        className=" w-[100vw] bg-cover bg-center mt-28 md:mt-40 flex justify-center"
+        style={{ backgroundImage: `url(${BgVideoSL})` }}
       >
-        <div className="w-full max-w-[1060px] p-4 sm:p-6">
-          <div className="w-full md:h-full rounded-[8px] overflow-hidden">
+        <div className="w-full px-6 sm:px-[53px] lg:px-16 max-w-[1500px] py-[72px]">
+          <div className="w-full md:h-full rounded-[16px] overflow-hidden">
             <video
               src={Video1}
               muted
@@ -100,45 +101,25 @@ const Morgenstern = () => {
       </div>
       <div className="max-w-[500px] sm:max-w-[768px] center py-20 px-4 sm:px-6">
         <p className="work-p">
-          The site integrated multimedia elements, making the user experience
-          both reflective and engaging. Animation, soundscapes, and interactive
-          components were seamlessly woven into the storytelling, creating a
-          unique and thought-provoking digital environment.
+          Built with a bold visual identity, the site integrates video
+          highlights, player statistics, and real-time event updates. An
+          optimized structure allows users to quickly find services, explore
+          scholarship opportunities, or connect with the team. Subtle animations
+          and interactive components keep the experience engaging without
+          sacrificing speed or usability.
         </p>
       </div>
-      <div className="sm:h-[590px] w-[100vw] bg-cover bg-center  flex justify-center">
-        <div className="w-full max-w-[1060px] p-4 sm:p-6">
-          <div
-            className="w-full sm:h-full rounded-[8px] overflow-hidden"
-            style={{ border: "solid black 1px" }}
-          >
-            <video
-              src={Video3}
-              muted
-              autoPlay
-              loop
-              playsInline
-              className="w-full sm:h-full"
-              style={{
-                objectFit: "cover",
-              }}
-            />
-          </div>
-        </div>
-      </div>
-      <div className="sm:h-[590px] w-[100vw] bg-cover bg-center mt-1 sm:mt-10 flex justify-center lg:mb-[300px] ">
-        <div className="w-full max-w-[1060px] p-4 sm:p-6">
-          <div
-            className="sm:w-full h-full rounded-[8px] overflow-hidden"
-            style={{ border: "solid black 1px" }}
-          >
+
+      <div className="w-[100vw] bg-cover bg-center mt-1 sm:mt-10 flex justify-center mb-[80px] lg:mb-[150px] ">
+        <div className="w-full px-6 sm:px-[53px] lg:px-16 max-w-[1500px]">
+          <div className="sm:w-full h-full rounded-[16px] overflow-hidden">
             <video
               src={Video2}
               muted
               autoPlay
               loop
               playsInline
-              className="w-full sm:h-full"
+              className="w-full sm:h-[103%]"
               style={{
                 objectFit: "cover",
               }}
@@ -146,129 +127,15 @@ const Morgenstern = () => {
           </div>
         </div>
       </div>
-      {!isDesktop && (
-        <p className=" text-xl font-light b-4 pl-6 pb-5 pt-20 text-[#b5b5b5]">
+      <div className="works-section relative mx-auto px-6 sm:px-[53px] lg:px-16 max-w-[1500px] flex flex-col mb-[150px]">
+        <h2 className="text-[30px] sm:text-[45px] font-bold leading-tight mb-10">
           Other work
-        </p>
-      )}
-      <div>
-        {isDesktop && (
-          <span
-            className="vertical-text text-xl font-light text-[#b5b5b5]"
-            style={{
-              writingMode: "vertical-rl",
-              transform: "rotate(180deg)",
-              position: "sticky",
-              top: "200px",
-              left: "60px",
-              zIndex: "10",
-              translate: " 0px -110px",
-            }}
-          >
-            Other work
-          </span>
-        )}
-        <section className="works-section relative  mx-auto px-6 sm:px-[53px] lg:px-16 max-w-[1500px] flex flex-col-reverse  lg:mt-[-300px]">
-          <Link to="/works/manno" rel="noopener noreferrer">
-            <div
-              className="work-item relative mb-2 cursor-none sm:mb-6 rounded-lg bg-cover bg-center h-[260px] md:h-[580px] mt-6  "
-              style={{ backgroundImage: `url(${Work6})` }}
-              id="pasando"
-            >
-              <div className="project-info w-[250px] sm:w-[359px]  bg-[#FFFFFF33] rounded-[10px] absolute top-[25px] left-[30px] blur-bg">
-                <div className="flex flex-row justify-between">
-                  <div>
-                    <p
-                      className="l-desk text-[#ECECEC]"
-                      style={{ fontWeight: 500 }}
-                    >
-                      Manno
-                    </p>
-                  </div>
-                  <div className="flex flex-row">
-                    <p className="tags p-12 mr-[6px]">Design</p>
-                    <p className="tags p-12">Development</p>
-                  </div>
-                </div>
-                <div className="mt-[10px]">
-                  <p className="b4-desk text-[#ECECEC]">
-                    A trusted community app that connects people who need to
-                    outsource tasks and find local services, with people looking
-                    to earn money and ready to work.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </Link>
-          {/* Segunda fila de trabajos - Dos columnas */}
-          <div className="grid grid-cols-1 md:grid-cols-2  sm:gap-[24px]">
-            <Link to="/works/inmobiliare">
-              <div
-                className="work-item item-sq relative mb-2 sm:mb-0 rounded-lg bg-cover bg-center h-[268px] sm:aspect-square sm:w-full md:h-auto"
-                style={{ backgroundImage: `url(${Work2})` }}
-                id="pasando"
-              >
-                <div className="project-info w-[359px] md:w-[300px] mg:w-[359px]  bg-[#FFFFFF33] rounded-[10px] absolute top-[25px] left-[30px] md:left-[12px] mg:left-[30px] blur-bg">
-                  {" "}
-                  <div className="flex flex-row justify-between">
-                    <div>
-                      <p
-                        className="l-desk text-[#ECECEC]"
-                        style={{ fontWeight: 500 }}
-                      >
-                        Inmobiliare
-                      </p>
-                    </div>
-                    <div className="flex flex-row">
-                      <p className="tags p-12 mr-[6px]">Design</p>
-                      <p className="tags p-12">Development</p>
-                    </div>
-                  </div>
-                  <div className="mt-[10px]">
-                    <p className="b4-desk text-[#ECECEC]">
-                      Redesigning the experience of the largest real estate news
-                      portal in Mexico
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </Link>
-
-            <Link to="/works/ephimero">
-              <div
-                className="work-item item-sq relative mb-2 sm:mb-0 rounded-lg bg-cover bg-center h-[268px] sm:aspect-square sm:w-full md:h-auto"
-                style={{ backgroundImage: `url(${Work3})` }}
-                id="pasando"
-              >
-                <div className="project-info w-[359px] md:w-[300px] mg:w-[359px]  bg-[#FFFFFF33] rounded-[10px] absolute top-[25px] left-[30px] md:left-[12px] mg:left-[30px] blur-bg">
-                  <div className="flex flex-row justify-between">
-                    <div>
-                      <p
-                        className="l-desk text-[#ECECEC]"
-                        style={{ fontWeight: 500 }}
-                      >
-                        Ephimero
-                      </p>
-                    </div>
-                    <div className="flex flex-row">
-                      <p className="tags p-12 mr-[6px]">Design</p>
-                      <p className="tags p-12">Development</p>
-                    </div>
-                  </div>
-                  <div className="mt-[10px]">
-                    <p className="b4-desk text-[#ECECEC]">
-                      Candles ecommerce with ethics & aesthetics
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </Link>
-          </div>
-        </section>
+        </h2>
+        <WorksGrid works={getWorksByIds(getWorksConfig("scouting-labs"))} />
       </div>
       {/* <Footer /> */}
     </>
   );
 };
 
-export default Morgenstern;
+export default ScoutingLabs;
