@@ -235,7 +235,7 @@ const Services = () => {
             </div>
           </Link>
 
-          <Link to="/works/ephimero">
+          <Link to="/works/flora-plus">
             <div
               className="work-item item-sq relative  rounded-lg bg-cover bg-center h-[300px] sm:aspect-square sm:w-full md:h-auto"
               style={{ backgroundImage: `url(${Work2})` }}

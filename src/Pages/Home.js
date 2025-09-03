@@ -14,6 +14,9 @@ import NewServices from "../Components/NewServices";
 import Footer from "../Components/Footer";
 import MannoHero from "../Assets/work/Manno/MannoHero.webp";
 import VideoSection from "../Components/VideoSection";
+import WorksGrid from "../Components/WorksGrid";
+import { getWorksByIds } from "../data/worksData";
+import { getWorksConfig } from "../data/worksConfig";
 
 import ephiHero from "../Assets/work/Ephimero/hero_ephi.jpg";
 import ephiHeroMob from "../Assets/work/Ephimero/hero-principal-mob.webp";
@@ -108,8 +111,9 @@ function Home() {
         <NewServices />
       </div>
 
-      <div>
-        <NewWorks />
+      <div className="works-section relative mx-auto px-6 sm:px-[53px] lg:px-16 max-w-[1500px] flex flex-col my-[100px] md:mb-[150px]">
+        {/* <NewWorks /> */}
+        <WorksGrid works={getWorksByIds(getWorksConfig("home"))} />
       </div>
 
       {/* <Footer /> */}
