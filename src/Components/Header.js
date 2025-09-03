@@ -242,7 +242,7 @@ function Header() {
         <div
           className={`${
             isMenuOpen
-              ? "opacity-100 transition-opacity duration-600 bg-black/80 "
+              ? "bg-mobile-menu "
               : " transition-opacity duration-600 opacity-0"
           }  fixed inset-0 z-40`}
         >
@@ -250,33 +250,33 @@ function Header() {
             <div className="flex-1 flex flex-col md:flex-row md:items-center md:justify-center justify-end pb-10 ">
               <div
                 className={`  md:flex-row ${
-                  isMenuOpen ? "block md:flex" : "hidden"
+                  isMenuOpen ? "block md:flex z-[10000]" : "hidden"
                 }`}
               >
                 <Link
                   href="/services"
-                  className="flex items-center vigo text-6xl text-white tracking-[-2%] hover:text-[#c7c7c7] transition-colors duration-200 mb-2"
+                  className="flex items-center vigo leading-[103%] text-[50px] font-bold text-white tracking-[-2%] hover:text-[#c7c7c7] transition-colors duration-200 mb-2"
                   onClick={closeMenu}
                 >
                   Services
                 </Link>
                 <Link
                   href="/work"
-                  className="flex items-center vigo text-6xl text-white tracking-[-2%] hover:text-[#c7c7c7] transition-colors duration-200 mb-2"
+                  className="flex items-center vigo leading-[103%] text-[50px] font-bold text-white tracking-[-2%] hover:text-[#c7c7c7] transition-colors duration-200 mb-2"
                   onClick={closeMenu}
                 >
                   Work
                 </Link>
                 <Link
                   href="/about"
-                  className="flex items-center vigo text-6xl text-white tracking-[-2%] hover:text-[#c7c7c7] transition-colors duration-200 mb-2"
+                  className="flex items-center vigo leading-[103%] text-[50px] font-bold text-white tracking-[-2%] hover:text-[#c7c7c7] transition-colors duration-200 mb-2"
                   onClick={closeMenu}
                 >
                   About
                 </Link>
                 <Link
                   href="/blog"
-                  className="flex items-center vigo text-6xl text-white tracking-[-2%] hover:text-[#c7c7c7] transition-colors duration-200 mb-2"
+                  className="flex items-center vigo leading-[103%] text-[50px] font-bold text-white tracking-[-2%] hover:text-[#c7c7c7] transition-colors duration-200 mb-2"
                   onClick={closeMenu}
                 >
                   Blog
@@ -284,7 +284,7 @@ function Header() {
               </div>
               <Link
                 to="/contact"
-                className="btn-contact"
+                className="btn-contact mt-12" 
                 style={{ width: "100%" }}
               >
                 <span>Get in touch</span>

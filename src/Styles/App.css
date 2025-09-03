@@ -36,6 +36,40 @@ html {
   backdrop-filter: blur(30px);
 }
 
+.bg-mobile-menu {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(6, 7, 10, 0.6) 0%,
+    rgba(6, 7, 10, 1) 100% /* abajo casi negro */
+  );
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  overflow: hidden;
+}
+
+.bg-mobile-menu::before {
+  content: "";
+  position: absolute;
+  top: -100px; /* ajusta según figma */
+  right: -100px; /* ajusta según figma */
+  width: 400px; /* tamaño del ellipse */
+  height: 400px;
+  background: radial-gradient(
+    circle at center,
+    #ff5800 0%,
+    #f62a4b 30%,
+    #d42374 50%,
+    #a0378b 70%,
+    #64428e 85%,
+    #2b417a 100%
+  );
+  transform: rotate(-180deg);
+  filter: blur(215px); /* difumina para el glow */
+  z-index: 0;
+}
+
 [role="button"],
 button {
   cursor: url("../Assets/dot-cursor.svg"), auto;
