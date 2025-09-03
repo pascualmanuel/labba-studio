@@ -24,7 +24,7 @@ const Morgenstern = () => {
   return (
     <>
       <div
-        className="h-[590px] w-[100vw] sm:h-[680px] bg-cover bg-center mt-[-77px] md:mt-[-8rem]"
+        className="h-[590px] w-[100vw] sm:h-[680px] bg-cover bg-center "
         style={{ backgroundImage: `url(${MorgensternImg})` }}
       ></div>
       <h2 className="work-title py-20 hidden md:block px-6 max-w-[1200px] center">
