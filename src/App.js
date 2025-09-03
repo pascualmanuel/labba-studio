@@ -22,6 +22,7 @@ import Work from "./Pages/Work";
 import About from "./Pages/About.js";
 import Footer from "./Components/Footer";
 import Services from "./Pages/Services";
+import Galangal from "./Pages/Works/Galangal";
 
 function App() {
   useCursorEffect();
@@ -89,6 +90,7 @@ function App() {
             <Route path="/works/daewoo" element={<Daewoo />} />
             <Route path="/works/manno" element={<Manno />} />
             <Route path="/works/trebol" element={<Trebol />} />
+            <Route path="/works/galangal" element={<Galangal />} />
             <Route path="/work" element={<Work />} />
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
