@@ -8,6 +8,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import BackIcon from "../Assets/Back.svg";
 import BackWhiteIcon from "../Assets/BackWhite.svg";
 import { useState, useEffect } from "react";
+import useBodyClass from "../Hooks/useBodyClass";
 import { useLanguage } from "../Hooks/LanguageContext";
 
 import MagneticButton from "./MagenticButton";
@@ -123,10 +124,13 @@ function Header() {
     }
   }, [isMenuOpen]);
 
+  // Lock page scroll when mobile menu is open
+  useBodyClass("menu-open", isMenuOpen);
+
   return (
     <>
       <div
-        className={`z-[100] fixed w-full center flex flex-row justify-between items-center 
+        className={`fixed w-full center flex flex-row justify-between items-center z-[999] 
         h-[120px] md:h-[90px]  sm:h-32   transition-transform duration-300 will-change-transform
         ${isNavbarVisible ? "translate-y-0" : "-translate-y-full"}
          ${isWorkPage ? "bg-header" : "fixed"} `}
@@ -242,9 +246,10 @@ function Header() {
         <div
           className={`${
             isMenuOpen
-              ? "bg-mobile-menu "
-              : " transition-opacity duration-600 opacity-0"
-          }  fixed inset-0 z-40`}
+              ? "bg-mobile-menu"
+              : "transition-opacity duration-600 opacity-0"
+          } fixed top-0 left-0 w-full h-full`}
+          style={{ position: "fixed", zIndex: 900 }}
         >
           <div className="w-full h-full flex flex-col px-4 pb-8">
             <div className="flex-1 flex flex-col md:flex-row md:items-center md:justify-center justify-end pb-10 ">
@@ -254,28 +259,28 @@ function Header() {
                 }`}
               >
                 <Link
-                  href="/services"
+                  to="/services"
                   className="flex items-center vigo leading-[103%] text-[50px] font-bold text-white tracking-[-2%] hover:text-[#c7c7c7] transition-colors duration-200 mb-2"
                   onClick={closeMenu}
                 >
                   Services
                 </Link>
                 <Link
-                  href="/work"
+                  to="/work"
                   className="flex items-center vigo leading-[103%] text-[50px] font-bold text-white tracking-[-2%] hover:text-[#c7c7c7] transition-colors duration-200 mb-2"
                   onClick={closeMenu}
                 >
                   Work
                 </Link>
                 <Link
-                  href="/about"
+                  to="/about"
                   className="flex items-center vigo leading-[103%] text-[50px] font-bold text-white tracking-[-2%] hover:text-[#c7c7c7] transition-colors duration-200 mb-2"
                   onClick={closeMenu}
                 >
                   About
                 </Link>
                 <Link
-                  href="/blog"
+                  to="/blog"
                   className="flex items-center vigo leading-[103%] text-[50px] font-bold text-white tracking-[-2%] hover:text-[#c7c7c7] transition-colors duration-200 mb-2"
                   onClick={closeMenu}
                 >
@@ -284,96 +289,17 @@ function Header() {
               </div>
               <Link
                 to="/contact"
-                className="btn-contact mt-12" 
+                onClick={closeMenu}
+                className="btn-contact mt-12 z-[999]"
                 style={{ width: "100%" }}
               >
                 <span>Get in touch</span>
-                <svg
-                  className="btn-border"
-                  viewBox="0 0 100 46"
-                  preserveAspectRatio="none"
-                  aria-hidden="true"
-                >
-                  <defs>
-                    <linearGradient
-                      id="glass-shimmer"
-                      x1="0%"
-                      y1="0%"
-                      x2="100%"
-                      y2="0%"
-                    >
-                      <stop offset="0%" stop-color="rgba(255,255,255,0)" />
-                      <stop offset="50%" stop-color="rgba(255,255,255,1)" />
-                      <stop offset="100%" stop-color="rgba(255,255,255,0)" />
-                    </linearGradient>
-                  </defs>
-                  <rect
-                    x="1"
-                    y="1"
-                    width="98"
-                    height="38"
-                    rx="7"
-                    ry="7"
-                    pathLength="100"
-                    fill="none"
-                    stroke="url(#glass-shimmer)"
-                    strokeWidth="2px"
-                    strokeLinecap="round"
-                    strokeDasharray="16 84"
-                  />
-                </svg>
               </Link>
             </div>
           </div>
         </div>
       )}
     </>
-
-    // return (
-    //   <>
-    //     <div className="z-[100] top-0 left-0 right-0 center flex flex-row justify-between items-center h-[77px] max-w-[1500px] sm:h-32 px-[15px] sm:px-[50px] ">
-    //       <Link to="/#home">
-    //         <div
-    //           className=""
-    //           style={{
-    //             zIndex: "1006",
-    //           }}
-    //         >
-    //           <ReactSVG
-    //             src={LabbaLogo}
-    //             className=" "
-    //             style={{ zIndex: "10006" }}
-    //           />
-    //         </div>
-    //       </Link>
-    //       <div>
-    //         <div className="sm:mr-[-30]">
-    //           {!isMobile ? (
-    //             <MagneticButton
-    //               text={
-    //                 <span
-    //                   className={`text flex flex-row items-center text-base`}
-    //                 >
-    //                   <ReactSVG src={BackIcon} className="mr-3" />
-    //                   Back
-    //                 </span>
-    //               }
-    //               link={"/#home"}
-    //             />
-    //           ) : (
-    //             <Link to="/#home">
-    //               <div className="w-[108px] h-[38px] border border-[#2b2b2b] rounded-[8px] flex items-center justify-center bg-[#ffffff33]">
-    //                 <span className="text flex flex-row items-center text-base">
-    //                   <ReactSVG src={BackIcon} className="mr-3" /> Back
-    //                 </span>
-    //               </div>
-    //             </Link>
-    //           )}
-    //         </div>
-    //       </div>
-    //     </div>
-    //   </>
-    // );
   );
 }
 export default Header;

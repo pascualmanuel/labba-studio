@@ -31,6 +31,11 @@ html {
   /* scroll-behavior:auto */
 }
 
+/* Lock scroll when mobile menu is open */
+body.menu-open {
+  overflow: hidden !important;
+}
+
 .bg-header {
   background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(30px);
@@ -39,22 +44,16 @@ html {
 .bg-mobile-menu {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(6, 7, 10, 0.6) 0%,
-    rgba(6, 7, 10, 1) 100% /* abajo casi negro */
-  );
-  backdrop-filter: blur(22px);
-  -webkit-backdrop-filter: blur(22px);
   overflow: hidden;
 }
 
+/* la pelota de colores */
 .bg-mobile-menu::before {
   content: "";
   position: absolute;
   top: -100px; /* ajusta según figma */
-  right: -200px; /* ajusta según figma */
-  width: 400px; /* tamaño del ellipse */
+  right: -200px;
+  width: 400px;
   height: 400px;
   background: radial-gradient(
     circle at center,
@@ -66,8 +65,22 @@ html {
     #2b417a 100%
   );
   transform: rotate(-180deg);
-  filter: blur(215px); /* difumina para el glow */
   z-index: 0;
+}
+
+/* el blur oscuro encima */
+.bg-mobile-menu::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(6, 7, 10, 0.6) 0%,
+    rgba(6, 7, 10, 1) 100%
+  );
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  z-index: 1;
 }
 
 [role="button"],
