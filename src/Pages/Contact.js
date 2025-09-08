@@ -3,6 +3,7 @@ import "../Styles/Prueba.css";
 import emailjs from "@emailjs/browser";
 import Rounded from "../Hooks/Rounded";
 import emailIcon from "../Assets/labba/inaki.webp";
+import emailIcon2 from "../Assets/labba/manuel.png";
 
 function Contact() {
   useEffect(() => {
@@ -163,43 +164,62 @@ function Contact() {
           <div className="pr-0 lg:pr-[75px]">
             <h3 className="h2 mb-[14px]">Get in touch</h3>
             <div className="border border-[#313131] rounded-[12px] p-[16px] flex items-center gap-[16px]">
-              <div
-                className=""
-                style={{
-                  width: "40px",
-                  height: "40px",
-                  borderRadius: "999px",
-                  overflow: "hidden",
-                  border: "1px solid #313131",
-                }}
-              >
-                <img
-                  src={emailIcon}
-                  alt=""
-                  className="w-full h-full object-cover"
-                />
+              <div className="flex flex-row ">
+                <div
+                  className=""
+                  style={{
+                    width: "40px",
+                    height: "40px",
+                    borderRadius: "999px",
+                    overflow: "hidden",
+                    border: "1px solid #313131",
+                  }}
+                >
+                  <img
+                    src={emailIcon2}
+                    alt=""
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div
+                  className=""
+                  style={{
+                    width: "40px",
+                    height: "40px",
+                    marginLeft: "-14px",
+                    borderRadius: "999px",
+                    overflow: "hidden",
+                    border: "1px solid #313131",
+                  }}
+                >
+                  <img
+                    src={emailIcon}
+                    alt=""
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               </div>
               <p className="font-bold text-[14px] leading-[20px]">
                 <span className="text-[#767576]">
-                  Let’s bring your idea to life.{" "}
-                </span>{" "}
+                  Let’s bring your idea to life
+                </span>
                 Get in touch with management directly.
               </p>
             </div>
             <div className="flex flex-row gap-[16px] my-[20px] justify-between ">
-              <div className="w-1/3 bg-[#111111] h-[75px] flex items-center justify-center rounded-[12px]">
+              <div className="w-1/3 bg-[#FFFFFF0D] hover:bg-[#FFFFFF1A] h-[75px] flex items-center justify-center rounded-[12px]">
                 <span>Call</span>
               </div>
-              <div className="w-1/3 bg-[#111111] h-[75px] flex items-center justify-center rounded-[12px]">
+              <div className="w-1/3 bg-[#FFFFFF0D] hover:bg-[#FFFFFF1A] h-[75px] flex items-center justify-center rounded-[12px]">
                 <span>Email</span>
               </div>
-              <div className="w-1/3 bg-[#111111] h-[75px] flex items-center justify-center rounded-[12px]">
+              <div className="w-1/3 bg-[#FFFFFF0D] hover:bg-[#FFFFFF1A] h-[75px] flex items-center justify-center rounded-[12px]">
                 <span>LinkedIn</span>
               </div>
             </div>
 
             <div className="flex flex-col gap-[16px] my-[20px] justify-between ">
-              <div className="w-full bg-[#111111] h-[75px] flex  rounded-[12px] flex-col justify-center pl-4">
+              <div className="w-full bg-[#FFFFFF0D] hover:bg-[#FFFFFF1A] h-[75px] flex  rounded-[12px] flex-col justify-center pl-4">
                 <p className="text-[#757575] text-[14px] font-normal">
                   Video call
                 </p>
@@ -207,7 +227,7 @@ function Contact() {
                   Book a call
                 </span>
               </div>
-              <div className="w-full bg-[#111111] h-[75px] flex  rounded-[12px] flex-col justify-center pl-4">
+              <div className="w-full bg-[#FFFFFF0D] hover:bg-[#FFFFFF1A] h-[75px] flex  rounded-[12px] flex-col justify-center pl-4">
                 <p className="text-[#757575] text-[14px] font-normal">Email</p>
                 <span className="text-[14px] text-white font-medium">
                   hello@labba.studio
@@ -439,11 +459,11 @@ function Contact() {
                 <div className="flex sm:justify-end pb-[50px]">
                   <button className=" mt-8 w-full lg:w-auto">
                     <Rounded
-                      bgColor={"#48494B"}
+                      bgColor={"#FFFFFF0D"}
                       widthButton={buttonContactWidth}
                       heightButton={45}
                       buttonTextColor={"#fff"}
-                      buttonBorderColor={"#48494B"}
+                      buttonBorderColor={"#FFFFFF0D"}
                     >
                       <p className="!text-white font-bold">{buttonText}</p>
                     </Rounded>

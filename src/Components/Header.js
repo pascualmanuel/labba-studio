@@ -142,7 +142,7 @@ function Header() {
           
           "
         >
-          <Link to="/#home">
+          <Link to="/#home" onClick={closeMenu}>
             <div className=" pointer-events-auto">
               <ReactSVG
                 src={isWorkPage ? LabbaWhiteLogo : LabbaWhiteLogo}
