@@ -415,7 +415,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #ececec1a;
+  background: #ffffff0d;
   color: #dedede;
 }
 
@@ -427,7 +427,7 @@ label {
   color: #8c8c8c;
 }
 .contact-buttons:hover {
-  background-color: #111111;
+  background-color: #ffffff1a;
   /* color: black; */
 }
 
@@ -980,73 +980,41 @@ a:focus-visible {
   transform: translateY(-3px) translateX(-1px) rotate(-45deg);
 }
 
-/* logo-marquee.css */
-.lm-wrap {
-  --gap: 40px; /* espacio entre logos */
-  --size: 32px; /* alto de cada logo */
-  --duration: 22s; /* velocidad (menor = más rápido) */
-
-  position: relative;
-  display: flex;
-  align-items: center;
+.lm {
+  --gap: 24px; /* espacio entre logos */
+  --size: 28px; /* alto logos */
+  width: 100%;
   overflow: hidden;
+  position: relative;
 }
 
-/* Pista que se mueve */
-.lm-track {
-  display: flex;
+.lm__track {
+  display: inline-flex;
   align-items: center;
   gap: var(--gap);
-  flex: 0 0 auto; /* NO crecer/encoger */
-  min-width: max-content; /* ancho = suma de sus hijos */
+  white-space: nowrap;
   will-change: transform;
-  animation: lm-scroll var(--duration) linear infinite;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
 }
 
-/* Segunda pista desfasada media vuelta */
-.lm-track[aria-hidden="true"] {
-  animation-delay: calc(var(--duration) / -2);
-}
-
-/* Cada item: evitar encogimiento y cualquier posicionamiento raro */
-.lm-item {
-  position: relative; /* asegura flujo normal */
+.lm__item {
   flex: 0 0 auto;
 }
 
-/* Los SVG/IMG con dimensiones controladas y sin baseline */
-.lm-item img {
-  display: block;
+.lm__item img {
+  display: block; /* evita baseline */
   height: var(--size);
   width: auto;
+  pointer-events: none;
 }
 
-/* La magia */
-@keyframes lm-scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-100%);
-  } /* sale una pista entera */
+.lm__split {
+  width: 0;
+  padding: 0;
+  margin: 0;
 }
 
-/* Accesibilidad: si el usuario prefiere sin animación */
-@media (prefers-reduced-motion: reduce) {
-  .lm-track {
-    animation: none;
-    transform: translateX(0);
-  }
-}
-
-/* Responsive ejemplo */
-@media (max-width: 1024px) {
-  .lm-wrap {
-    --gap: 24px;
-    --size: 28px;
-    --duration: 18s;
-  }
-}
 /* POR DEFECTO (mobile-first): máscara visible */
 .title-reveal-clip {
   position: absolute;
