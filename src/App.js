@@ -19,7 +19,11 @@ import Daewoo from "./Pages/Works/Daewoo";
 import Manno from "./Pages/Works/Manno";
 import Trebol from "./Pages/Works/Trebol";
 import Work from "./Pages/Work";
-import Blog from "./Pages/Blog.js";
+import BlogPage from "./Pages/BlogPage.js";
+import BlogList from "./Pages/BlogList.jsx";
+import BlogArticle from "./Pages/BlogArticle.js";
+import BlogEditor from "./Components/BlogEditor.jsx";
+import BlogEdit from "./Pages/BlogEdit.jsx";
 import About from "./Pages/About.js";
 import Footer from "./Components/Footer";
 import Services from "./Pages/Services";
@@ -100,7 +104,10 @@ function App() {
             <Route path="/works/scouting-labs" element={<ScoutingLabs />} />
             <Route path="/works/dbs" element={<Dbs />} />
             <Route path="/work" element={<Work />} />
-            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog" element={<BlogPage />} />
+            <Route path="/blog/create" element={<BlogEditor />} />
+            <Route path="/blog/edit/:id" element={<BlogEdit />} />
+            <Route path="/blog/:slug" element={<BlogArticle />} />
             <Route path="/about" element={<About />} />
             <Route path="/works/hyundai" element={<Hyundai />} />
             <Route path="/services" element={<Services />} />
