@@ -32,6 +32,7 @@ import ScoutingLabs from "./Pages/Works/ScoutingLabs";
 import Dbs from "./Pages/Works/Dbs";
 import Hyundai from "./Pages/Works/Hyundai";
 import BlogTagPage from "./Pages/BlogTagPage";
+import { Helmet } from "react-helmet-async";
 
 function App() {
   useCursorEffect();
@@ -79,6 +80,79 @@ function App() {
 
   return (
     <>
+      <Helmet>
+        <meta name="robots" content="index, follow, max-image-preview:large" />
+        <link
+          rel="canonical"
+          href={
+            typeof window !== "undefined"
+              ? window.location.href
+              : "https://labba.studio/"
+          }
+        />
+        {/* JSON-LD: Organization */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: "Labba Studio",
+            url: "https://labba.studio",
+            logo: "https://labba.studio/logo512.png",
+            sameAs: [
+              "https://www.instagram.com/labba.studio",
+              "https://www.linkedin.com/company/labba-studio",
+            ],
+          })}
+        </script>
+        {/* JSON-LD: WebSite + optional searchbox */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            url: "https://labba.studio",
+            name: "Labba Studio",
+            potentialAction: {
+              "@type": "SearchAction",
+              target: "https://labba.studio/search?q={search_term_string}",
+              "query-input": "required name=search_term_string",
+            },
+          })}
+        </script>
+        {/* JSON-LD: SiteNavigationElement */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            itemListElement: [
+              {
+                "@type": "SiteNavigationElement",
+                name: "Services",
+                url: "https://labba.studio/services",
+              },
+              {
+                "@type": "SiteNavigationElement",
+                name: "Projects",
+                url: "https://labba.studio/work",
+              },
+              {
+                "@type": "SiteNavigationElement",
+                name: "About us",
+                url: "https://labba.studio/about",
+              },
+              {
+                "@type": "SiteNavigationElement",
+                name: "Blog",
+                url: "https://labba.studio/blog",
+              },
+              {
+                "@type": "SiteNavigationElement",
+                name: "Contact",
+                url: "https://labba.studio/contact",
+              },
+            ],
+          })}
+        </script>
+      </Helmet>
       <GoogleAnalytics />
       {showLoader && <Loader />}
 
