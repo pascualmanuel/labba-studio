@@ -250,8 +250,8 @@ function Header() {
           } fixed top-0 left-0 w-full h-full`}
           style={{ position: "fixed", zIndex: 900 }}
         >
-          <div className="w-full h-full flex flex-col px-4 pb-8">
-            <div className="flex-1 flex flex-col md:flex-row md:items-center md:justify-center justify-end pb-10 ">
+          <div className="w-full h-full flex flex-col px-4 ">
+            <div className="flex-1 flex flex-col  justify-end pb-10 ">
               <div
                 className={`  md:flex-row ${
                   isMenuOpen ? "block md:flex z-[10000]" : "hidden"

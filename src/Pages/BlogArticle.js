@@ -133,7 +133,7 @@ export default function BlogArticle() {
       <div className="max-w-[1900px] mx-auto px-4 py-24">
         <h1 className="text-white text-3xl mb-3">Artículo no encontrado</h1>
         <Link to="/blog" className="text-[#D6D6D6] hover:text-white">
-          ← Volver al Blog
+          ← Blog
         </Link>
       </div>
     );
@@ -210,11 +210,11 @@ export default function BlogArticle() {
               {readTime} min read
             </div>
           </div>
-          <h1 className="text-white font-semibold leading-[0.95] text-[48px] md:text-[56px] lg:text-[72px] max-w-[1200px]">
+          <h1 className="text-white font-semibold leading-[0.95] text-[32px] md:text-[56px] lg:text-[72px] max-w-[1200px]">
             {post.title}
           </h1>
           {post.subtitle && (
-            <p className="mt-6 text-[#CFCFCF] text-[24px] leading-relaxed">
+            <p className="mt-6 text-[#CFCFCF] text-[16px] md:text-[24px] leading-[115%]">
               {post.subtitle}
             </p>
           )}
@@ -307,7 +307,7 @@ export default function BlogArticle() {
 
           <div className="mt-12">
             <Link to="/blog" className="text-[#D6D6D6] hover:text-white">
-              ← Volver al Blog
+              ← Blog
             </Link>
           </div>
         </article>
