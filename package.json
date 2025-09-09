@@ -34,6 +34,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "prebuild:staging": "cp -f public/robots.staging.txt public/robots.txt || copy public/robots.staging.txt public/robots.txt",
+    "build:staging": "cross-env REACT_APP_ENV=staging react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -57,6 +59,7 @@
     ]
   },
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "autoprefixer": "^10.4.15",
     "postcss": "^8.4.29",
     "tailwindcss": "^3.4.12"
