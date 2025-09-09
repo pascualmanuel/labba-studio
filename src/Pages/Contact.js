@@ -208,16 +208,6 @@ function Contact() {
             </div>
 
             <div className="flex flex-col gap-[16px] my-[20px] justify-between ">
-              <Link
-                to={"https://linkedin.com/company/labba-studio"}
-                target="_blank"
-              >
-                <div className="w-full bg-[#FFFFFF0D] hover:bg-[#FFFFFF1A] h-[75px] flex  rounded-[12px] flex-col justify-center pl-4">
-                  <span className="text-[14px] text-white font-medium">
-                    Linkedin
-                  </span>
-                </div>
-              </Link>
               <Link to="https://cal.com/hello-labba-studio" target="_blank">
                 <div className="w-full bg-[#FFFFFF0D] hover:bg-[#FFFFFF1A] h-[75px] flex  rounded-[12px] flex-col justify-center pl-4">
                   <p className="text-[#757575] text-[14px] font-normal">
@@ -235,6 +225,16 @@ function Contact() {
                   </p>
                   <span className="text-[14px] text-white font-medium">
                     hello@labba.studio
+                  </span>
+                </div>
+              </Link>
+              <Link
+                to={"https://linkedin.com/company/labba-studio"}
+                target="_blank"
+              >
+                <div className="w-full bg-[#FFFFFF0D] hover:bg-[#FFFFFF1A] h-[75px] flex  rounded-[12px] flex-col justify-center pl-4">
+                  <span className="text-[14px] text-white font-medium">
+                    Linkedin
                   </span>
                 </div>
               </Link>
