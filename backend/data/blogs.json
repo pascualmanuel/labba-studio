@@ -47,47 +47,13 @@
     "published": false
   },
   {
-    "id": "1757347850933",
-    "slug": "titulo",
-    "title": "Titulo",
-    "subtitle": null,
-    "excerpt": "Manuel",
-    "content": "<h1>Manuel</h1>",
-    "coverUrl": "manuel",
-    "category": "AI",
-    "tags": [],
-    "readTime": 1,
-    "createdAt": "2025-09-08T16:10:50.902Z",
-    "updatedAt": "2025-09-08T16:10:50.932Z",
-    "published": false
-  },
-  {
-    "id": "1757344096548",
-    "slug": "from-mvp-to-scalable-platform",
-    "title": "From MVP to scalable platform: How we build products that evolve",
-    "subtitle": "How we create digital solutions that grow and adapt over time.",
-    "excerpt": "We’ve validated the idea. Users are engaging. The MVP is live. Now comes the real challenge…",
-    "content": "<p>Contenido en HTML (Quill)…</p>",
-    "coverUrl": null,
-    "category": "Technology",
-    "tags": [
-      "Product Strategy",
-      "Scaling",
-      "UX/UI"
-    ],
-    "readTime": 10,
-    "createdAt": "2025-07-25T00:00:00.000Z",
-    "updatedAt": "2025-09-08T15:08:16.548Z",
-    "published": true
-  },
-  {
     "id": "1757344096549",
     "slug": "ai-search-local-seo-madrid-2025",
     "title": "AI Search está comiéndose los clics: cómo seguir siendo visible en Madrid",
     "subtitle": "Un playbook corto y práctico para mantener visibilidad mientras las respuestas con IA ganan protagonismo.",
     "excerpt": "Guía rápida para que negocios y marcas en Madrid sigan siendo visibles en un mundo de respuestas con IA: schema, EEAT, contenido local y métricas clave.",
-    "content": "<p>En Madrid (y en toda España), cada vez más resultados muestran respuestas generadas con IA por encima de los enlaces tradicionales. Eso significa menos clics orgánicos y más competencia por la atención. Esta guía son <em>5 acciones</em> simples para no perder visibilidad.</p><h2>Por qué importa en Madrid</h2><p>Los paneles con IA suelen destacar marcas con señales claras de autoridad, datos estructurados correctos y fuerte relevancia local. Si operás en barrios como <strong>Centro</strong>, <strong>Salamanca</strong> o <strong>Chamberí</strong>, tus páginas deberían dejar ese contexto lo más explícito posible.</p><h2>5 acciones rápidas (ganancias en 30 días)</h2><ul><li><strong>Implementá Schema</strong> específico: <code>LocalBusiness</code> (dirección en Madrid, horarios, teléfono), <code>FAQ</code> (preguntas reales de clientes) y, si aplica, <code>Product</code>/<code>Service</code> (precio, disponibilidad).</li><li><strong>Refuerzo de EEAT</strong>: autor visible con bio, página “Sobre nosotros” sólida, testimonios verificables y señales de marca (LinkedIn, reseñas, prensa local).</li><li><strong>Contenido “respuesta primero”</strong>: arrancá cada post con un párrafo que responda en 2–3 líneas. Amplía debajo con ejemplos locales (casos en Madrid, barrios, normativas municipales si aplica).</li><li><strong>Optimización local</strong>: NAP consistente (Nombre, Dirección, Teléfono), mapa incrustado y páginas de barrio/servicio (p. ej., “Diseño de productos en Chamberí”).</li><li><strong>Velocidad y UX</strong>: imágenes comprimidas (WebP/AVIF), <em>lazy load</em>, y evitar CLS. La IA toma señales de calidad técnica también.</li></ul><h2>Cómo medir si funciona</h2><ul><li><strong>Impresiones sin clic</strong>: si suben en queries de marca/servicio, tu contenido aparece en paneles, aunque bajen los clics.</li><li><strong>Brand search</strong>: monitoreá búsquedas con tu marca + “Madrid”. Si crecen, tu visibilidad percibida mejora.</li><li><strong>Conversiones asistidas</strong>: anotá leads que llegan por navegación directa/brand. La IA puede actuar como “awareness”.</li></ul><h2>Plantilla de contenido local (copiá y adaptá)</h2><p><strong>Intro (2–3 líneas):</strong> respondé de forma breve y directa la intención de búsqueda.</p><p><strong>Contexto en Madrid:</strong> normas locales, barrios, casos reales.</p><p><strong>Guía paso a paso:</strong> bullets claros; agregá un <em>FAQ</em> al final.</p><p><strong>Pruebas sociales:</strong> testimonios, cifras, logos (si tenés permiso).</p><p><strong>CTA local:</strong> “Escribinos” + dirección/zona y horario.</p><h2>Checklist final</h2><ul><li>H2 claros (para tu índice lateral) y títulos con intención.</li><li>Schema validado; NAP consistente.</li><li>Imágenes comprimidas + <em>lazy load</em>.</li><li>Autor y página “About” enlazada (tu rail derecho ayuda).</li></ul><p><em>Tip:</em> Si operás también en Barcelona o Valencia, cloná la pieza y localizá ejemplos y NAP; no dupliques tal cual.</p>",
-    "coverUrl": "/assets/blog/ai-local-seo-madrid.png",
+    "content": "<p>En Madrid (y en toda España), cada vez más resultados muestran respuestas generadas con IA por encima de los enlaces tradicionales. Eso significa menos clics orgánicos y más competencia por la atención. Esta guía son <em>5 acciones</em> simples para no perder visibilidad.</p><h2>Por qué importa en Madrid</h2><p>Los paneles con IA suelen destacar marcas con señales claras de autoridad, datos estructurados correctos y fuerte relevancia local. Si operás en barrios como <strong>Centro</strong>, <strong>Salamanca</strong> o <strong>Chamberí</strong>, tus páginas deberían dejar ese contexto lo más explícito posible.</p><h2>5 acciones rápidas (ganancias en 30 días)</h2><ul><li><strong>Implementá Schema</strong> específico: LocalBusiness (dirección en Madrid, horarios, teléfono), FAQ (preguntas reales de clientes) y, si aplica, Product/Service (precio, disponibilidad).</li><li><strong>Refuerzo de EEAT</strong>: autor visible con bio, página “Sobre nosotros” sólida, testimonios verificables y señales de marca (LinkedIn, reseñas, prensa local).</li><li><strong>Contenido “respuesta primero”</strong>: arrancá cada post con un párrafo que responda en 2–3 líneas. Amplía debajo con ejemplos locales (casos en Madrid, barrios, normativas municipales si aplica).</li><li><strong>Optimización local</strong>: NAP consistente (Nombre, Dirección, Teléfono), mapa incrustado y páginas de barrio/servicio (p. ej., “Diseño de productos en Chamberí”).</li><li><strong>Velocidad y UX</strong>: imágenes comprimidas (WebP/AVIF), <em>lazy load</em>, y evitar CLS. La IA toma señales de calidad técnica también.</li></ul><h2>Cómo medir si funciona</h2><ul><li><strong>Impresiones sin clic</strong>: si suben en queries de marca/servicio, tu contenido aparece en paneles, aunque bajen los clics.</li><li><strong>Brand search</strong>: monitoreá búsquedas con tu marca + “Madrid”. Si crecen, tu visibilidad percibida mejora.</li><li><strong>Conversiones asistidas</strong>: anotá leads que llegan por navegación directa/brand. La IA puede actuar como “awareness”.</li></ul><h2>Plantilla de contenido local (copiá y adaptá)</h2><p><strong>Intro (2–3 líneas):</strong> respondé de forma breve y directa la intención de búsqueda.</p><p><strong>Contexto en Madrid:</strong> normas locales, barrios, casos reales.</p><p><strong>Guía paso a paso:</strong> bullets claros; agregá un <em>FAQ</em> al final.</p><p><strong>Pruebas sociales:</strong> testimonios, cifras, logos (si tenés permiso).</p><p><strong>CTA local:</strong> “Escribinos” + dirección/zona y horario.</p><h2>Checklist final</h2><ul><li>H2 claros (para tu índice lateral) y títulos con intención.</li><li>Schema validado; NAP consistente.</li><li>Imágenes comprimidas + <em>lazy load</em>.</li><li>Autor y página “About” enlazada (tu rail derecho ayuda).</li></ul><p><em>Tip:</em> Si operás también en Barcelona o Valencia, cloná la pieza y localizá ejemplos y NAP; no dupliques tal cual.</p>",
+    "coverUrl": "https://as2.ftcdn.net/jpg/06/75/32/17/1000_F_675321797_Iu1BxLUGm9l4vw1kSVb1zBOLFIG9H2lT.jpg",
     "category": "AI",
     "tags": [
       "AI",
@@ -95,9 +61,9 @@
       "Local SEO",
       "Madrid"
     ],
-    "readTime": 5,
+    "readTime": 2,
     "createdAt": "2025-09-08T00:00:00.000Z",
-    "updatedAt": "2025-09-08T16:52:55.561Z",
+    "updatedAt": "2025-09-09T11:48:05.267Z",
     "published": true
   }
 ]

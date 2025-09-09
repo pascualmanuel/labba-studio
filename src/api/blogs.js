@@ -50,3 +50,14 @@ export async function updateBlogById(id, blog) {
   );
   return toJsonOrThrow(res);
 }
+
+export async function deleteBlogById(id) {
+  if (!id) throw new Error("id requerido");
+  const res = await fetch(
+    `${API_BASE}/api/blogs/id/${encodeURIComponent(id)}`,
+    {
+      method: "DELETE",
+    }
+  );
+  return toJsonOrThrow(res);
+}

@@ -43,7 +43,7 @@ const toSlug = (s = "") =>
   s
     .toLowerCase()
     .trim()
-    .replace(/['"]/g, "")
+    .replace(/["']/g, "")
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "");
 
@@ -223,6 +223,16 @@ app.put("/api/blogs/id/:id", (req, res) => {
   blogs[idx] = merged;
   writeBlogs(blogs);
   res.json(merged);
+});
+
+// Eliminar por id
+app.delete("/api/blogs/id/:id", (req, res) => {
+  const blogs = readBlogs();
+  const idx = blogs.findIndex((b) => b.id === req.params.id);
+  if (idx === -1) return res.status(404).json({ error: "not found" });
+  const removed = blogs.splice(idx, 1)[0];
+  writeBlogs(blogs);
+  res.json({ ok: true, removedId: removed.id });
 });
 
 // Health check
