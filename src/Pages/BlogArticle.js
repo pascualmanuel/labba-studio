@@ -121,8 +121,8 @@ export default function BlogArticle() {
 
   if (loading) {
     return (
-      <div className="max-w-[1900px] mx-auto px-4 py-24">
-        <p className="text-[#D6D6D6]">Cargando artículo…</p>
+      <div className="max-w-[1900px] min-h-[100vh]">
+        {/* <p className="text-[#D6D6D6]">Cargando artículo…</p> */}
       </div>
     );
   }
@@ -160,7 +160,7 @@ export default function BlogArticle() {
               {readTime} min read
             </div>
           </div>
-          <h1 className="text-white font-semibold leading-[0.95] text-[48px] md:text-[56px] lg:text-[72px]">
+          <h1 className="text-white font-semibold leading-[0.95] text-[48px] md:text-[56px] lg:text-[72px] max-w-[1200px]">
             {post.title}
           </h1>
           {post.subtitle && (

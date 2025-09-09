@@ -48,9 +48,9 @@ const Blog = () => {
 
   if (loading) {
     return (
-      <section className="px-6 sm:px-[53px] lg:px-16 pt-[138px] max-w-[1900px] mx-auto pb-[130px]">
+      <section className="px-6 sm:px-[53px] lg:px-16 pt-[138px] max-w-[1900px] mx-auto pb-[130px] min-h-[100vh]">
         <h1 className="h2 max-w-[855px] mb-6">Blog</h1>
-        <p className="text-[#D6D6D6]">Cargando publicaciones…</p>
+        {/* <p className="text-[#D6D6D6]">Cargando publicaciones…</p> */}
       </section>
     );
   }

@@ -3,7 +3,7 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import { getBlogById, updateBlogById } from "../api/blogs";
+import { getBlogById, updateBlogById, deleteBlogById } from "../api/blogs";
 import { uploadImageToCloudinary } from "../api/cloudinary";
 
 /* ==== helpers ==== */
@@ -57,6 +57,7 @@ export default function BlogEdit() {
 
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
+  const [deleting, setDeleting] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
 
@@ -260,8 +261,7 @@ export default function BlogEdit() {
       };
       const updated = await updateBlogById(id, payload);
       setSuccess(true);
-      // opcional: navegar al artículo actualizado
-      // navigate(`/blog/${updated.slug || slug}`);
+      navigate(`/blog/${updated.slug || slug}`);
     } catch (e) {
       setError(e.message || "Error al guardar");
     } finally {
@@ -280,6 +280,20 @@ export default function BlogEdit() {
       setError(e.message || "Error al subir la portada");
     } finally {
       setCoverUploading(false);
+    }
+  };
+
+  const handleDelete = async () => {
+    if (!id) return;
+    setDeleting(true);
+    setError("");
+    try {
+      await deleteBlogById(id);
+      navigate("/blog");
+    } catch (e) {
+      setError(e.message || "Error al eliminar");
+    } finally {
+      setDeleting(false);
     }
   };
 
@@ -313,6 +327,31 @@ export default function BlogEdit() {
       >
         {/* ==== EDITOR ==== */}
         <div className="rounded-[12px] border border-[#1E1E1E] p-4">
+          <div className="flex items-center gap-3 mb-4">
+            <button
+              onClick={handleSave}
+              disabled={saving || !title.trim() || !content.trim()}
+              className="px-4 py-2 rounded bg-white/10 text-white hover:bg-white/20 disabled:opacity-50"
+            >
+              {saving ? "Guardando..." : "Guardar"}
+            </button>
+            <button
+              onClick={handleDelete}
+              disabled={deleting}
+              className="px-4 py-2 rounded bg-red-500/20 text-red-300 hover:bg-red-500/30 disabled:opacity-50"
+            >
+              {deleting ? "Eliminando..." : "Eliminar"}
+            </button>
+            {success && <span className="text-green-400">Guardado ✅</span>}
+            {error && <span className="text-red-400">{error}</span>}
+            <Link
+              to={`/blog/${slug}`}
+              className="text-[#D6D6D6] hover:text-white ml-auto"
+            >
+              Ver artículo →
+            </Link>
+          </div>
+
           <input
             type="text"
             placeholder="Título"
@@ -413,15 +452,6 @@ export default function BlogEdit() {
           </div>
 
           <div className="flex gap-8 items-center">
-            <button
-              onClick={handleSave}
-              disabled={saving || !title.trim() || !content.trim()}
-              className="px-4 py-2 rounded bg-white/10 text-white hover:bg-white/20 disabled:opacity-50"
-            >
-              {saving ? "Guardando..." : "Guardar"}
-            </button>
-            {success && <span className="text-green-400">Guardado ✅</span>}
-            {error && <span className="text-red-400">{error}</span>}
             <Link
               to={`/blog/${slug}`}
               className="text-[#D6D6D6] hover:text-white ml-auto"
@@ -436,7 +466,7 @@ export default function BlogEdit() {
           {/* HERO FULL WIDTH */}
           <div className="w-full">
             <div className="mx-auto max-w-[1900px] px-4 pt-4">
-              <h1 className="text-white font-semibold leading-[0.95] text-[48px] md:text-[56px] lg:text-[72px] max-w-[1200px]">
+              <h1 className="text-white font-semibold leading-[0.95] text-[48px] md:text-[56px] lg:text-[72px]">
                 {title || "Tu título aparecerá aquí"}
               </h1>
               {subtitle ? (
