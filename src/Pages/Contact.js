@@ -201,7 +201,7 @@ function Contact() {
               </div>
               <p className="font-bold text-[14px] leading-[20px]">
                 <span className="text-[#767576]">
-                  Let’s bring your idea to life
+                  Let’s bring your idea to life.&nbsp;
                 </span>
                 Get in touch with management directly.
               </p>
@@ -463,7 +463,7 @@ function Contact() {
                       widthButton={buttonContactWidth}
                       heightButton={45}
                       buttonTextColor={"#fff"}
-                      buttonBorderColor={"#FFFFFF0D"}
+                      buttonBorderColor={"transparent"}
                     >
                       <p className="!text-white font-bold">{buttonText}</p>
                     </Rounded>
