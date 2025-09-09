@@ -983,39 +983,29 @@ a:focus-visible {
   transform: translateY(-3px) translateX(-1px) rotate(-45deg);
 }
 
-.lm {
-  --gap: 24px; /* espacio entre logos */
-  --size: 28px; /* alto logos */
-  width: 100%;
+.brand-strip {
   overflow: hidden;
-  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: pan-y;
 }
-
-.lm__track {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--gap);
-  white-space: nowrap;
+.brand-strip__track {
+  display: flex;
   will-change: transform;
   backface-visibility: hidden;
-  transform: translate3d(0, 0, 0);
 }
-
-.lm__item {
-  flex: 0 0 auto;
-}
-
-.lm__item img {
-  display: block; /* evita baseline */
-  height: var(--size);
+.brand-strip__track img {
+  height: var(--h, 42px);
   width: auto;
+  flex: 0 0 auto;
   pointer-events: none;
 }
 
-.lm__split {
-  width: 0;
-  padding: 0;
-  margin: 0;
+/* Ocultar en ≥1024px */
+@media (min-width: 1024px) {
+  .brand-strip {
+    display: none;
+  }
 }
 
 /* POR DEFECTO (mobile-first): máscara visible */
