@@ -4,13 +4,14 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { getBlogById, updateBlogById } from "../api/blogs";
+import { uploadImageToCloudinary } from "../api/cloudinary";
 
 /* ==== helpers ==== */
 const toSlug = (s) =>
   (s || "")
     .toLowerCase()
     .trim()
-    .replace(/['"]/g, "")
+    .replace(/["']/g, "")
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "");
 
@@ -71,11 +72,13 @@ export default function BlogEdit() {
   const [published, setPublished] = useState(true);
   const [date, setDate] = useState(""); // YYYY-MM-DD (createdAt)
   const [createdAtISO, setCreatedAtISO] = useState("");
+  const [coverUploading, setCoverUploading] = useState(false);
 
   // preview controls
   const [split, setSplit] = useState(false);
   const contentRef = useRef(null);
   const [toc, setToc] = useState([]);
+  const quillRef = useRef(null);
 
   // load
   useEffect(() => {
@@ -113,6 +116,88 @@ export default function BlogEdit() {
       mounted = false;
     };
   }, [id]);
+
+  // init quill handlers
+  useEffect(() => {
+    const quill = quillRef.current?.getEditor?.();
+    if (!quill) return;
+
+    const toolbar = quill.getModule("toolbar");
+    if (toolbar) {
+      toolbar.addHandler("image", async () => {
+        const input = document.createElement("input");
+        input.type = "file";
+        input.accept = "image/*";
+        input.onchange = async () => {
+          const file = input.files?.[0];
+          if (!file) return;
+          try {
+            const url = await uploadImageToCloudinary(file);
+            const range = quill.getSelection(true);
+            quill.insertEmbed(range ? range.index : 0, "image", url, "user");
+            quill.setSelection((range ? range.index : 0) + 1, 0);
+          } catch (e) {
+            console.error(e);
+            setError(e.message || "Error al subir imagen");
+          }
+        };
+        input.click();
+      });
+    }
+
+    function handlePaste(e) {
+      if (!e.clipboardData) return;
+      const items = Array.from(e.clipboardData.items || []);
+      const imageItem = items.find((it) => it.type?.startsWith("image/"));
+      if (!imageItem) return;
+      const file = imageItem.getAsFile?.();
+      if (!file) return;
+      e.preventDefault();
+      (async () => {
+        try {
+          const url = await uploadImageToCloudinary(file);
+          const range = quill.getSelection(true);
+          quill.insertEmbed(range ? range.index : 0, "image", url, "user");
+          quill.setSelection((range ? range.index : 0) + 1, 0);
+        } catch (err) {
+          console.error(err);
+          setError(err.message || "Error al subir imagen pegada");
+        }
+      })();
+    }
+
+    function handleDrop(e) {
+      const dt = e.dataTransfer;
+      if (!dt || !dt.files || dt.files.length === 0) return;
+      const imageFiles = Array.from(dt.files).filter((f) =>
+        f.type?.startsWith("image/")
+      );
+      if (imageFiles.length === 0) return;
+      e.preventDefault();
+      (async () => {
+        try {
+          for (const file of imageFiles) {
+            const url = await uploadImageToCloudinary(file);
+            const range = quill.getSelection(true);
+            quill.insertEmbed(range ? range.index : 0, "image", url, "user");
+            quill.setSelection((range ? range.index : 0) + 1, 0);
+          }
+        } catch (err) {
+          console.error(err);
+          setError(err.message || "Error al subir imagen arrastrada");
+        }
+      })();
+    }
+
+    const editorEl = quill.root;
+    editorEl.addEventListener("paste", handlePaste);
+    editorEl.addEventListener("drop", handleDrop);
+
+    return () => {
+      editorEl.removeEventListener("paste", handlePaste);
+      editorEl.removeEventListener("drop", handleDrop);
+    };
+  }, [quillRef.current]);
 
   // preview derived
   const readTime = useMemo(() => calcReadTime(content), [content]);
@@ -184,6 +269,20 @@ export default function BlogEdit() {
     }
   };
 
+  const handleCoverFile = async (file) => {
+    if (!file) return;
+    try {
+      setCoverUploading(true);
+      const url = await uploadImageToCloudinary(file);
+      setCoverUrl(url);
+    } catch (e) {
+      console.error(e);
+      setError(e.message || "Error al subir la portada");
+    } finally {
+      setCoverUploading(false);
+    }
+  };
+
   if (loading) return <p style={{ padding: 16 }}>Cargando…</p>;
   if (error) return <p style={{ padding: 16, color: "red" }}>{error}</p>;
 
@@ -223,21 +322,36 @@ export default function BlogEdit() {
           />
           <input
             type="text"
-            placeholder="Subtítulo / copete (opcional)"
+            placeholder="Subtítulo"
             value={subtitle}
             onChange={(e) => setSubtitle(e.target.value)}
             className="w-full mb-3 px-3 py-2 rounded bg-[#0B0B0B] border border-[#1E1E1E] text-white"
           />
-          <input
-            type="url"
-            placeholder="URL de portada (opcional)"
-            value={coverUrl}
-            onChange={(e) => setCoverUrl(e.target.value)}
-            className="w-full mb-3 px-3 py-2 rounded bg-[#0B0B0B] border border-[#1E1E1E] text-white"
-          />
+          <div className="w-full mb-3 flex gap-2 items-center">
+            <input
+              type="url"
+              placeholder="URL de portada (opcional)"
+              value={coverUrl}
+              onChange={(e) => setCoverUrl(e.target.value)}
+              className="flex-1 px-3 py-2 rounded bg-[#0B0B0B] border border-[#1E1E1E] text-white"
+            />
+            <label className="px-3 py-2 rounded bg-white/10 text-white cursor-pointer hover:bg-white/20 border border-[#1E1E1E]">
+              Subir portada
+              <input
+                type="file"
+                accept="image/*"
+                onChange={(e) => handleCoverFile(e.target.files?.[0])}
+                className="hidden"
+              />
+            </label>
+            {coverUploading && (
+              <span className="text-[#B5B5B5] text-sm">Subiendo…</span>
+            )}
+          </div>
 
           <div className="mb-3">
             <ReactQuill
+              ref={quillRef}
               theme="snow"
               value={content}
               onChange={setContent}
@@ -331,7 +445,7 @@ export default function BlogEdit() {
                 </p>
               ) : (
                 <p className="mt-3 text-[#666] text-[24px] leading-relaxed">
-                  Subtítulo / copete…
+                  Subtítulo
                 </p>
               )}
 

@@ -31,6 +31,9 @@ html {
   /* scroll-behavior:auto */
 }
 
+.ql-container {
+  min-height: 300px !important;
+}
 /* Lock scroll when mobile menu is open */
 body.menu-open {
   overflow: hidden !important;

@@ -20,7 +20,6 @@ import Manno from "./Pages/Works/Manno";
 import Trebol from "./Pages/Works/Trebol";
 import Work from "./Pages/Work";
 import BlogPage from "./Pages/BlogPage.js";
-import BlogList from "./Pages/BlogList.jsx";
 import BlogArticle from "./Pages/BlogArticle.js";
 import BlogEditor from "./Components/BlogEditor.jsx";
 import BlogEdit from "./Pages/BlogEdit.jsx";
