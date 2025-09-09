@@ -152,7 +152,7 @@ function Contact() {
       if (error) {
         button.style.border = "1px solid red";
       } else {
-        button.style.border = "1px solid #ddd";
+        button.style.border = "";
       }
     });
   };
