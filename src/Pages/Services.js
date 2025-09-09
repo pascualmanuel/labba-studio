@@ -83,32 +83,77 @@ const Services = () => {
   return (
     <>
       <Helmet>
-        <title>Services — Labba Studio UX/UI Design</title>
+        <title>UX/UI, Web, Branding & Custom AI Services | Labba Studio</title>
         <meta
           name="description"
-          content="Branding, UX/UI design, web development, and digital products. End‑to‑end services to launch and scale."
+          content="End-to-end services in UX/UI design, web development, branding, and custom AI. Fast iterations, measurable outcomes, and real business impact."
         />
         <link rel="canonical" href="https://labba.studio/services" />
-        <meta
-          property="og:title"
-          content="Services — Labba Studio UX/UI Design"
-        />
+        <meta property="og:title" content="Services — Labba Studio" />
         <meta
           property="og:description"
-          content="Branding, UX/UI design, web development, and digital products. End‑to‑end services to launch and scale."
+          content="UX/UI, Web, Branding & Custom AI — from strategy to launch."
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://labba.studio/services" />
+        <meta
+          property="og:image"
+          content="https://labba.studio/og/services.jpg"
+        />
         <meta name="twitter:card" content="summary_large_image" />
+
+        {/* Breadcrumb + Organization + ItemList */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: "https://labba.studio/",
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Services",
+                item: "https://labba.studio/services",
+              },
+            ],
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: "Labba Studio",
+            url: "https://labba.studio",
+            logo: "https://labba.studio/logo.png",
+            sameAs: ["https://www.linkedin.com/company/labba-studio"],
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            itemListElement: services.map((s, i) => ({
+              "@type": "Service",
+              name: s.title,
+              position: i + 1,
+              description: s.desc,
+            })),
+          })}
+        </script>
       </Helmet>
       <section className="services-section px-6 sm:px-[53px] lg:px-16 pt-[138px] max-w-[1900px] mx-auto pb-[40px]">
         <div className="flex flex-col">
           <h1 className="h2 max-w-[1455px] mb-10 sr-only">
             Services — Labba Studio
           </h1>
-          <h1 className="h2 max-w-[1455px] mb-10">
+          <h2 className="h2 max-w-[1455px] mb-10">
             We help businesses grow through digital experiences.
-          </h1>
+          </h2>
         </div>
       </section>
 
@@ -147,13 +192,13 @@ const Services = () => {
                     ${s.uId === "02" ? "ms:!border-t-0" : ""}`}
               >
                 <header className="mb-3 sm:mb-4">
-                  <span className="text-[12px] font-normal leading-[142%] tracking-0% text-[#5A5A5A]">
+                  <span className="text-[12px] font-normal leading-[142%] tracking-0% text-white lg:text-[#5A5A5A]">
                     {s.id}
                   </span>
 
-                  <h3 className="relative overflow-hidden text-[30px] sm:text-[45px] font-bold mt-1 leading-tight">
+                  <h2 className="relative overflow-hidden text-[30px] sm:text-[45px] font-bold mt-1 leading-tight">
                     {/* Base gris */}
-                    <span className="relative z-[1] text-transparent lg:text-white  transition-[color] duration-100 xl:group-hover:text-transparent xl:group-hover:delay-[200ms]">
+                    <span className="relative z-[1] text-transparent lg:text-white  transition-[color] duration-100 md:group-hover:text-transparent xl:group-hover:delay-[200ms]">
                       {s.title}
                     </span>
 
@@ -165,21 +210,21 @@ const Services = () => {
                         {s.title}
                       </span>
                     </span>
-                  </h3>
+                  </h2>
                 </header>
 
                 {/* Body */}
                 <div className="min-h-0 flex-1  pr-2">
-                  <p className="text-[16px] font-normal leading-[202%] tracking-0% text-[#5A5A5A] mb-4 transition-colors xl:group-hover:text-[#F1F1F1]">
+                  <p className="text-[16px] font-normal leading-[202%] tracking-0% text-white lg:text-[#5A5A5A] mb-4 transition-colors md:group-hover:text-[#F1F1F1]">
                     {s.desc}
                   </p>
                   <div className="grid grid-cols-1 xl:grid-cols-2 xll:grid-cols-1 gap-x-6">
-                    <ul className="space-y-[0.5px] text-[16px] font-normal  leading-[202%] xl:leading-[170%] xll:leading-[202%] tracking-0% text-[#5A5A5A] list-disc pl-5 transition-colors xl:group-hover:text-[#F1F1F1]">
+                    <ul className="space-y-[0.5px] text-[16px] font-normal  leading-[202%] xl:leading-[170%] xll:leading-[202%] tracking-0% text-white lg:text-[#5A5A5A] list-disc pl-5 transition-colors md:group-hover:text-[#F1F1F1]">
                       {s.bullets.slice(0, 4).map((b) => (
                         <li key={b}>{b}</li>
                       ))}
                     </ul>
-                    <ul className="space-y-[0.5px] text-[16px] font-normal leading-[202%] xl:leading-[170%] xll:leading-[202%] tracking-0% text-[#5A5A5A] list-disc pl-5 transition-colors xl:group-hover:text-[#F1F1F1]">
+                    <ul className="space-y-[0.5px] text-[16px] font-normal leading-[202%] xl:leading-[170%] xll:leading-[202%] tracking-0% text-white lg:text-[#5A5A5A] list-disc pl-5 transition-colors md:group-hover:text-[#F1F1F1]">
                       {s.bullets.slice(4, 8).map((b) => (
                         <li key={b}>{b}</li>
                       ))}
