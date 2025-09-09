@@ -4,7 +4,7 @@ import emailjs from "@emailjs/browser";
 import Rounded from "../Hooks/Rounded";
 import emailIcon from "../Assets/labba/inaki.webp";
 import emailIcon2 from "../Assets/labba/manuel.png";
-
+import { Link } from "react-router-dom";
 function Contact() {
   useEffect(() => {
     document.title = "Labba - Contact";
@@ -206,33 +206,38 @@ function Contact() {
                 Get in touch with management directly.
               </p>
             </div>
-            <div className="flex flex-row gap-[16px] my-[20px] justify-between ">
-              <div className="w-1/3 bg-[#FFFFFF0D] hover:bg-[#FFFFFF1A] h-[75px] flex items-center justify-center rounded-[12px]">
-                <span>Call</span>
-              </div>
-              <div className="w-1/3 bg-[#FFFFFF0D] hover:bg-[#FFFFFF1A] h-[75px] flex items-center justify-center rounded-[12px]">
-                <span>Email</span>
-              </div>
-              <div className="w-1/3 bg-[#FFFFFF0D] hover:bg-[#FFFFFF1A] h-[75px] flex items-center justify-center rounded-[12px]">
-                <span>LinkedIn</span>
-              </div>
-            </div>
 
             <div className="flex flex-col gap-[16px] my-[20px] justify-between ">
-              <div className="w-full bg-[#FFFFFF0D] hover:bg-[#FFFFFF1A] h-[75px] flex  rounded-[12px] flex-col justify-center pl-4">
-                <p className="text-[#757575] text-[14px] font-normal">
-                  Video call
-                </p>
-                <span className="text-[14px] text-white font-medium">
-                  Book a call
-                </span>
-              </div>
-              <div className="w-full bg-[#FFFFFF0D] hover:bg-[#FFFFFF1A] h-[75px] flex  rounded-[12px] flex-col justify-center pl-4">
-                <p className="text-[#757575] text-[14px] font-normal">Email</p>
-                <span className="text-[14px] text-white font-medium">
-                  hello@labba.studio
-                </span>
-              </div>
+              <Link
+                to={"https://linkedin.com/company/labba-studio"}
+                target="_blank"
+              >
+                <div className="w-full bg-[#FFFFFF0D] hover:bg-[#FFFFFF1A] h-[75px] flex  rounded-[12px] flex-col justify-center pl-4">
+                  <span className="text-[14px] text-white font-medium">
+                    Linkedin
+                  </span>
+                </div>
+              </Link>
+              <Link to="https://cal.com/hello-labba-studio" target="_blank">
+                <div className="w-full bg-[#FFFFFF0D] hover:bg-[#FFFFFF1A] h-[75px] flex  rounded-[12px] flex-col justify-center pl-4">
+                  <p className="text-[#757575] text-[14px] font-normal">
+                    Video call
+                  </p>
+                  <span className="text-[14px] text-white font-medium">
+                    Book a free call
+                  </span>
+                </div>
+              </Link>
+              <Link to="mailto:hello@labba.studio" target="_blank">
+                <div className="w-full bg-[#FFFFFF0D] hover:bg-[#FFFFFF1A] h-[75px] flex  rounded-[12px] flex-col justify-center pl-4">
+                  <p className="text-[#757575] text-[14px] font-normal">
+                    Email
+                  </p>
+                  <span className="text-[14px] text-white font-medium">
+                    hello@labba.studio
+                  </span>
+                </div>
+              </Link>
             </div>
           </div>
           <div className="max-w-auto lg:max-w-[635px] mt-[50px] lg:mt-0">
