@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import "../Styles/App.css";
 // import Works from "../Components/Works";
 import "../Styles/Prueba.css";
@@ -34,7 +35,7 @@ function Home() {
   const [videoShouldPlay, setVideoShouldPlay] = useState(false);
 
   useEffect(() => {
-    document.title = "Labba Studio";
+    document.title = "Labba Studio — Design & Code for Digital Experiences";
   }, []);
 
   useEffect(() => {
@@ -100,9 +101,40 @@ function Home() {
 
   return (
     <>
+      <Helmet>
+        <title>Labba Studio — Design & Code for Digital Experiences</title>
+        <meta
+          name="description"
+          content="Labba Studio diseña y desarrolla productos digitales, sitios web y marcas. Creamos experiencias creativas que convierten."
+        />
+        <link rel="canonical" href="https://labba.studio/" />
+        <meta
+          property="og:title"
+          content="Labba Studio — Design & Code for Digital Experiences"
+        />
+        <meta
+          property="og:description"
+          content="Labba Studio diseña y desarrolla productos digitales, sitios web y marcas. Creamos experiencias creativas que convierten."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://labba.studio/" />
+        <meta property="og:image" content="https://labba.studio/logo275.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Labba Studio — Design & Code for Digital Experiences"
+        />
+        <meta
+          name="twitter:description"
+          content="Labba Studio diseña y desarrolla productos digitales, sitios web y marcas."
+        />
+      </Helmet>
       <div id={shadowOn} className="hidden md:block"></div>
       <div className="background-mobile"></div>
 
+      <h1 className="sr-only">
+        Labba Studio — Design & Code for Digital Experiences
+      </h1>
       <HomeHero />
 
       <VideoSection shouldPlay={videoShouldPlay} />
@@ -113,7 +145,9 @@ function Home() {
 
       <div className="works-section relative mx-auto px-6 sm:px-[53px] lg:px-16 max-w-[1500px] flex flex-col my-[100px] md:mb-[150px]">
         {/* <NewWorks /> */}
-        <WorksGrid works={getWorksByIds(getWorksConfig("home"))} />
+        <section aria-label="Featured work" data-nosnippet>
+          <WorksGrid works={getWorksByIds(getWorksConfig("home"))} />
+        </section>
       </div>
 
       {/* <Footer /> */}

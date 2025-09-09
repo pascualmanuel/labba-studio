@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -242,13 +243,31 @@ const Works = () => {
 
   return (
     <section className="works-section px-6 sm:px-[53px] lg:px-16 pt-[138px] max-w-[1900px] mx-auto pb-[130px]">
+      <Helmet>
+        <title>Projects — Labba Studio Portfolio</title>
+        <meta
+          name="description"
+          content="Proyectos destacados de Labba Studio: websites, apps y branding. Morgenstern, Inmobiliare, Ephimero y más."
+        />
+        <link rel="canonical" href="https://labba.studio/work" />
+        <meta property="og:title" content="Projects — Labba Studio Portfolio" />
+        <meta
+          property="og:description"
+          content="Proyectos destacados de Labba Studio: websites, apps y branding."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://labba.studio/work" />
+      </Helmet>
       {/* 1 sola sombra global (evita IDs duplicados) */}
       <div id="ellipse-shadow" className="hidden md:block ellipse-shadow"></div>
 
       {/* Header + filtros */}
       <div className="flex flex-col md:flex-col md:items-start md:justify-between">
-        <h1 className="h2 max-w-[855px] mb-10">
+        <h2 className="h2 max-w-[855px] mb-10">
           We turn your ideas into real-world impact.
+        </h2>
+        <h1 className="h2 max-w-[855px] mb-10 sr-only">
+          Projects — Labba Studio Portfolio
         </h1>
 
         <div className="flex flex-wrap gap-4 mt-[16px] md:mt-0">
@@ -276,7 +295,7 @@ const Works = () => {
 
       {/* Grid único con 2 cols en md+. FULL = col-span-2; HALF = col normal.
           Si un HALF queda "solo" y el siguiente era FULL, lo convertimos a HALF y rellenamos. */}
-      <div className="mt-[30px]">
+      <div className="mt-[30px]" data-nosnippet>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-[24px]">
           <AnimatePresence initial={false}>
             {items.map((w) => {

@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import DigitalMask from "../Assets/mask/digital-products.png";
 import WebsitesMask from "../Assets/mask/websites.png";
 import CustomAiMask from "../Assets/mask/custom-ai.png";
@@ -81,8 +82,27 @@ const services = [
 const Services = () => {
   return (
     <>
+      <Helmet>
+        <title>Services — Labba Studio </title>
+        <meta
+          name="description"
+          content="Branding, UX/UI, desarrollo web y productos digitales. Servicios integrales para lanzar y escalar."
+        />
+        <link rel="canonical" href="https://labba.studio/services" />
+        <meta property="og:title" content="Services — Labba Studio " />
+        <meta
+          property="og:description"
+          content="Branding, UX/UI, desarrollo web y productos digitales."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://labba.studio/services" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Helmet>
       <section className="services-section px-6 sm:px-[53px] lg:px-16 pt-[138px] max-w-[1900px] mx-auto pb-[40px]">
         <div className="flex flex-col">
+          <h1 className="h2 max-w-[1455px] mb-10 sr-only">
+            Services — Labba Studio
+          </h1>
           <h1 className="h2 max-w-[1455px] mb-10">
             We help businesses grow through digital experiences.
           </h1>
@@ -197,7 +217,10 @@ const Services = () => {
         {/* </div> */}
       </div>
 
-      <section className="works-section relative  mx-auto px-6 sm:px-[53px]  lg:px-16 max-w-[1900px] ">
+      <section
+        className="works-section relative  mx-auto px-6 sm:px-[53px]  lg:px-16 max-w-[1900px] "
+        data-nosnippet
+      >
         <h2 className="text-[30px] sm:text-[45px] font-bold leading-tight mb-10">
           See our work
         </h2>

@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 
 const About = () => {
   let shadowOn = "ellipse-shadow";
@@ -44,13 +45,31 @@ const About = () => {
   }, []);
   return (
     <>
+      <Helmet>
+        <title>About us — Labba Studio</title>
+        <meta
+          name="description"
+          content="Somos Labba Studio: equipo de diseño y desarrollo que crea experiencias digitales memorables."
+        />
+        <link rel="canonical" href="https://labba.studio/about" />
+        <meta property="og:title" content="About us — Labba Studio" />
+        <meta
+          property="og:description"
+          content="Equipo de diseño y desarrollo que crea experiencias digitales memorables."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://labba.studio/about" />
+      </Helmet>
       <div className="md:h-[1380px] h-[1200px]">
         {" "}
         <div id={shadowOn}></div>
         <div className="about-page flex items-center justify-center md:h-[780px] h-[500px]">
-          <h3 className="md:text-[120px] text-[54px] md:leading-[108%] leading-[103%] md:tracking-[-0.03em] tracking-[-0.02em] text-[#FFFFFF] font-bold text-center md:text-left">
+          <h1 className="sr-only md:text-[120px] text-[54px] md:leading-[108%] leading-[103%] md:tracking-[-0.03em] tracking-[-0.02em] text-[#FFFFFF] font-bold text-center md:text-left">
+            About us — Labba Studio
+          </h1>
+          <h2 className="md:text-[120px] text-[54px] md:leading-[108%] leading-[103%] md:tracking-[-0.03em] tracking-[-0.02em] text-[#FFFFFF] font-bold text-center md:text-left">
             People who <br /> think different, <br /> make different
-          </h3>
+          </h2>
         </div>
         <div
           className="backdrop-blur-[4px] md:backdrop-blur-[7px] md:h-[1380px] h-[1200px]"

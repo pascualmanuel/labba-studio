@@ -1,5 +1,6 @@
 // src/pages/Blog.jsx
 import React, { useEffect, useMemo, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { getBlogs } from "../api/blogs";
@@ -66,8 +67,24 @@ const Blog = () => {
 
   return (
     <section className="works-section px-6 sm:px-[53px] lg:px-16 pt-[138px] max-w-[1900px] mx-auto pb-[130px]">
+      <Helmet>
+        <title>Blog — Labba Studio</title>
+        <meta
+          name="description"
+          content="Ideas y aprendizajes sobre diseño, desarrollo y producto. Artículos del equipo de Labba Studio."
+        />
+        <link rel="canonical" href="https://labba.studio/blog" />
+        <meta property="og:title" content="Blog — Labba Studio" />
+        <meta
+          property="og:description"
+          content="Ideas y aprendizajes sobre diseño, desarrollo y producto."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://labba.studio/blog" />
+      </Helmet>
       <div className="flex flex-col md:flex-col md:items-start md:justify-between">
-        <h1 className="h2 max-w-[855px] mb-10">Blog</h1>
+        <h1 className="h2 max-w-[855px] mb-10 sr-only">Blog — Labba Studio</h1>
+        <h2 className="h2 max-w-[855px] mb-10">Blog</h2>
 
         <div className="flex flex-wrap gap-4 mt-[16px] md:mt-0">
           {FILTERS.map((label) => {

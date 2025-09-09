@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { useParams, Link } from "react-router-dom";
 import { getBlogBySlug, getBlogs } from "../api/blogs";
 import LabbaLogoBlack from "../Assets/blog/labba-logo-black.png";
@@ -142,6 +143,55 @@ export default function BlogArticle() {
 
   return (
     <section className="pt-[150px] pb-24">
+      <Helmet>
+        <title>{`${post.title} — Blog — Labba Studio`}</title>
+        <meta
+          name="description"
+          content={post.subtitle || htmlToText(post.content).slice(0, 155)}
+        />
+        <link rel="canonical" href={`https://labba.studio/blog/${post.slug}`} />
+        <meta
+          property="og:title"
+          content={`${post.title} — Blog — Labba Studio`}
+        />
+        <meta
+          property="og:description"
+          content={post.subtitle || htmlToText(post.content).slice(0, 200)}
+        />
+        <meta property="og:type" content="article" />
+        <meta
+          property="og:url"
+          content={`https://labba.studio/blog/${post.slug}`}
+        />
+        {post.coverUrl && <meta property="og:image" content={post.coverUrl} />}
+        {/* BreadcrumbList JSON-LD */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Labba Studio",
+                item: "https://labba.studio/",
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Blog",
+                item: "https://labba.studio/blog",
+              },
+              {
+                "@type": "ListItem",
+                position: 3,
+                name: post.title,
+                item: `https://labba.studio/blog/${post.slug}`,
+              },
+            ],
+          })}
+        </script>
+      </Helmet>
       {/* ===== HERO FULL WIDTH: título + subtítulo + imagen ===== */}
       <div className="w-full">
         <div className="max-w-[1500px] mx-auto px-4 md:px-10 lg:px-16">

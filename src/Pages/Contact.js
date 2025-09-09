@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
+import { Helmet } from "react-helmet-async";
 import "../Styles/Prueba.css";
 import emailjs from "@emailjs/browser";
 import Rounded from "../Hooks/Rounded";
@@ -7,7 +8,7 @@ import emailIcon2 from "../Assets/labba/manuel.png";
 import { Link } from "react-router-dom";
 function Contact() {
   useEffect(() => {
-    document.title = "Labba - Contact";
+    document.title = "Contact — Labba Studio";
   }, []);
 
   const [selectedService, setSelectedService] = useState("");
@@ -159,6 +160,21 @@ function Contact() {
 
   return (
     <>
+      <Helmet>
+        <title>Contact — Labba Studio</title>
+        <meta
+          name="description"
+          content="¿Listo para empezar tu próximo proyecto? Contáctanos para hablar de diseño, desarrollo y estrategia."
+        />
+        <link rel="canonical" href="https://labba.studio/contact" />
+        <meta property="og:title" content="Contact — Labba Studio" />
+        <meta
+          property="og:description"
+          content="Contáctanos para hablar de diseño, desarrollo y estrategia."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://labba.studio/contact" />
+      </Helmet>
       <div className="flex flex-column sm:justify-center mx-4 sm:mx-[0px] mb-[120px] pt-[120px] ">
         <div className="flex lg:flex-row flex-col  mt-6 lg:mt-0 sm:px-16 items-start w-full justify-between ">
           <div className="pr-0 lg:pr-[75px]">
