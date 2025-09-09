@@ -243,7 +243,7 @@ const Works = () => {
   return (
     <section className="works-section px-6 sm:px-[53px] lg:px-16 pt-[138px] max-w-[1900px] mx-auto pb-[130px]">
       {/* 1 sola sombra global (evita IDs duplicados) */}
-      <div id="ellipse-shadow" className="ellipse-shadow"></div>
+      <div id="ellipse-shadow" className="hidden md:block ellipse-shadow"></div>
 
       {/* Header + filtros */}
       <div className="flex flex-col md:flex-col md:items-start md:justify-between">

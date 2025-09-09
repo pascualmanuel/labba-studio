@@ -31,6 +31,7 @@ import FloraPlus from "./Pages/Works/FloraPlus";
 import ScoutingLabs from "./Pages/Works/ScoutingLabs";
 import Dbs from "./Pages/Works/Dbs";
 import Hyundai from "./Pages/Works/Hyundai";
+import BlogTagPage from "./Pages/BlogTagPage";
 
 function App() {
   useCursorEffect();
@@ -104,6 +105,7 @@ function App() {
             <Route path="/works/dbs" element={<Dbs />} />
             <Route path="/work" element={<Work />} />
             <Route path="/blog" element={<BlogPage />} />
+            <Route path="/blog/tag/:tag" element={<BlogTagPage />} />
             <Route path="/blog/create" element={<BlogEditor />} />
             <Route path="/blog/edit/:id" element={<BlogEdit />} />
             <Route path="/blog/:slug" element={<BlogArticle />} />
