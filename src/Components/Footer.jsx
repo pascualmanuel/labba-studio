@@ -83,9 +83,11 @@ const Footer = () => {
           <h4 className="text-[30px] lg:text-[45px] leading-[30px] font-bold pb-[40px] text-center px-6 lg:px-0 text-balance">
             Let’s take your idea to the next level.
           </h4>
-          <p className="text-[16px] leading-[32px] font-bold">
-            Book discovery call
-          </p>
+          <Link to={"/contact"}>
+            <p className="text-[16px] leading-[32px] font-bold">
+              Book discovery call
+            </p>
+          </Link>
         </div>
 
         <div className="flex flex-col lg:flex-row items-start ms:items-center lm:items-start  pb-[50px] justify-between  px-6 sm:px-[53px] lg:px-16">

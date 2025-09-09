@@ -436,7 +436,7 @@ export default function BlogEdit() {
           {/* HERO FULL WIDTH */}
           <div className="w-full">
             <div className="mx-auto max-w-[1900px] px-4 pt-4">
-              <h1 className="text-white font-semibold leading-[0.95] text-[48px] md:text-[56px] lg:text-[72px]">
+              <h1 className="text-white font-semibold leading-[0.95] text-[48px] md:text-[56px] lg:text-[72px] max-w-[1200px]">
                 {title || "Tu título aparecerá aquí"}
               </h1>
               {subtitle ? (

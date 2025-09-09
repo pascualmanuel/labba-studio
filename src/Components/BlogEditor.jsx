@@ -3,6 +3,7 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { saveBlog } from "../api/blogs";
 import { uploadImageToCloudinary } from "../api/cloudinary";
+import { useNavigate } from "react-router-dom";
 
 /* ==== helpers ==== */
 const toSlug = (s) =>
@@ -68,6 +69,8 @@ export default function BlogEditor() {
   const contentRef = useRef(null);
   const quillRef = useRef(null);
   const [toc, setToc] = useState([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const quill = quillRef.current?.getEditor?.();
@@ -210,19 +213,9 @@ export default function BlogEditor() {
         updatedAt: nowIso,
         published,
       };
-      await saveBlog(payload);
+      const created = await saveBlog(payload);
       setSuccess(true);
-
-      // limpiar
-      setTitle("");
-      setSubtitle("");
-      setExcerpt("");
-      setContent("");
-      setCoverUrl("");
-      setCategory("Design");
-      setTagsInput("");
-      setDate("");
-      setPublished(true);
+      navigate(`/blog/${created.slug}`);
     } catch (e) {
       setError(e.message || "Error al guardar");
     } finally {
@@ -368,9 +361,7 @@ export default function BlogEditor() {
             {saving ? "Guardando..." : "Guardar"}
           </button>
           {error && <p className="mt-2 text-red-400">{error}</p>}
-          {success && (
-            <p className="mt-2 text-green-400">Guardado correctamente</p>
-          )}
+          {success && null}
         </div>
 
         {/* ==== PREVIEW (idéntica al front) ==== */}
@@ -378,7 +369,7 @@ export default function BlogEditor() {
           {/* HERO FULL WIDTH */}
           <div className="w-full">
             <div className="mx-auto max-w-[1900px] px-4 pt-4">
-              <h1 className="text-white font-semibold leading-[0.95] text-[48px] md:text-[56px] lg:text-[72px]">
+              <h1 className="text-white font-semibold leading-[0.95] text-[48px] md:text-[56px] lg:text-[72px] max-w-[1200px]">
                 {title || "Tu título aparecerá aquí"}
               </h1>
               {subtitle ? (
