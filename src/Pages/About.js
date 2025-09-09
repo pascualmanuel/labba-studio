@@ -46,16 +46,16 @@ const About = () => {
   return (
     <>
       <Helmet>
-        <title>About us — Labba Studio</title>
+        <title>About Us — Labba Studio</title>
         <meta
           name="description"
-          content="Somos Labba Studio: equipo de diseño y desarrollo que crea experiencias digitales memorables."
+          content="We are Labba Studio — a UX/UI and product design team building memorable digital experiences."
         />
         <link rel="canonical" href="https://labba.studio/about" />
-        <meta property="og:title" content="About us — Labba Studio" />
+        <meta property="og:title" content="About Us — Labba Studio" />
         <meta
           property="og:description"
-          content="Equipo de diseño y desarrollo que crea experiencias digitales memorables."
+          content="We are Labba Studio — a UX/UI and product design team building memorable digital experiences."
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://labba.studio/about" />

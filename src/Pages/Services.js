@@ -83,16 +83,19 @@ const Services = () => {
   return (
     <>
       <Helmet>
-        <title>Services — Labba Studio </title>
+        <title>Services — Labba Studio UX/UI Design</title>
         <meta
           name="description"
-          content="Branding, UX/UI, desarrollo web y productos digitales. Servicios integrales para lanzar y escalar."
+          content="Branding, UX/UI design, web development, and digital products. End‑to‑end services to launch and scale."
         />
         <link rel="canonical" href="https://labba.studio/services" />
-        <meta property="og:title" content="Services — Labba Studio " />
+        <meta
+          property="og:title"
+          content="Services — Labba Studio UX/UI Design"
+        />
         <meta
           property="og:description"
-          content="Branding, UX/UI, desarrollo web y productos digitales."
+          content="Branding, UX/UI design, web development, and digital products. End‑to‑end services to launch and scale."
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://labba.studio/services" />

@@ -105,7 +105,7 @@ function Home() {
         <title>Labba Studio — Design & Code for Digital Experiences</title>
         <meta
           name="description"
-          content="Labba Studio diseña y desarrolla productos digitales, sitios web y marcas. Creamos experiencias creativas que convierten."
+          content="Labba Studio designs and builds digital products, websites, and brands. We create creative, conversion‑driven experiences."
         />
         <link rel="canonical" href="https://labba.studio/" />
         <meta
@@ -114,7 +114,7 @@ function Home() {
         />
         <meta
           property="og:description"
-          content="Labba Studio diseña y desarrolla productos digitales, sitios web y marcas. Creamos experiencias creativas que convierten."
+          content="Labba Studio designs and builds digital products, websites, and brands. We create creative, conversion‑driven experiences."
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://labba.studio/" />
@@ -126,7 +126,7 @@ function Home() {
         />
         <meta
           name="twitter:description"
-          content="Labba Studio diseña y desarrolla productos digitales, sitios web y marcas."
+          content="Labba Studio designs and builds digital products, websites, and brands."
         />
       </Helmet>
       <div id={shadowOn} className="hidden md:block"></div>

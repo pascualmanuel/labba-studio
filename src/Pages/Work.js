@@ -247,13 +247,13 @@ const Works = () => {
         <title>Projects — Labba Studio Portfolio</title>
         <meta
           name="description"
-          content="Proyectos destacados de Labba Studio: websites, apps y branding. Morgenstern, Inmobiliare, Ephimero y más."
+          content="Selected work from Labba Studio: websites, apps, and branding. Explore projects including Hyundai, Scouting Labs, Flora Plus, and more."
         />
         <link rel="canonical" href="https://labba.studio/work" />
         <meta property="og:title" content="Projects — Labba Studio Portfolio" />
         <meta
           property="og:description"
-          content="Proyectos destacados de Labba Studio: websites, apps y branding."
+          content="Selected work from Labba Studio: websites, apps, and branding. Explore projects including Hyundai, Scouting Labs, Flora Plus, and more."
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://labba.studio/work" />

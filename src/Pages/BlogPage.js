@@ -71,13 +71,13 @@ const Blog = () => {
         <title>Blog — Labba Studio</title>
         <meta
           name="description"
-          content="Ideas y aprendizajes sobre diseño, desarrollo y producto. Artículos del equipo de Labba Studio."
+          content="Insights on design, development, and product strategy from the Labba Studio team."
         />
         <link rel="canonical" href="https://labba.studio/blog" />
         <meta property="og:title" content="Blog — Labba Studio" />
         <meta
           property="og:description"
-          content="Ideas y aprendizajes sobre diseño, desarrollo y producto."
+          content="Insights on design, development, and product strategy from the Labba Studio team."
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://labba.studio/blog" />
