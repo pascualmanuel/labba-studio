@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import MorgensternImg from "../../Assets/work/work-morgenstern.webp";
@@ -28,6 +29,21 @@ const Dbs = () => {
 
   return (
     <>
+      <Helmet>
+        <title>De Blas Serrano — Labba Studio</title>
+        <meta
+          name="description"
+          content="Elegant, functional ecommerce for a Spanish winery, enhancing the shopping experience with a premium feel."
+        />
+        <link rel="canonical" href="https://labba.studio/works/dbs" />
+        <meta property="og:title" content="De Blas Serrano — Labba Studio" />
+        <meta
+          property="og:description"
+          content="Elegant, functional ecommerce for a Spanish winery, enhancing the shopping experience with a premium feel."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://labba.studio/works/dbs" />
+      </Helmet>
       <div
         className="h-[590px] w-[100vw] sm:h-[680px] bg-cover bg-center "
         style={{ backgroundImage: `url(${BgDbs})` }}

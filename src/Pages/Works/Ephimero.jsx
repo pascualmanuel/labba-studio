@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import ephiHero from "../../Assets/work/Ephimero/hero_ephi.jpg";
@@ -44,6 +45,21 @@ const Ephimero = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Ephimero — Labba Studio</title>
+        <meta
+          name="description"
+          content="Candles ecommerce with ethics & aesthetics."
+        />
+        <link rel="canonical" href="https://labba.studio/works/ephimero" />
+        <meta property="og:title" content="Ephimero — Labba Studio" />
+        <meta
+          property="og:description"
+          content="Candles ecommerce with ethics & aesthetics."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://labba.studio/works/ephimero" />
+      </Helmet>
       <div
         className="h-[590px] w-[100vw] sm:h-[680px] bg-cover bg-center "
         style={{ backgroundImage: `url(${ephiBg})` }}

@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 
@@ -19,6 +20,24 @@ const FloraPlus = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Flora Plus — Labba Studio</title>
+        <meta
+          name="description"
+          content="A powerful platform to manage experiences, streamline operations, and enhance journeys for providers and travelers."
+        />
+        <link rel="canonical" href="https://labba.studio/works/flora-plus" />
+        <meta property="og:title" content="Flora Plus — Labba Studio" />
+        <meta
+          property="og:description"
+          content="A powerful platform to manage experiences, streamline operations, and enhance journeys for providers and travelers."
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:url"
+          content="https://labba.studio/works/flora-plus"
+        />
+      </Helmet>
       <div
         className="h-[590px] w-[100vw] sm:h-[680px] bg-cover bg-center "
         style={{ backgroundImage: `url(${BgFloraPlus})` }}

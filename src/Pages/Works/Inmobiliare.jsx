@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import WorkInmBg from "../../Assets/work/Inmobiliare/inmobiliare_bg.webp";
@@ -27,6 +28,24 @@ const Inmobiliare = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Inmobiliare — Labba Studio</title>
+        <meta
+          name="description"
+          content="Redesigning the experience of the largest real estate news portal in Mexico."
+        />
+        <link rel="canonical" href="https://labba.studio/works/inmobiliare" />
+        <meta property="og:title" content="Inmobiliare — Labba Studio" />
+        <meta
+          property="og:description"
+          content="Redesigning the experience of the largest real estate news portal in Mexico."
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:url"
+          content="https://labba.studio/works/inmobiliare"
+        />
+      </Helmet>
       <div
         className="h-[590px] w-[100vw] sm:h-[680px] bg-cover bg-center "
         style={{ backgroundImage: `url(${inmoBg})` }}

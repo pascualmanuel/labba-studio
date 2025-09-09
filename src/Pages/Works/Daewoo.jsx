@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 
@@ -29,6 +30,21 @@ const Daewoo = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Daewoo — Labba Studio</title>
+        <meta
+          name="description"
+          content="Explore and find your perfect home appliance through a clear and modern ecommerce experience."
+        />
+        <link rel="canonical" href="https://labba.studio/works/daewoo" />
+        <meta property="og:title" content="Daewoo — Labba Studio" />
+        <meta
+          property="og:description"
+          content="Explore and find your perfect home appliance through a clear and modern ecommerce experience."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://labba.studio/works/daewoo" />
+      </Helmet>
       <div
         className="h-[590px] w-[100vw] sm:h-[680px] bg-cover bg-center "
         style={{ backgroundImage: `url(${Work5})` }}

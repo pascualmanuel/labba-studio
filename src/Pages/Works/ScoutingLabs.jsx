@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import ScoutingLabsHero from "../../Assets/work/Scouting/scounting-site.webp";
@@ -26,6 +27,24 @@ const ScoutingLabs = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Scouting Labs — Labba Studio</title>
+        <meta
+          name="description"
+          content="Connecting amateur sports passion with analysis technology to empower player development and visibility."
+        />
+        <link rel="canonical" href="https://labba.studio/works/scouting-labs" />
+        <meta property="og:title" content="Scouting Labs — Labba Studio" />
+        <meta
+          property="og:description"
+          content="Connecting amateur sports passion with analysis technology to empower player development and visibility."
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:url"
+          content="https://labba.studio/works/scouting-labs"
+        />
+      </Helmet>
       <div
         className="h-[590px] w-[100vw] sm:h-[680px] bg-cover bg-bottom "
         style={{ backgroundImage: `url(${ScoutingLabsHero})` }}

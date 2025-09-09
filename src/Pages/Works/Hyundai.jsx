@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import HyundaiHero from "../../Assets/work/Hyundai/hyundai-site.webp";
@@ -27,6 +28,21 @@ const Hyundai = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Hyundai — Labba Studio</title>
+        <meta
+          name="description"
+          content="Showcasing models, promotions, and services while improving the digital experience for Hyundai Costa Rica."
+        />
+        <link rel="canonical" href="https://labba.studio/works/hyundai" />
+        <meta property="og:title" content="Hyundai — Labba Studio" />
+        <meta
+          property="og:description"
+          content="Showcasing models, promotions, and services while improving the digital experience for Hyundai Costa Rica."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://labba.studio/works/hyundai" />
+      </Helmet>
       <div
         className="h-[590px] w-[100vw] sm:h-[680px] bg-cover bg-center lg:bg-[100%_78%] "
         style={{ backgroundImage: `url(${HyundaiHero})` }}

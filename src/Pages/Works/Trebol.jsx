@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import WorkInmBg from "../../Assets/work/Inmobiliare/inmobiliare_bg.webp";
@@ -39,6 +40,21 @@ const Trebol = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Trebol — Labba Studio</title>
+        <meta
+          name="description"
+          content="Join lotteries and track winning numbers from your phone—no store visit needed."
+        />
+        <link rel="canonical" href="https://labba.studio/works/trebol" />
+        <meta property="og:title" content="Trebol — Labba Studio" />
+        <meta
+          property="og:description"
+          content="Join lotteries and track winning numbers from your phone—no store visit needed."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://labba.studio/works/trebol" />
+      </Helmet>
       <div
         className="h-[590px] w-[100vw] sm:h-[680px] bg-cover bg-center "
         style={{ backgroundImage: `url(${TrebolBg})` }}

@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import MorgensternImg from "../../Assets/work/work-morgenstern.webp";
@@ -27,6 +28,21 @@ const Morgenstern = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Galangal Travel — Labba Studio</title>
+        <meta
+          name="description"
+          content="Luxury travel experiences rooted in local culture, crafted with elegance, authenticity, and exceptional service."
+        />
+        <link rel="canonical" href="https://labba.studio/works/galangal" />
+        <meta property="og:title" content="Galangal Travel — Labba Studio" />
+        <meta
+          property="og:description"
+          content="Luxury travel experiences rooted in local culture, crafted with elegance, authenticity, and exceptional service."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://labba.studio/works/galangal" />
+      </Helmet>
       <div
         className="h-[590px] w-[100vw] sm:h-[680px] bg-cover bg-center "
         style={{ backgroundImage: `url(${BgGalangal})` }}

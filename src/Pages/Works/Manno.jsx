@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import MannoHero from "../../Assets/work/Manno/MannoHero.webp";
@@ -40,6 +41,21 @@ const Manno = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Manno — Labba Studio</title>
+        <meta
+          name="description"
+          content="A trusted community app connecting people who need to outsource tasks with people ready to work."
+        />
+        <link rel="canonical" href="https://labba.studio/works/manno" />
+        <meta property="og:title" content="Manno — Labba Studio" />
+        <meta
+          property="og:description"
+          content="A trusted community app connecting people who need to outsource tasks with people ready to work."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://labba.studio/works/manno" />
+      </Helmet>
       <div
         className="h-[590px] w-[100vw] sm:h-[680px] bg-cover bg-center lg:bg-[100%_25%]
 "
