@@ -1,5 +1,22 @@
 [
   {
+    "id": "1757412001466",
+    "slug": "from-mvp-to-scalable-platform-how-we-build-products-that-evolve",
+    "title": "From MVP to scalable platform: How we build products that evolve",
+    "subtitle": "How we create digital solutions that not only meet current needs but are also built to grow and adapt over time.",
+    "excerpt": "How we create digital solutions that not only meet current needs but are also built to grow and adapt over time.",
+    "content": "<p>We’ve validated the idea. Users are engaging. The MVP is live. Now comes the real challenge. After rounds of research, careful design, and hands-on development, we've launched the first version of the product—a Minimum Viable Product (MVP). It's simple, functional, and just enough to put the idea to the test. But launching an MVP isn’t the finish line—it’s the starting block. At Labba, this is the moment where our long-term mindset kicks in. We use the MVP as a learning tool: it gives us real user insights, helps us refine the vision, and lays the foundation for what’s next.</p><h2>Designing for people, not just problems</h2><p>User experience is never an afterthought. From day one, we design digital products that feel intuitive, seamless, and enjoyable to use. But great UX isn’t just about the present—it’s about anticipating how users and their needs will grow over time. That’s why our design decisions are guided by flexibility. We don’t build rigid systems; we build adaptable ones.</p><h2>Built to Scale, Not Break</h2><p>As interest grows and users multiply, the underlying tech needs to hold up. Scalability is baked into our development process from the beginning. We use solid architectural principles and proven technologies to ensure that adding new features, users, or integrations doesn’t slow anything down. Growth should be a milestone, not a roadblock.</p><h2>Iteration is the Engine</h2><p>Post-launch, our mindset shifts from validation to evolution. We enter a loop of continuous improvement fueled by real-world data and user feedback. Every release is an opportunity to refine, enhance, or pivot. This agile cycle lets the product mature organically without ever feeling outdated.</p><h2>Eyes on the Horizon</h2><p>What makes Labba different is our obsession with what comes next. We track emerging technologies, explore new tools, and refine our processes to keep every product ahead of the curve. A great platform doesn’t just solve today’s problems—it’s ready to meet tomorrow’s with confidence.</p>",
+    "coverUrl": "https://res.cloudinary.com/dh1xrwguk/image/upload/v1757411643/pry2mi2j312u5dqi2xuo.png",
+    "category": "Design",
+    "tags": [
+      "UX/UI"
+    ],
+    "readTime": 2,
+    "createdAt": "2025-09-09T09:58:02.010Z",
+    "updatedAt": "2025-09-09T10:00:01.466Z",
+    "published": true
+  },
+  {
     "id": "1757353433659",
     "slug": "esmanuel",
     "title": "Esmanuel",
