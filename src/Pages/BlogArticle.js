@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { getBlogBySlug } from "../api/blogs";
+import { getBlogBySlug, getBlogs } from "../api/blogs";
 import LabbaLogoBlack from "../Assets/blog/labba-logo-black.png";
 import Redbg from "../Assets/blog/redbg.png";
+import { motion, AnimatePresence } from "framer-motion";
 
 const fmtDate = (iso) =>
   iso
@@ -43,6 +44,9 @@ export default function BlogArticle() {
   const [toc, setToc] = useState([]);
   const [activeId, setActiveId] = useState("");
 
+  // more articles
+  const [morePosts, setMorePosts] = useState([]);
+
   useEffect(() => {
     let active = true;
     setLoading(true);
@@ -62,6 +66,27 @@ export default function BlogArticle() {
       active = false;
     };
   }, [slug]);
+
+  // fetch more posts when we have the current one
+  useEffect(() => {
+    if (!post) return;
+    let isMounted = true;
+    getBlogs()
+      .then((all) => {
+        if (!isMounted) return;
+        const others = (all || [])
+          .filter((b) => b.slug !== post.slug)
+          .sort(
+            (a, b) => new Date(b.createdAt || 0) - new Date(a.createdAt || 0)
+          )
+          .slice(0, 3);
+        setMorePosts(others);
+      })
+      .catch(() => {});
+    return () => {
+      isMounted = false;
+    };
+  }, [post]);
 
   // Construir TOC a partir de H2 y observar sección activa
   useEffect(() => {
@@ -119,12 +144,27 @@ export default function BlogArticle() {
     <section className="pt-[150px] pb-24">
       {/* ===== HERO FULL WIDTH: título + subtítulo + imagen ===== */}
       <div className="w-full">
-        <div className="max-w-[1500px] mx-auto px-16">
+        <div className="max-w-[1500px] mx-auto px-4 md:px-10 lg:px-16">
+          <div className="flex items-center justify-start gap-4 mb-6 ">
+            {(post.tags || []).map((t) => (
+              <Link
+                to={`/blog/tag/${encodeURIComponent(t)}`}
+                key={t}
+                className="px-3 py-1 rounded-full bg-[#1E1E1E] text-[#D6D6D6] text-[12px] hover:text-white"
+              >
+                {t}
+              </Link>
+            ))}
+            <div className="text-[14px] text-[#D6D6D6]">
+              {fmtDate(post.createdAt)} <span className="mx-1">•</span>{" "}
+              {readTime} min read
+            </div>
+          </div>
           <h1 className="text-white font-semibold leading-[0.95] text-[48px] md:text-[56px] lg:text-[72px]">
             {post.title}
           </h1>
           {post.subtitle && (
-            <p className="mt-3 text-[#CFCFCF] text-[24px] leading-relaxed">
+            <p className="mt-6 text-[#CFCFCF] text-[24px] leading-relaxed">
               {post.subtitle}
             </p>
           )}
@@ -152,7 +192,7 @@ export default function BlogArticle() {
 
       {/* ===== DEBAJO DEL HERO: bulletpoints — noticia — about ===== */}
       <div
-        className="mx-auto max-w-[1400px] px-4 gap-8 lg:grid"
+        className="mx-auto max-w-[1400px] px-4 md:px-10 lg:px-4 gap-8 lg:grid"
         style={{ gridTemplateColumns: "215px minmax(0, 900px) 215px" }}
       >
         {/* Rail izquierdo: TOC */}
@@ -199,22 +239,6 @@ export default function BlogArticle() {
         {/* Contenido (con tipografía pedida) */}
         <article>
           {/* Meta superior dentro de la columna central */}
-          <div className="flex items-center justify-between gap-4 mb-4 ">
-            <div className="text-[14px] text-[#D6D6D6]">
-              {fmtDate(post.createdAt)} <span className="mx-1">•</span>{" "}
-              {readTime} min read
-            </div>
-            <div className="flex items-center gap-2 flex-wrap justify-end">
-              {(post.tags || []).map((t) => (
-                <span
-                  key={t}
-                  className="px-3 py-1 rounded-full bg-[#1E1E1E] text-[#D6D6D6] text-[12px]"
-                >
-                  {t}
-                </span>
-              ))}
-            </div>
-          </div>
 
           {/* Contenido del editor.
               H2: 18px bold | P: 18px | márgenes coherentes */}
@@ -268,6 +292,95 @@ export default function BlogArticle() {
           </div>
         </aside>
       </div>
+      {morePosts.length > 0 && (
+        <div className="max-w-[1500px] mx-auto px-4 md:px-10 lg:px-16 mt-[130px]">
+          <h2 className="h2 max-w-[855px] mb-6">More articles</h2>
+          <div className="mt-[10px]">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[24px] justify-items-center">
+              <AnimatePresence initial={false}>
+                {morePosts.map((p) => (
+                  <motion.div
+                    key={p.id || p.slug}
+                    layout
+                    initial={{ opacity: 0, scale: 0.98 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.98 }}
+                    transition={{
+                      duration: 0.35,
+                      ease: [0.22, 0.61, 0.36, 1],
+                    }}
+                  >
+                    <Link to={`/blog/${p.slug}`} rel="noopener noreferrer">
+                      <article className="max-w-[440px] h-[480px] flex flex-col overflow-hidden">
+                        <div className="relative h-[260px] rounded-[16px] overflow-hidden bg-[#1A1A1A]">
+                          {p.coverUrl ? (
+                            <img
+                              src={p.coverUrl}
+                              alt={p.title}
+                              className="absolute inset-0 w-full h-full object-cover object-center"
+                              loading="lazy"
+                              draggable={false}
+                            />
+                          ) : (
+                            <div className="absolute inset-0 bg-[#151515]" />
+                          )}
+                          {/* overlay suave y blureado */}
+                          <div
+                            className="absolute -inset-4 pointer-events-none z-10 opacity-50 blur-[14px]"
+                            style={{
+                              background:
+                                "radial-gradient(120% 120% at 0% 0%, rgba(255,106,61,0.35) 0%, rgba(90,16,32,0.28) 50%, rgba(0,0,0,0) 72%)",
+                            }}
+                          />
+                        </div>
+
+                        <div className="mt-5 px-1 flex flex-col gap-3">
+                          {/* Fila 1: fecha • read time  |  tags */}
+                          <div className="flex items-center justify-between gap-3">
+                            <div className="text-[13px] text-[#D6D6D6]">
+                              {fmtDate(p.createdAt)}{" "}
+                              <span className="mx-1">•</span>{" "}
+                              {(p.readTime ?? "").toString() || "10"} min read
+                            </div>
+
+                            <div className="flex items-center justify-end gap-2 flex-wrap max-w-[55%]">
+                              {(p.tags || []).map((t) => (
+                                <Link
+                                  to={`/blog/tag/${encodeURIComponent(t)}`}
+                                  key={t}
+                                  className="px-2 py-1 rounded-full bg-[#1E1E1E] text-[#D6D6D6] text-[12px] whitespace-nowrap hover:text-white"
+                                >
+                                  {t}
+                                </Link>
+                              ))}
+                            </div>
+                          </div>
+
+                          {/* Fila 2: título */}
+                          <h3 className="text-white text-[24px] font-semibold leading-tight line-clamp-2">
+                            {p.title}
+                          </h3>
+
+                          {/* Fila 3: excerpt */}
+                          <div className="mt-1 flex items-end justify-between gap-6">
+                            <p className="text-[#B5B5B5] text-[14px] leading-snug line-clamp-2 max-w-[100%]">
+                              {p.excerpt}
+                            </p>
+                          </div>
+
+                          <span className="text-[#D6D6D6] hover:text-white transition-colors inline-flex items-center gap-2 shrink-0">
+                            Read Article <span aria-hidden>→</span>
+                          </span>
+                        </div>
+                      </article>
+                    </Link>
+                  </motion.div>
+                ))}
+              </AnimatePresence>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
