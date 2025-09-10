@@ -183,14 +183,14 @@ function Contact() {
         <meta property="og:url" content="https://labba.studio/contact" />
         <meta
           property="og:image"
-          content="https://labba.studio/og/contact-cover.jpg"
+          content="https://labba.studio/og/contact-og.jpg"
         />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:image"
-          content="https://labba.studio/og/contact-cover.jpg"
+          content="https://labba.studio/og/contact-og.jpg"
         />
       </Helmet>
       <div className="flex flex-column sm:justify-center mx-4 sm:mx-[0px] mb-[120px] pt-[120px] ">

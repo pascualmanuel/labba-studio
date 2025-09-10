@@ -178,13 +178,13 @@ export default function BlogArticle() {
         ) : (
           <meta
             property="og:image"
-            content="https://labba.studio/og/blog-cover.jpg"
+            content="https://labba.studio/og/blog-og.jpg"
           />
         )}
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:image"
-          content={post.coverUrl || "https://labba.studio/og/blog-cover.jpg"}
+          content={post.coverUrl || "https://labba.studio/og/blog-og.jpg"}
         />
         {/* BreadcrumbList JSON-LD */}
         <script type="application/ld+json">

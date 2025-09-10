@@ -53,7 +53,7 @@ const About = () => {
         <meta property="og:url" content="https://labba.studio/about" />
         <meta
           property="og:image"
-          content="https://labba.studio/og/about-cover.jpg"
+          content="https://labba.studio/og/about-og.jpg"
         />
       </Helmet>
       <div className="md:h-[1380px] h-[1200px]">
