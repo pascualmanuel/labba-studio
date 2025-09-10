@@ -2,33 +2,49 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="https://labba.studio/favicon.ico" />
 
+    <!-- Favicon / PWA -->
+    <link rel="icon" href="https://labba.studio/favicon.ico" />
+    <link rel="apple-touch-icon" href="https://www.labba.studio/logo512.png" />
+    <link rel="manifest" href="https://labba.studio/manifest.json" />
+
+    <!-- Viewport / Theme -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
+
+    <!-- Robots -->
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+
+    <!-- Fallback title/description (los Helmet por página los sobreescriben si el bot ejecuta JS) -->
+    <title>Labba Studio</title>
     <meta
       name="description"
       content="We design and code creative digital experiences."
     />
 
-    <link rel="apple-touch-icon" href="https://labba.studio/logo275.png" />
-
-    <!-- Open Graph / WhatsApp preview -->
+    <!-- Open Graph (fallback global para bots que NO ejecutan JS) -->
+    <meta property="og:site_name" content="Labba Studio" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://labba.studio/" />
     <meta property="og:title" content="Labba Studio" />
     <meta
       property="og:description"
       content="We design and code creative digital experiences."
     />
-    <meta property="og:image" content="https://labba.studio/logo275.png" />
-    <meta
-      property="og:image:secure_url"
-      content="https://labba.studio/logo275.png"
-    />
-    <meta property="og:image:width" content="275" />
-    <meta property="og:image:height" content="275" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://labba.studio" />
+    <meta property="og:image" content="https://labba.studio/og/home-og.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
 
+    <!-- Twitter (fallback global) -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Labba Studio" />
+    <meta
+      name="twitter:description"
+      content="We design and code creative digital experiences."
+    />
+    <meta name="twitter:image" content="https://labba.studio/og/home-og.jpg" />
+
+    <!-- Performance (ok mantener) -->
     <link
       rel="preload"
       href="/src/Assets/Fonts/Satoshi-Regular.woff2"
@@ -37,12 +53,29 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="/src/Styles/App.css" />
-    <link rel="manifest" href="https://labba.studio/manifest.json" />
 
-    <title>Labba Studio</title>
+    <!-- (Opcional) Fallback JSON-LD para scrapers que no ejecutan Helmet.
+         Debe coincidir con lo que ya inyectás globalmente en App.js -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Labba Studio",
+        "url": "https://labba.studio",
+        "logo": "https://labba.studio/logo512.png",
+        "sameAs": ["https://www.linkedin.com/company/labba-studio"]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Labba Studio",
+        "url": "https://labba.studio/"  
+      }
+    </script>
   </head>
   <body>
-    <!-- <noscript>You need to enable JavaScript to run this app.</noscript> -->
     <div id="root"></div>
   </body>
 </html>
