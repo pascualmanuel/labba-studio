@@ -50,14 +50,14 @@ const FloraPlus = () => {
         />
         <meta
           property="og:image"
-          content="https://labba.studio/og/projects/flora-plus-1200x630.jpg"
+          content="https://labba.studio/og/works-cover.jpg"
         />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:image"
-          content="https://labba.studio/og/projects/flora-plus-1200x630.jpg"
+          content="https://labba.studio/og/works-cover.jpg"
         />
         <script type="application/ld+json">
           {JSON.stringify({
@@ -65,7 +65,7 @@ const FloraPlus = () => {
             "@type": "CreativeWork",
             name: "Flora Plus",
             url: "https://labba.studio/works/flora-plus",
-            image: "https://labba.studio/og/projects/flora-plus-1200x630.jpg",
+            image: "https://labba.studio/og/works-cover.jpg",
             description:
               "A powerful platform to manage experiences, streamline operations, and enhance journeys for providers and travelers.",
             author: { "@type": "Organization", name: "Labba Studio" },
