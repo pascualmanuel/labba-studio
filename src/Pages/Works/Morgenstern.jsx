@@ -21,20 +21,31 @@ import WorksGrid from "../../Components/WorksGrid";
 
 const Morgenstern = () => {
   let isDesktop = window.innerWidth > 1024;
-  useEffect(() => {
-    document.title = "Morgenstern - Labba Studio";
-  }, []);
 
   return (
     <>
       <Helmet>
-        <title>Morgenstern — Labba Studio</title>
+        <title>Morgenstern — Case Study | Labba Studio</title>
         <meta
           name="description"
           content="A creative and playful website for a creative and playful illustrated project."
         />
         <link rel="canonical" href="https://labba.studio/works/morgenstern" />
-        <meta property="og:title" content="Morgenstern — Labba Studio" />
+        <link
+          rel="alternate"
+          hrefLang="en"
+          href="https://labba.studio/works/morgenstern"
+        />
+        <link
+          rel="alternate"
+          hrefLang="x-default"
+          href="https://labba.studio/works/morgenstern"
+        />
+        <meta property="og:site_name" content="Labba Studio" />
+        <meta
+          property="og:title"
+          content="Morgenstern — Case Study | Labba Studio"
+        />
         <meta
           property="og:description"
           content="A creative and playful website for a creative and playful illustrated project."
@@ -44,16 +55,68 @@ const Morgenstern = () => {
           property="og:url"
           content="https://labba.studio/works/morgenstern"
         />
+        <meta
+          property="og:image"
+          content="https://labba.studio/og/projects/morgenstern-1200x630.jpg"
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:image"
+          content="https://labba.studio/og/projects/morgenstern-1200x630.jpg"
+        />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CreativeWork",
+            name: "Morgenstern",
+            url: "https://labba.studio/works/morgenstern",
+            image: "https://labba.studio/og/projects/morgenstern-1200x630.jpg",
+            description:
+              "A creative and playful website for a creative and playful illustrated project.",
+            author: { "@type": "Organization", name: "Labba Studio" },
+            datePublished: "2023",
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: "https://labba.studio/",
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Work",
+                item: "https://labba.studio/work",
+              },
+              {
+                "@type": "ListItem",
+                position: 3,
+                name: "Morgenstern",
+                item: "https://labba.studio/works/morgenstern",
+              },
+            ],
+          })}
+        </script>
       </Helmet>
       <div
         className="h-[590px] w-[100vw] sm:h-[680px] bg-cover bg-center "
         style={{ backgroundImage: `url(${MorgensternImg})` }}
+        role="img"
+        aria-label="Morgenstern hero image"
       ></div>
-      <h2 className="work-title py-20 hidden md:block px-6 max-w-[1200px] center">
+      <h1 className="work-title py-20 hidden md:block px-6 max-w-[1200px] center">
         Morgenstern
-      </h2>
+      </h1>
       <div className="max-w-[500px] sm:max-w-[768px] center px-4 sm:px-6">
-        <h2 className="work-title mt-8 mb-12 md:hidden">Morgenstern</h2>
+        <h1 className="work-title mt-8 mb-12 md:hidden">Morgenstern</h1>
         <p className="work-p">
           We designed a digital space for a transmedia project that blends
           various artistic mediums, including drawing, animation, sound, text,

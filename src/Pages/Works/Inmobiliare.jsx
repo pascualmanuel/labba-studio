@@ -22,20 +22,30 @@ const Inmobiliare = () => {
     inmoBg = WorkInmBg;
   }
 
-  useEffect(() => {
-    document.title = "Inmobiliare - Labba Studio";
-  }, []);
-
   return (
     <>
       <Helmet>
-        <title>Inmobiliare — Labba Studio</title>
+        <title>Inmobiliare — Case Study | Labba Studio</title>
         <meta
           name="description"
           content="Redesigning the experience of the largest real estate news portal in Mexico."
         />
         <link rel="canonical" href="https://labba.studio/works/inmobiliare" />
-        <meta property="og:title" content="Inmobiliare — Labba Studio" />
+        <link
+          rel="alternate"
+          hrefLang="en"
+          href="https://labba.studio/works/inmobiliare"
+        />
+        <link
+          rel="alternate"
+          hrefLang="x-default"
+          href="https://labba.studio/works/inmobiliare"
+        />
+        <meta property="og:site_name" content="Labba Studio" />
+        <meta
+          property="og:title"
+          content="Inmobiliare — Case Study | Labba Studio"
+        />
         <meta
           property="og:description"
           content="Redesigning the experience of the largest real estate news portal in Mexico."
@@ -45,16 +55,68 @@ const Inmobiliare = () => {
           property="og:url"
           content="https://labba.studio/works/inmobiliare"
         />
+        <meta
+          property="og:image"
+          content="https://labba.studio/og/projects/inmobiliare-1200x630.jpg"
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:image"
+          content="https://labba.studio/og/projects/inmobiliare-1200x630.jpg"
+        />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CreativeWork",
+            name: "Inmobiliare",
+            url: "https://labba.studio/works/inmobiliare",
+            image: "https://labba.studio/og/projects/inmobiliare-1200x630.jpg",
+            description:
+              "Redesigning the experience of the largest real estate news portal in Mexico.",
+            author: { "@type": "Organization", name: "Labba Studio" },
+            datePublished: "2024",
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: "https://labba.studio/",
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Work",
+                item: "https://labba.studio/work",
+              },
+              {
+                "@type": "ListItem",
+                position: 3,
+                name: "Inmobiliare",
+                item: "https://labba.studio/works/inmobiliare",
+              },
+            ],
+          })}
+        </script>
       </Helmet>
       <div
         className="h-[590px] w-[100vw] sm:h-[680px] bg-cover bg-center "
         style={{ backgroundImage: `url(${inmoBg})` }}
+        role="img"
+        aria-label="Inmobiliare hero image"
       ></div>
-      <h2 className="work-title py-20 hidden md:block px-6 max-w-[1200px] center">
+      <h1 className="work-title py-20 hidden md:block px-6 max-w-[1200px] center">
         Inmobiliare
-      </h2>
+      </h1>
       <div className="max-w-[500px] sm:max-w-[768px] center px-4 sm:px-6">
-        <h2 className="work-title mt-8 mb-12 md:hidden">Inmobiliare</h2>
+        <h1 className="work-title mt-8 mb-12 md:hidden">Inmobiliare</h1>
         <p className="work-p">
           Inmobiliare approached us with the goal of redesigning inmobiliare’s
           website for users to explore real estate news. They wanted to provide

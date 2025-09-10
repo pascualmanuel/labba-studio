@@ -35,37 +35,96 @@ const Manno = () => {
     MannoBg = MannoHero;
   }
 
-  useEffect(() => {
-    document.title = "Manno - Labba Studio";
-  }, []);
-
   return (
     <>
       <Helmet>
-        <title>Manno — Labba Studio</title>
+        <title>Manno — Case Study | Labba Studio</title>
         <meta
           name="description"
           content="A trusted community app connecting people who need to outsource tasks with people ready to work."
         />
         <link rel="canonical" href="https://labba.studio/works/manno" />
-        <meta property="og:title" content="Manno — Labba Studio" />
+        <link
+          rel="alternate"
+          hrefLang="en"
+          href="https://labba.studio/works/manno"
+        />
+        <link
+          rel="alternate"
+          hrefLang="x-default"
+          href="https://labba.studio/works/manno"
+        />
+        <meta property="og:site_name" content="Labba Studio" />
+        <meta property="og:title" content="Manno — Case Study | Labba Studio" />
         <meta
           property="og:description"
           content="A trusted community app connecting people who need to outsource tasks with people ready to work."
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://labba.studio/works/manno" />
+        <meta
+          property="og:image"
+          content="https://labba.studio/og/projects/manno-1200x630.jpg"
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:image"
+          content="https://labba.studio/og/projects/manno-1200x630.jpg"
+        />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CreativeWork",
+            name: "Manno",
+            url: "https://labba.studio/works/manno",
+            image: "https://labba.studio/og/projects/manno-1200x630.jpg",
+            description:
+              "A trusted community app connecting people who need to outsource tasks with people ready to work.",
+            author: { "@type": "Organization", name: "Labba Studio" },
+            datePublished: "2021",
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: "https://labba.studio/",
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Work",
+                item: "https://labba.studio/work",
+              },
+              {
+                "@type": "ListItem",
+                position: 3,
+                name: "Manno",
+                item: "https://labba.studio/works/manno",
+              },
+            ],
+          })}
+        </script>
       </Helmet>
       <div
         className="h-[590px] w-[100vw] sm:h-[680px] bg-cover bg-center lg:bg-[100%_25%]
 "
         style={{ backgroundImage: `url(${MannoBg})` }}
+        role="img"
+        aria-label="Manno hero image"
       ></div>
-      <h2 className="work-title py-20 hidden md:block px-6 max-w-[1200px] center">
+      <h1 className="work-title py-20 hidden md:block px-6 max-w-[1200px] center">
         Manno
-      </h2>
+      </h1>
       <div className="max-w-[500px] sm:max-w-[768px] center px-4 sm:px-6">
-        <h2 className="work-title mt-8 mb-12 md:hidden">Manno</h2>
+        <h1 className="work-title mt-8 mb-12 md:hidden">Manno</h1>
         <p className="work-p">
           The main goal was to refresh the website and align Manno’s digital
           presence with their vision of innovation and excellence.
