@@ -23,38 +23,101 @@ import { getWorksConfig } from "../../data/worksConfig";
 
 const Dbs = () => {
   let isDesktop = window.innerWidth > 1024;
-  useEffect(() => {
-    document.title = "DBS - Labba Studio";
-  }, []);
 
   return (
     <>
       <Helmet>
-        <title>De Blas Serrano — Labba Studio</title>
+        <title>De Blas Serrano — Case Study | Labba Studio</title>
         <meta
           name="description"
           content="Elegant, functional ecommerce for a Spanish winery, enhancing the shopping experience with a premium feel."
         />
         <link rel="canonical" href="https://labba.studio/works/dbs" />
-        <meta property="og:title" content="De Blas Serrano — Labba Studio" />
+        <link
+          rel="alternate"
+          hrefLang="en"
+          href="https://labba.studio/works/dbs"
+        />
+        <link
+          rel="alternate"
+          hrefLang="x-default"
+          href="https://labba.studio/works/dbs"
+        />
+        <meta property="og:site_name" content="Labba Studio" />
+        <meta
+          property="og:title"
+          content="De Blas Serrano — Case Study | Labba Studio"
+        />
         <meta
           property="og:description"
           content="Elegant, functional ecommerce for a Spanish winery, enhancing the shopping experience with a premium feel."
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://labba.studio/works/dbs" />
+        <meta
+          property="og:image"
+          content="https://labba.studio/og/projects/dbs-1200x630.jpg"
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:image"
+          content="https://labba.studio/og/projects/dbs-1200x630.jpg"
+        />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CreativeWork",
+            name: "De Blas Serrano",
+            url: "https://labba.studio/works/dbs",
+            image: "https://labba.studio/og/projects/dbs-1200x630.jpg",
+            description:
+              "Elegant, functional ecommerce for a Spanish winery, enhancing the shopping experience with a premium feel.",
+            author: { "@type": "Organization", name: "Labba Studio" },
+            datePublished: "2025",
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: "https://labba.studio/",
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Work",
+                item: "https://labba.studio/work",
+              },
+              {
+                "@type": "ListItem",
+                position: 3,
+                name: "De Blas Serrano",
+                item: "https://labba.studio/works/dbs",
+              },
+            ],
+          })}
+        </script>
       </Helmet>
       <div
         className="h-[590px] w-[100vw] sm:h-[680px] bg-cover bg-center "
         style={{ backgroundImage: `url(${BgDbs})` }}
+        role="img"
+        aria-label="De Blas Serrano hero image"
       ></div>
-      <h2 className="work-title py-20 hidden md:block px-6 max-w-[1200px] center">
+      <h1 className="work-title py-20 hidden md:block px-6 max-w-[1200px] center">
         Bodegas de Blas Serrano
-      </h2>
+      </h1>
       <div className="max-w-[500px] sm:max-w-[768px] center px-4 sm:px-6">
-        <h2 className="work-title mt-8 mb-12 md:hidden">
+        <h1 className="work-title mt-8 mb-12 md:hidden">
           Bodegas de Blas Serrano
-        </h2>
+        </h1>
         <p className="work-p">
           We designed and developed an elegant and functional ecommerce platform
           for Bodegas De Blas Serrano, a renowned Spanish winery. The website
