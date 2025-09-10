@@ -82,14 +82,6 @@ function App() {
     <>
       <Helmet>
         <meta name="robots" content="index, follow, max-image-preview:large" />
-        <link
-          rel="canonical"
-          href={
-            typeof window !== "undefined"
-              ? window.location.href
-              : "https://labba.studio/"
-          }
-        />
         {/* JSON-LD: Organization */}
         <script type="application/ld+json">
           {JSON.stringify({
@@ -104,50 +96,65 @@ function App() {
             ],
           })}
         </script>
-        {/* JSON-LD: WebSite + optional searchbox */}
+        {/* JSON-LD: WebSite (no SearchAction until real /search) */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebSite",
-            url: "https://labba.studio",
+            url: "https://labba.studio/",
             name: "Labba Studio",
-            potentialAction: {
-              "@type": "SearchAction",
-              target: "https://labba.studio/search?q={search_term_string}",
-              "query-input": "required name=search_term_string",
-            },
           })}
         </script>
-        {/* JSON-LD: SiteNavigationElement */}
+        {/* JSON-LD: SiteNavigation as strict ItemList */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "ItemList",
             itemListElement: [
               {
-                "@type": "SiteNavigationElement",
-                name: "Services",
-                url: "https://labba.studio/services",
+                "@type": "ListItem",
+                position: 1,
+                item: {
+                  "@type": "SiteNavigationElement",
+                  name: "Services",
+                  url: "https://labba.studio/services",
+                },
               },
               {
-                "@type": "SiteNavigationElement",
-                name: "Projects",
-                url: "https://labba.studio/work",
+                "@type": "ListItem",
+                position: 2,
+                item: {
+                  "@type": "SiteNavigationElement",
+                  name: "Projects",
+                  url: "https://labba.studio/work",
+                },
               },
               {
-                "@type": "SiteNavigationElement",
-                name: "About us",
-                url: "https://labba.studio/about",
+                "@type": "ListItem",
+                position: 3,
+                item: {
+                  "@type": "SiteNavigationElement",
+                  name: "About",
+                  url: "https://labba.studio/about",
+                },
               },
               {
-                "@type": "SiteNavigationElement",
-                name: "Blog",
-                url: "https://labba.studio/blog",
+                "@type": "ListItem",
+                position: 4,
+                item: {
+                  "@type": "SiteNavigationElement",
+                  name: "Blog",
+                  url: "https://labba.studio/blog",
+                },
               },
               {
-                "@type": "SiteNavigationElement",
-                name: "Contact",
-                url: "https://labba.studio/contact",
+                "@type": "ListItem",
+                position: 5,
+                item: {
+                  "@type": "SiteNavigationElement",
+                  name: "Contact",
+                  url: "https://labba.studio/contact",
+                },
               },
             ],
           })}

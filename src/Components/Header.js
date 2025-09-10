@@ -7,9 +7,11 @@ import BurgerClose from "../Assets/Burger-close.svg";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import BackIcon from "../Assets/Back.svg";
 import BackWhiteIcon from "../Assets/BackWhite.svg";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useLayoutEffect } from "react";
+
 import useBodyClass from "../Hooks/useBodyClass";
 import { useLanguage } from "../Hooks/LanguageContext";
+import { gsap } from "gsap";
 
 import MagneticButton from "./MagenticButton";
 
@@ -126,6 +128,62 @@ function Header() {
   // Lock page scroll when mobile menu is open
   useBodyClass("menu-open", isMenuOpen);
 
+  const links = [
+    { to: "/services", label: "Services" },
+    { to: "/work", label: "Work" },
+    { to: "/about", label: "About" },
+    { to: "/blog", label: "Blog" },
+  ];
+
+  const linksWrapRef = useRef(null); // contenedor relative de los links
+  const dotRef = useRef(null); // el dot que se mueve
+  const linkRefs = useRef({}); // refs por path
+
+  const assignLinkRef = (to) => (el) => {
+    if (el) linkRefs.current[to] = el;
+  };
+
+  const moveDot = () => {
+    if (!linksWrapRef.current || !dotRef.current) return;
+    const pathname = location.pathname;
+
+    // ocultar en home si querés (opcional)
+    if (pathname === "/") {
+      gsap.set(dotRef.current, { autoAlpha: 0 });
+      return;
+    }
+
+    const activeEl = linkRefs.current[pathname];
+    if (!activeEl) {
+      gsap.set(dotRef.current, { autoAlpha: 0 });
+      return;
+    }
+
+    const wrapRect = linksWrapRef.current.getBoundingClientRect();
+    const linkRect = activeEl.getBoundingClientRect();
+
+    // Centro X del link y 12px por debajo del bottom
+    const targetX = linkRect.left - wrapRect.left + linkRect.width / 2;
+    const targetY = linkRect.top - wrapRect.top + linkRect.height + 12;
+
+    gsap.to(dotRef.current, {
+      x: targetX,
+      y: targetY,
+      duration: 0.4,
+      ease: "power2.out",
+      autoAlpha: 1,
+    });
+  };
+
+  // mover dot en mount, cambio de ruta y resize
+  useLayoutEffect(() => {
+    moveDot();
+    const onResize = () => moveDot();
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location.pathname]);
+
   return (
     <>
       <div
@@ -136,34 +194,54 @@ function Header() {
       >
         <div
           className="
-     
     flex items-center justify-between mx-auto max-w-[1500px] w-full px-4 sm:px-16
-          
-          "
+  "
         >
           <Link to="/#home" onClick={closeMenu}>
-            <div className=" pointer-events-auto">
+            <div className="pointer-events-auto">
               <ReactSVG
                 src={isWorkPage ? LabbaWhiteLogo : LabbaWhiteLogo}
-                className=" "
+                className=""
               />
             </div>
           </Link>
 
-          <div className="flex flex-row gap-4 items-center">
-            <Link className="hidden md:block" to="/services">
-              Services
-            </Link>
-            <Link className="hidden md:block" to="/work">
-              Work
-            </Link>
-            <Link className="hidden md:block" to="/about">
-              About
-            </Link>
-            <Link className="hidden md:block mr-6" to="/blog">
-              Blog
-            </Link>
+          <div className="flex flex-row items-center gap-4">
+            {/* Links desktop + DOT activo */}
+            <div
+              className="hidden md:flex items-center"
+              style={{ color: "#F2F2F2" }}
+            >
+              <div ref={linksWrapRef} className="relative mt-[2px] mr-6">
+                <div className="flex items-baseline space-x-6">
+                  {links.map(({ to, label }) => (
+                    <Link
+                      key={to}
+                      to={to}
+                      ref={assignLinkRef(to)}
+                      className="text-[14px] mb-2 relative hover:opacity-80 transition-opacity"
+                      onClick={closeMenu}
+                    >
+                      {label}
+                    </Link>
+                  ))}
+                </div>
 
+                {/* DOT activo (desktop only) */}
+                <div
+                  ref={dotRef}
+                  className="hidden md:block absolute left-0 top-[-8px] w-[4px] h-[4px] rounded-full"
+                  style={{
+                    backgroundColor: "#F2F2F2",
+                    transform: "translate(-9999px, -9999px)",
+                    opacity: 0,
+                    pointerEvents: "none",
+                  }}
+                />
+              </div>
+            </div>
+
+            {/* CTA (igual que ya lo tenías) */}
             <Link to="/contact" className="btn-contact">
               <span>Get in touch</span>
               <svg
@@ -180,9 +258,9 @@ function Header() {
                     x2="100%"
                     y2="0%"
                   >
-                    <stop offset="0%" stop-color="rgba(255,255,255,0)" />
-                    <stop offset="50%" stop-color="rgba(255,255,255,1)" />
-                    <stop offset="100%" stop-color="rgba(255,255,255,0)" />
+                    <stop offset="0%" stopColor="rgba(255,255,255,0)" />
+                    <stop offset="50%" stopColor="rgba(255,255,255,1)" />
+                    <stop offset="100%" stopColor="rgba(255,255,255,0)" />
                   </linearGradient>
                 </defs>
                 <rect
@@ -201,6 +279,8 @@ function Header() {
                 />
               </svg>
             </Link>
+
+            {/* Botón mobile */}
             <div className="md:hidden z-999">
               <button
                 onClick={toggleMenu}
