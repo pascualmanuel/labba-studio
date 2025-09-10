@@ -64,14 +64,14 @@ const Manno = () => {
         <meta property="og:url" content="https://labba.studio/works/manno" />
         <meta
           property="og:image"
-          content="https://labba.studio/og/projects/manno-1200x630.jpg"
+          content="https://labba.studio/og/works-cover.jpg"
         />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:image"
-          content="https://labba.studio/og/projects/manno-1200x630.jpg"
+          content="https://labba.studio/og/works-cover.jpg"
         />
         <script type="application/ld+json">
           {JSON.stringify({
@@ -79,7 +79,7 @@ const Manno = () => {
             "@type": "CreativeWork",
             name: "Manno",
             url: "https://labba.studio/works/manno",
-            image: "https://labba.studio/og/projects/manno-1200x630.jpg",
+            image: "https://labba.studio/og/works-cover.jpg",
             description:
               "A trusted community app connecting people who need to outsource tasks with people ready to work.",
             author: { "@type": "Organization", name: "Labba Studio" },

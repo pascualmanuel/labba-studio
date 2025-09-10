@@ -57,14 +57,14 @@ const Inmobiliare = () => {
         />
         <meta
           property="og:image"
-          content="https://labba.studio/og/projects/inmobiliare-1200x630.jpg"
+          content="https://labba.studio/og/works-cover.jpg"
         />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:image"
-          content="https://labba.studio/og/projects/inmobiliare-1200x630.jpg"
+          content="https://labba.studio/og/works-cover.jpg"
         />
         <script type="application/ld+json">
           {JSON.stringify({
@@ -72,7 +72,7 @@ const Inmobiliare = () => {
             "@type": "CreativeWork",
             name: "Inmobiliare",
             url: "https://labba.studio/works/inmobiliare",
-            image: "https://labba.studio/og/projects/inmobiliare-1200x630.jpg",
+            image: "https://labba.studio/og/works-cover.jpg",
             description:
               "Redesigning the experience of the largest real estate news portal in Mexico.",
             author: { "@type": "Organization", name: "Labba Studio" },
