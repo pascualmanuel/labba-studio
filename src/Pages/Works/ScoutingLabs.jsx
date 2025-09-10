@@ -1,5 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
+
 import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import ScoutingLabsHero from "../../Assets/work/Scouting/scounting-site.webp";
@@ -21,12 +22,46 @@ import WorksGrid from "../../Components/WorksGrid";
 
 const ScoutingLabs = () => {
   let isDesktop = window.innerWidth > 1024;
-  useEffect(() => {
-    document.title = "Scouting Labs - Labba Studio";
-  }, []);
+  // document.title handled by Helmet
 
   return (
     <>
+      <Helmet>
+        <title>Scouting Labs — Case Study | Labba Studio</title>
+        <meta
+          name="description"
+          content="Connecting amateur sports passion with analysis technology to empower player development and visibility."
+        />
+        <link rel="canonical" href="https://labba.studio/works/scouting-labs" />
+        <meta property="og:site_name" content="Labba Studio" />
+        <meta property="og:title" content="Scouting Labs — Labba Studio" />
+        <meta
+          property="og:description"
+          content="Connecting amateur sports passion with analysis technology to empower player development and visibility."
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:url"
+          content="https://labba.studio/works/scouting-labs"
+        />
+        <meta
+          property="og:image"
+          content="https://labba.studio/og/works-scouting-labs-1200x630.jpg"
+        />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CreativeWork",
+            name: "Scouting Labs",
+            url: "https://labba.studio/works/scouting-labs",
+            image: "https://labba.studio/og/works-scouting-labs-1200x630.jpg",
+            description:
+              "Connecting amateur sports passion with analysis technology to empower player development and visibility.",
+            author: { "@type": "Organization", name: "Labba Studio" },
+            datePublished: "2024",
+          })}
+        </script>
+      </Helmet>
       <Helmet>
         <title>Scouting Labs — Labba Studio</title>
         <meta
@@ -49,11 +84,11 @@ const ScoutingLabs = () => {
         className="h-[590px] w-[100vw] sm:h-[680px] bg-cover bg-bottom "
         style={{ backgroundImage: `url(${ScoutingLabsHero})` }}
       ></div>
-      <h2 className="work-title py-20 hidden md:block px-6 max-w-[1200px] center">
+      <h1 className="work-title py-20 hidden md:block px-6 max-w-[1200px] center">
         Scouting Labs
-      </h2>
+      </h1>
       <div className="max-w-[500px] sm:max-w-[768px] center px-4 sm:px-6">
-        <h2 className="work-title mt-8 mb-12 md:hidden">Scouting Labs</h2>
+        <h1 className="work-title mt-8 mb-12 md:hidden">Scouting Labs</h1>
         <p className="work-p">
           We designed a dynamic, modern website for Scouting Labs, a platform
           that brings professional-grade technology to the amateur sports world.
