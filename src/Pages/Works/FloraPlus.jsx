@@ -14,20 +14,31 @@ import { getWorksConfig } from "../../data/worksConfig";
 
 const FloraPlus = () => {
   let isDesktop = window.innerWidth > 1024;
-  useEffect(() => {
-    document.title = "Flora Plus - Labba Studio";
-  }, []);
 
   return (
     <>
       <Helmet>
-        <title>Flora Plus — Labba Studio</title>
+        <title>Flora Plus — Case Study | Labba Studio</title>
         <meta
           name="description"
           content="A powerful platform to manage experiences, streamline operations, and enhance journeys for providers and travelers."
         />
         <link rel="canonical" href="https://labba.studio/works/flora-plus" />
-        <meta property="og:title" content="Flora Plus — Labba Studio" />
+        <link
+          rel="alternate"
+          hrefLang="en"
+          href="https://labba.studio/works/flora-plus"
+        />
+        <link
+          rel="alternate"
+          hrefLang="x-default"
+          href="https://labba.studio/works/flora-plus"
+        />
+        <meta property="og:site_name" content="Labba Studio" />
+        <meta
+          property="og:title"
+          content="Flora Plus — Case Study | Labba Studio"
+        />
         <meta
           property="og:description"
           content="A powerful platform to manage experiences, streamline operations, and enhance journeys for providers and travelers."
@@ -37,16 +48,68 @@ const FloraPlus = () => {
           property="og:url"
           content="https://labba.studio/works/flora-plus"
         />
+        <meta
+          property="og:image"
+          content="https://labba.studio/og/projects/flora-plus-1200x630.jpg"
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:image"
+          content="https://labba.studio/og/projects/flora-plus-1200x630.jpg"
+        />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CreativeWork",
+            name: "Flora Plus",
+            url: "https://labba.studio/works/flora-plus",
+            image: "https://labba.studio/og/projects/flora-plus-1200x630.jpg",
+            description:
+              "A powerful platform to manage experiences, streamline operations, and enhance journeys for providers and travelers.",
+            author: { "@type": "Organization", name: "Labba Studio" },
+            datePublished: "2025",
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: "https://labba.studio/",
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Work",
+                item: "https://labba.studio/work",
+              },
+              {
+                "@type": "ListItem",
+                position: 3,
+                name: "Flora Plus",
+                item: "https://labba.studio/works/flora-plus",
+              },
+            ],
+          })}
+        </script>
       </Helmet>
       <div
         className="h-[590px] w-[100vw] sm:h-[680px] bg-cover bg-center "
         style={{ backgroundImage: `url(${BgFloraPlus})` }}
+        role="img"
+        aria-label="Flora Plus hero image"
       ></div>
-      <h2 className="work-title py-20 hidden md:block px-6 max-w-[1200px] center">
+      <h1 className="work-title py-20 hidden md:block px-6 max-w-[1200px] center">
         Flora Plus
-      </h2>
+      </h1>
       <div className="max-w-[500px] sm:max-w-[768px] center px-4 sm:px-6">
-        <h2 className="work-title mt-8 mb-12 md:hidden">Flora Plus</h2>
+        <h1 className="work-title mt-8 mb-12 md:hidden">Flora Plus</h1>
         <p className="work-p">
           Cutting-edge SaaS designed for the tourism sector. We developed an
           intuitive and visually appealing product that helps businesses manage
