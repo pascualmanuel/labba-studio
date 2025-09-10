@@ -132,7 +132,7 @@ function Header() {
     { to: "/services", label: "Services" },
     { to: "/work", label: "Work" },
     { to: "/about", label: "About" },
-    { to: "/blog", label: "Blog" },
+    // { to: "/blog", label: "Blog" },
   ];
 
   const linksWrapRef = useRef(null); // contenedor relative de los links
@@ -358,13 +358,13 @@ function Header() {
                 >
                   About
                 </Link>
-                <Link
+                {/* <Link
                   to="/blog"
                   className="flex items-center vigo leading-[103%] text-[50px] font-bold text-white tracking-[-2%] hover:text-[#c7c7c7] transition-colors duration-200 mb-2"
                   onClick={closeMenu}
                 >
                   Blog
-                </Link>
+                </Link> */}
               </div>
               <Link
                 to="/contact"
