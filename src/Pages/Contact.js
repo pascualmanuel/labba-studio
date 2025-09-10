@@ -7,10 +7,6 @@ import emailIcon from "../Assets/labba/inaki.webp";
 import emailIcon2 from "../Assets/labba/manuel.png";
 import { Link } from "react-router-dom";
 function Contact() {
-  useEffect(() => {
-    document.title = "Contact — Labba Studio";
-  }, []);
-
   const [selectedService, setSelectedService] = useState("");
   const [buttonText, setButtonText] = useState("Send");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -167,6 +163,17 @@ function Contact() {
           content="¿Listo para empezar tu próximo proyecto? Contáctanos para hablar de diseño, desarrollo y estrategia."
         />
         <link rel="canonical" href="https://labba.studio/contact" />
+        <link
+          rel="alternate"
+          hrefLang="en"
+          href="https://labba.studio/contact"
+        />
+        <link
+          rel="alternate"
+          hrefLang="x-default"
+          href="https://labba.studio/contact"
+        />
+        <meta property="og:site_name" content="Labba Studio" />
         <meta property="og:title" content="Contact — Labba Studio" />
         <meta
           property="og:description"
@@ -174,6 +181,17 @@ function Contact() {
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://labba.studio/contact" />
+        <meta
+          property="og:image"
+          content="https://labba.studio/og/contact-cover.jpg"
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:image"
+          content="https://labba.studio/og/contact-cover.jpg"
+        />
       </Helmet>
       <div className="flex flex-column sm:justify-center mx-4 sm:mx-[0px] mb-[120px] pt-[120px] ">
         <div className="flex lg:flex-row flex-col  mt-6 lg:mt-0 sm:px-16 items-start w-full justify-between ">
@@ -225,7 +243,7 @@ function Contact() {
 
             <div className="flex flex-col gap-[16px] my-[20px] justify-between ">
               <Link to="https://cal.com/hello-labba-studio" target="_blank">
-                <div className="w-full bg-[#FFFFFF0D] duration-300 hover:bg-[#FFFFFF1A] h-[75px] flex  rounded-[12px] flex-col justify-center pl-4">
+                <div className="w-full bg-[#FFFFFF0D] hover:bg-[#FFFFFF1A] h-[75px] flex  rounded-[12px] flex-col justify-center pl-4">
                   <p className="text-[#757575] text-[14px] font-normal">
                     Video call
                   </p>
@@ -235,7 +253,7 @@ function Contact() {
                 </div>
               </Link>
               <Link to="mailto:hello@labba.studio" target="_blank">
-                <div className="w-full bg-[#FFFFFF0D] duration-300 hover:bg-[#FFFFFF1A] h-[75px] flex  rounded-[12px] flex-col justify-center pl-4">
+                <div className="w-full bg-[#FFFFFF0D] hover:bg-[#FFFFFF1A] h-[75px] flex  rounded-[12px] flex-col justify-center pl-4">
                   <p className="text-[#757575] text-[14px] font-normal">
                     Email
                   </p>
@@ -248,7 +266,7 @@ function Contact() {
                 to={"https://linkedin.com/company/labba-studio"}
                 target="_blank"
               >
-                <div className="w-full bg-[#FFFFFF0D] duration-300 hover:bg-[#FFFFFF1A] h-[75px] flex  rounded-[12px] flex-col justify-center pl-4">
+                <div className="w-full bg-[#FFFFFF0D] hover:bg-[#FFFFFF1A] h-[75px] flex  rounded-[12px] flex-col justify-center pl-4">
                   <span className="text-[14px] text-white font-medium">
                     Linkedin
                   </span>
