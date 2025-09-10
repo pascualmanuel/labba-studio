@@ -225,7 +225,7 @@ function Contact() {
 
             <div className="flex flex-col gap-[16px] my-[20px] justify-between ">
               <Link to="https://cal.com/hello-labba-studio" target="_blank">
-                <div className="w-full bg-[#FFFFFF0D] hover:bg-[#FFFFFF1A] h-[75px] flex  rounded-[12px] flex-col justify-center pl-4">
+                <div className="w-full bg-[#FFFFFF0D] duration-300 hover:bg-[#FFFFFF1A] h-[75px] flex  rounded-[12px] flex-col justify-center pl-4">
                   <p className="text-[#757575] text-[14px] font-normal">
                     Video call
                   </p>
@@ -235,7 +235,7 @@ function Contact() {
                 </div>
               </Link>
               <Link to="mailto:hello@labba.studio" target="_blank">
-                <div className="w-full bg-[#FFFFFF0D] hover:bg-[#FFFFFF1A] h-[75px] flex  rounded-[12px] flex-col justify-center pl-4">
+                <div className="w-full bg-[#FFFFFF0D] duration-300 hover:bg-[#FFFFFF1A] h-[75px] flex  rounded-[12px] flex-col justify-center pl-4">
                   <p className="text-[#757575] text-[14px] font-normal">
                     Email
                   </p>
@@ -248,7 +248,7 @@ function Contact() {
                 to={"https://linkedin.com/company/labba-studio"}
                 target="_blank"
               >
-                <div className="w-full bg-[#FFFFFF0D] hover:bg-[#FFFFFF1A] h-[75px] flex  rounded-[12px] flex-col justify-center pl-4">
+                <div className="w-full bg-[#FFFFFF0D] duration-300 hover:bg-[#FFFFFF1A] h-[75px] flex  rounded-[12px] flex-col justify-center pl-4">
                   <span className="text-[14px] text-white font-medium">
                     Linkedin
                   </span>

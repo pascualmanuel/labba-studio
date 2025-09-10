@@ -29,13 +29,15 @@ import Work6 from "../Assets/work/work-morgenstern.webp";
 
 function Home() {
   const { userLanguage, translateText } = useLanguage();
-  const isMobile = window.innerWidth <= 768;
-  const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
-  const [viewportHeight, setViewportHeight] = useState(window.innerHeight);
+  const [isMobile, setIsMobile] = useState(false);
+  const [viewportWidth, setViewportWidth] = useState(0);
+  const [viewportHeight, setViewportHeight] = useState(0);
   const [videoShouldPlay, setVideoShouldPlay] = useState(false);
 
   useEffect(() => {
-    document.title = "Labba Studio — Design & Code for Digital Experiences";
+    setIsMobile(window.innerWidth <= 768);
+    setViewportWidth(window.innerWidth);
+    setViewportHeight(window.innerHeight);
   }, []);
 
   useEffect(() => {
@@ -61,53 +63,58 @@ function Home() {
 
   useEffect(() => {
     const ellipseShadow = document.getElementById(shadowOn);
-
-    if (!ellipseShadow) {
-      return;
-    }
+    if (!ellipseShadow) return;
 
     const ellipseWidth = 1167;
     const ellipseHeight = 1167;
     const halfWidth = ellipseWidth / 2;
     const halfHeight = ellipseHeight / 2;
 
-    // Posiciona la sombra en el centro de la pantalla al cargar
     const initialX = window.innerWidth / 2 + 360 - halfWidth;
     const initialY = window.innerHeight / 2 - 50 - halfHeight;
-
     ellipseShadow.style.left = `${initialX}px`;
     ellipseShadow.style.top = `${initialY}px`;
 
-    // Luego, mueve la sombra con el cursor
-    document.addEventListener("mousemove", (e) => {
+    const handler = (e) => {
       const x = e.clientX - halfWidth;
       const y = e.clientY - halfHeight;
-
       ellipseShadow.style.left = `${x}px`;
       ellipseShadow.style.top = `${y}px`;
-    });
-
-    // Cleanup
-    return () => {
-      document.removeEventListener("mousemove", (e) => {
-        const x = e.clientX - halfWidth;
-        const y = e.clientY - halfHeight;
-
-        ellipseShadow.style.left = `${x}px`;
-        ellipseShadow.style.top = `${y}px`;
-      });
     };
+    document.addEventListener("mousemove", handler);
+    return () => document.removeEventListener("mousemove", handler);
   }, []);
 
   return (
     <>
       <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            name: "Labba Studio — Design & Code for Digital Experiences",
+            url: "https://labba.studio/",
+            inLanguage: "en",
+            isPartOf: {
+              "@type": "WebSite",
+              name: "Labba Studio",
+              url: "https://labba.studio/",
+            },
+          })}
+        </script>
         <title>Labba Studio — Design & Code for Digital Experiences</title>
         <meta
           name="description"
           content="Labba Studio designs and builds digital products, websites, and brands. We create creative, conversion‑driven experiences."
         />
         <link rel="canonical" href="https://labba.studio/" />
+        <link rel="alternate" hrefLang="en" href="https://labba.studio/" />
+        <link
+          rel="alternate"
+          hrefLang="x-default"
+          href="https://labba.studio/"
+        />
+        <meta property="og:site_name" content="Labba Studio" />
         <meta
           property="og:title"
           content="Labba Studio — Design & Code for Digital Experiences"
@@ -118,8 +125,22 @@ function Home() {
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://labba.studio/" />
-        <meta property="og:image" content="https://labba.studio/logo275.png" />
+        <meta
+          property="og:image"
+          content="https://labba.studio/og/home-1200x630.jpg"
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:image"
+          content="https://labba.studio/og/home-1200x630.jpg"
+        />
+        <link
+          rel="preload"
+          as="image"
+          href="https://labba.studio/og/home-1200x630.jpg"
+        />
         <meta
           name="twitter:title"
           content="Labba Studio — Design & Code for Digital Experiences"
@@ -145,9 +166,22 @@ function Home() {
 
       <div className="works-section relative mx-auto px-6 sm:px-[53px] lg:px-16 max-w-[1500px] flex flex-col my-[100px] md:mb-[150px]">
         {/* <NewWorks /> */}
-        <section aria-label="Featured work" data-nosnippet>
+        <section aria-label="Featured work">
           <WorksGrid works={getWorksByIds(getWorksConfig("home"))} />
         </section>
+
+        <div className="flex justify-center items-center mt-12 ">
+          <Link
+            to="/work"
+            className="  z-[999] w-[147px] h-[46px] font-bold text-[16px] bg-[#FFFFFF1A] flex justify-center items-center"
+            style={{
+              backdropFilter: "blur(10px)",
+              borderRadius: "8px",
+            }}
+          >
+            <span>View all work</span>
+          </Link>
+        </div>
       </div>
 
       {/* <Footer /> */}

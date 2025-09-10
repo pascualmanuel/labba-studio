@@ -89,6 +89,17 @@ const Services = () => {
           content="End-to-end services in UX/UI design, web development, branding, and custom AI. Fast iterations, measurable outcomes, and real business impact."
         />
         <link rel="canonical" href="https://labba.studio/services" />
+        <link
+          rel="alternate"
+          hrefLang="en"
+          href="https://labba.studio/services"
+        />
+        <link
+          rel="alternate"
+          hrefLang="x-default"
+          href="https://labba.studio/services"
+        />
+        <meta property="og:site_name" content="Labba Studio" />
         <meta property="og:title" content="Services — Labba Studio" />
         <meta
           property="og:description"
@@ -98,7 +109,13 @@ const Services = () => {
         <meta property="og:url" content="https://labba.studio/services" />
         <meta
           property="og:image"
-          content="https://labba.studio/og/services.jpg"
+          content="https://labba.studio/og/services-1200x630.jpg"
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta
+          name="twitter:image"
+          content="https://labba.studio/og/services-1200x630.jpg"
         />
         <meta name="twitter:card" content="summary_large_image" />
 
@@ -138,10 +155,14 @@ const Services = () => {
             "@context": "https://schema.org",
             "@type": "ItemList",
             itemListElement: services.map((s, i) => ({
-              "@type": "Service",
-              name: s.title,
+              "@type": "ListItem",
               position: i + 1,
-              description: s.desc,
+              item: {
+                "@type": "Service",
+                name: s.title,
+                description: s.desc,
+                provider: { "@type": "Organization", name: "Labba Studio" },
+              },
             })),
           })}
         </script>
@@ -180,6 +201,10 @@ const Services = () => {
           >
             {services.map((s) => (
               <article
+                id={s.title
+                  .toLowerCase()
+                  .replace(/[^a-z0-9]+/g, "-")
+                  .replace(/(^-|-$)/g, "")}
                 key={s.title}
                 className={`
                   article-services

@@ -184,6 +184,8 @@ const Works = () => {
         <div
           className={`${base} ${size}`}
           style={{ backgroundImage: w.image ? `url(${w.image})` : undefined }}
+          role="img"
+          aria-label={`${w.title} — ${w.tags.join(", ")}`}
         >
           <div className="project-info w-[359px] md:w-[300px] mg:w-[359px] bg-[#FFFFFF33] rounded-[10px] absolute top-[25px] left-[30px] md:left-[12px] mg:left-[30px] blur-bg">
             <div className="flex flex-row justify-between">
@@ -250,6 +252,7 @@ const Works = () => {
           content="Selected work from Labba Studio: websites, apps, and branding. Explore projects including Hyundai, Scouting Labs, Flora Plus, and more."
         />
         <link rel="canonical" href="https://labba.studio/work" />
+        <meta property="og:site_name" content="Labba Studio" />
         <meta property="og:title" content="Projects — Labba Studio Portfolio" />
         <meta
           property="og:description"
@@ -257,18 +260,58 @@ const Works = () => {
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://labba.studio/work" />
+        <meta
+          property="og:image"
+          content="https://labba.studio/og/work-1200x630.jpg"
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:image"
+          content="https://labba.studio/og/work-1200x630.jpg"
+        />
+        <link rel="alternate" hrefLang="en" href="https://labba.studio/work" />
+        <link
+          rel="alternate"
+          hrefLang="x-default"
+          href="https://labba.studio/work"
+        />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            name: "Projects — Labba Studio Portfolio",
+            url: "https://labba.studio/work",
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            itemListElement: worksData.map((w, i) => ({
+              "@type": "ListItem",
+              position: i + 1,
+              item: {
+                "@type": "CreativeWork",
+                name: w.title,
+                url: `https://labba.studio${w.href}`,
+              },
+            })),
+          })}
+        </script>
       </Helmet>
       {/* 1 sola sombra global (evita IDs duplicados) */}
       <div id="ellipse-shadow" className="hidden md:block ellipse-shadow"></div>
 
       {/* Header + filtros */}
       <div className="flex flex-col md:flex-col md:items-start md:justify-between">
-        <h2 className="h2 max-w-[855px] mb-10">
-          We turn your ideas into real-world impact.
-        </h2>
         <h1 className="h2 max-w-[855px] mb-10 sr-only">
           Projects — Labba Studio Portfolio
         </h1>
+        <h2 className="h2 max-w-[855px] mb-10">
+          We turn your ideas into real-world impact.
+        </h2>
 
         <div className="flex flex-wrap gap-4 mt-[16px] md:mt-0">
           {FILTERS.map((label) => {
@@ -295,7 +338,7 @@ const Works = () => {
 
       {/* Grid único con 2 cols en md+. FULL = col-span-2; HALF = col normal.
           Si un HALF queda "solo" y el siguiente era FULL, lo convertimos a HALF y rellenamos. */}
-      <div className="mt-[30px]" data-nosnippet>
+      <div className="mt-[30px]">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-[24px]">
           <AnimatePresence initial={false}>
             {items.map((w) => {
