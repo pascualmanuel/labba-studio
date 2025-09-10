@@ -127,19 +127,19 @@ function Home() {
         <meta property="og:url" content="https://labba.studio/" />
         <meta
           property="og:image"
-          content="https://labba.studio/og/home-1200x630.jpg"
+          content="https://labba.studio/og/home-cover.jpg"
         />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:image"
-          content="https://labba.studio/og/home-1200x630.jpg"
+          content="https://labba.studio/og/home-cover.jpg"
         />
         <link
           rel="preload"
           as="image"
-          href="https://labba.studio/og/home-1200x630.jpg"
+          href="https://labba.studio/og/home-cover.jpg"
         />
         <meta
           name="twitter:title"

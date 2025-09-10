@@ -109,13 +109,13 @@ const Services = () => {
         <meta property="og:url" content="https://labba.studio/services" />
         <meta
           property="og:image"
-          content="https://labba.studio/og/services-1200x630.jpg"
+          content="https://labba.studio/og/services-cover.jpg"
         />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta
           name="twitter:image"
-          content="https://labba.studio/og/services-1200x630.jpg"
+          content="https://labba.studio/og/services-cover.jpg"
         />
         <meta name="twitter:card" content="summary_large_image" />
 
