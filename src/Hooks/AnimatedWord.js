@@ -61,12 +61,12 @@ const TextAnimated = React.forwardRef(
     return (
       <div className="words top-[-20px]" ref={wordsRef}>
         <div className="first-word">
-          <div className="single-word uno uppercase weight font-medium text-[18px] lg:text-[24px]">
+          <div className="single-word uno uppercase weight font-medium text-[18px] lg:text-[20px]">
             {splitText(firstWord, "single-chart1")}
           </div>
         </div>
         <div className="second-word">
-          <div className="single-word dos uppercase weight font-medium text-[18px] lg:text-[24px]">
+          <div className="single-word dos uppercase weight font-medium text-[18px] lg:text-[20px]">
             {splitText(secondWord, "single-chart2")}
           </div>
         </div>

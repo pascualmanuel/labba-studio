@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import WorkInmBg from "../../Assets/work/Inmobiliare/inmobiliare_bg.webp";
@@ -33,21 +34,97 @@ const Trebol = () => {
     TrebolBg = Work4;
   }
 
-  useEffect(() => {
-    document.title = "Trebol - Labba Studio";
-  }, []);
-
   return (
     <>
+      <Helmet>
+        <title>Trebol — Case Study | Labba Studio</title>
+        <meta
+          name="description"
+          content="Join lotteries and track winning numbers from your phone—no store visit needed."
+        />
+        <link rel="canonical" href="https://labba.studio/works/trebol" />
+        <link
+          rel="alternate"
+          hrefLang="en"
+          href="https://labba.studio/works/trebol"
+        />
+        <link
+          rel="alternate"
+          hrefLang="x-default"
+          href="https://labba.studio/works/trebol"
+        />
+        <meta property="og:site_name" content="Labba Studio" />
+        <meta
+          property="og:title"
+          content="Trebol — Case Study | Labba Studio"
+        />
+        <meta
+          property="og:description"
+          content="Join lotteries and track winning numbers from your phone—no store visit needed."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://labba.studio/works/trebol" />
+        <meta
+          property="og:image"
+          content="https://labba.studio/og/works-og.jpg"
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:image"
+          content="https://labba.studio/og/works-og.jpg"
+        />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CreativeWork",
+            name: "Trebol",
+            url: "https://labba.studio/works/trebol",
+            image: "https://labba.studio/og/works-og.jpg",
+            description:
+              "Join lotteries and track winning numbers from your phone—no store visit needed.",
+            author: { "@type": "Organization", name: "Labba Studio" },
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: "https://labba.studio/",
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Work",
+                item: "https://labba.studio/work",
+              },
+              {
+                "@type": "ListItem",
+                position: 3,
+                name: "Trebol",
+                item: "https://labba.studio/works/trebol",
+              },
+            ],
+          })}
+        </script>
+      </Helmet>
       <div
-        className="h-[590px] w-[100vw] sm:h-[680px] bg-cover bg-center mt-[-77px] md:mt-[-8rem]"
+        className="h-[590px] w-[100vw] sm:h-[680px] bg-cover bg-center "
         style={{ backgroundImage: `url(${TrebolBg})` }}
+        role="img"
+        aria-label="Trebol hero image"
       ></div>
-      <h2 className="work-title py-20 hidden md:block px-6 max-w-[1200px] center">
+      <h1 className="work-title py-20 hidden md:block px-6 max-w-[1200px] center">
         Trebol
-      </h2>
+      </h1>
       <div className="max-w-[500px] sm:max-w-[768px] center px-4 sm:px-6">
-        <h2 className="work-title mt-8 mb-12 md:hidden">Trebol</h2>
+        <h1 className="work-title mt-8 mb-12 md:hidden">Trebol</h1>
         <p className="work-p">
           The traditional lottery ticket purchasing process was cumbersome and
           often required physical visits to authorized retailers. Additionally,
@@ -136,7 +213,7 @@ const Trebol = () => {
             Other work
           </span>
         )}
-        <section className="works-section relative  mx-auto px-6 sm:px-[53px] lg:px-[150px] max-w-[1500px] flex flex-col-reverse  lg:mt-[-300px]">
+        <section className="works-section relative  mx-auto px-6 sm:px-[53px] lg:px-16 max-w-[1500px] flex flex-col-reverse  lg:mt-[-300px]">
           <Link to="/works/manno" target="" rel="noopener noreferrer">
             <div
               className="work-item relative mb-2 cursor-none sm:mb-6 rounded-lg bg-cover bg-center h-[260px] md:h-[580px] mt-6  "
@@ -233,7 +310,7 @@ const Trebol = () => {
           </div>
         </section>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

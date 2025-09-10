@@ -15,6 +15,8 @@ function Rounded({
   heightButton,
   widthButton,
   buttonBorderColor,
+  bgColor,
+  buttonTextColor,
   ...attributes
 }) {
   const circle = useRef(null);
@@ -52,10 +54,12 @@ function Rounded({
       <div
         className={styles.roundedButton}
         style={{
+          background: bgColor,
           overflow: "hidden",
           width: widthButton,
           height: heightButton,
           borderColor: buttonBorderColor,
+          color: buttonTextColor,
         }}
         onMouseEnter={manageMouseEnter}
         onMouseLeave={manageMouseLeave}

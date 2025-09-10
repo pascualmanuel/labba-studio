@@ -1,19 +1,23 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import "../Styles/App.css";
 // import Works from "../Components/Works";
 import "../Styles/Prueba.css";
 import HomeHero from "../Components/HomeHero";
-import Services from "../Components/OldComps/Services";
+// import Services from "../Components/OldComps/Services";
 import Process from "../Components/Process";
 import Carousel from "../Components/Carousel";
-import Claim from "../Components/OldComps/Claim";
+import Claim from "../Components/Claim";
 import { useLanguage } from "../Hooks/LanguageContext";
 import { Link } from "react-router-dom";
-import Rounded from "../Hooks/Rounded";
 import NewWorks from "../Components/NewWork";
 import NewServices from "../Components/NewServices";
 import Footer from "../Components/Footer";
 import MannoHero from "../Assets/work/Manno/MannoHero.webp";
+import VideoSection from "../Components/VideoSection";
+import WorksGrid from "../Components/WorksGrid";
+import { getWorksByIds } from "../data/worksData";
+import { getWorksConfig } from "../data/worksConfig";
 
 import ephiHero from "../Assets/work/Ephimero/hero_ephi.jpg";
 import ephiHeroMob from "../Assets/work/Ephimero/hero-principal-mob.webp";
@@ -25,111 +29,162 @@ import Work6 from "../Assets/work/work-morgenstern.webp";
 
 function Home() {
   const { userLanguage, translateText } = useLanguage();
-  const isMobile = window.innerWidth <= 768;
-  const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
-  const [viewportHeight, setViewportHeight] = useState(window.innerHeight);
+  const [isMobile, setIsMobile] = useState(false);
+  const [viewportWidth, setViewportWidth] = useState(0);
+  const [viewportHeight, setViewportHeight] = useState(0);
+  const [videoShouldPlay, setVideoShouldPlay] = useState(false);
 
   useEffect(() => {
-    document.title = "Labba Studio";
+    setIsMobile(window.innerWidth <= 768);
+    setViewportWidth(window.innerWidth);
+    setViewportHeight(window.innerHeight);
+  }, []);
+
+  useEffect(() => {
+    // si en esta sesión ya se mostró el loader, reproducir directo
+    if (sessionStorage.getItem("homeLoaderShown") === "true") {
+      setVideoShouldPlay(true);
+      return;
+    }
+
+    const onDone = () => {
+      // marcar que el loader ya se mostró en esta sesión
+      sessionStorage.setItem("homeLoaderShown", "true");
+      // abrir la compuerta del video
+      setVideoShouldPlay(true);
+    };
+
+    // escuchar la señal global del loader (se dispara tras animationend)
+    window.addEventListener("home-loader-done", onDone, { once: true });
+    return () => window.removeEventListener("home-loader-done", onDone);
   }, []);
 
   let shadowOn = "ellipse-shadow";
 
   useEffect(() => {
     const ellipseShadow = document.getElementById(shadowOn);
-
-    if (!ellipseShadow) {
-      return;
-    }
+    if (!ellipseShadow) return;
 
     const ellipseWidth = 1167;
     const ellipseHeight = 1167;
     const halfWidth = ellipseWidth / 2;
     const halfHeight = ellipseHeight / 2;
 
-    // Posiciona la sombra en el centro de la pantalla al cargar
     const initialX = window.innerWidth / 2 + 360 - halfWidth;
     const initialY = window.innerHeight / 2 - 50 - halfHeight;
-
     ellipseShadow.style.left = `${initialX}px`;
     ellipseShadow.style.top = `${initialY}px`;
 
-    // Luego, mueve la sombra con el cursor
-    document.addEventListener("mousemove", (e) => {
+    const handler = (e) => {
       const x = e.clientX - halfWidth;
       const y = e.clientY - halfHeight;
-
       ellipseShadow.style.left = `${x}px`;
       ellipseShadow.style.top = `${y}px`;
-    });
-
-    // Cleanup
-    return () => {
-      document.removeEventListener("mousemove", (e) => {
-        const x = e.clientX - halfWidth;
-        const y = e.clientY - halfHeight;
-
-        ellipseShadow.style.left = `${x}px`;
-        ellipseShadow.style.top = `${y}px`;
-      });
     };
+    document.addEventListener("mousemove", handler);
+    return () => document.removeEventListener("mousemove", handler);
   }, []);
-
-  // useEffect(() => {
-  //   const section = document.querySelector(".parallax");
-
-  //   if (!section) {
-  //     return;
-  //   }
-
-  //   const initialScale = 0.8;
-  //   const maxScale = 1.0;
-  //   const scaleMultiplier = 0.001;
-
-  //   section.style.transform = `scale(${initialScale})`;
-
-  //   const updateSectionScale = () => {
-  //     const scrollY = window.scrollY || window.pageYOffset;
-
-  //     let newScale = initialScale + scrollY * scaleMultiplier;
-  //     newScale = Math.min(newScale, maxScale);
-
-  //     section.style.transform = `scale(${newScale})`;
-  //   };
-
-  //   window.addEventListener("scroll", updateSectionScale);
-
-  //   return () => {
-  //     window.removeEventListener("scroll", updateSectionScale);
-  //   };
-  // }, []);
 
   return (
     <>
-      <div id={shadowOn}></div>
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            name: "Labba Studio — Design & Code for Digital Experiences",
+            url: "https://labba.studio/",
+            inLanguage: "en",
+            isPartOf: {
+              "@type": "WebSite",
+              name: "Labba Studio",
+              url: "https://labba.studio/",
+            },
+          })}
+        </script>
+        <title>Labba Studio — Design & Code for Digital Experiences</title>
+        <meta
+          name="description"
+          content="Labba Studio designs and builds digital products, websites, and brands. We create creative, conversion‑driven experiences."
+        />
+        <link rel="canonical" href="https://labba.studio/" />
+        <link rel="alternate" hrefLang="en" href="https://labba.studio/" />
+        <link
+          rel="alternate"
+          hrefLang="x-default"
+          href="https://labba.studio/"
+        />
+        <meta property="og:site_name" content="Labba Studio" />
+        <meta
+          property="og:title"
+          content="Labba Studio — Design & Code for Digital Experiences"
+        />
+        <meta
+          property="og:description"
+          content="Labba Studio designs and builds digital products, websites, and brands. We create creative, conversion‑driven experiences."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://labba.studio/" />
+        <meta
+          property="og:image"
+          content="https://labba.studio/og/home-og.jpg"
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:image"
+          content="https://labba.studio/og/home-og.jpg"
+        />
+        <link
+          rel="preload"
+          as="image"
+          href="https://labba.studio/og/home-og.jpg"
+        />
+        <meta
+          name="twitter:title"
+          content="Labba Studio — Design & Code for Digital Experiences"
+        />
+        <meta
+          name="twitter:description"
+          content="Labba Studio designs and builds digital products, websites, and brands."
+        />
+      </Helmet>
+      <div id={shadowOn} className="hidden md:block"></div>
       <div className="background-mobile"></div>
 
+      <h1 className="sr-only">
+        Labba Studio — Design & Code for Digital Experiences
+      </h1>
       <HomeHero />
 
-      <NewWorks />
-      <div className="" style={{ overflow: "hidden" }}>
-        <Claim />
-      </div>
+      <VideoSection shouldPlay={videoShouldPlay} />
 
-      <div className=" mb-[200px] mt-[-150px] sm:mt-[-120px]">
+      <div className="">
         <NewServices />
       </div>
 
-      <Process />
-      <div className="sm:h-screen sm:pb-0  	" style={{ background: " #ECECEC" }}>
-        <div className="  ">
-          <h3 className="b1-desk ml-[23px] sm:ml-36 pt-24 sm:pt-72">
-            We love our clients
-          </h3>
+      <div className="works-section relative mx-auto px-6 sm:px-[53px] lg:px-16 max-w-[1500px] flex flex-col my-[100px] md:mb-[150px]">
+        {/* <NewWorks /> */}
+        <section aria-label="Featured work">
+          <WorksGrid works={getWorksByIds(getWorksConfig("home"))} />
+        </section>
+
+        <div className="flex justify-center items-center mt-12 ">
+          <Link
+            to="/work"
+            className="  z-[999] w-[147px] h-[46px] font-bold text-[16px] bg-[#FFFFFF1A] flex justify-center items-center"
+            style={{
+              backdropFilter: "blur(10px)",
+              borderRadius: "8px",
+            }}
+          >
+            <span>View all work</span>
+          </Link>
         </div>
-        <Carousel />
       </div>
-      <Footer />
+
+      {/* <Footer /> */}
 
       <img src={MannoHero} className="hidden" />
 

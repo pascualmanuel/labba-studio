@@ -23,12 +23,67 @@ body {
     "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
     sans-serif;
   overflow-x: hidden !important;
-  background-color: white;
-  color: #2b2b2b;
+  background-color: #06070a;
+  color: #f1f1f1;
 }
 html {
   cursor: url("../Assets/dot-cursor.svg"), auto;
   /* scroll-behavior:auto */
+}
+
+.ql-container {
+  min-height: 300px !important;
+}
+/* Lock scroll when mobile menu is open */
+body.menu-open {
+  overflow: hidden !important;
+}
+
+.bg-header {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(30px);
+}
+
+.bg-mobile-menu {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+/* la pelota de colores */
+.bg-mobile-menu::before {
+  content: "";
+  position: absolute;
+  top: -100px; /* ajusta según figma */
+  right: -200px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(
+    circle at center,
+    #ff5800 0%,
+    #f62a4b 30%,
+    #d42374 50%,
+    #a0378b 70%,
+    #64428e 85%,
+    #2b417a 100%
+  );
+  transform: rotate(-180deg);
+  z-index: 0;
+}
+
+/* el blur oscuro encima */
+.bg-mobile-menu::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(6, 7, 10, 0.6) 0%,
+    rgba(6, 7, 10, 1) 100%
+  );
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  z-index: 1;
 }
 
 [role="button"],
@@ -89,6 +144,23 @@ a {
   line-height: normal;
 }
 
+.h2 {
+  /* H2 - Desktop */
+  font-family: "Satoshi-Variable";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 70px;
+  line-height: 115%;
+  letter-spacing: -0.02em;
+}
+
+.cta {
+  font-family: "Satoshi-Variable";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 132%;
+}
 .sp1-desk {
   font-family: "Satoshi-Variable";
   font-style: normal;
@@ -311,7 +383,7 @@ a {
   font-weight: 500;
   font-size: 16px;
   line-height: 22px;
-  color: #212121;
+  /* color: #212121; */
   text-align: center;
   display: flex;
   justify-content: center;
@@ -330,10 +402,12 @@ a {
   height: 90px;
 }
 .contact-buttons {
-  border: solid 1px #d9d9d9;
+  /* border: solid 1px #d9d9d9; */
   border-radius: 12px;
   width: fit-content;
-  padding: 7px 15px 7px 15px;
+  padding-right: 20px;
+  padding-left: 20px;
+  height: 45px;
   margin-right: 17px;
   margin-bottom: 12px;
   font-style: normal;
@@ -341,6 +415,11 @@ a {
   font-size: 14px;
   line-height: 19px;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff0d;
+  color: #dedede;
 }
 
 label {
@@ -351,8 +430,9 @@ label {
   color: #8c8c8c;
 }
 .contact-buttons:hover {
-  background-color: #ececec;
-  color: black;
+  background-color: #ffffff1a;
+
+  transition: all 0.3s ease;
 }
 
 .contact-b-active {
@@ -364,16 +444,16 @@ label {
     #2b417a 100.06%
   );
   color: white !important;
-  border: 1px solid #d9d9d9;
+  /* border: 1px solid #d9d9d9; */
 }
-
 .contact-form input,
-.contact-form select {
+.contact-form select,
+.contact-form textarea {
   border: none;
-  border: 1px solid #9d9d9d75;
-
+  background-color: #111111;
   border-radius: 8px;
-  padding: 8px 16px 8px 16px;
+  padding: 8px 16px;
+  color: #dedede;
 }
 
 select:focus-visible {
@@ -388,10 +468,33 @@ select:focus-visible {
   font-weight: 400;
   line-height: 22px;
   letter-spacing: 0em;
+  color: #8c8c8c;
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
+  outline: none;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px #111111 inset !important;
+  -webkit-text-fill-color: #dedede !important; /* cambia color del texto */
+  transition: background-color 5000s ease-in-out 0s; /* hack para evitar amarillo */
+  border-radius: 8px;
+}
+
+input:focus,
+button:focus {
+  outline: none;
+}
+
+input:focus-visible,
+button:focus-visible {
+  outline: none;
+}
+
+a:focus,
+a:focus-visible {
   outline: none;
 }
 
@@ -437,6 +540,7 @@ select:focus-visible {
 .work-max-w {
   max-width: 775px;
 }
+
 @media (max-width: 1023px) {
   .myH1 {
     font-size: 90px;
@@ -452,6 +556,10 @@ select:focus-visible {
 }
 
 @media (max-width: 640px) {
+  .h2 {
+    font-size: 50px;
+    line-height: 103%;
+  }
   .work-title {
     font-size: 45px;
     letter-spacing: -0.02em;
@@ -683,15 +791,16 @@ select:focus-visible {
 }
 
 .faq-item {
-  border-bottom: 0.5px solid #2b2b2b;
-  padding: 16px 2px 16px 2px;
+  /* border-bottom: 0.5px solid #2b2b2b; */
+  /* padding: 16px 2px 16px 2px; */
 }
 
 .faq-header {
   display: flex;
-  justify-content: space-between;
+  /* justify-self: end; */
   align-items: center;
-  height: 90px;
+  height: 60px;
+  /* margin-right: 100px; */
 }
 
 .faq-left {
@@ -715,7 +824,7 @@ select:focus-visible {
 .faq-right {
   font-size: 24px;
   font-weight: bold;
-  color: red;
+
   transition: transform 0.3s ease;
 }
 
@@ -728,6 +837,14 @@ select:focus-visible {
   max-height: 0px;
   transition: max-height 0.5s ease; /* Smooth open/close effect */
   margin-top: -10px;
+  /* margin-right: 100px; */
+  display: flex;
+  justify-content: flex-end;
+}
+
+.faq-answer > div {
+  width: 415px;
+  text-align: left;
 }
 
 .reveal-text {
@@ -772,4 +889,171 @@ select:focus-visible {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.btn-contact {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 123px;
+  height: 47px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  overflow: visible; /* dejamos que el glow respire */
+}
+
+.btn-contact > span {
+  position: relative;
+  z-index: 1;
+}
+
+/* Capa del borde (no capta clicks) */
+.btn-border {
+  position: absolute;
+  inset: 0; /* ocupa todo el botón */
+  pointer-events: none;
+  border-radius: inherit;
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.25)); /* leve glow */
+}
+
+/* Estilo y animación del “shimmer” */
+.btn-border rect {
+  fill: none;
+  stroke-linecap: round;
+  stroke-width: 0.5px; /* grosor de borde = 2px */
+
+  /* Creamos un “segmento” que viaja: 16% visible, 84% espacio */
+  stroke-dasharray: 16 84;
+
+  /* Recorre todo el perímetro (100 = pathLength) */
+  animation: shimmer 3.2s linear infinite;
+}
+
+/* Opcional: una base de borde MUY sutil para que el contorno siempre exista */
+.btn-contact::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  /* box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12) inset; “marco” tenue */
+  pointer-events: none;
+}
+
+/* Animación */
+@keyframes shimmer {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: -100;
+  }
+}
+
+/* Respeto reduce-motion si querés activar más adelante */
+@media (prefers-reduced-motion: reduce) {
+  .btn-border rect {
+    animation-duration: 9s;
+  }
+}
+
+/* Hamburger menu animation */
+.hamburger-line {
+  transition: transform 0.3s ease-in-out;
+}
+
+.hamburger-line.top {
+  transform-origin: center;
+}
+
+.hamburger-line.bottom {
+  transform-origin: center;
+}
+
+.hamburger-line.top.cross {
+  transform: translateY(1px) translateX(-1px) rotate(45deg);
+}
+
+.hamburger-line.bottom.cross {
+  transform: translateY(-3px) translateX(-1px) rotate(-45deg);
+}
+
+.brand-strip {
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: pan-y;
+}
+.brand-strip__track {
+  display: flex;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+.brand-strip__track img {
+  height: var(--h, 42px);
+  width: auto;
+  flex: 0 0 auto;
+  pointer-events: none;
+}
+
+/* Ocultar en ≥1024px */
+@media (min-width: 1024px) {
+  .brand-strip {
+    display: none;
+  }
+}
+
+/* POR DEFECTO (mobile-first): máscara visible */
+.title-reveal-clip {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  clip-path: inset(0 0 0 0); /* visible siempre en mobile */
+  transition: clip-path 600ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.title-reveal-fill {
+  display: inline-block;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center 50%; /* posición final visible en mobile */
+  transition: background-position 600ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  line-height: 1.25;
+}
+
+/* En hover de la card (desktop), revelamos desde abajo */
+@media (min-width: 1024px) {
+  .title-reveal-clip {
+    clip-path: inset(100% 0 0 0); /* oculto (desde abajo) */
+  }
+  .group:hover .title-reveal-clip {
+    clip-path: inset(0 0 0 0); /* se revela al hover */
+  }
+
+  .title-reveal-fill {
+    background-position: center 120%; /* arranca “abajo” para animar la subida */
+  }
+  .group:hover .title-reveal-fill {
+    background-position: center 50%; /* sube al centro al hover */
+  }
+}
+
+/* Accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  .title-reveal-clip,
+  .title-reveal-fill {
+    transition: none !important;
+  }
 }

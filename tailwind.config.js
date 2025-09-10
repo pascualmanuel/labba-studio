@@ -21,7 +21,7 @@ module.exports = {
 
       xl: "1200px",
       // => @media (min-width: 1280px) { ... }
-
+      xll: "1300px",
       xxl: "1400px",
       // => @media (min-width: 1280px) { ... }
 
@@ -31,6 +31,9 @@ module.exports = {
     extend: {
       colors: {
         LaBlack: "#2b2b2b",
+        white: "#F1F1F1",
+        gray: "#B5B5B5",
+        black: "#06070A",
       },
     },
   },

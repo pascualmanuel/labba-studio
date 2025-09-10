@@ -7,6 +7,7 @@ import Instagram from "../Assets/icons/instagram.svg";
 import { ReactSVG } from "react-svg";
 import { useLanguage } from "../Hooks/LanguageContext";
 import MagneticButton from "./MagenticButton";
+import FondoContact from "../Assets/fondo-contact.webp";
 import Rounded from "../Hooks/Rounded";
 const Footer = () => {
   const [hovered, setHovered] = useState(false);
@@ -62,43 +63,6 @@ const Footer = () => {
     top: hovered ? "0" : "60px",
   };
 
-  const prefooterRef = useRef(null);
-  const footerRef = useRef(null);
-
-  const [shouldShrink, setShouldShrink] = useState(
-    localStorage.getItem("shouldShrink") === "true"
-  );
-
-  const [isMoving, setIsMoving] = useState(false);
-
-  useEffect(() => {
-    function handleScroll() {
-      const prefooter = document.querySelector(".prefooter");
-
-      const windowHeight = window.innerHeight;
-      const documentHeight = document.body.clientHeight;
-      const scrollTop =
-        window.scrollY ||
-        window.pageYOffset ||
-        document.documentElement.scrollTop;
-      const bottomThreshold = 100; // 100px arriba del bottom
-      const scrolledToThreshold =
-        scrollTop + windowHeight >= documentHeight - bottomThreshold;
-
-      if (scrolledToThreshold) {
-        prefooter.classList.add("shrink");
-      } else {
-        prefooter.classList.remove("shrink");
-        prefooter.style.opacity = 1;
-      }
-    }
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   let widthButton = 247;
   let heightButton = 77;
 
@@ -111,90 +75,75 @@ const Footer = () => {
   }
   return (
     <>
-      <div style={{ backgroundColor: "#F2F2F2" }}>
-        <div className={`prefooter ${shouldShrink ? "shrink" : ""}`}>
+      <div className="footer bg-black ">
+        <div
+          className="mb-[80px] h-[295px] mx-auto  bg-cover bg-center flex items-center justify-center flex-col"
+          style={{ backgroundImage: `url(${FondoContact})` }}
+        >
+          <h4 className="text-[30px] lg:text-[45px] leading-[30px] font-bold pb-[40px] text-center px-6 lg:px-0 text-balance">
+            Let’s take your idea to the next level.
+          </h4>
           <Link to={"/contact"}>
-            <div
-              className={` cursor next-level ${
-                isMoving ? "is-moving" : ""
-              } flex flex-row h-[100%] sm:items-center justify-center  sm:ml-0`}
-            >
-              <p className="b1-desk py-0 pb-[45px] sm:pb-[0px] 	pl-0 sm:pr-[100px] text-white	text-center ls:text-left ">
-                {translateText(
-                  "Llevamos tu idea a otro level",
-                  " Let’s take your idea to the next level."
-                )}
-              </p>
-
-              <Rounded
-                widthButton={widthButton}
-                heightButton={heightButton}
-                buttonBorderColor={"white"}
-              >
-                <p className="button-font" style={{ color: "white" }}>
-                  Drop us a line
-                </p>
-              </Rounded>
-            </div>
+            <p className="text-[16px] leading-[32px] font-bold">
+              Book discovery call
+            </p>
           </Link>
         </div>
-        <div className="h-[45px] sm:h-[65px]"></div>
-        <div className="footer" ref={footerRef}>
-          <div className="flex flex-col lg:flex-row items-start ms:items-center  pb-[50px] justify-between  mx-6 lg:mx-20 xl:mx-40">
-            <div className="flex flex-col ms:flex-row">
-              <div className="ms:mr-2 md:mr-5">
-                <p className="sayhi mb-3">Say hi</p>
-                <div className="btn-floral-border" onClick={handleCopyClick}>
-                  <button
-                    className=""
-                    style={btnEmailCopyStyle}
-                    onMouseEnter={() => setHovered(true)}
-                    onMouseLeave={() => {
-                      setHovered(false);
-                      textToCopy.current.textContent = "click to copy";
-                    }}
-                  >
-                    <div className="b4-desk text-red" style={beforeHover}>
-                      hello@labba.studio
-                    </div>
-                    <div
-                      className="b4-desk text-red"
-                      style={afterHover}
-                      ref={textToCopy}
-                    >
-                      {isCopied ? "Copied!" : "click to copy"}
-                    </div>
-                  </button>
-                </div>
-              </div>
 
-              <div className="ms:mr-2 md:mr-5 sm:mb-[0px]">
-                <div>
-                  <p className="sayhi mb-3 mt-4 ms:mt-0">Spain</p>
-                  <a
-                    href="https://wa.me/+34661173788"
-                    className="whatsapp-link"
-                    target="_blank"
-                  >
-                    <div className="btn-floral-border">
-                      <div className="btn-floral-scent  b4-desk before:content-['+34_661_173_788'] after:content-['Open_in_WhatsApp'] "></div>
-                    </div>
-                  </a>
-                </div>
+        <div className="flex flex-col lg:flex-row items-start ms:items-center lm:items-start  pb-[50px] justify-between  px-6 sm:px-[53px] lg:px-16">
+          <div className="flex flex-col ms:flex-row w-[100%] ms:w-auto gap-3  ms:gap-0">
+            <div className="ms:mr-2 md:mr-5 flex flex-row items-center justify-between ms:items-start ms:flex-col">
+              <p className="sayhi mb-3">Say hi</p>
+              <div
+                className="btn-floral-border text-[#B5B5B5]"
+                onClick={handleCopyClick}
+              >
+                <button
+                  className=""
+                  style={btnEmailCopyStyle}
+                  onMouseEnter={() => setHovered(true)}
+                  onMouseLeave={() => {
+                    setHovered(false);
+                    textToCopy.current.textContent = "click to copy";
+                  }}
+                >
+                  <div className="b4-desk " style={beforeHover}>
+                    hello@labba.studio
+                  </div>
+                  <div className="b4-desk " style={afterHover} ref={textToCopy}>
+                    {isCopied ? "Copied!" : "click to copy"}
+                  </div>
+                </button>
               </div>
-              <div className="">
-                <p className="sayhi mb-3 mt-4 ms:mt-0">Argentina</p>
+            </div>
+
+            <div className="ms:mr-2 md:mr-5 sm:mb-[0px] text-[#B5B5B5]">
+              <div className=" flex flex-row items-center justify-between ms:items-start ms:flex-col">
+                <p className="sayhi mb-3 mt-4 ms:mt-0">Spain</p>
                 <a
-                  href="https://wa.me/+5491151632960"
+                  href="https://wa.me/+34661173788"
                   className="whatsapp-link"
                   target="_blank"
                 >
                   <div className="btn-floral-border">
-                    <div className="btn-floral-scent b4-desk  before:content-['+54_9_11_5163_2960'] after:content-['Open_in_WhatsApp'] "></div>
+                    <div className="btn-floral-scent  b4-desk before:content-['+34_661_173_788'] after:content-['Open_in_WhatsApp'] "></div>
                   </div>
                 </a>
               </div>
-              {/* <div className="ml-0 sm:ml-5">
+            </div>
+            <div className=" flex flex-row items-center justify-between ms:items-start ms:flex-col">
+              <p className="sayhi mb-3 mt-4 ms:mt-0">Buenos Aires</p>
+              <a
+                href="https://wa.me/+5491151632960"
+                className="whatsapp-link"
+                target="_blank"
+              >
+                <div className="btn-floral-border text-[#B5B5B5]">
+                  <div className="btn-floral-scent b4-desk  before:content-['+54_9_11_5163_2960'] after:content-['Open_in_WhatsApp'] "></div>
+                </div>
+              </a>
+            </div>
+            {/* <div className="ml-0 sm:ml-5">
                 <p className="sayhi mb-3 mt-4 ms:mt-0">Portugal</p>
                 <a
                   href="https://wa.me/+34634269453"
@@ -206,25 +155,24 @@ const Footer = () => {
                   </div>
                 </a>
               </div> */}
-            </div>
-            <div className="flex items-center mt-8">
-              <Link to={"https://instagram.com/labbastudio/"} target="_blank">
-                <ReactSVG src={Instagram} className="mr-[20px]" />
-              </Link>
-              <Link
-                to={"https://linkedin.com/company/labba-studio"}
-                target="_blank"
-              >
-                <ReactSVG src={Linkedin} className="mr-[20px]" />
-              </Link>
-              {/* <ReactSVG src={Facebook} className="" /> */}
-            </div>
           </div>
-          <div className="border-t-gray  ">
-            <p className="mt-10 font-light text-base leading-6">
-              © 2024 LABBA STUDIO
-            </p>
+          <div className="flex items-center mt-8">
+            <Link to={"https://instagram.com/labbastudio/"} target="_blank">
+              <ReactSVG src={Instagram} className="mr-[20px]" />
+            </Link>
+            <Link
+              to={"https://linkedin.com/company/labba-studio"}
+              target="_blank"
+            >
+              <ReactSVG src={Linkedin} className="mr-[20px]" />
+            </Link>
+            {/* <ReactSVG src={Facebook} className="" /> */}
           </div>
+        </div>
+        <div className="border-t border-t-[#313131] flex justify-center pb-[55px] ">
+          <p className="mt-10 font-light text-xs leading-6 text-gray">
+            © {new Date().getFullYear()} LABBA STUDIO
+          </p>
         </div>
       </div>
     </>

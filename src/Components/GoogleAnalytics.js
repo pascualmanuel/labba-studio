@@ -1,32 +1,34 @@
 /* global dataLayer */
 
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 
-const GoogleAnalytics = () => {
+export default function GoogleAnalytics() {
   useEffect(() => {
-    // Crea una función global gtag
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = function () {
-      dataLayer.push(arguments);
-    };
+    const isStaging =
+      String(process.env.REACT_APP_ENV || "").toLowerCase() === "staging" ||
+      (process.env.NODE_ENV === "production" &&
+        String(process.env.REACT_APP_GIT_BRANCH || "").toLowerCase() ===
+          "staging");
 
-    // Inyecta el script de Google Analytics
-    const scriptTag = document.createElement("script");
-    scriptTag.async = true;
-    scriptTag.src = "https://www.googletagmanager.com/gtag/js?id=G-62QD893TKG";
-    document.head.appendChild(scriptTag);
-
-    // Inicializa Google Analytics
-    window.gtag("js", new Date());
-    window.gtag("config", "G-62QD893TKG");
-
-    return () => {
-      // Limpieza: eliminar el script cuando el componente se desmonta
-      document.head.removeChild(scriptTag);
-    };
+    if (isStaging) {
+      // Inject noindex meta to prevent indexing even if robots is cached
+      const meta = document.createElement("meta");
+      meta.name = "robots";
+      meta.content = "noindex, nofollow, noarchive";
+      document.head.appendChild(meta);
+      return () => {
+        document.head.removeChild(meta);
+      };
+    }
   }, []);
 
-  return null;
-};
+  // If you have GA, disable it on staging by just rendering nothing
+  const isStaging =
+    String(process.env.REACT_APP_ENV || "").toLowerCase() === "staging" ||
+    (process.env.NODE_ENV === "production" &&
+      String(process.env.REACT_APP_GIT_BRANCH || "").toLowerCase() ===
+        "staging");
+  if (isStaging) return null;
 
-export default GoogleAnalytics;
+  return null; // keep as-is if GA is configured elsewhere
+}

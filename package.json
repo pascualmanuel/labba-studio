@@ -10,14 +10,18 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "emailjs": "^4.0.3",
+    "framer-motion": "^12.23.12",
     "gsap": "^3.12.2",
     "lenis": "^1.1.13",
     "locomotive-scroll": "^4.1.4",
     "normalize.css": "^8.0.1",
+    "quill": "^2.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
+    "react-helmet-async": "^2.0.5",
     "react-lottie-player": "^2.1.0",
+    "react-quill": "^2.0.0",
     "react-router-dom": "^6.22.1",
     "react-scripts": "5.0.1",
     "react-svg": "^16.1.25",
@@ -31,9 +35,12 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "prebuild:staging": "cp -f public/robots.staging.txt public/robots.txt || copy public/robots.staging.txt public/robots.txt",
+    "build:staging": "cross-env REACT_APP_ENV=staging react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "proxy": "http://localhost:3001",
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -54,6 +61,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.15",
+    "cross-env": "^7.0.3",
     "postcss": "^8.4.29",
     "tailwindcss": "^3.4.12"
   }
