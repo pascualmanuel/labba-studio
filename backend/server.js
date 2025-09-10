@@ -4,6 +4,7 @@ const path = require("path");
 const cors = require("cors");
 
 const app = express();
+app.set("trust proxy", 1);
 const PORT = process.env.PORT || 3001;
 
 // ===== Middleware
@@ -237,6 +238,63 @@ app.delete("/api/blogs/id/:id", (req, res) => {
 
 // Health check
 app.get("/api/health", (req, res) => res.json({ ok: true }));
+
+// ==== SPA estática + prerender para bots sociales (PEGAR TAL CUAL) ====
+
+// Detecta directorio del build del FE (build/ por defecto)
+const BUILD_DIR = fs.existsSync(path.join(__dirname, "build"))
+  ? path.join(__dirname, "build")
+  : path.join(__dirname, "dist");
+
+// Servir estáticos del FE
+app.use(
+  "/static",
+  express.static(path.join(BUILD_DIR, "static"), { maxAge: "1y" })
+);
+app.use(
+  "/assets",
+  express.static(path.join(BUILD_DIR, "assets"), { maxAge: "1y" })
+);
+app.use("/og", express.static(path.join(BUILD_DIR, "og"), { maxAge: "7d" })); // si tenés /og en el build
+app.use(express.static(BUILD_DIR, { maxAge: "1h", index: false }));
+
+// Detección de bots sociales por User-Agent
+const BOT_UA =
+  /(twitterbot|facebookexternalhit|facebot|linkedinbot|slackbot|whatsapp|telegrambot|discordbot|pinterest)/i;
+// Rendertron público por defecto (podés cambiarlo por uno propio)
+const PRERENDER_BASE =
+  process.env.PRERENDER_BASE || "https://render-tron.appspot.com/render/";
+
+// IMPORTANTE: Node 18+ ya trae fetch global
+app.get("*", async (req, res) => {
+  try {
+    const ua = req.headers["user-agent"] || "";
+    const isBot = BOT_UA.test(ua);
+
+    if (isBot) {
+      const proto = req.get("x-forwarded-proto") || req.protocol;
+      const host = req.get("x-forwarded-host") || req.get("host");
+      const fullUrl = `${proto}://${host}${req.originalUrl}`;
+      const target = PRERENDER_BASE + encodeURI(fullUrl);
+
+      const r = await fetch(target, { headers: { "User-Agent": ua } });
+      if (r.ok) {
+        res.set("Cache-Control", "public, max-age=300"); // 5 min
+        res.set("Vary", "User-Agent");
+        const html = await r.text();
+        return res.status(200).send(html);
+      }
+      console.warn("Prerender failed:", r.status, fullUrl);
+      // si falla, caemos a SPA normal
+    }
+
+    // Tráfico normal: servir SPA
+    return res.sendFile(path.join(BUILD_DIR, "index.html"));
+  } catch (err) {
+    console.error("Catch-all error:", err);
+    return res.sendFile(path.join(BUILD_DIR, "index.html"));
+  }
+});
 
 app.listen(PORT, () => {
   console.log(`Blog backend listening on port ${PORT}`);
