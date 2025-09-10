@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { motion, AnimatePresence } from "framer-motion";
 import { getBlogs } from "../api/blogs";
 
@@ -66,6 +67,46 @@ export default function BlogTagPage() {
 
   return (
     <section className="works-section px-6 sm:px-[53px] lg:px-16 pt-[138px] max-w-[1900px] mx-auto pb-[130px]">
+      <Helmet>
+        <title>#{tag} — Blog — Labba Studio</title>
+        <meta name="description" content={`Posts tagged #${tag}.`} />
+        <link
+          rel="canonical"
+          href={`https://labba.studio/blog/tag/${encodeURIComponent(tag)}`}
+        />
+        <meta property="og:site_name" content="Labba Studio" />
+        <meta property="og:title" content={`#${tag} — Blog — Labba Studio`} />
+        <meta property="og:description" content={`Posts tagged #${tag}.`} />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:url"
+          content={`https://labba.studio/blog/tag/${encodeURIComponent(tag)}`}
+        />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            name: `Blog — #${tag}`,
+            url: `https://labba.studio/blog/tag/${encodeURIComponent(tag)}`,
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            itemListElement: filtered.slice(0, 12).map((p, i) => ({
+              "@type": "ListItem",
+              position: i + 1,
+              item: {
+                "@type": "BlogPosting",
+                name: p.title,
+                url: `https://labba.studio/blog/${p.slug}`,
+                image: p.coverUrl || undefined,
+              },
+            })),
+          })}
+        </script>
+      </Helmet>
       <div className="flex flex-col md:flex-col md:items-start md:justify-between">
         <h1 className="h2 max-w-[855px] mb-2">#{tag}</h1>
         <p className="text-[#B5B5B5] mb-8">

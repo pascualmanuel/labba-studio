@@ -74,6 +74,13 @@ const Blog = () => {
           content="Insights on design, development, and product strategy from the Labba Studio team."
         />
         <link rel="canonical" href="https://labba.studio/blog" />
+        <link rel="alternate" hrefLang="en" href="https://labba.studio/blog" />
+        <link
+          rel="alternate"
+          hrefLang="x-default"
+          href="https://labba.studio/blog"
+        />
+        <meta property="og:site_name" content="Labba Studio" />
         <meta property="og:title" content="Blog — Labba Studio" />
         <meta
           property="og:description"
@@ -81,10 +88,36 @@ const Blog = () => {
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://labba.studio/blog" />
+        <meta
+          property="og:image"
+          content="https://labba.studio/og/blog-1200x630.jpg"
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:image"
+          content="https://labba.studio/og/blog-1200x630.jpg"
+        />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Blog",
+            name: "Labba Studio Blog",
+            url: "https://labba.studio/blog",
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            name: "Blog",
+            url: "https://labba.studio/blog",
+          })}
+        </script>
       </Helmet>
       <div className="flex flex-col md:flex-col md:items-start md:justify-between">
-        <h1 className="h2 max-w-[855px] mb-10 sr-only">Blog — Labba Studio</h1>
-        <h2 className="h2 max-w-[855px] mb-10">Blog</h2>
+        <h1 className="h2 max-w-[855px] mb-10">Blog</h1>
 
         <div className="flex flex-wrap gap-4 mt-[16px] md:mt-0">
           {FILTERS.map((label) => {

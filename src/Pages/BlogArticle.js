@@ -58,7 +58,6 @@ export default function BlogArticle() {
       .then((data) => {
         if (!active) return;
         setPost(data);
-        document.title = `${data.title} — Blog`;
       })
       .catch((e) => active && setErr(e.message || "Not found"))
       .finally(() => active && setLoading(false));
@@ -150,6 +149,17 @@ export default function BlogArticle() {
           content={post.subtitle || htmlToText(post.content).slice(0, 155)}
         />
         <link rel="canonical" href={`https://labba.studio/blog/${post.slug}`} />
+        <link
+          rel="alternate"
+          hrefLang="en"
+          href={`https://labba.studio/blog/${post.slug}`}
+        />
+        <link
+          rel="alternate"
+          hrefLang="x-default"
+          href={`https://labba.studio/blog/${post.slug}`}
+        />
+        <meta property="og:site_name" content="Labba Studio" />
         <meta
           property="og:title"
           content={`${post.title} — Blog — Labba Studio`}
@@ -163,7 +173,19 @@ export default function BlogArticle() {
           property="og:url"
           content={`https://labba.studio/blog/${post.slug}`}
         />
-        {post.coverUrl && <meta property="og:image" content={post.coverUrl} />}
+        {post.coverUrl ? (
+          <meta property="og:image" content={post.coverUrl} />
+        ) : (
+          <meta
+            property="og:image"
+            content="https://labba.studio/og/blog-1200x630.jpg"
+          />
+        )}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:image"
+          content={post.coverUrl || "https://labba.studio/og/blog-1200x630.jpg"}
+        />
         {/* BreadcrumbList JSON-LD */}
         <script type="application/ld+json">
           {JSON.stringify({
@@ -189,6 +211,31 @@ export default function BlogArticle() {
                 item: `https://labba.studio/blog/${post.slug}`,
               },
             ],
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            headline: post.title,
+            description:
+              post.subtitle || htmlToText(post.content).slice(0, 300),
+            image: post.coverUrl || undefined,
+            datePublished: post.createdAt || undefined,
+            dateModified: post.updatedAt || post.createdAt || undefined,
+            author: { "@type": "Organization", name: "Labba Studio" },
+            publisher: {
+              "@type": "Organization",
+              name: "Labba Studio",
+              logo: {
+                "@type": "ImageObject",
+                url: "https://labba.studio/logo512.png",
+              },
+            },
+            mainEntityOfPage: {
+              "@type": "WebPage",
+              "@id": `https://labba.studio/blog/${post.slug}`,
+            },
           })}
         </script>
       </Helmet>
