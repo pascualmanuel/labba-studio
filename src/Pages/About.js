@@ -6,42 +6,26 @@ const About = () => {
 
   useEffect(() => {
     const ellipseShadow = document.getElementById(shadowOn);
-
-    if (!ellipseShadow) {
-      return;
-    }
+    if (!ellipseShadow) return;
 
     const ellipseWidth = 1167;
     const ellipseHeight = 1167;
     const halfWidth = ellipseWidth / 2;
     const halfHeight = ellipseHeight / 2;
 
-    // Posiciona la sombra en el centro de la pantalla al cargar
     const initialX = window.innerWidth / 2 + 360 - halfWidth;
     const initialY = window.innerHeight / 2 - 50 - halfHeight;
-
     ellipseShadow.style.left = `${initialX}px`;
     ellipseShadow.style.top = `${initialY}px`;
 
-    // Luego, mueve la sombra con el cursor
-    document.addEventListener("mousemove", (e) => {
+    const handler = (e) => {
       const x = e.clientX - halfWidth;
       const y = e.clientY - halfHeight;
-
       ellipseShadow.style.left = `${x}px`;
       ellipseShadow.style.top = `${y}px`;
-    });
-
-    // Cleanup
-    return () => {
-      document.removeEventListener("mousemove", (e) => {
-        const x = e.clientX - halfWidth;
-        const y = e.clientY - halfHeight;
-
-        ellipseShadow.style.left = `${x}px`;
-        ellipseShadow.style.top = `${y}px`;
-      });
     };
+    document.addEventListener("mousemove", handler);
+    return () => document.removeEventListener("mousemove", handler);
   }, []);
   return (
     <>
@@ -52,6 +36,14 @@ const About = () => {
           content="We are Labba Studio — a UX/UI and product design team building memorable digital experiences."
         />
         <link rel="canonical" href="https://labba.studio/about" />
+        <link rel="alternate" hrefLang="en" href="https://labba.studio/about" />
+        <link
+          rel="alternate"
+          hrefLang="x-default"
+          href="https://labba.studio/about"
+        />
+        <meta property="og:site_name" content="Labba Studio" />
+        <meta property="og:site_name" content="Labba Studio" />
         <meta property="og:title" content="About Us — Labba Studio" />
         <meta
           property="og:description"
@@ -59,17 +51,18 @@ const About = () => {
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://labba.studio/about" />
+        <meta
+          property="og:image"
+          content="https://labba.studio/og/about-1200x630.jpg"
+        />
       </Helmet>
       <div className="md:h-[1380px] h-[1200px]">
         {" "}
         <div id={shadowOn}></div>
         <div className="about-page flex items-center justify-center md:h-[780px] h-[500px]">
-          <h1 className="sr-only md:text-[120px] text-[54px] md:leading-[108%] leading-[103%] md:tracking-[-0.03em] tracking-[-0.02em] text-[#FFFFFF] font-bold text-center md:text-left">
-            About us — Labba Studio
-          </h1>
-          <h2 className="md:text-[120px] text-[54px] md:leading-[108%] leading-[103%] md:tracking-[-0.03em] tracking-[-0.02em] text-[#FFFFFF] font-bold text-center md:text-left">
+          <h1 className="md:text-[120px] text-[54px] md:leading-[108%] leading-[103%] md:tracking-[-0.03em] tracking-[-0.02em] text-[#FFFFFF] font-bold text-center md:text-left">
             People who <br /> think different, <br /> make different
-          </h2>
+          </h1>
         </div>
         <div
           className="backdrop-blur-[4px] md:backdrop-blur-[7px] md:h-[1380px] h-[1200px]"

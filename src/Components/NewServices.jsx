@@ -65,7 +65,7 @@ export default function NewServices() {
       )}
 
       {/* termina carousel */}
-      <section className="mx-auto px-6 sm:px-[53px] lg:px-16 max-w-[1500px] my-[70px] md:py-[200px] ">
+      <section className="mx-auto px-6 sm:px-[53px] lg:px-16 max-w-[1500px] my-[70px] md:pt-[140px] md:pb-[85px] ">
         <div className="flex flex-col lg:flex-row">
           <div className="mb-[30px] lg:w-[50%]">
             <h3 className="text-[20px] text-[#cacaca] font-light leading-[32px]   xl:text-[24px] mb-[30px] md:mb-[40px]">

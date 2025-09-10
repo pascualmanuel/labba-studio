@@ -431,7 +431,8 @@ label {
 }
 .contact-buttons:hover {
   background-color: #ffffff1a;
-  /* color: black; */
+
+  transition: all 0.3s ease;
 }
 
 .contact-b-active {
