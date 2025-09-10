@@ -107,7 +107,7 @@ const FAQPage = () => {
       id: 1,
       title: "Digital products",
       answer:
-        "We design digital experiences that create real connections. By combining smart design with a deep understanding of human behavior, we build products that are not only beautiful but meaningful — helping your brand grow with purpose.",
+        "We offer professional and personalized UX/UI design services for products, websites and mobile apps. Our human- centered design philosophy make the user experience perfect from the first click!",
     },
     {
       id: 2,
