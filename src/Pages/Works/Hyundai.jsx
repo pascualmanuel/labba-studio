@@ -55,14 +55,14 @@ const Hyundai = () => {
         <meta property="og:url" content="https://labba.studio/works/hyundai" />
         <meta
           property="og:image"
-          content="https://labba.studio/og/works-cover.jpg"
+          content="https://labba.studio/og/works-og.jpg"
         />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:image"
-          content="https://labba.studio/og/works-cover.jpg"
+          content="https://labba.studio/og/works-og.jpg"
         />
         <script type="application/ld+json">
           {JSON.stringify({
@@ -70,7 +70,7 @@ const Hyundai = () => {
             "@type": "CreativeWork",
             name: "Hyundai",
             url: "https://labba.studio/works/hyundai",
-            image: "https://labba.studio/og/works-cover.jpg",
+            image: "https://labba.studio/og/works-og.jpg",
             description:
               "Showcasing models, promotions, and services while improving the digital experience for Hyundai Costa Rica.",
             author: { "@type": "Organization", name: "Labba Studio" },

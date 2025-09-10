@@ -57,14 +57,14 @@ const Morgenstern = () => {
         />
         <meta
           property="og:image"
-          content="https://labba.studio/og/works-cover.jpg"
+          content="https://labba.studio/og/works-og.jpg"
         />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:image"
-          content="https://labba.studio/og/works-cover.jpg"
+          content="https://labba.studio/og/works-og.jpg"
         />
         <script type="application/ld+json">
           {JSON.stringify({
@@ -72,7 +72,7 @@ const Morgenstern = () => {
             "@type": "CreativeWork",
             name: "Morgenstern",
             url: "https://labba.studio/works/morgenstern",
-            image: "https://labba.studio/og/works-cover.jpg",
+            image: "https://labba.studio/og/works-og.jpg",
             description:
               "A creative and playful website for a creative and playful illustrated project.",
             author: { "@type": "Organization", name: "Labba Studio" },

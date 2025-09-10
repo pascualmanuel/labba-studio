@@ -55,14 +55,14 @@ const Morgenstern = () => {
         <meta property="og:url" content="https://labba.studio/works/galangal" />
         <meta
           property="og:image"
-          content="https://labba.studio/og/works-cover.jpg"
+          content="https://labba.studio/og/works-og.jpg"
         />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:image"
-          content="https://labba.studio/og/works-cover.jpg"
+          content="https://labba.studio/og/works-og.jpg"
         />
         <script type="application/ld+json">
           {JSON.stringify({
@@ -70,7 +70,7 @@ const Morgenstern = () => {
             "@type": "CreativeWork",
             name: "Galangal Travel",
             url: "https://labba.studio/works/galangal",
-            image: "https://labba.studio/og/works-cover.jpg",
+            image: "https://labba.studio/og/works-og.jpg",
             description:
               "Luxury travel experiences rooted in local culture, crafted with elegance, authenticity, and exceptional service.",
             author: { "@type": "Organization", name: "Labba Studio" },

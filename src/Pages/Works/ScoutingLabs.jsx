@@ -46,7 +46,7 @@ const ScoutingLabs = () => {
         />
         <meta
           property="og:image"
-          content="https://labba.studio/og/works-cover.jpg"
+          content="https://labba.studio/og/works-og.jpg"
         />
         <script type="application/ld+json">
           {JSON.stringify({
@@ -54,7 +54,7 @@ const ScoutingLabs = () => {
             "@type": "CreativeWork",
             name: "Scouting Labs",
             url: "https://labba.studio/works/scouting-labs",
-            image: "https://labba.studio/og/works-cover.jpg",
+            image: "https://labba.studio/og/works-og.jpg",
             description:
               "Connecting amateur sports passion with analysis technology to empower player development and visibility.",
             author: { "@type": "Organization", name: "Labba Studio" },

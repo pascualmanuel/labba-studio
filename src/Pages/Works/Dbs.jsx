@@ -56,14 +56,14 @@ const Dbs = () => {
         <meta property="og:url" content="https://labba.studio/works/dbs" />
         <meta
           property="og:image"
-          content="https://labba.studio/og/works-cover.jpg"
+          content="https://labba.studio/og/works-og.jpg"
         />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:image"
-          content="https://labba.studio/og/works-cover.jpg"
+          content="https://labba.studio/og/works-og.jpg"
         />
         <script type="application/ld+json">
           {JSON.stringify({
@@ -71,7 +71,7 @@ const Dbs = () => {
             "@type": "CreativeWork",
             name: "De Blas Serrano",
             url: "https://labba.studio/works/dbs",
-            image: "https://labba.studio/og/works-cover.jpg",
+            image: "https://labba.studio/og/works-og.jpg",
             description:
               "Elegant, functional ecommerce for a Spanish winery, enhancing the shopping experience with a premium feel.",
             author: { "@type": "Organization", name: "Labba Studio" },

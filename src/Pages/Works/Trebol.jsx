@@ -66,14 +66,14 @@ const Trebol = () => {
         <meta property="og:url" content="https://labba.studio/works/trebol" />
         <meta
           property="og:image"
-          content="https://labba.studio/og/works-cover.jpg"
+          content="https://labba.studio/og/works-og.jpg"
         />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:image"
-          content="https://labba.studio/og/works-cover.jpg"
+          content="https://labba.studio/og/works-og.jpg"
         />
         <script type="application/ld+json">
           {JSON.stringify({
@@ -81,7 +81,7 @@ const Trebol = () => {
             "@type": "CreativeWork",
             name: "Trebol",
             url: "https://labba.studio/works/trebol",
-            image: "https://labba.studio/og/works-cover.jpg",
+            image: "https://labba.studio/og/works-og.jpg",
             description:
               "Join lotteries and track winning numbers from your phone—no store visit needed.",
             author: { "@type": "Organization", name: "Labba Studio" },
