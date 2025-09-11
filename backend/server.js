@@ -2,11 +2,8 @@ const express = require("express");
 const fs = require("fs");
 const path = require("path");
 const cors = require("cors");
-const compression = require("compression");
 
 const app = express();
-app.set("trust proxy", 1);
-
 const PORT = process.env.PORT || 3001;
 
 // ===== Middleware
@@ -229,7 +226,6 @@ app.put("/api/blogs/id/:id", (req, res) => {
 });
 
 // Eliminar por id
-
 app.delete("/api/blogs/id/:id", (req, res) => {
   const blogs = readBlogs();
   const idx = blogs.findIndex((b) => b.id === req.params.id);
@@ -240,150 +236,8 @@ app.delete("/api/blogs/id/:id", (req, res) => {
 });
 
 // Health check
+app.get("/api/health", (req, res) => res.json({ ok: true }));
 
-const FRONT_BUILD = path.resolve(__dirname, "..", "build");
-
-// Rendertron / Prerender service (puede ser propio o el público)
-const RENDERTRON_URL =
-  process.env.RENDERTRON_URL || "https://labba-blog-api.onrender.com";
-
-// Lista de bots que no ejecutan JS y necesitan HTML prerenderizado
-const BOT_UA = [
-  "googlebot",
-  "bingbot",
-  "yandex",
-  "baiduspider",
-  "duckduckbot",
-  "twitterbot",
-  "facebookexternalhit",
-  "facebot",
-  "linkedinbot",
-  "slackbot",
-  "whatsapp",
-  "telegrambot",
-  "pinterest",
-  "discordbot",
-  "quora link preview",
-  "embedly",
-  "vkShare",
-  "W3C_Validator",
-  "applebot",
-  "redditbot",
-];
-
-// ──────────────────────────────────────────────────────────────
-// Middlewares
-// ──────────────────────────────────────────────────────────────
-app.use(compression());
-
-// Sirve estáticos del build (incluye /og/*)
-// Ojo: no usamos "index: true" para que el fallback a SPA sea controlado
-app.use(
-  "/static",
-  express.static(path.join(FRONT_BUILD, "static"), { maxAge: "365d" })
-);
-app.use(
-  "/assets",
-  express.static(path.join(FRONT_BUILD, "assets"), { maxAge: "365d" })
-);
-app.use("/og", express.static(path.join(FRONT_BUILD, "og"), { maxAge: "7d" }));
-app.use(express.static(FRONT_BUILD, { maxAge: "1h", index: false }));
-
-// Salud
-app.get("/health", (_, res) => res.status(200).send("OK"));
-
-// ──────────────────────────────────────────────────────────────
-/**
- * Detecta si el UA es un bot social o crawler.
- */
-function isBotRequest(req) {
-  const ua = (req.headers["user-agent"] || "").toLowerCase();
-  return BOT_UA.some((b) => ua.includes(b));
-}
-
-/**
- * Devuelve la URL pública original (respeta proxy) para pasar a Rendertron.
- */
-function getPublicUrl(req) {
-  const proto =
-    (req.headers["x-forwarded-proto"] || "").split(",")[0] ||
-    req.protocol ||
-    "https";
-  const host = req.headers["x-forwarded-host"] || req.headers.host;
-  return `${proto}://${host}${req.originalUrl}`;
-}
-
-/**
- * Prerender para bots: pide HTML a Rendertron y lo devuelve tal cual.
- */
-async function servePrerender(req, res, next) {
-  try {
-    if (req.method !== "GET") return next();
-
-    // Solo HTML
-    const accept = (req.headers.accept || "").toLowerCase();
-    if (!accept.includes("text/html")) return next();
-
-    if (!isBotRequest(req)) return next();
-
-    const targetUrl = getPublicUrl(req);
-    const prerenderUrl = `${RENDERTRON_URL}/${encodeURI(targetUrl)}`;
-
-    // Node 18+ tiene fetch global
-    const response = await fetch(prerenderUrl, {
-      headers: {
-        "User-Agent": req.headers["user-agent"] || "",
-        "X-Forwarded-For": req.ip,
-      },
-      redirect: "follow",
-    });
-
-    if (!response.ok) {
-      console.warn(
-        `[prerender] ${response.status} ${response.statusText} for ${targetUrl}`
-      );
-      return next(); // fallback a SPA si falla
-    }
-
-    const html = await response.text();
-
-    // Cache para bots (ajustá a gusto)
-    res.setHeader("Cache-Control", "public, max-age=600, s-maxage=600");
-    res.setHeader("Vary", "User-Agent, Accept");
-
-    return res
-      .status(200)
-      .set("Content-Type", "text/html; charset=utf-8")
-      .send(html);
-  } catch (err) {
-    console.error("[prerender] error:", err);
-    return next(); // fallback a SPA si pasa algo
-  }
-}
-
-// Hook de prerender ANTES del fallback a SPA
-app.get("*", servePrerender);
-
-// ──────────────────────────────────────────────────────────────
-// Fallback SPA: devuelve el index.html del build para cualquier ruta
-// (React Router se encarga del resto en el cliente)
-// ──────────────────────────────────────────────────────────────
-app.get("*", (req, res) => {
-  const indexHtml = path.join(FRONT_BUILD, "index.html");
-  if (!fs.existsSync(indexHtml)) {
-    return res
-      .status(500)
-      .send("Build not found. Did you run `npm run build` on the frontend?");
-  }
-
-  // Cache moderada para HTML
-  res.setHeader("Cache-Control", "public, max-age=60, s-maxage=60");
-  res.sendFile(indexHtml);
-});
-
-// ──────────────────────────────────────────────────────────────
 app.listen(PORT, () => {
-  console.log(`✅ Server ready on :${PORT}`);
-  console.log(`   Serving FRONT_BUILD from: ${FRONT_BUILD}`);
-  console.log(`   Rendertron: ${RENDERTRON_URL}`);
+  console.log(`Blog backend listening on port ${PORT}`);
 });
