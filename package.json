@@ -34,7 +34,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && node scripts/generate-meta.js",
+    "build": "react-scripts build && node scripts/generate-dynamic-meta.js",
     "build:react": "react-scripts build",
     "generate-meta": "node scripts/generate-meta.js",
     "prebuild:staging": "cp -f public/robots.staging.txt public/robots.txt || copy public/robots.staging.txt public/robots.txt",

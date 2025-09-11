@@ -92,10 +92,11 @@ const generateMetaPages = () => {
   <link rel="canonical" href="${url}">
   
   <script>
-    // Solo redirigir si no es un bot
+    // Esta página es solo para bots, usuarios normales deben ser redirigidos
     const isBot = /bot|crawler|spider|scraper|facebookexternalhit|twitterbot|linkedinbot|slackbot|whatsapp|telegram/i.test(navigator.userAgent);
     if (!isBot) {
-      window.location.href = '${redirectPath}';
+      // Redirigir usuarios normales a la SPA principal
+      window.location.replace('/');
     }
   </script>
 </head>
@@ -104,7 +105,7 @@ const generateMetaPages = () => {
     <div style="text-align: center;">
       <h1>${title}</h1>
       <p>${description}</p>
-      <p><a href="${redirectPath}">Go to page</a></p>
+      <p>This page is for social media bots only.</p>
     </div>
   </div>
 </body>
