@@ -92,15 +92,19 @@ const generateMetaPages = () => {
   <link rel="canonical" href="${url}">
   
   <script>
-    // Redirect to actual page
-    window.location.href = '${redirectPath}';
+    // Solo redirigir si no es un bot
+    const isBot = /bot|crawler|spider|scraper|facebookexternalhit|twitterbot|linkedinbot|slackbot|whatsapp|telegram/i.test(navigator.userAgent);
+    if (!isBot) {
+      window.location.href = '${redirectPath}';
+    }
   </script>
 </head>
 <body>
   <div style="display: flex; justify-content: center; align-items: center; height: 100vh; font-family: Arial, sans-serif;">
     <div style="text-align: center;">
-      <h1>Redirecting...</h1>
-      <p>Taking you to <a href="${redirectPath}">${title}</a></p>
+      <h1>${title}</h1>
+      <p>${description}</p>
+      <p><a href="${redirectPath}">Go to page</a></p>
     </div>
   </div>
 </body>
