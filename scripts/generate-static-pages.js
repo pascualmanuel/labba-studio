@@ -66,38 +66,39 @@ const generateStaticPages = () => {
     const baseUrl = "https://labba.studio";
 
     // Reemplazar los meta tags existentes con los específicos de la ruta
+    // Usar expresiones regulares más específicas para HTML minificado
     let pageHtml = baseHtml
       .replace(/<title>.*?<\/title>/, `<title>${route.title}</title>`)
       .replace(
-        /<meta name="description" content=".*?"\/>/,
+        /<meta name="description" content="[^"]*"\/>/,
         `<meta name="description" content="${route.description}"/>`
       )
       .replace(
-        /<meta property="og:title" content=".*?"\/>/,
+        /<meta property="og:title" content="[^"]*"\/>/,
         `<meta property="og:title" content="${route.title}"/>`
       )
       .replace(
-        /<meta property="og:description" content=".*?"\/>/,
+        /<meta property="og:description" content="[^"]*"\/>/,
         `<meta property="og:description" content="${route.description}"/>`
       )
       .replace(
-        /<meta property="og:image" content=".*?"\/>/,
+        /<meta property="og:image" content="[^"]*"\/>/,
         `<meta property="og:image" content="${baseUrl}${route.ogImage}"/>`
       )
       .replace(
-        /<meta property="og:url" content=".*?"\/>/,
+        /<meta property="og:url" content="[^"]*"\/>/,
         `<meta property="og:url" content="${baseUrl}${route.path}"/>`
       )
       .replace(
-        /<meta name="twitter:title" content=".*?"\/>/,
+        /<meta name="twitter:title" content="[^"]*"\/>/,
         `<meta name="twitter:title" content="${route.title}"/>`
       )
       .replace(
-        /<meta name="twitter:description" content=".*?"\/>/,
+        /<meta name="twitter:description" content="[^"]*"\/>/,
         `<meta name="twitter:description" content="${route.description}"/>`
       )
       .replace(
-        /<meta name="twitter:image" content=".*?"\/>/,
+        /<meta name="twitter:image" content="[^"]*"\/>/,
         `<meta name="twitter:image" content="${baseUrl}${route.ogImage}"/>`
       );
 

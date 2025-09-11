@@ -1,0 +1,9 @@
+# Redirects for static site
+/services /services/index.html 200
+/about /about/index.html 200
+/contact /contact/index.html 200
+/work /work/index.html 200
+/blog /blog/index.html 200
+
+# Fallback for SPA routes
+/* /index.html 200
