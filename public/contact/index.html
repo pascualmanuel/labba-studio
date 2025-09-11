@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <!-- Favicon / PWA -->
+    <link rel="icon" href="https://labba.studio/favicon.ico" />
+    <link rel="apple-touch-icon" href="https://www.labba.studio/logo512.png" />
+    <link rel="manifest" href="https://labba.studio/manifest.json" />
+
+    <!-- Viewport / Theme -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+
+    <!-- Robots -->
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+
+    <!-- Page-specific metadata -->
+    <title>Contact — Labba Studio</title>
+    <meta
+      name="description"
+      content="¿Listo para empezar tu próximo proyecto? Contáctanos para hablar de diseño, desarrollo y estrategia."
+    />
+    <link rel="canonical" href="https://labba.studio/contact" />
+    <link rel="alternate" hreflang="en" href="https://labba.studio/contact" />
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href="https://labba.studio/contact"
+    />
+
+    <!-- Open Graph -->
+    <meta property="og:site_name" content="Labba Studio" />
+    <meta property="og:title" content="Contact — Labba Studio" />
+    <meta
+      property="og:description"
+      content="Contáctanos para hablar de diseño, desarrollo y estrategia."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://labba.studio/contact" />
+    <meta
+      property="og:image"
+      content="https://labba.studio/og/contact-og.jpg"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Contact — Labba Studio" />
+    <meta
+      name="twitter:description"
+      content="Contáctanos para hablar de diseño, desarrollo y estrategia."
+    />
+    <meta
+      name="twitter:image"
+      content="https://labba.studio/og/contact-og.jpg"
+    />
+
+    <!-- Performance -->
+    <link
+      rel="preload"
+      href="/src/Assets/Fonts/Satoshi-Regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/src/Styles/App.css" />
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Labba Studio",
+        "url": "https://labba.studio",
+        "logo": "https://labba.studio/logo512.png",
+        "sameAs": [
+          "https://www.instagram.com/labba.studio",
+          "https://www.linkedin.com/company/labba-studio"
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Labba Studio",
+        "url": "https://labba.studio/"
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Contact — Labba Studio",
+        "url": "https://labba.studio/contact",
+        "inLanguage": "en",
+        "isPartOf": {
+          "@type": "WebSite",
+          "name": "Labba Studio",
+          "url": "https://labba.studio/"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      // Redirect to main app for non-bot users
+      if (
+        !/bot|crawler|spider|facebook|twitter|linkedin|whatsapp|telegram|slack|discord|pinterest/i.test(
+          navigator.userAgent
+        )
+      ) {
+        window.location.href = "/contact";
+      }
+    </script>
+  </body>
+</html>
