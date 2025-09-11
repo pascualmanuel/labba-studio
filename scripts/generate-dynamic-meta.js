@@ -61,8 +61,35 @@ const generateDynamicMeta = () => {
     },
   ];
 
+  // Generar meta tags estáticos para todas las rutas
+  const generateStaticMetaTags = () => {
+    let metaTags = "";
+
+    routes.forEach((route) => {
+      const isHome = route.path === "/";
+      const pathClass = isHome ? "home" : route.path.replace("/", "");
+
+      // Solo mostrar los meta tags de home por defecto (para bots)
+      const displayStyle = isHome ? "block" : "none";
+
+      metaTags += `
+    <!-- Meta tags for ${route.path} -->
+    <meta class="meta-${pathClass}" property="og:title" content="${route.title}" style="display: ${displayStyle};">
+    <meta class="meta-${pathClass}" property="og:description" content="${route.description}" style="display: ${displayStyle};">
+    <meta class="meta-${pathClass}" property="og:image" content="https://labba.studio${route.ogImage}" style="display: ${displayStyle};">
+    <meta class="meta-${pathClass}" property="og:url" content="https://labba.studio${route.path}" style="display: ${displayStyle};">
+    <meta class="meta-${pathClass}" name="twitter:title" content="${route.title}" style="display: ${displayStyle};">
+    <meta class="meta-${pathClass}" name="twitter:description" content="${route.description}" style="display: ${displayStyle};">
+    <meta class="meta-${pathClass}" name="twitter:image" content="https://labba.studio${route.ogImage}" style="display: ${displayStyle};">
+    <meta class="meta-${pathClass}" name="description" content="${route.description}" style="display: ${displayStyle};">`;
+    });
+
+    return metaTags;
+  };
+
   // Generar el script de meta tags dinámicos
   const metaScript = `
+    ${generateStaticMetaTags()}
     <script>
       // Meta tags dinámicos basados en la URL - SIN REDIRECTS
       (function() {
@@ -79,45 +106,19 @@ const generateDynamicMeta = () => {
           currentRoute = routes[0]; // Home
         }
         
-        // Actualizar meta tags
-        function updateMetaTag(property, content) {
-          let meta = document.querySelector(\`meta[property="\${property}"]\`);
-          if (!meta) {
-            meta = document.createElement('meta');
-            meta.setAttribute('property', property);
-            document.head.appendChild(meta);
-          }
-          meta.setAttribute('content', content);
-        }
+        // Ocultar todos los meta tags primero
+        document.querySelectorAll('[class^="meta-"]').forEach(meta => {
+          meta.style.display = 'none';
+        });
         
-        function updateMetaName(name, content) {
-          let meta = document.querySelector(\`meta[name="\${name}"]\`);
-          if (!meta) {
-            meta = document.createElement('meta');
-            meta.setAttribute('name', name);
-            document.head.appendChild(meta);
-          }
-          meta.setAttribute('content', content);
-        }
+        // Mostrar solo los meta tags de la ruta actual
+        const pathClass = currentRoute.path === '/' ? 'home' : currentRoute.path.replace('/', '');
+        document.querySelectorAll(\`.meta-\${pathClass}\`).forEach(meta => {
+          meta.style.display = 'block';
+        });
         
         // Actualizar título
         document.title = currentRoute.title;
-        
-        // Actualizar meta description
-        updateMetaName('description', currentRoute.description);
-        
-        // Actualizar Open Graph
-        updateMetaTag('og:title', currentRoute.title);
-        updateMetaTag('og:description', currentRoute.description);
-        updateMetaTag('og:image', baseUrl + currentRoute.ogImage);
-        updateMetaTag('og:url', baseUrl + currentPath);
-        updateMetaTag('og:type', 'website');
-        
-        // Actualizar Twitter
-        updateMetaName('twitter:card', 'summary_large_image');
-        updateMetaName('twitter:title', currentRoute.title);
-        updateMetaName('twitter:description', currentRoute.description);
-        updateMetaName('twitter:image', baseUrl + currentRoute.ogImage);
         
         console.log('🎯 Meta tags actualizados para:', currentPath);
         
