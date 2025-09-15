@@ -244,6 +244,11 @@ app.get("/health", (req, res) => {
   res.send("OK");
 });
 
+// Health check para Render (espera /api/health)
+app.get("/api/health", (req, res) => {
+  res.status(200).send("OK");
+});
+
 // ===== Static Files with Caching
 // Static assets with long cache
 app.use(
