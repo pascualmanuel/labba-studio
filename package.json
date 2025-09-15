@@ -34,11 +34,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && node scripts/generate-static-pages.js",
+    "build": "react-scripts build",
     "build:react": "react-scripts build",
-    "generate-meta": "node scripts/generate-meta.js",
     "prebuild:staging": "cp -f public/robots.staging.txt public/robots.txt || copy public/robots.staging.txt public/robots.txt",
-    "build:staging": "cross-env REACT_APP_ENV=staging react-scripts build && node scripts/generate-meta.js",
+    "build:staging": "cross-env REACT_APP_ENV=staging react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

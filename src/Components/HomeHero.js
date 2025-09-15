@@ -4,7 +4,7 @@ import { Player } from "@lottiefiles/react-lottie-player";
 import dotAnimation from "../Assets/icons/dot-animation.json"; // Make
 import Calendar from "../Assets/icons/calendar.svg";
 import MagneticButton from "./MagenticButton";
-import NewWorks from "../Components/NewWork";
+
 // import StaggeredText from "../Hooks/StaggeredText";
 const HomeHero = () => {
   // margin: 0 auto;
