@@ -80,7 +80,7 @@ const uniqueSlug = (base, blogs) => {
   return s;
 };
 
-// Deploy hook function
+// Deploy hook function con delay
 async function triggerRebuild() {
   try {
     const hookUrl = process.env.RENDER_DEPLOY_HOOK_URL;
@@ -88,6 +88,13 @@ async function triggerRebuild() {
       console.warn("[deploy-hook] missing RENDER_DEPLOY_HOOK_URL");
       return;
     }
+
+    // ESPERAR 15 segundos antes de disparar el webhook
+    console.log(
+      "[deploy-hook] Esperando 15 segundos antes de disparar rebuild..."
+    );
+    await new Promise((resolve) => setTimeout(resolve, 15000));
+
     const r = await fetch(hookUrl, { method: "POST" });
     const t = await r.text();
     console.log("[deploy-hook] triggered:", r.status, t);
@@ -120,7 +127,7 @@ app.get("/api/blogs/id/:id", (req, res) => {
 });
 
 // Crear post
-app.post("/api/blogs", (req, res) => {
+app.post("/api/blogs", async (req, res) => {
   const {
     title,
     content,
@@ -173,14 +180,15 @@ app.post("/api/blogs", (req, res) => {
   blogs.unshift(newBlog);
   writeBlogs(blogs);
 
-  // Trigger rebuild (fire-and-forget)
-  triggerRebuild();
-
+  // Responder al frontend inmediatamente
   res.status(201).json(newBlog);
+
+  // Trigger rebuild con delay (fire-and-forget)
+  await triggerRebuild();
 });
 
 // Actualizar por id
-app.put("/api/blogs/id/:id", (req, res) => {
+app.put("/api/blogs/id/:id", async (req, res) => {
   const {
     title,
     content,
@@ -246,24 +254,26 @@ app.put("/api/blogs/id/:id", (req, res) => {
   blogs[idx] = merged;
   writeBlogs(blogs);
 
-  // Trigger rebuild (fire-and-forget)
-  triggerRebuild();
-
+  // Responder al frontend inmediatamente
   res.json(merged);
+
+  // Trigger rebuild con delay (fire-and-forget)
+  await triggerRebuild();
 });
 
 // Eliminar por id
-app.delete("/api/blogs/id/:id", (req, res) => {
+app.delete("/api/blogs/id/:id", async (req, res) => {
   const blogs = readBlogs();
   const idx = blogs.findIndex((b) => b.id === req.params.id);
   if (idx === -1) return res.status(404).json({ error: "not found" });
   const removed = blogs.splice(idx, 1)[0];
   writeBlogs(blogs);
 
-  // Trigger rebuild (fire-and-forget)
-  triggerRebuild();
-
+  // Responder al frontend inmediatamente
   res.json({ ok: true, removedId: removed.id });
+
+  // Trigger rebuild con delay (fire-and-forget)
+  await triggerRebuild();
 });
 
 // Health check
