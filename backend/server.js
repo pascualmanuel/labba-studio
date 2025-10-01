@@ -80,6 +80,22 @@ const uniqueSlug = (base, blogs) => {
   return s;
 };
 
+// Deploy hook function
+async function triggerRebuild() {
+  try {
+    const hookUrl = process.env.RENDER_DEPLOY_HOOK_URL;
+    if (!hookUrl) {
+      console.warn("[deploy-hook] missing RENDER_DEPLOY_HOOK_URL");
+      return;
+    }
+    const r = await fetch(hookUrl, { method: "POST" });
+    const t = await r.text();
+    console.log("[deploy-hook] triggered:", r.status, t);
+  } catch (err) {
+    console.error("[deploy-hook] error:", err);
+  }
+}
+
 // ===== API Routes
 // Listado
 app.get("/api/blogs", (req, res) => {
@@ -157,6 +173,9 @@ app.post("/api/blogs", (req, res) => {
   blogs.unshift(newBlog);
   writeBlogs(blogs);
 
+  // Trigger rebuild (fire-and-forget)
+  triggerRebuild();
+
   res.status(201).json(newBlog);
 });
 
@@ -226,6 +245,10 @@ app.put("/api/blogs/id/:id", (req, res) => {
 
   blogs[idx] = merged;
   writeBlogs(blogs);
+
+  // Trigger rebuild (fire-and-forget)
+  triggerRebuild();
+
   res.json(merged);
 });
 
@@ -236,6 +259,10 @@ app.delete("/api/blogs/id/:id", (req, res) => {
   if (idx === -1) return res.status(404).json({ error: "not found" });
   const removed = blogs.splice(idx, 1)[0];
   writeBlogs(blogs);
+
+  // Trigger rebuild (fire-and-forget)
+  triggerRebuild();
+
   res.json({ ok: true, removedId: removed.id });
 });
 
