@@ -93,7 +93,7 @@ async function triggerRebuild() {
     console.log(
       "[deploy-hook] Esperando 15 segundos antes de disparar rebuild..."
     );
-    await new Promise((resolve) => setTimeout(resolve, 15000));
+    await new Promise((resolve) => setTimeout(resolve, 180000));
 
     const r = await fetch(hookUrl, { method: "POST" });
     const t = await r.text();
