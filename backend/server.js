@@ -90,10 +90,13 @@ async function triggerRebuild() {
     }
 
     // ESPERAR 15 segundos antes de disparar el webhook
+    // 300000 = 5 minutos
+    // 180000 = 3 minutos
+    // 15000 = 15 segundos
     console.log(
-      "[deploy-hook] Esperando 15 segundos antes de disparar rebuild..."
+      "[deploy-hook] Esperando 5 minutos antes de disparar rebuild..."
     );
-    await new Promise((resolve) => setTimeout(resolve, 180000));
+    await new Promise((resolve) => setTimeout(resolve, 300000));
 
     const r = await fetch(hookUrl, { method: "POST" });
     const t = await r.text();
