@@ -6,8 +6,6 @@ const compression = require("compression");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
-const RENDERTRON_URL =
-  process.env.RENDERTRON_URL || "https://render-tron.appspot.com/render";
 const FRONT_BUILD = path.resolve(__dirname, "..", "build");
 
 // ===== Middleware
@@ -82,77 +80,31 @@ const uniqueSlug = (base, blogs) => {
   return s;
 };
 
-// ===== Bot Detection
-const isBot = (userAgent) => {
-  if (!userAgent) return false;
-  const botPatterns = [
-    "googlebot",
-    "facebookexternalhit",
-    "twitterbot",
-    "linkedinbot",
-    "slackbot",
-    "whatsapp",
-    "telegrambot",
-    "bingbot",
-    "yandexbot",
-    "baiduspider",
-    "duckduckbot",
-    "applebot",
-    "ia_archiver",
-    "facebookcatalog",
-    "pinterest",
-    "discordbot",
-    "skypeuripreview",
-    "viberbot",
-    "telegram",
-  ];
-
-  const ua = userAgent.toLowerCase();
-  return botPatterns.some((pattern) => ua.includes(pattern));
-};
-
-// ===== Prerender for Social Bots
-const prerenderForBot = async (req, res, next) => {
-  const userAgent = req.get("User-Agent");
-  const acceptHtml =
-    req.get("Accept") && req.get("Accept").includes("text/html");
-
-  if (req.method === "GET" && acceptHtml && isBot(userAgent)) {
-    try {
-      const protocol =
-        req.get("X-Forwarded-Proto") || (req.secure ? "https" : "http");
-      const host = req.get("Host") || req.get("X-Forwarded-Host");
-      const fullUrl = `${protocol}://${host}${req.originalUrl}`;
-
-      console.log(`🤖 Bot detected: ${userAgent}`);
-      console.log(`🔗 Prerendering: ${fullUrl}`);
-
-      const prerenderUrl = `${RENDERTRON_URL}/${encodeURIComponent(fullUrl)}`;
-      const response = await fetch(prerenderUrl, {
-        headers: {
-          "User-Agent": userAgent,
-        },
-      });
-
-      if (response.ok) {
-        const html = await response.text();
-        res.set({
-          "Content-Type": "text/html; charset=utf-8",
-          "Cache-Control": "public, max-age=600, s-maxage=600",
-        });
-        return res.send(html);
-      } else {
-        console.log(
-          `⚠️ Prerender failed (${response.status}), falling back to SPA`
-        );
-      }
-    } catch (error) {
-      console.log(`❌ Prerender error: ${error.message}, falling back to SPA`);
+// Deploy hook function con delay
+async function triggerRebuild() {
+  try {
+    const hookUrl = process.env.RENDER_DEPLOY_HOOK_URL;
+    if (!hookUrl) {
+      console.warn("[deploy-hook] missing RENDER_DEPLOY_HOOK_URL");
+      return;
     }
-  }
 
-  next();
-};
+    // ESPERAR 15 segundos antes de disparar el webhook
+    // 300000 = 5 minutos
+    // 180000 = 3 minutos
+    // 15000 = 15 segundos
+    console.log(
+      "[deploy-hook] Esperando 5 minutos antes de disparar rebuild..."
+    );
+    await new Promise((resolve) => setTimeout(resolve, 300000));
+
+    const r = await fetch(hookUrl, { method: "POST" });
+    const t = await r.text();
+    console.log("[deploy-hook] triggered:", r.status, t);
+  } catch (err) {
+    console.error("[deploy-hook] error:", err);
+  }
+}
 
 // ===== API Routes
 // Listado
@@ -178,7 +130,7 @@ app.get("/api/blogs/id/:id", (req, res) => {
 });
 
 // Crear post
-app.post("/api/blogs", (req, res) => {
+app.post("/api/blogs", async (req, res) => {
   const {
     title,
     content,
@@ -231,11 +183,15 @@ app.post("/api/blogs", (req, res) => {
   blogs.unshift(newBlog);
   writeBlogs(blogs);
 
+  // Responder al frontend inmediatamente
   res.status(201).json(newBlog);
+
+  // Trigger rebuild con delay (fire-and-forget)
+  await triggerRebuild();
 });
 
 // Actualizar por id
-app.put("/api/blogs/id/:id", (req, res) => {
+app.put("/api/blogs/id/:id", async (req, res) => {
   const {
     title,
     content,
@@ -300,22 +256,37 @@ app.put("/api/blogs/id/:id", (req, res) => {
 
   blogs[idx] = merged;
   writeBlogs(blogs);
+
+  // Responder al frontend inmediatamente
   res.json(merged);
+
+  // Trigger rebuild con delay (fire-and-forget)
+  await triggerRebuild();
 });
 
 // Eliminar por id
-app.delete("/api/blogs/id/:id", (req, res) => {
+app.delete("/api/blogs/id/:id", async (req, res) => {
   const blogs = readBlogs();
   const idx = blogs.findIndex((b) => b.id === req.params.id);
   if (idx === -1) return res.status(404).json({ error: "not found" });
   const removed = blogs.splice(idx, 1)[0];
   writeBlogs(blogs);
+
+  // Responder al frontend inmediatamente
   res.json({ ok: true, removedId: removed.id });
+
+  // Trigger rebuild con delay (fire-and-forget)
+  await triggerRebuild();
 });
 
 // Health check
 app.get("/health", (req, res) => {
   res.send("OK");
+});
+
+// Health check para Render (espera /api/health)
+app.get("/api/health", (req, res) => {
+  res.status(200).send("OK");
 });
 
 // ===== Static Files with Caching
@@ -337,17 +308,6 @@ app.use(
   })
 );
 
-// OG images with 7 days cache
-app.use(
-  "/og",
-  express.static(path.join(FRONT_BUILD, "og"), {
-    maxAge: "7d",
-  })
-);
-
-// ===== Prerender Middleware (before SPA fallback)
-app.use(prerenderForBot);
-
 // ===== SPA Fallback
 app.get("*", (req, res) => {
   // Skip API routes
@@ -355,6 +315,7 @@ app.get("*", (req, res) => {
     return res.status(404).json({ error: "API endpoint not found" });
   }
 
+  // Servir SPA
   const indexPath = path.join(FRONT_BUILD, "index.html");
 
   if (fs.existsSync(indexPath)) {
@@ -372,6 +333,5 @@ app.get("*", (req, res) => {
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
   console.log(`📁 Frontend build path: ${FRONT_BUILD}`);
-  console.log(`🤖 Rendertron URL: ${RENDERTRON_URL}`);
   console.log(`🌐 Health check: http://localhost:${PORT}/health`);
 });

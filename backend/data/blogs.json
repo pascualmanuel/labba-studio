@@ -1,5 +1,23 @@
 [
   {
+    "id": "1759313247499",
+    "slug": "titulo-testing",
+    "title": "Titulo testing",
+    "subtitle": "subtitulo",
+    "excerpt": "A boutique family-owned hotel in Playa Santa Teresa, Costa Rica, steps away from the beach, Funky Monkey Lodge has been welcoming travelers since 2001. We started as one of the ver",
+    "content": "<p>A boutique family-owned hotel in Playa Santa Teresa, Costa Rica, steps away from the beach, Funky Monkey Lodge has been welcoming travelers since 2001.</p><p> We started as one of the very first surf lodges in the area, with a few simple bungalows for surfers and adventurous backpackers. As Santa Teresa and tourism evolved, so did we!</p><p><br></p><p>Today, our eco-friendly beach lodge offers a variety of accommodations, ideal for couples, families, digital nomads, and groups.</p><p><br></p><p>Located between the tropical rainforest and the unspoiled beaches of the Nicoya Peninsula, Funky Monkey Lodge blends nature, comfort and community.</p><p><br></p><p>Whether you come to surf, practice yoga, or simply relax, our friendly staff and personalized attention create the perfect setting for a memorable stay.</p><h2>Testing h2</h2><p>A boutique family-owned hotel in Playa Santa Teresa, Costa Rica, steps away from the beach, Funky Monkey Lodge has been welcoming travelers since 2001.</p><p> We started as one of the very first surf lodges in the area, with a few simple bungalows for surfers and adventurous backpackers. As Santa Teresa and tourism evolved, so did we!</p><p><br></p><p>Today, our eco-friendly beach lodge offers a variety of accommodations, ideal for couples, families, digital nomads, and groups.</p><p><br></p><p>Located between the tropical rainforest and the unspoiled beaches of the Nicoya Peninsula, Funky Monkey Lodge blends nature, comfort and community.</p><p><br></p><p><img src=\"https://res.cloudinary.com/dh1xrwguk/image/upload/v1759313170/vwhf2a48862ywxsrcgfs.jpg\"></p><p><br></p><p>Whether you come to surf, practice yoga, or simply relax, our friendly staff and personalized attention create the perfect setting for a memorable stay.</p><p>Santa Teresa is generally very safe. It's a small town where everyone knows everyone. Use common sense, don't flash expensive stuff, and you'll be fine. The biggest danger is probably falling off your surfboard.</p><p>Nope! English is widely spoken, especially in surf shops, restaurants, and hotels. That said, learning \"¡Pura vida!\" and \"¡Gracias!\" will earn you instant smiles and maybe a free beer.</p><h2>Para cerrar</h2><p>Everyone! Surfers, yogis, digital nomads, families, couples, solo adventurers, and people having quarter-life or mid-life revelations. The common thread? Everyone's here to unplug and reconnect with what matters.</p><p>Absolutely! Santa Teresa has this magical way of turning strangers into friends. Whether you're sharing waves, joining a beach yoga class, or just grabbing a beer at sunset, you'll find your tribe quickly.</p>",
+    "coverUrl": "https://res.cloudinary.com/dh1xrwguk/image/upload/v1759313123/t6ss9n7tbiuftffugq54.png",
+    "category": "Design",
+    "tags": [
+      "CR",
+      "AI"
+    ],
+    "readTime": 2,
+    "createdAt": "2025-10-01T00:00:00.000Z",
+    "updatedAt": "2025-10-01T10:07:27.499Z",
+    "published": true
+  },
+  {
     "id": "1757412001466",
     "slug": "from-mvp-to-scalable-platform-how-we-build-products-that-evolve",
     "title": "From MVP to scalable platform: How we build products that evolve",
